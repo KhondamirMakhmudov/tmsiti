@@ -19,18 +19,13 @@ const SHNQ = () => {
     const {data: subSystem, isLoading: isLoadingSystem} = useGetQuery({
         key: KEYS.subSystem,
         url: URLS.subSystem,
-        params: {
-            key: 'subSystem'
-        }
-
     })
 
     const {data: group, isLoading: isLoadingGroup,} = useGetQuery({
         key: [KEYS.group, systemId],
         url: URLS.group,
         params: {
-            key: 'group',
-            parent: systemId
+            group_system: systemId
         },
         enabled: !!(systemId)
     })
@@ -39,11 +34,9 @@ const SHNQ = () => {
         key: [KEYS.doc, systemId, groupId],
         url: URLS.doc,
         params: {
-            key: 'doc',
-            parent: groupId
+            shnk_group: groupId
         },
         enabled: !!(systemId && groupId)
-
     });
 
     const {} = useGetQuery({})
