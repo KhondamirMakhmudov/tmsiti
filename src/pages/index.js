@@ -25,7 +25,7 @@ export default function Home() {
                             Shnq
                         </Link>
 
-                        <Link href={'#'} className={'text-[#001A57] hover:text-[#2E6DFF] hover:underline text-2xl font-bold transition-all duration-400'}>
+                        <Link href={'/shnk'} className={'text-[#001A57] hover:text-[#2E6DFF] hover:underline text-2xl font-bold transition-all duration-400'}>
                             <p>Shaharsozlik normalari va qoidalari</p>
                         </Link>
                     </div>

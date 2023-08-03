@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 const Title = ({children,classNames=''}) => {
     return (
-        <h2 className={'text-3xl font-bold text-[#001A57] mb-[30px]'}>
+        <h2 className={'text-[32px] leading-normal font-bold text-[#001A57] mb-[30px] uppercase'}>
             {children}
         </h2>
     );

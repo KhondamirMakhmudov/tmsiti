@@ -9,6 +9,8 @@ import {get} from "lodash";
 import Image from "next/image";
 import {motion} from 'framer-motion';
 import clsx from "clsx";
+import Link from "next/link";
+import {config} from "@/config";
 
 const SHNQ = () => {
     const [systemId, setSystemId] = useState(null);
@@ -67,7 +69,7 @@ const SHNQ = () => {
                                     setGroupId(null);
                                     setDocId(null);
                                 }} key={get(item, 'id')}
-                                    className={clsx('p-1.5 mb- 3 transition cursor-pointer  hover:bg-[#C7E3FC]', {
+                                    className={clsx('mb-[20px] transition cursor-pointer text-2xl font-semibold ', {
                                         'text-[#1B41C6] font-medium hover:bg-transparent': get(item, 'id') == systemId,
                                         '!mb-0': get(subSystem, 'data', [])?.length == i + 1
                                     })}
@@ -77,7 +79,7 @@ const SHNQ = () => {
 
                                     </div>
                                     {get(item, 'id') === systemId && ((isLoadingGroup) ?
-                                            <h1>Loading...</h1> :
+                                            <h1>Yuklanmoqda...</h1> :
                                             <ul className={'py-3'}>
                                                 {get(group, 'data', []).map((groupItem, j) =>
                                                     <li
@@ -88,12 +90,12 @@ const SHNQ = () => {
                                                         }
                                                         }
                                                         key={get(groupItem, 'id')}
-                                                        className={clsx('  text-[#1A4DC2] text-lg border-b  border-b-black transition cursor-pointer mb-2  hover:text-[#1B41C6] text-sm text-[#28366D] font-normal', {
-                                                            '!text-[#017EFA] !font-medium': get(groupItem, 'id') == groupId,
-                                                            '!mb-0': get(group, 'data.results', [])?.length == j + 1
+                                                        className={clsx(' py-[10px] mb-[10px]  text-[#1A4DC2] border-b  text-lg border-b-black transition cursor-pointer  hover:text-[#1B41C6] font-medium', {
+                                                            '!text-[#017EFA]': get(groupItem, 'id') == groupId,
+                                                            '!mb-[10px]': get(group, 'data.results', [])?.length == j + 1
                                                         })}>
                                                       <div className={'flex justify-between items-center'}>
-                                                          <p>{get(groupItem, 'group_code')} {get(groupItem, 'group_title')} </p>
+                                                          <p><span className={'font-medium'}>{get(groupItem, 'group_code')}</span>. {get(groupItem, 'group_title')} </p>
                                                           <motion.div animate={{
                                                               rotate: get(item, 'id') === systemId ? 180 : 0,
                                                           }}>
@@ -102,7 +104,7 @@ const SHNQ = () => {
                                                           </motion.div>
                                                       </div>
 
-                                                        {get(groupItem, 'id') === groupId && (isLoadingDoc ?  <h1>Loading...</h1> : <ul>
+                                                        {get(groupItem, 'id') === groupId && (isLoadingDoc ?  <h1>Yuklanmoqda...</h1> : <ul className={'mt-[10px]'}>
                                                             {
                                                                 get(docs, 'data', []).map(docItem =>
                                                                     <li key={get(docItem, 'id')}
@@ -110,8 +112,23 @@ const SHNQ = () => {
                                                                             e.stopPropagation();
                                                                             setDocId(get(docItem, 'id'));
                                                                         }}
+                                                                        className={'text-lg text-black mb-[10px] grid grid-cols-12 gap-x-[30px]'}
                                                                     >
-                                                                        <p>{get(docItem, 'shnk_code')}{get(docItem, 'shnk_title')}</p>
+                                                                        <p className={'col-span-2'}>  {get(docItem, 'shnk_type')} {get(docItem, 'shnk_code')}</p>
+                                                                        <h4 className={'col-span-9'}>{get(docItem, 'shnk_title')}</h4>
+                                                                        <div className={'flex  gap-x-[5px] items-center col-span-1 justify-end'}>
+                                                                            <button className={'uppercase text-[#2E6DFF]'}>
+                                                                                <Link target={'_blank'} href={`${config.API_URL}/${get(docItem, 'shnk_pdf_link')}`}>
+                                                                                    <abbr title={'pdf file(uz)'} className={'no-underline'}>uzb</abbr>
+                                                                                </Link>
+                                                                            </button>
+                                                                            <p className={'text-[#2E6DFF]'}>/</p>
+                                                                            <button className={'uppercase text-[#2E6DFF]'}>
+                                                                                <Link target={'_blank'} href={`${config.API_URL}/${get(docItem, 'shnk_pdf_link')}`}>
+                                                                                    <abbr title={'pdf file(ru)'} className={'no-underline'}>rus</abbr>
+                                                                                </Link>
+                                                                            </button>
+                                                                        </div>
                                                                     </li>
                                                                 )
                                                             }
