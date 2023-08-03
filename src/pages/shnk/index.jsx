@@ -16,8 +16,7 @@ const SHNQ = () => {
     const [docId, setDocId] = useState(null);
 
 
-
-    const {data: subSystem, isLoading: isLoadingSystem, error} = useGetQuery({
+    const {data: subSystem, isLoading: isLoadingSystem} = useGetQuery({
         key: KEYS.subSystem,
         url: URLS.subSystem,
         params: {
@@ -26,8 +25,8 @@ const SHNQ = () => {
 
     })
 
-    const {data: group, isLoading: isLoadingGroup, } = useGetQuery({
-        key: KEYS.group,
+    const {data: group, isLoading: isLoadingGroup,} = useGetQuery({
+        key: [KEYS.group, systemId],
         url: URLS.group,
         params: {
             key: 'group',
@@ -36,21 +35,21 @@ const SHNQ = () => {
         enabled: !!(systemId)
     })
 
-    const {data: doc, isLoading: isLoadingDoc, } = useGetQuery({
-        key: KEYS.doc,
+    const {data: docs, isLoading: isLoadingDoc,} = useGetQuery({
+        key: [KEYS.doc, systemId, groupId],
         url: URLS.doc,
         params: {
             key: 'doc',
             parent: groupId
         },
-
+        enabled: !!(systemId && groupId)
 
     });
 
     const {} = useGetQuery({})
 
-    if(isLoadingSystem && isLoadingGroup) {
-        return <p>Loading</p>
+    if (isLoadingSystem) {
+        return <p>Loading...</p>
     }
 
 
@@ -65,7 +64,7 @@ const SHNQ = () => {
                     </Title>
                 </div>
 
-                <div className={'col-span-12'}>
+                <div className={'col-span-12 pb-10'}>
                     <ul>
                         {
                             get(subSystem, 'data', []).map((item, i) =>
@@ -75,54 +74,44 @@ const SHNQ = () => {
                                     setGroupId(null);
                                     setDocId(null);
                                 }} key={get(item, 'id')}
-                                    className={clsx('p-1.5 transition cursor-pointer mb-3 hover:bg-[#C7E3FC]', {'text-[#1B41C6] font-medium hover:bg-transparent': get(item, 'id') == systemId,'!mb-0':get(subSystem, 'data', [])?.length == i+1})}
-
+                                    className={clsx('p-1.5 mb- 3 transition cursor-pointer  hover:bg-[#C7E3FC]', {
+                                        'text-[#1B41C6] font-medium hover:bg-transparent': get(item, 'id') == systemId,
+                                        '!mb-0': get(subSystem, 'data', [])?.length == i + 1
+                                    })}
                                 >
                                     <div className={'flex justify-between items-center'}>
                                         <p>{get(item, 'system_code')} {get(item, 'system_title')}</p>
 
-                                        <motion.div animate={{
-                                            rotate: get(item, 'id') === systemId ? 180 : 0,
-                                        }}>
-                                            <Image src={'/icons/arrow-up.svg'} alt={'up-down'} width={24} height={24}/>
-                                        </motion.div>
-
                                     </div>
                                     {get(item, 'id') === systemId && ((isLoadingGroup) ?
-                                        <h1>Loading</h1> :
-                                            <ul>
+                                            <h1>Loading...</h1> :
+                                            <ul className={'py-3'}>
                                                 {get(group, 'data', []).map((groupItem, j) =>
-                                                    <li key={get(groupItem, 'id')}
-                                                        className={'text-[#1A4DC2] text-lg border  border-b-black'}                                                                                                  className={clsx(' transition cursor-pointer mb-2  hover:text-[#1B41C6] text-sm text-[#28366D] font-normal', {
-                                                        '!text-[#017EFA] !font-medium': get(groupItem, 'id') == groupId,
-                                                        '!mb-0': get(group, 'data.results', [])?.length == j + 1
-                                                    })}>
-                                                        <p>{get(groupItem, 'group_code')} {get(groupItem, 'group_title')}</p>
-                                                    </li>
-                                                )}
-                                            </ul>
+                                                    <li
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            setGroupId(get(groupItem, 'id'));
+                                                            setDocId(null)
+                                                        }
+                                                        }
+                                                        key={get(groupItem, 'id')}
+                                                        className={clsx('  text-[#1A4DC2] text-lg border-b  border-b-black transition cursor-pointer mb-2  hover:text-[#1B41C6] text-sm text-[#28366D] font-normal', {
+                                                            '!text-[#017EFA] !font-medium': get(groupItem, 'id') == groupId,
+                                                            '!mb-0': get(group, 'data.results', [])?.length == j + 1
+                                                        })}>
+                                                      <div className={'flex justify-between items-center'}>
+                                                          <p>{get(groupItem, 'group_code')} {get(groupItem, 'group_title')} </p>
+                                                          <motion.div animate={{
+                                                              rotate: get(item, 'id') === systemId ? 180 : 0,
+                                                          }}>
+                                                              <Image src={'/icons/arrow-up.svg'} alt={'up-down'}
+                                                                     width={24} height={24}/>
+                                                          </motion.div>
+                                                      </div>
 
-                                    )}
-                                    <ul>
-                                        {get(group, 'data', []).map(groupItem =>
-                                            <li onClick={(e) => {
-                                                e.stopPropagation();
-                                                setGroupId(get(groupItem, 'id'));
-                                                setDocId(null);
-                                            }} key={get(groupItem, 'id')} className={'text-[#1A4DC2] text-lg  border-b-black'}>
-                                                <div className={'flex justify-between items-center'}>
-                                                    <p>{get(groupItem, 'group_code')} {get(groupItem, 'group_title')}</p>
-
-                                                    <motion.div animate={{
-                                                        rotate: get(groupItem, 'id') === groupId ? 180 : 0,
-                                                    }}>
-                                                        <Image src={'/icons/arrow-up.svg'} alt={'up-down'} width={24} height={24}/>
-                                                    </motion.div>
-                                                </div>
-                                                {get(groupItem, 'id') && ( (isLoadingDoc) ? <h1>Loading</h1> :
-                                                    <ul>
+                                                        {get(groupItem, 'id') === groupId && (isLoadingDoc ?  <h1>Loading...</h1> : <ul>
                                                             {
-                                                                get(doc, 'data', []).map(docItem =>
+                                                                get(docs, 'data', []).map(docItem =>
                                                                     <li key={get(docItem, 'id')}
                                                                         onClick={(e) => {
                                                                             e.stopPropagation();
@@ -133,11 +122,12 @@ const SHNQ = () => {
                                                                     </li>
                                                                 )
                                                             }
-                                                    </ul>
+                                                        </ul>)}
+                                                    </li>
                                                 )}
-                                            </li>
-                                        )}
-                                    </ul>
+                                            </ul>
+                                    )}
+
                                 </li>
                             )
                         }
