@@ -33,7 +33,7 @@ export const menuData = [
             {
                 id: 4,
                 title: 'Biz haqimizda',
-                url: '/management',
+                url: '/about',
             },
 
             {
@@ -95,7 +95,7 @@ export const menuData = [
     {
         id: 5,
         title: 'Xabarlar',
-        url: '/news',
+        url: '/',
         filterUrl:'',
         subMenu: [
             {
@@ -113,7 +113,7 @@ export const menuData = [
             {
                 id: 3,
                 title: 'Yangiliklar',
-                url: '/management',
+                url: '/news',
             },
 
             {

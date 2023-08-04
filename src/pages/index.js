@@ -31,7 +31,7 @@ export default function Home() {
                     </div>
 
                     <div className={'p-[15px] border-t-[1px] border-[#14255B]'}>
-                        <Link href={'/shnk'} className={'uppercase text-[#2E6DFF] text-base'}>
+                        <Link href={'/standards'} className={'uppercase text-[#2E6DFF] text-base'}>
                             Standartlar
                         </Link>
 

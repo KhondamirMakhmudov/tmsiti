@@ -12,7 +12,7 @@ const Footer = () => {
         <footer>
             <div className={'bg-[#28366D] bg-no-repeat bg-cover  py-[50px]  '} style={{backgroundImage: "url(/images/footer-background.png)"}}>
                 <div className={'container mx-auto text-white'}>
-                    <div className="grid grid-cols-12 gap-x-[150px]">
+                    <div className="grid grid-cols-12 gap-x-[30px]">
                         <div className="col-span-3">
                             <Brand active={1}/>
                             <p className={'my-5'}>Qurilish sohasida texnik me’yorlar, shaharzoslik normalari va standartlar reglamentlar</p>
@@ -23,17 +23,17 @@ const Footer = () => {
                                 </li>
                                 <li className={'mr-3'}>
                                     <Link href={'#'}>
-                                        <Image width={24} height={24} src={'/icons/telegram.svg'}/>
+                                        <Image width={24} alt={'social-media'} height={24} src={'/icons/telegram.svg'}/>
                                     </Link>
                                 </li>
                                 <li className={'mr-3'}>
                                     <Link href={'#'}>
-                                        <Image width={24} height={24} src={'/icons/instagram.svg'}/>
+                                        <Image width={24} alt={'social-media'} height={24} src={'/icons/instagram.svg'}/>
                                     </Link>
                                 </li>
                                 <li className={'mr-3'}>
                                     <Link href={'#'}>
-                                        <Image width={24} height={24} src={'/icons/facebook.svg'}/>
+                                        <Image width={24} alt={'social-media'} height={24} src={'/icons/facebook.svg'}/>
                                     </Link>
                                 </li>
                             </ul>
