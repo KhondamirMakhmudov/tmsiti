@@ -45,7 +45,7 @@ const GridBody = ({
                                 key={get(tr, get(columns, '[0].key'))}
                             >
                                 {columns.map((th) =>
-                                    <td className={clsx('py-2.5 px-5 align-middle', get(th, "classnames", ""))}>
+                                    <td key={"id"} className={clsx('py-2.5 px-5 align-middle', get(th, "classnames", ""))}>
                                         {get(th, 'render')
                                             ?
                                             get(th, 'render')({
