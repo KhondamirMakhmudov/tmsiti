@@ -25,7 +25,7 @@ const customStyles = (sm = false) => ({
         width: '270px',
         maxWidth: '270px',
         height: '48px',
-        maxHeight: '48px',
+        maxHeight: '50px',
         fontSize: '14px',
     }),
     indicatorSeparator: (base, state) => ({
@@ -50,8 +50,8 @@ const Select = ({
 
 
     return (
-        <div className={clsx({'flex items-center': sm})}>
-            <label className={clsx('mb-2 inline-block ', {'text-sm !mb-0 mr-3': sm})} htmlFor={label}>{label}</label>
+        <div className={clsx({'flex items-center max-h-[48px] max-w-[330px] w-[330px] ': sm})}>
+            <label className={clsx('mb-2 inline-block ', {'text-sm': sm})} htmlFor={label}>{label}</label>
             <RSelect
                 isClearable={isClearable}
                 name={name}

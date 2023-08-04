@@ -87,7 +87,7 @@ export const menuData = [
             {
                 id: 3,
                 title: 'Lug‘at',
-                url: '/management',
+                url: '/dictionary',
             },
 
         ]
@@ -101,7 +101,7 @@ export const menuData = [
             {
                 id: 1,
                 title: 'E’lonlar',
-                url: '/management',
+                url: '/announcement',
             },
 
             {
@@ -147,7 +147,7 @@ const Menu = ({active = 0}) => {
                                 href={get(item, 'url')}>{t(get(item, 'title'))}
                             </Link>
 
-                            <ul className={'hidden left-[-50px]  bg-gray-50 dropdown-menu absolute w-[180px] text-center rounded-[5px]'}>
+                            <ul className={'hidden left-[-50px]  bg-gray-50 dropdown-menu absolute w-[180px] text-start p-[10px] rounded-[5px]'}>
                                 {
                                     get(item, 'subMenu', []).map(subItem =>
                                         <li key={get(subItem, 'id')} className={'py-[10px]'}>
