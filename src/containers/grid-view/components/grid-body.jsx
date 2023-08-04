@@ -59,7 +59,7 @@ const GridBody = ({
                                 )}
                                 {
                                     hasActionColumn &&
-                                    <td className={'align-middle py-2.5 px-5 text-center inline-flex'}>
+                                    <td key={"id"} className={'align-middle py-2.5 px-5 text-center inline-flex'}>
                                         <Link href={'#'} className={'mr-1.5 inline'}> <Image className={'inline'} width={20} height={20}
                                                                                              src={'/icons/eye-icon.svg'}
                                                                                              alt={'eye'}/></Link>
