@@ -47,7 +47,7 @@ const Footer = () => {
                                         <Link href={'/management'}>Rahbariyat</Link>
                                     </li>
                                     <li className={'mb-[10px]'}>
-                                        <Link href={'/organizitional-structure'}>Tuzilma</Link>
+                                        <Link href={'/structure'}>Tuzilma</Link>
                                     </li>
                                     <li className={'mb-[10px]'}>
                                         <Link href={'/'}>Me`yoriy hujjatlar</Link>

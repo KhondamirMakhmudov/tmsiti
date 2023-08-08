@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from "next/link";
-import {get, isEqual} from "lodash"
+import {get, isEmpty, isEqual, isNull} from "lodash"
 import clsx from "clsx";
 import {useTranslation} from "react-i18next";
 import Brand from "@/components/brand";
@@ -147,18 +147,25 @@ const Menu = ({active = 0}) => {
                                 href={get(item, 'url')}>{t(get(item, 'title'))}
                             </Link>
 
-                            <ul className={'hidden left-[-50px]  bg-gray-50 dropdown-menu absolute w-[180px] text-start p-[10px] rounded-[5px]'}>
-                                {
-                                    get(item, 'subMenu', []).map(subItem =>
-                                        <li key={get(subItem, 'id')} className={'py-[10px]'}>
+                            {isEmpty(get(item, 'subMenu')) ? '' :
+                                <ul className={'hidden left-[-80px]  bg-gray-50 dropdown-menu absolute w-[180px] text-start  rounded-[5px]'}>
+                                    {
+                                        get(item, 'subMenu', []).map(subItem =>
+
                                             <Link
-                                                className={clsx('hover:text-[#2E6DFF] font-semibold transition-all border-b border-b-transparent font-medium uppercase', {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
-                                                href={get(subItem, 'url')}>{t(get(subItem, 'title'))}
+                                                key={get(subItem, 'id')}
+                                                className={clsx('hover:text-[#2E6DFF] font-semibold  transition-all text-sm border-b-transparent font-medium uppercase', {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
+                                                href={get(subItem, 'url')}>
+
+                                                        <li className={'p-[10px] border-b-[1px] border-b-[#D6E0F5]'}>{t(get(subItem, 'title'))}</li>
+
                                             </Link>
-                                        </li>
-                                    )
-                                }
-                            </ul>
+
+                                        )
+                                    }
+                                </ul>
+                            }
+
                         </li>)
                     }
                 </ul>
