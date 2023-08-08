@@ -42,14 +42,14 @@ export default function Home() {
                 </div>
             </div>
             <div className={'col-span-7'}>
-                <img src={'/images/img.png'} alt={'img'} className={'w-[945px] h-[734px]'} width={945} height={734}/>
+                <img src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
             </div>
         </section>
 
         <div className={'h-[130px] w-full bg-[#001A57]  text-[#fff] grid grid-cols-12 items-center'}>
                 <div className={'col-span-12 container mx-auto flex gap-x-[76px] justify-between items-center'}>
-                    <button className={''}>
-                        <Image src={'/icons/arrow-left.svg'} width={44} height={44}/>
+                    <button>
+                        <Image src={'/icons/arrow-left.svg'} alt={'left'} width={44} height={44}/>
                     </button>
 
                     <div className={'flex items-center gap-x-[30px]'}>
@@ -67,7 +67,7 @@ export default function Home() {
                     </div>
 
                     <button className={''}>
-                        <Image src={'/icons/arrow-right.svg'} width={44} height={44}/>
+                        <Image src={'/icons/arrow-right.svg'} alt={'right'} width={44} height={44}/>
                     </button>
                 </div>
         </div>

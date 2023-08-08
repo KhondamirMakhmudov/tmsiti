@@ -16,6 +16,8 @@ const SHNQ = () => {
     const [systemId, setSystemId] = useState(null);
     const [groupId, setGroupId] = useState(null);
     const [docId, setDocId] = useState(null);
+    const [toggleSubSystem, setToggleSubSystem] = useState(true)
+    const [toggleGroup, setToggleGroup] = useState(true)
 
 
     const {data: subSystem, isLoading: isLoadingSystem} = useGetQuery({
@@ -64,6 +66,8 @@ const SHNQ = () => {
                         {
                             get(subSystem, 'data', []).map((item, i) =>
                                 <li onClick={(e) => {
+
+
                                     e.stopPropagation();
                                     setSystemId(get(item, 'id'));
                                     setGroupId(null);
@@ -74,12 +78,14 @@ const SHNQ = () => {
                                         '!mb-0': get(subSystem, 'data', [])?.length == i + 1
                                     })}
                                 >
-                                    <div className={'flex justify-between items-center'}>
-                                        <p>{get(item, 'system_code')} {get(item, 'system_title')}</p>
+                                    <div className={'flex justify-between items-center'} >
+                                        <p onClick={ (e) => {
+                                            setToggleSubSystem(!toggleSubSystem)
+                                        }}>{get(item, 'system_code')} {get(item, 'system_title')}</p>
 
                                     </div>
                                     {get(item, 'id') === systemId && ((isLoadingGroup) ?
-                                            <h1>Yuklanmoqda...</h1> :
+                                            <h1>Yuklanmoqda...</h1> : (toggleSubSystem &&
                                             <ul className={'py-3'}>
                                                 {get(group, 'data', []).map((groupItem, j) =>
                                                     <li
@@ -95,7 +101,7 @@ const SHNQ = () => {
                                                             '!mb-[10px]': get(group, 'data.results', [])?.length == j + 1
                                                         })}>
                                                       <div className={'flex justify-between items-center'}>
-                                                          <p><span className={'font-medium'}>{get(groupItem, 'group_code')}</span>. {get(groupItem, 'group_title')} </p>
+                                                          <p onClick={(e) => {setToggleGroup(!toggleGroup)}}><span className={'font-medium'}>{get(groupItem, 'group_code')}</span>. {get(groupItem, 'group_title')} </p>
                                                           <motion.div animate={{
                                                               rotate: get(item, 'id') === systemId ? 180 : 0,
                                                           }}>
@@ -104,7 +110,8 @@ const SHNQ = () => {
                                                           </motion.div>
                                                       </div>
 
-                                                        {get(groupItem, 'id') === groupId && (isLoadingDoc ?  <h1>Yuklanmoqda...</h1> : <ul className={'mt-[10px]'}>
+                                                        {get(groupItem, 'id') === groupId && (isLoadingDoc ?  <h1>Yuklanmoqda...</h1> : (toggleGroup &&
+                                                            <ul className={'mt-[10px]'}>
                                                             {
                                                                 get(docs, 'data', []).map(docItem =>
                                                                     <li key={get(docItem, 'id')}
@@ -132,10 +139,10 @@ const SHNQ = () => {
                                                                     </li>
                                                                 )
                                                             }
-                                                        </ul>)}
+                                                        </ul>))}
                                                     </li>
                                                 )}
-                                            </ul>
+                                            </ul> )
                                     )}
 
                                 </li>
