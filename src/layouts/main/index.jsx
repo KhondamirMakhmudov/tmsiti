@@ -9,7 +9,7 @@ const Main = ({children}) => {
     return (
         <Wrapper>
             <Header/>
-            <main>
+            <main className={'content__min_h'}>
                 {children}
             </main>
             <Footer/>

@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Main from "@/layouts/main";
 import Menu from "@/components/menu";
 import Title from "@/components/title";
 import useGetQuery from "@/hooks/api/useGetQuery";
 import {KEYS} from "@/constants/key";
 import {URLS} from "@/constants/url";
-import {get} from "lodash";
+import {get, head, isEmpty} from "lodash";
 import Image from "next/image";
 import {motion} from 'framer-motion';
 import clsx from "clsx";
@@ -43,7 +43,11 @@ const SHNQ = () => {
         enabled: !!(systemId && groupId)
     });
 
-    const {} = useGetQuery({})
+    useEffect(() => {
+        if (!isEmpty(get(subSystem, 'data', []))) {
+            setSystemId(get(head(get(subSystem, 'data', [])), 'id'))
+        }
+    }, [get(subSystem, 'data', [])])
 
     if (isLoadingSystem) {
         return <p>Loading...</p>
@@ -78,71 +82,85 @@ const SHNQ = () => {
                                         '!mb-0': get(subSystem, 'data', [])?.length == i + 1
                                     })}
                                 >
-                                    <div className={'flex justify-between items-center'} >
-                                        <p onClick={ (e) => {
+                                    <div className={'flex justify-between items-center'}>
+                                        <p onClick={(e) => {
                                             setToggleSubSystem(!toggleSubSystem)
                                         }}>{get(item, 'system_code')} {get(item, 'system_title')}</p>
 
                                     </div>
                                     {get(item, 'id') === systemId && ((isLoadingGroup) ?
                                             <h1>Yuklanmoqda...</h1> : (toggleSubSystem &&
-                                            <ul className={'py-3'}>
-                                                {get(group, 'data', []).map((groupItem, j) =>
-                                                    <li
-                                                        onClick={(e) => {
-                                                            e.stopPropagation();
-                                                            setGroupId(get(groupItem, 'id'));
-                                                            setDocId(null)
-                                                        }
-                                                        }
-                                                        key={get(groupItem, 'id')}
-                                                        className={clsx(' py-[10px] mb-[10px]  text-[#1A4DC2] border-b  text-lg border-b-black transition cursor-pointer  hover:text-[#1B41C6] font-medium', {
-                                                            '!text-[#017EFA]': get(groupItem, 'id') == groupId,
-                                                            '!mb-[10px]': get(group, 'data.results', [])?.length == j + 1
-                                                        })}>
-                                                      <div className={'flex justify-between items-center'}>
-                                                          <p onClick={(e) => {setToggleGroup(!toggleGroup)}}><span className={'font-medium'}>{get(groupItem, 'group_code')}</span>. {get(groupItem, 'group_title')} </p>
-                                                          <motion.div animate={{
-                                                              rotate: get(item, 'id') === systemId ? 180 : 0,
-                                                          }}>
-                                                              <Image src={'/icons/arrow-up.svg'} alt={'up-down'}
-                                                                     width={24} height={24}/>
-                                                          </motion.div>
-                                                      </div>
-
-                                                        {get(groupItem, 'id') === groupId && (isLoadingDoc ?  <h1>Yuklanmoqda...</h1> : (toggleGroup &&
-                                                            <ul className={'mt-[10px]'}>
-                                                            {
-                                                                get(docs, 'data', []).map(docItem =>
-                                                                    <li key={get(docItem, 'id')}
-                                                                        onClick={(e) => {
-                                                                            e.stopPropagation();
-                                                                            setDocId(get(docItem, 'id'));
-                                                                        }}
-                                                                        className={'text-lg text-black mb-[10px] grid grid-cols-12 gap-x-[30px]'}
-                                                                    >
-                                                                        <p className={'col-span-2'}>  {get(docItem, 'shnk_type')} {get(docItem, 'shnk_code')}</p>
-                                                                        <h4 className={'col-span-9'}>{get(docItem, 'shnk_title')}</h4>
-                                                                        <div className={'flex  gap-x-[5px] items-center col-span-1 justify-end'}>
-                                                                            <button className={'uppercase text-[#2E6DFF]'}>
-                                                                                <Link target={'_blank'} href={`${config.API_URL}/${get(docItem, 'shnk_pdf_link')}`}>
-                                                                                    <abbr title={'pdf file(uz)'} className={'no-underline'}>uzb</abbr>
-                                                                                </Link>
-                                                                            </button>
-                                                                            <p className={'text-[#2E6DFF]'}>/</p>
-                                                                            <button className={'uppercase text-[#2E6DFF]'}>
-                                                                                <Link target={'_blank'} href={`${config.API_URL}/${get(docItem, 'shnk_pdf_link')}`}>
-                                                                                    <abbr title={'pdf file(ru)'} className={'no-underline'}>rus</abbr>
-                                                                                </Link>
-                                                                            </button>
-                                                                        </div>
-                                                                    </li>
-                                                                )
+                                                <ul className={'py-3'}>
+                                                    {get(group, 'data', []).map((groupItem, j) =>
+                                                        <li
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                setGroupId(get(groupItem, 'id'));
+                                                                setDocId(null)
                                                             }
-                                                        </ul>))}
-                                                    </li>
-                                                )}
-                                            </ul> )
+                                                            }
+                                                            key={get(groupItem, 'id')}
+                                                            className={clsx(' py-[10px] mb-[10px]  text-[#1A4DC2] border-b  text-lg border-b-black transition cursor-pointer  hover:text-[#1B41C6] font-medium', {
+                                                                '!text-[#017EFA]': get(groupItem, 'id') == groupId,
+                                                                '!mb-[10px]': get(group, 'data.results', [])?.length == j + 1
+                                                            })}>
+                                                            <div className={'flex justify-between items-center'}>
+                                                                <p onClick={(e) => {
+                                                                    setToggleGroup(!toggleGroup)
+                                                                }}><span
+                                                                    className={'font-medium'}>{get(groupItem, 'group_code')}</span>. {get(groupItem, 'group_title')}
+                                                                </p>
+                                                                <motion.div animate={{
+                                                                    rotate: get(item, 'id') === systemId ? 180 : 0,
+                                                                }}>
+                                                                    <Image src={'/icons/arrow-up.svg'} alt={'up-down'}
+                                                                           width={24} height={24}/>
+                                                                </motion.div>
+                                                            </div>
+
+                                                            {get(groupItem, 'id') === groupId && (isLoadingDoc ?
+                                                                <h1>Yuklanmoqda...</h1> : (toggleGroup &&
+                                                                    <ul className={'mt-[10px]'}>
+                                                                        {
+                                                                            get(docs, 'data', []).map(docItem =>
+                                                                                <li key={get(docItem, 'id')}
+                                                                                    onClick={(e) => {
+                                                                                        e.stopPropagation();
+                                                                                        setDocId(get(docItem, 'id'));
+                                                                                    }}
+                                                                                    className={'text-lg text-black mb-[10px] grid grid-cols-12 gap-x-[30px]'}
+                                                                                >
+                                                                                    <p className={'col-span-2'}>  {get(docItem, 'shnk_type')} {get(docItem, 'shnk_code')}</p>
+                                                                                    <h4 className={'col-span-9'}>{get(docItem, 'shnk_title')}</h4>
+                                                                                    <div
+                                                                                        className={'flex  gap-x-[5px] items-center col-span-1 justify-end'}>
+                                                                                        <button
+                                                                                            className={'uppercase text-[#2E6DFF]'}>
+                                                                                            <Link target={'_blank'}
+                                                                                                  href={`${config.API_URL}/${get(docItem, 'shnk_pdf_link')}`}>
+                                                                                                <abbr
+                                                                                                    title={'pdf file(uz)'}
+                                                                                                    className={'no-underline'}>uzb</abbr>
+                                                                                            </Link>
+                                                                                        </button>
+                                                                                        <p className={'text-[#2E6DFF]'}>/</p>
+                                                                                        <button
+                                                                                            className={'uppercase text-[#2E6DFF]'}>
+                                                                                            <Link target={'_blank'}
+                                                                                                  href={`${config.API_URL}/${get(docItem, 'shnk_pdf_link')}`}>
+                                                                                                <abbr
+                                                                                                    title={'pdf file(ru)'}
+                                                                                                    className={'no-underline'}>rus</abbr>
+                                                                                            </Link>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </li>
+                                                                            )
+                                                                        }
+                                                                    </ul>))}
+                                                        </li>
+                                                    )}
+                                                </ul>)
                                     )}
 
                                 </li>
