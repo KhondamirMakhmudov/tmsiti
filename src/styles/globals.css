@@ -21,7 +21,9 @@ body {
   background:#28366D;
 }
 
-
+.content__min_h{
+  min-height: calc(100vh - 425px);
+}
 .dropdown:hover .dropdown-menu {
   display: block;
 }

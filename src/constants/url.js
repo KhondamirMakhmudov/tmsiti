@@ -1,5 +1,5 @@
 export const URLS = {
-    subSystem: 'subsystem',
-    group: 'group',
-    doc: 'doc'
+    subSystem: 'shnk/subsystem',
+    group: 'shnk/group',
+    doc: 'shnk/doc',
 }
