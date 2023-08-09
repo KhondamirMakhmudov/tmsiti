@@ -65,9 +65,7 @@ const SHNQ = () => {
                     <ul>
                         {
                             get(subSystem, 'data', []).map((item, i) =>
-                                <li onClick={(e) => {
-
-
+                                <li  onClick={(e) => {
                                     e.stopPropagation();
                                     setSystemId(get(item, 'id'));
                                     setGroupId(null);

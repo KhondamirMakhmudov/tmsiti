@@ -3,12 +3,37 @@ import Menu from "@/components/menu";
 import Image from "next/image";
 import Link from "next/link";
 import Title from "@/components/title";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from "swiper/modules"
+
+// Import Swiper styles
+import 'swiper/scss';
+
 import {motion, useScroll} from "framer-motion";
+import ImageGallery from "react-image-gallery";
+import { useSwiper } from 'swiper/react';
+import {SwiperButtonPrev} from "@/components/buttons/swiperButtonPrev";
+import {SwiperButtonNext} from "@/components/buttons/swiperButtonNext";
+
+//  Image slider
+// export const images = [
+//     {
+//         original: '/images/img.png',
+//
+//     },
+//     {
+//         original: '/images/img1.png',
+//     },
+//     {
+//         original: '/images/img.png'
+//     },
+// ];
 
 export default function Home() {
+    const swiper = useSwiper();
   return (
     <Main>
-        <Menu active={0}/>
+        <Menu active={0} className={'relative z-30'} />
 
         <section className={'container mx-auto grid grid-cols-12 gap-x-[30px] items-center'}>
             <div
@@ -42,34 +67,90 @@ export default function Home() {
                 </div>
             </div>
             <div className={'col-span-7'}>
-                <img src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
+                {/*<ImageGallery items={images} infinite showPlayButton />*/}
+                <Swiper loop={true} centeredSlides={true} autoplay={{delay: 3000, disableOnInteraction: false}} className={'absolute z-10'} modules={[Autoplay, Pagination, Navigation]}>
+                    <SwiperSlide>
+                        <Image src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
+                    </SwiperSlide>
+
+                    <SwiperSlide>
+                        <Image src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
+                    </SwiperSlide>
+
+                    <SwiperSlide>
+                        <Image src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
+                    </SwiperSlide>
+
+                    <SwiperSlide>
+                        <Image src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
+                    </SwiperSlide>
+
+                    <SwiperSlide>
+                        <Image src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
+                    </SwiperSlide>
+                </Swiper>
             </div>
         </section>
 
-        <div className={'h-[130px] w-full bg-[#001A57]  text-[#fff] grid grid-cols-12 items-center'}>
-                <div className={'col-span-12 container mx-auto flex gap-x-[76px] justify-between items-center'}>
-                    <button>
-                        <Image src={'/icons/arrow-left.svg'} alt={'left'} width={44} height={44}/>
-                    </button>
+        <div className={'h-[130px] w-full bg-[#001A57]  text-[#fff] grid grid-cols-12  gap-x-[30px] items-center'}>
 
-                    <div className={'flex items-center gap-x-[30px]'}>
-                        <div>
-                            <p className={'text-base'}>Muhokamalar</p>
-                            <span className={'text-sm text-[#BCBCBC]'}>Iyul 15-25, 2023</span>
-                        </div>
+                    <Swiper loop={true} centeredSlides={true} navigation={true} slidesPerView={1}  className={'col-span-12 container mx-auto  flex  '}>
+                        {/*<SwiperButtonPrev>*/}
+                        {/*    <Image src={'/icons/arrow-left.svg'} alt={'right'} width={44} height={44}/>*/}
+                        {/*</SwiperButtonPrev>*/}
 
-                        <div className={'w-[1px] h-[80px] bg-[#fff]'}></div>
 
-                        <div>
-                            <p className={'text-2xl font-medium'}>ShNK 1.02.07-19 - Qurilish uchun muhandislik-texnik izlanishlar. Asosiy qoidalar</p>
-                            <span className={'text-sm text-[#BCBCBC]'}>Shaharsozlik normalari va qoidalariga kiritilayotga o‘zgartirishlarga o‘z fikringizni bildiring, muhokalarda ishtirok eting!</span>
-                        </div>
-                    </div>
+                            <SwiperSlide>
+                                <div className={'flex items-center gap-x-[30px]'}>
+                                    <div>
+                                        <p className={'text-base'}>Muhokamalar</p>
+                                        <span className={'text-sm text-[#BCBCBC]'}>Iyul 15-25, 2023</span>
+                                    </div>
 
-                    <button className={''}>
-                        <Image src={'/icons/arrow-right.svg'} alt={'right'} width={44} height={44}/>
-                    </button>
-                </div>
+                                    <div className={'w-[1px] h-[80px] bg-[#fff]'}></div>
+
+                                    <div>
+                                        <p className={'text-2xl font-medium'}>ShNK 1.02.07-19 - Qurilish uchun muhandislik-texnik izlanishlar. Asosiy qoidalar</p>
+                                        <span className={'text-sm text-[#BCBCBC]'}>Shaharsozlik normalari va qoidalariga kiritilayotga o‘zgartirishlarga o‘z fikringizni bildiring, muhokalarda ishtirok eting!</span>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <div className={'flex items-center gap-x-[30px]'}>
+                                    <div>
+                                        <p className={'text-base'}>Muhokamalar</p>
+                                        <span className={'text-sm text-[#BCBCBC]'}>Iyul 15-25, 2023</span>
+                                    </div>
+
+                                    <div className={'w-[1px] h-[80px] bg-[#fff]'}></div>
+
+                                    <div>
+                                        <p className={'text-2xl font-medium'}>ShNK 1.02.07-19 - Qurilish uchun muhandislik-texnik izlanishlar. Asosiy qoidalar</p>
+                                        <span className={'text-sm text-[#BCBCBC]'}>Shaharsozlik normalari va qoidalariga kiritilayotga o‘zgartirishlarga o‘z fikringizni bildiring, muhokalarda ishtirok eting!</span>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <div className={'flex items-center gap-x-[30px]'}>
+                                    <div>
+                                        <p className={'text-base'}>Muhokamalar</p>
+                                        <span className={'text-sm text-[#BCBCBC]'}>Iyul 15-25, 2023</span>
+                                    </div>
+
+                                    <div className={'w-[1px] h-[80px] bg-[#fff]'}></div>
+
+                                    <div>
+                                        <p className={'text-2xl font-medium'}>ShNK 1.02.07-19 - Qurilish uchun muhandislik-texnik izlanishlar. Asosiy qoidalar</p>
+                                        <span className={'text-sm text-[#BCBCBC]'}>Shaharsozlik normalari va qoidalariga kiritilayotga o‘zgartirishlarga o‘z fikringizni bildiring, muhokalarda ishtirok eting!</span>
+                                    </div>
+                                </div>
+                             </SwiperSlide>
+
+
+                            {/*<SwiperButtonNext>*/}
+                            {/*    <Image src={'/icons/arrow-right.svg'} alt={'left'} width={44} height={44}/>*/}
+                            {/*</SwiperButtonNext>*/}
+                    </Swiper>
         </div>
 
         <section>

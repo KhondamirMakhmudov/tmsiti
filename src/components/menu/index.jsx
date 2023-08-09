@@ -36,17 +36,17 @@ export const menuData = [
                 url: '/about',
             },
 
-            {
-                id: 5,
-                title: 'Laboratoriya',
-                url: '/management',
-            },
-
-            {
-                id: 6,
-                title: 'O‘quv markazi',
-                url: '/management',
-            },
+            // {
+            //     id: 5,
+            //     title: 'Laboratoriya',
+            //     url: '/management',
+            // },
+            //
+            // {
+            //     id: 6,
+            //     title: 'O‘quv markazi',
+            //     url: '/management',
+            // },
 
         ]
 
@@ -77,12 +77,12 @@ export const menuData = [
                 title: 'Klassifikator',
                 url: 'https://catalog-tmsiti.vercel.app/classifier',
             },
-
-            {
-                id: 2,
-                title: 'Kalkulyator',
-                url: '/structure',
-            },
+            //
+            // {
+            //     id: 2,
+            //     title: 'Kalkulyator',
+            //     url: '/structure',
+            // },
 
             {
                 id: 3,
@@ -132,10 +132,10 @@ export const menuData = [
     },
 
 ]
-const Menu = ({active = 0}) => {
+const Menu = ({active = 0, className}) => {
     const {t} = useTranslation()
     return (
-        <div className={' bg-[#fff]  py-5  mb-[50px]'}>
+        <div className={` bg-[#fff]  py-5  mb-[50px] ${className}`}>
             <div className={'container mx-auto flex justify-between items-center'}>
                 <Brand/>
 
@@ -148,7 +148,7 @@ const Menu = ({active = 0}) => {
                             </Link>
 
                             {isEmpty(get(item, 'subMenu')) ? '' :
-                                <ul className={'hidden left-[-80px]  bg-gray-50 dropdown-menu absolute w-[180px] text-start  rounded-[5px]'}>
+                                <ul className={'hidden left-[-10px]  bg-gray-50 dropdown-menu absolute w-[180px] text-start  rounded-[5px]'}>
                                     {
                                         get(item, 'subMenu', []).map(subItem =>
 

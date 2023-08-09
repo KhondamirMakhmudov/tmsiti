@@ -2,7 +2,7 @@ import React from 'react';
 
 const Index = ({children}) => {
     return (
-        <div className={'relative'}>
+        <div className={'relative h-screen'}>
             {children}
         </div>
     );

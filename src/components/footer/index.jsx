@@ -55,12 +55,12 @@ const Footer = () => {
                                     <li className={'mb-[10px]'}>
                                         <Link href={'/about'}>Biz haqimizda</Link>
                                     </li>
-                                    <li className={'mb-[10px]'}>
-                                        <Link href={'/classifier'}>Laboratoriya</Link>
-                                    </li>
-                                    <li className={'mb-[10px]'}>
-                                        <Link href={'#'}>O‘quv markazi</Link>
-                                    </li>
+                                    {/*<li className={'mb-[10px]'}>*/}
+                                    {/*    <Link href={'/classifier'}>Laboratoriya</Link>*/}
+                                    {/*</li>*/}
+                                    {/*<li className={'mb-[10px]'}>*/}
+                                    {/*    <Link href={'#'}>O‘quv markazi</Link>*/}
+                                    {/*</li>*/}
                                 </ul>
                             </div>
 
@@ -87,9 +87,9 @@ const Footer = () => {
                                     <li className={'mb-[10px]'}>
                                         <Link href={'/'}>Klassifikator</Link>
                                     </li>
-                                    <li className={'mb-[10px]'}>
-                                        <Link href={'/machine-mechano'}>Kalkulyator</Link>
-                                    </li>
+                                    {/*<li className={'mb-[10px]'}>*/}
+                                    {/*    <Link href={'/machine-mechano'}>Kalkulyator</Link>*/}
+                                    {/*</li>*/}
                                     <li className={'mb-[10px]'}>
                                         <Link href={'/works'}>Lug‘at</Link>
                                     </li>
