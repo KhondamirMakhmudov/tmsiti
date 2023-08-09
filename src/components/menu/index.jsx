@@ -107,7 +107,7 @@ export const menuData = [
             {
                 id: 2,
                 title: 'Muhokamalar',
-                url: '/structure',
+                url: '/discussion',
             },
 
             {
