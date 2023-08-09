@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from "swiper/modules"
 
 // Import Swiper styles
-import 'swiper/scss';
+import 'swiper/css';
 
 import {motion, useScroll} from "framer-motion";
 import ImageGallery from "react-image-gallery";
