@@ -15,13 +15,16 @@ const ListView = ({
                       columns = [],
                       url,
                       key,
+                      date,
+                      title,
+                      description,
                       params = {},
                       enabled = true,
                       getCount = () => {
                       },
                       hasActionColumn = false,
                       viewUrl = '#',
-                      defaultPageSize = 48
+                      defaultPageSize = 3
                   }) => {
 
     const [page, setPage] = useState(1)
@@ -32,7 +35,6 @@ const ListView = ({
         params: {
             page,
             ...params,
-
             page_size: pageSize
         },
         enabled
@@ -47,12 +49,31 @@ const ListView = ({
         <>
             {isFetching}
             <ListHeader>{HeaderBody}</ListHeader>
-            {get(data, 'data.results', [])?.length > 0 ? <>
-                    <ListBody  columns={columns}
-                              rows={get(data, 'data.results', [])} pageSize={pageSize} page={page} setPage={setPage}/>
-                    <Pagination page={page} setPage={setPage} pageCount={get(data, 'data.total_pages', 0)}/></> :
-                <p className={'py-5'}>{hasActionColumn ?
-                    <EmptyData viewUrl={viewUrl}/> : <span> Ushbu sahifada malumotlar hali mavjud emas...</span> }</p>}
+            <ul>
+                {get(data, 'data', []).map(item =>
+                    <li key={get(item, 'id')}>
+                        {get(data, 'data', [])?.length > 0 ? <>
+
+                                <ListBody
+                                    date={get(item, `${date}`)}
+                                    title={get(item, `${title}`)}
+                                    description={description}
+                                    columns={columns}
+                                    pageSize={pageSize}
+                                    page={page}
+                                    setPage={setPage}
+
+
+                                /></> :
+                            <p className={'py-5'}><span> Ushbu sahifada malumotlar hali mavjud emas...</span></p>}
+                    </li>
+                )}
+            </ul>
+            <Pagination
+                page={page}
+                setPage={setPage}
+                pageCount={get(data, 'data.total_pages', 0)}
+            />
         </>
     );
 };
