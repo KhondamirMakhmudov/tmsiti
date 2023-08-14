@@ -68,43 +68,43 @@ const Standards = () => {
             </div>
 
             <div className={'grid grid-cols-12 container mx-auto'}>
-                <Template className={'p-[10px] col-span-12 shadow-lg mb-[20px] flex items-start gap-x-[10px]'}
+                <Template
                     code={'O‘zDSt 652:2011'}
                     content={'Комбикорма, сырье. Методь определения металломагнитной примеси'}
                 />
 
-                <Template className={'p-[10px] col-span-12 shadow-md mb-[20px] flex items-start gap-x-[10px]'}
+                <Template
                           code={'O‘zDSt EN 13850:2021 (EN 13850:2020, IDT)'}
                           content={'Сосудм под давлением без огня - Часть 6: Требования к проектированию и изготовлению сосудов под давлением и деталей под давлением, изготовленных из чугуна с шаровиднмм графитом. Unfired pressure vessels - Part 6: Requirements for the design and fabrication of pressure vessels and pressure parts constructed from spheroidal graphite...'}
                 />
 
-                <Template className={'p-[10px] col-span-12 shadow-md mb-[20px] flex items-start gap-x-[10px]'}
+                <Template
                           code={'O‘zDSt 653:2011'}
                           content={'Сосуды под давлением без огня - Часть 6: Требования к проектированию и изготовлению сосудов под давлением и деталей под давлением, изготовленных из чугуна с шаровиднмм графитом. '}
                 />
 
-                <Template className={'p-[10px] col-span-12 shadow-md mb-[20px] flex items-start gap-x-[10px]'}
+                <Template
                           code={'O‘zDSt 652:2011'}
                           content={'Комбикорма, сырье. Методь определения металломагнитной примеси'}
                 />
 
 
-                <Template className={'p-[10px] col-span-12 shadow-lg mb-[20px] flex items-start gap-x-[10px]'}
+                <Template
                           code={'O‘zDSt 652:2011'}
                           content={'Комбикорма, сырье. Методь определения металломагнитной примеси'}
                 />
 
-                <Template className={'p-[10px] col-span-12 shadow-md mb-[20px] flex items-start gap-x-[10px]'}
+                <Template
                           code={'O‘zDSt EN 13850:2021 (EN 13850:2020, IDT)'}
                           content={'Сосудм под давлением без огня - Часть 6: Требования к проектированию и изготовлению сосудов под давлением и деталей под давлением, изготовленных из чугуна с шаровиднмм графитом. Unfired pressure vessels - Part 6: Requirements for the design and fabrication of pressure vessels and pressure parts constructed from spheroidal graphite...'}
                 />
 
-                <Template className={'p-[10px] col-span-12 shadow-md mb-[20px] flex items-start gap-x-[10px]'}
+                <Template
                           code={'O‘zDSt 653:2011'}
                           content={'Сосуды под давлением без огня - Часть 6: Требования к проектированию и изготовлению сосудов под давлением и деталей под давлением, изготовленных из чугуна с шаровиднмм графитом. '}
                 />
 
-                <Template className={'p-[10px] col-span-12 shadow-md mb-[20px] flex items-start gap-x-[10px]'}
+                <Template
                           code={'O‘zDSt 652:2011'}
                           content={'Комбикорма, сырье. Методь определения металломагнитной примеси'}
                 />

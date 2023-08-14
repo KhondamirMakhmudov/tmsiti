@@ -8,6 +8,7 @@ import useGetQuery from "@/hooks/api/useGetQuery";
 import {KEYS} from "@/constants/key";
 import {URLS} from "@/constants/url";
 import {get} from "lodash";
+import GridView from "src/containers/list-view";
 
 const Discussion = () => {
     const { data: doc, isLoading } = useGetQuery({
@@ -36,6 +37,7 @@ const Discussion = () => {
                             get(doc, 'data', []).map(item =>
                                 <li key={get(item, 'id')}>
                                     <AnnounceTemplate
+                                        url={'#'}
                                         date={get(item, 'shnk_started_date')}
                                         title={get(item, 'shnk_title')}
                                         description={'Lorem ipsum dolor sit amet consectetur. Fringilla massa pellentesque nec sit tincidunt donec natoque. Neque scelerisque integer euismod condimentum a sed faucibus magna consequat. Elementum at velit viverra nec et. Eu id eu dolor posuere.'}
@@ -45,39 +47,7 @@ const Discussion = () => {
                         }
                 </ul>
 
-                {/*<div className={'col-span-12'}>*/}
-                {/*    <AnnounceTemplate*/}
-                {/*        date={'19.07.2023'}*/}
-                {/*        title={'Lorem ipsum dolor sit amet consectetur. Sed sem odio morbi lacus eu. Leo interdum egestas et maecenas ac neque a duis quis.'}*/}
-                {/*        description={'Lorem ipsum dolor sit amet consectetur. Fringilla massa pellentesque nec sit tincidunt donec natoque. Neque scelerisque integer euismod condimentum a sed faucibus magna consequat. Elementum at velit viverra nec et. Eu id eu dolor posuere.'}*/}
-                {/*    />*/}
 
-                {/*    <AnnounceTemplate*/}
-                {/*        date={'19.07.2023'}*/}
-                {/*        title={'Lorem ipsum dolor sit amet consectetur. Sed sem odio morbi lacus eu. Leo interdum egestas et maecenas ac neque a duis quis.'}*/}
-                {/*        description={'Lorem ipsum dolor sit amet consectetur. Fringilla massa pellentesque nec sit tincidunt donec natoque. Neque scelerisque integer euismod condimentum a sed faucibus magna consequat. Elementum at velit viverra nec et. Eu id eu dolor posuere.'}*/}
-                {/*    />*/}
-
-                {/*    <AnnounceTemplate*/}
-                {/*        date={'19.07.2023'}*/}
-                {/*        title={'Lorem ipsum dolor sit amet consectetur. Sed sem odio morbi lacus eu. Leo interdum egestas et maecenas ac neque a duis quis.'}*/}
-                {/*        description={'Lorem ipsum dolor sit amet consectetur. Fringilla massa pellentesque nec sit tincidunt donec natoque. Neque scelerisque integer euismod condimentum a sed faucibus magna consequat. Elementum at velit viverra nec et. Eu id eu dolor posuere.'}*/}
-                {/*    />*/}
-
-                {/*    <AnnounceTemplate*/}
-                {/*        date={'19.07.2023'}*/}
-                {/*        title={'Lorem ipsum dolor sit amet consectetur. Sed sem odio morbi lacus eu. Leo interdum egestas et maecenas ac neque a duis quis.'}*/}
-                {/*        description={'Lorem ipsum dolor sit amet consectetur. Fringilla massa pellentesque nec sit tincidunt donec natoque. Neque scelerisque integer euismod condimentum a sed faucibus magna consequat. Elementum at velit viverra nec et. Eu id eu dolor posuere.'}*/}
-                {/*    />*/}
-
-                {/*    <AnnounceTemplate*/}
-                {/*        date={'19.07.2023'}*/}
-                {/*        title={'Lorem ipsum dolor sit amet consectetur. Sed sem odio morbi lacus eu. Leo interdum egestas et maecenas ac neque a duis quis.'}*/}
-                {/*        description={'Lorem ipsum dolor sit amet consectetur. Fringilla massa pellentesque nec sit tincidunt donec natoque. Neque scelerisque integer euismod condimentum a sed faucibus magna consequat. Elementum at velit viverra nec et. Eu id eu dolor posuere.'}*/}
-                {/*    />*/}
-
-                {/*    <Pagination className={'mb-[169px]'}/>*/}
-                {/*</div>*/}
             </section>
         </Main>
     );

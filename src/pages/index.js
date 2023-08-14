@@ -9,26 +9,11 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules"
 // Import Swiper styles
 import 'swiper/css';
 
-import {motion, useScroll} from "framer-motion";
-import ImageGallery from "react-image-gallery";
 import { useSwiper } from 'swiper/react';
-import {SwiperButtonPrev} from "@/components/buttons/swiperButtonPrev";
-import {SwiperButtonNext} from "@/components/buttons/swiperButtonNext";
+
 import {SwiperButtons} from "@/components/buttons";
 
-//  Image slider
-// export const images = [
-//     {
-//         original: '/images/img.png',
-//
-//     },
-//     {
-//         original: '/images/img1.png',
-//     },
-//     {
-//         original: '/images/img.png'
-//     },
-// ];
+
 
 export default function Home() {
     const swiper = useSwiper();

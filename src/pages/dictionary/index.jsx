@@ -5,7 +5,7 @@ import Title from "@/components/title";
 import Select from "@/components/select";
 import CheckboxTemplate from "@/components/checkbox";
 import {get} from "lodash";
-import GridView from "@/containers/grid-view";
+import GridView from "src/containers/list-view";
 import {getOptionList} from "@/utils";
 
 const Dictionary = () => {

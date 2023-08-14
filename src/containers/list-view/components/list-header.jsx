@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GridHeader = ({children}) => {
+const ListHeader = ({children}) => {
     return (
         <>
             {children}
@@ -8,4 +8,4 @@ const GridHeader = ({children}) => {
     );
 };
 
-export default GridHeader;
+export default ListHeader;

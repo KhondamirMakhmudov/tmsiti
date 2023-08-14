@@ -1,7 +1,13 @@
 import React from 'react';
+import clsx from "clsx";
+import {get} from "lodash";
+import Image from "next/image";
 import Link from "next/link";
+import AnnounceTemplate from "@/components/announce-template";
 
-const AnnounceTemplate = ({date, title, description, url }) => {
+const ListBody = ({ date, description, title, url,
+    rows = [], pageSize = 8, page = 1,
+                  }) => {
     return (
         <div className={'border-b-[1px] border-black pb-[30px] mb-[30px]'}>
             <p className={'text-[#2E6DFF] mb-[20px] font-bold'}>{date}</p>
@@ -16,4 +22,4 @@ const AnnounceTemplate = ({date, title, description, url }) => {
     );
 };
 
-export default AnnounceTemplate;
+export default ListBody;

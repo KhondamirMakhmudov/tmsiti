@@ -1,14 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import GridHeader from "@/containers/grid-view/components/grid-header";
-import GridBody from "@/containers/grid-view/components/grid-body";
+import GridHeader from "@/containers/list-view/components/list-header";
+import GridBody from "@/containers/list-view/components/grid-body";
 import useGetQuery from "@/hooks/api/useGetQuery";
 
 import Pagination from "@/components/pagination";
 import {get, isNil} from "lodash";
 import {useTranslation} from "react-i18next";
 import EmptyData from "./components/empty-data";
+import ListHeader from "@/containers/list-view/components/list-header";
+import ListBody from "@/containers/list-view/components/list-body";
 
-const GridView = ({
+const ListView = ({
                       HeaderBody = null,
                       columns = [],
                       url,
@@ -21,17 +23,16 @@ const GridView = ({
                       viewUrl = '#',
                       defaultPageSize = 48
                   }) => {
-    const {t} = useTranslation()
+
     const [page, setPage] = useState(1)
     const [pageSize, setPageSize] = useState(defaultPageSize)
-    const [sort, setSort] = useState(undefined)
     const {data, isLoading, isFetching} = useGetQuery({
         key: key,
         url: url,
         params: {
             page,
             ...params,
-            sort_by: sort,
+
             page_size: pageSize
         },
         enabled
@@ -45,15 +46,15 @@ const GridView = ({
     return (
         <>
             {isFetching}
-            <GridHeader>{HeaderBody}</GridHeader>
+            <ListHeader>{HeaderBody}</ListHeader>
             {get(data, 'data.results', [])?.length > 0 ? <>
-                    <GridBody hasActionColumn={hasActionColumn} handleSort={setSort} columns={columns}
+                    <ListBody  columns={columns}
                               rows={get(data, 'data.results', [])} pageSize={pageSize} page={page} setPage={setPage}/>
                     <Pagination page={page} setPage={setPage} pageCount={get(data, 'data.total_pages', 0)}/></> :
                 <p className={'py-5'}>{hasActionColumn ?
-                    <EmptyData viewUrl={viewUrl}/> : t("Ushbu sahifada ma'lumotlar hali mavjud emas...")}</p>}
+                    <EmptyData viewUrl={viewUrl}/> : <span> Ushbu sahifada malumotlar hali mavjud emas...</span> }</p>}
         </>
     );
 };
 
-export default GridView;
+export default ListView;
