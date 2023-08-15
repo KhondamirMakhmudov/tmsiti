@@ -1,14 +1,10 @@
 import React from "react";
 import Main from "@/layouts/main";
 import Menu from "@/components/menu";
-import Image from "next/image";
-import Link from "next/link";
 import Title from "@/components/title";
-import Pagination from "@/components/pagination";
 import useGetQuery from "@/hooks/api/useGetQuery";
 import {KEYS} from "@/constants/key";
 import {URLS} from "@/constants/url";
-import ListView from "@/containers/list-view";
 import {get} from "lodash";
 import NewsTemplate from "@/components/news-template";
 
@@ -20,7 +16,9 @@ const News = () => {
         url: URLS.news,
     })
 
-
+    if(isLoadingNews){
+        return 'Loading ...';
+    }
 
     return (
         <Main>
@@ -36,13 +34,13 @@ const News = () => {
 
                 <ul>
                     {
-                        get(news, 'data.results', []).map(newsItem =>
+                        get(news, 'data', []).map(newsItem =>
                             <li key={get(newsItem, 'id')}>
                                 <NewsTemplate
                                     imgUrl={get(newsItem, 'news_image')}
-                                    dateTime={get(newsItem, 'news_datetime')}
-                                    title={get(newsItem, 'news_title_uz')}
-                                    description={get(newsItem, 'news_desc_uz')}
+                                    dateTime={get(newsItem, 'date')}
+                                    title={get(newsItem, 'title')}
+                                    description={get(newsItem, 'text')}
                                 />
                             </li>
                         )
