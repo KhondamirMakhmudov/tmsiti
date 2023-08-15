@@ -40,8 +40,8 @@ const ListView = ({
         enabled
     });
     useEffect(() => {
-        if (!isNil(get(data, 'data.count'))) {
-            getCount(get(data, 'data.count', 0))
+        if (!isNil(get(data, 'count'))) {
+            getCount(get(data, 'count', 0))
         }
     }, [data])
 
@@ -57,7 +57,7 @@ const ListView = ({
                                 <ListBody
                                     date={get(item, `${date}`)}
                                     title={get(item, `${title}`)}
-                                    description={description}
+                                    description={get(item, `${description}`)}
                                     columns={columns}
                                     pageSize={pageSize}
                                     page={page}

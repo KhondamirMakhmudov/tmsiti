@@ -78,9 +78,8 @@ export default function Home() {
             </div>
         </section>
 
-        <div className={'h-[130px] w-full bg-[#001A57]  text-[#fff]'}>
-
-                    <Swiper style={{ width: '100%', marginLeft: 'auto', marginRight: 'auto'}} loop={true} centeredSlides={true} navigation={true} slidesPerView={1}  className={' swiper flex grid grid-cols-12 container mx-auto  '}>
+        <div className={'h-[130px] w-full bg-[#001A57]  text-[#fff] '}>
+                    <Swiper style={{ width: '100%', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center'}} loop={true} centeredSlides={true} navigation={true} slidesPerView={1}  className={' swiper flex grid grid-cols-12 container mx-auto  '}>
                             <SwiperButtons>
                                     <SwiperSlide>
                                         <div className={'flex items-center gap-x-[30px]'}>
@@ -97,6 +96,7 @@ export default function Home() {
                                             </div>
                                         </div>
                                     </SwiperSlide>
+
                                     <SwiperSlide>
                                         <div className={'flex items-center gap-x-[30px]'}>
                                             <div>
