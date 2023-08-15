@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Main from "@/layouts/main";
 import Menu from "@/components/menu";
 import Title from "@/components/title";
-import useGetQuery from "@/hooks/api/useGetQuery";
+import useGetSHNKQuery from "@/hooks/api/useGetSHNKQuery";
 import {KEYS} from "@/constants/key";
 import {URLS} from "@/constants/url";
 import {get, head, isEmpty} from "lodash";
@@ -20,12 +20,12 @@ const SHNQ = () => {
     const [toggleGroup, setToggleGroup] = useState(true)
 
 
-    const {data: subSystem, isLoading: isLoadingSystem} = useGetQuery({
+    const {data: subSystem, isLoading: isLoadingSystem} = useGetSHNKQuery({
         key: KEYS.subSystem,
         url: URLS.subSystem,
     })
 
-    const {data: group, isLoading: isLoadingGroup,} = useGetQuery({
+    const {data: group, isLoading: isLoadingGroup,} = useGetSHNKQuery({
         key: [KEYS.group, systemId],
         url: URLS.group,
         params: {
@@ -34,7 +34,7 @@ const SHNQ = () => {
         enabled: !!(systemId)
     })
 
-    const {data: docs, isLoading: isLoadingDoc,} = useGetQuery({
+    const {data: docs, isLoading: isLoadingDoc,} = useGetSHNKQuery({
         key: [KEYS.doc, systemId, groupId],
         url: URLS.doc,
         params: {

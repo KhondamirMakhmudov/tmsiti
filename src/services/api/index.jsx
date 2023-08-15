@@ -3,8 +3,10 @@ import {config} from "@/config";
 import storage from "@/services/storage";
 import {get} from 'lodash';
 
-const request = axios.create({
-    baseURL: config.API_URL,
+
+// Request for SHNK
+const requestSHNK = axios.create({
+    baseURL: config.BASE_SHNK_URL,
     params: {},
     headers: {
         common: {
@@ -14,7 +16,7 @@ const request = axios.create({
     },
 })
 
-request.interceptors.request.use((config) => {
+requestSHNK.interceptors.request.use((config) => {
     const token = get(JSON.parse(storage.get('settings')), 'state.token', null);
     if (token) {
         config.headers['token'] = `${token}`
@@ -26,11 +28,43 @@ request.interceptors.request.use((config) => {
     }
 );
 
-request.interceptors.response.use((response) => {
+requestSHNK.interceptors.response.use((response) => {
     return response;
 }, (error) => {
     return Promise.reject(error);
 })
 
-export {request};
+
+// Request for TMSITI
+const requestTMSITI = axios.create({
+    baseURL: config.BASE_TMSITI_URL,
+    params: {},
+    headers: {
+        common: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8',
+        },
+    },
+})
+
+
+requestTMSITI.interceptors.request.use((config) => {
+        const token = get(JSON.parse(storage.get('settings')), 'state.token', null);
+        if (token) {
+            config.headers['token'] = `${token}`
+        }
+
+        return config;
+    }, (error) => {
+        return  Promise.reject(error);
+    }
+);
+
+requestTMSITI.interceptors.response.use((response) => {
+    return response;
+}, (error) => {
+    return Promise.reject(error);
+})
+
+export {requestSHNK, requestTMSITI};
 

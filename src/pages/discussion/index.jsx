@@ -4,7 +4,7 @@ import Menu from "@/components/menu";
 import Title from "@/components/title";
 import AnnounceTemplate from "@/components/announce-template";
 import Pagination from "@/components/pagination";
-import useGetQuery from "@/hooks/api/useGetQuery";
+import useGetSHNKQuery from "@/hooks/api/useGetSHNKQuery";
 import {KEYS} from "@/constants/key";
 import {URLS} from "@/constants/url";
 import {get} from "lodash";
@@ -13,7 +13,7 @@ import ListView from "src/containers/list-view";
 import GridBody from "@/containers/list-view/components/grid-body";
 
 const Discussion = () => {
-    const { data: doc, isLoading } = useGetQuery({
+    const { data: doc, isLoading } = useGetSHNKQuery({
         key: KEYS.doc,
         url: URLS.doc
     })

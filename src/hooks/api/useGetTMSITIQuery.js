@@ -2,17 +2,17 @@ import React from "react";
 import {useQuery } from "@tanstack/react-query";
 import {toast} from 'react-hot-toast';
 import {useTranslation} from "react-i18next";
-import {request} from "@/services/api";
+import {requestTMSITI} from "@/services/api";
 
-const useGetQuery = ({
-                    key='get-all',
-                    url='/',
-                    params = {},
-                    headers = {},
-                    showSuccessMsg = false,
-                    showErrorMsg = true,
-                    enabled = true,
-}) => {
+const useGetTMSITIQuery = ({
+                             key='get-all',
+                             url='/',
+                             params = {},
+                             headers = {},
+                             showSuccessMsg = false,
+                             showErrorMsg = true,
+                             enabled = true,
+                         }) => {
     const {t} = useTranslation();
     const {
         isLoading,
@@ -21,7 +21,7 @@ const useGetQuery = ({
         error,
         isFetching,
 
-    } = useQuery([key, params], () => request.get(url, {
+    } = useQuery([key, params], () => requestTMSITI.get(url, {
         params,
         headers
     }), {
@@ -49,4 +49,4 @@ const useGetQuery = ({
     }
 }
 
-export default useGetQuery;
+export default useGetTMSITIQuery;

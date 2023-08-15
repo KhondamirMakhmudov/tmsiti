@@ -1,5 +1,6 @@
 export const config = {
-    API_URL: 'https://shnk.rcsc.uz/api/v1/',
+    BASE_SHNK_URL: 'https://shnk.rcsc.uz/api/v1/',
+    BASE_TMSITI_URL: 'https://tmsiti.rcsc.uz/api/v1',
     FILE_URL: 'https://shnk.rcsc.uz',
     DEFAULT_APP_LANG:'uz'
 };
