@@ -1,23 +1,16 @@
 import React from "react";
 import Main from "@/layouts/main";
 import Menu from "@/components/menu";
-import Image from "next/image";
-import Link from "next/link";
 import Title from "@/components/title";
-import Pagination from "@/components/pagination";
-import useGetSHNKQuery from "@/hooks/api/useGetSHNKQuery";
 import {KEYS} from "@/constants/key";
 import {URLS} from "@/constants/url";
-import ListView from "@/containers/list-view";
 import {get} from "lodash";
 import NewsTemplate from "@/components/news-template";
 import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
 
 
-
 const News = () => {
-    const {data: news, isLoading:isLoadingNews} = useGetTMSITIQuery({
-        key: KEYS.news,
+    const {data: news, isLoading:isLoadingNews} = useGetTMSITIQuery({key: KEYS.news,
         url: URLS.news,
     })
 
@@ -35,12 +28,12 @@ const News = () => {
                     </Title>
                 </div>
 
-                <ul>
+                <ul className={'col-span-12'}>
                     {
                         get(news, 'data.results', []).map(newsItem =>
                             <li key={get(newsItem, 'id')}>
                                 <NewsTemplate
-                                    imgUrl={get(newsItem, 'news_image')}
+                                    imgUrl={(get(newsItem, 'news_image'))}
                                     dateTime={get(newsItem, 'news_datetime')}
                                     title={get(newsItem, 'news_title_uz')}
                                     description={get(newsItem, 'news_desc_uz')}
