@@ -1,16 +1,19 @@
 import React from 'react';
+import dayjs from "dayjs";
+import Link from "next/link";
 
-const NewsTemplate = ({imgUrl, dateTime, title, description}) => {
-    const date = new Date(dateTime).toISOString().split('T')[0].replaceAll('-', '.');
-
+const NewsTemplate = ({imgUrl, dateTime, title, description, url}) => {
+    const date = dayjs(dateTime).format("DD.MM.YYYY")
 
     return (
         <>
             <div className={'flex gap-x-[30px]'}>
-                <img src={`${imgUrl}`} alt={'news-img'} className={'w-[330px] h-[189px]'}/>
+                <img src={`${imgUrl}`} alt={'news-img'} className={'w-[330px] h-[189px] object-contain'}/>
                 <div>
                     <p className={'text-[#2E6DFF] mb-[20px] font-bold'}>{date}</p>
-                    <h2 className={'text-xl font-bold'}>{title}</h2>
+                    <Link href={`${url}`}>
+                        <h2 className={'text-xl font-bold hover:text-[#2E6DFF] hover:underline'}>{title}</h2>
+                    </Link>
                     <p className={'text-[#A9AFC5] mt-[10px] '}>{description}</p>
 
                 </div>

@@ -9,6 +9,7 @@ import {useTranslation} from "react-i18next";
 import EmptyData from "./components/empty-data";
 import ListHeader from "@/containers/list-view/components/list-header";
 import ListBody from "@/containers/list-view/components/list-body";
+import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
 
 const ListView = ({
                       HeaderBody = null,
@@ -18,6 +19,7 @@ const ListView = ({
                       date,
                       title,
                       description,
+                      shnkNumber,
                       params = {},
                       enabled = true,
                       getCount = () => {
@@ -29,7 +31,7 @@ const ListView = ({
 
     const [page, setPage] = useState(1)
     const [pageSize, setPageSize] = useState(defaultPageSize)
-    const {data, isLoading, isFetching} = useGetSHNKQuery({
+    const {data, isLoading, isFetching} = useGetTMSITIQuery({
         key: key,
         url: url,
         params: {
@@ -50,14 +52,15 @@ const ListView = ({
             {isFetching}
             <ListHeader>{HeaderBody}</ListHeader>
             <ul>
-                {get(data, 'data', []).map(item =>
+                {get(data, 'data.results', []).map(item =>
                     <li key={get(item, 'id')}>
-                        {get(data, 'data', [])?.length > 0 ? <>
+                        {get(data, 'data.results', [])?.length > 0 ? <>
 
                                 <ListBody
-                                    date={get(item, `${date}`)}
+                                    dateTime={get(item, `${date}`)}
                                     title={get(item, `${title}`)}
                                     description={get(item, `${description}`)}
+                                    shnkNumber={get(item, `${shnkNumber}`)}
                                     columns={columns}
                                     pageSize={pageSize}
                                     page={page}
@@ -72,7 +75,7 @@ const ListView = ({
             <Pagination
                 page={page}
                 setPage={setPage}
-                pageCount={get(data, 'data.total_pages', 0)}
+                pageCount={get(data, 'data.total_pages', 10)}
             />
         </>
     );

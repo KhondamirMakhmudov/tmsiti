@@ -13,14 +13,9 @@ import ListView from "src/containers/list-view";
 import GridBody from "@/containers/list-view/components/grid-body";
 
 const Discussion = () => {
-    const { data: doc, isLoading } = useGetSHNKQuery({
-        key: KEYS.doc,
-        url: URLS.doc
-    })
 
-    if (isLoading) {
-        return <h1>Loading</h1>
-    }
+
+
     return (
         <Main>
             <Menu active={0}/>
@@ -28,31 +23,16 @@ const Discussion = () => {
 
             <section className={'grid grid-cols-12 gap-x-[30px] container mx-auto'}>
 
-
-
-                {/*<ul className={'col-span-12'}>*/}
-                {/*        {*/}
-                {/*            get(doc, 'data', []).map(item =>*/}
-                {/*                <li key={get(item, 'id')}>*/}
-                {/*                    <AnnounceTemplate*/}
-                {/*                        url={'#'}*/}
-                {/*                        date={get(item, 'shnk_started_date')}*/}
-                {/*                        title={get(item, 'shnk_title')}*/}
-                {/*                        description={'Lorem ipsum dolor sit amet consectetur. Fringilla massa pellentesque nec sit tincidunt donec natoque. Neque scelerisque integer euismod condimentum a sed faucibus magna consequat. Elementum at velit viverra nec et. Eu id eu dolor posuere.'}*/}
-                {/*                    />*/}
-                {/*                </li>*/}
-                {/*            )*/}
-                {/*        }*/}
-                {/*</ul>*/}
-
                 <div className={'col-span-12'}>
                     <ListView
                         HeaderBody={<Title>Muhokamalar</Title>}
-                        url={URLS.doc}
-                        key={KEYS.doc}
-                        date={'shnk_started_date'}
+                        url={URLS.discuss}
+                        key={KEYS.discuss}
+                        date={'shnk_datetime'}
                         title={'shnk_title'}
-                        description={'Lorem ipsum dolor sit amet consectetur. Fringilla massa pellentesque nec sit tincidunt donec natoque. Neque scelerisque integer euismod condimentum a sed faucibus magna consequat. Elementum at velit viverra nec et. Eu id eu dolor posuere.'}
+                        shnkNumber={'shnk_number'}
+                        description={'shnk_description'}
+                        defaultPageSize={3}
                     />
                 </div>
             </section>

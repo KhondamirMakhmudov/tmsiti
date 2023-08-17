@@ -23,7 +23,7 @@ const NewsId = () => {
 
                 <div className={'col-span-6'}>
                     <figure>
-                        <img className={'w-full h-[390px]'} src={'/images/img1.png'}/>
+                        <img className={'w-full h-[390px]'} src={'/images/img1.png'} alt={'img'}/>
                         <figcaption className={'text-sm text-neutral-600 dark:text-neutral-400'}>
                             Lorem ipsum dolor sit amet consectetur. Elementum risus duis elit potenti senectus dictum. Lectus rhoncus fermentum velit magna sapien turpis pellentesque et.
                         </figcaption>

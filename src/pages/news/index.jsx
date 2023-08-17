@@ -20,7 +20,6 @@ const News = () => {
         <Main>
             <Menu active={0}/>
 
-
             <div className={'grid grid-cols-12 gap-x-[30px] container mx-auto'}>
                 <div className={'col-span-12 mt-[50px] mb-[30px]'}>
                     <Title>
@@ -35,22 +34,16 @@ const News = () => {
                                 <NewsTemplate
                                     imgUrl={(get(newsItem, 'news_image'))}
                                     dateTime={get(newsItem, 'news_datetime')}
-                                    title={get(newsItem, 'news_title_uz')}
-                                    description={get(newsItem, 'news_desc_uz')}
+                                    title={get(newsItem, 'news_title')}
+                                    description={get(newsItem, 'news_desc')}
+                                    url={''}
                                 />
                             </li>
                         )
                     }
+
                 </ul>
 
-
-
-
-
-
-                {/*<div className={'col-span-12 mb-[140px]'}>*/}
-                {/*    <Pagination pageCount={10}/>*/}
-                {/*</div>*/}
             </div>
 
 
