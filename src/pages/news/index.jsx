@@ -36,7 +36,7 @@ const News = () => {
                                     dateTime={get(newsItem, 'news_datetime')}
                                     title={get(newsItem, 'news_title')}
                                     description={get(newsItem, 'news_desc')}
-                                    url={''}
+                                    url={`/news/${get(newsItem,'id','#')}`}
                                 />
                             </li>
                         )
