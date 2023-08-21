@@ -7,9 +7,12 @@ import {URLS} from "@/constants/url";
 import {get} from "lodash";
 import NewsTemplate from "@/components/news-template";
 import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
+import {useRouter} from "next/router";
 
 
 const News = () => {
+
+
     const {data: news, isLoading:isLoadingNews} = useGetTMSITIQuery({key: KEYS.news,
         url: URLS.news,
     })

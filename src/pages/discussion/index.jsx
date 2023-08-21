@@ -33,6 +33,7 @@ const Discussion = () => {
                         shnkNumber={'shnk_number'}
                         description={'shnk_description'}
                         defaultPageSize={3}
+
                     />
                 </div>
             </section>

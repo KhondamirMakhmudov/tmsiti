@@ -61,6 +61,7 @@ const ListView = ({
                                     title={get(item, `${title}`)}
                                     description={get(item, `${description}`)}
                                     shnkNumber={get(item, `${shnkNumber}`)}
+                                    url={`/discussion/${get(item, 'id', '#')}`}
                                     columns={columns}
                                     pageSize={pageSize}
                                     page={page}

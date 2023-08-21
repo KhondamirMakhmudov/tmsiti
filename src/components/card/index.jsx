@@ -6,7 +6,7 @@ const Card = ({name, img, position, phone, mail, receptionDays}) => {
     return (
         <div className={'flex gap-x-[30px]'}>
             <div>
-                <Image src={`/images/${img}`} alt={"profile-img"} width={210} height={250}/>
+                <img src={`${img}`} alt={"profile-img"} className={'w-[210px] h-[250px]'} />
             </div>
 
             <div>

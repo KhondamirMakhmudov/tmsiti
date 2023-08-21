@@ -3,10 +3,22 @@ import Main from "@/layouts/main";
 import Menu from "@/components/menu";
 import Card from "@/components/card";
 import Title from "@/components/title";
+import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
+import {KEYS} from "@/constants/key";
+import {URLS} from "@/constants/url";
+import {get} from "lodash";
 
 
 
 const Management = () => {
+    const {data, isLoading} = useGetTMSITIQuery({
+        key: KEYS.workers,
+        url: URLS.workers,
+    })
+
+    if (isLoading) {
+        return "...Loading"
+    }
     return (
         <Main>
             <Menu active={0}/>
@@ -19,59 +31,21 @@ const Management = () => {
                         Rahbariyat
                     </Title>
                 </div>
+                <ul className={'col-span-12'}>
+                    {get(data, 'data', []).map(item =>
+                        <li key={get(data, 'id')} className={'my-[30px]'}>
+                            <Card
+                                position={get(item, 'worker_post')}
+                                img={get(item, 'worker_image')}
+                                name={get(item, 'worker_name')}
+                                receptionDays={get(item, 'worker_reception_day')}
+                                phone={get(item, 'worker_phone')}
+                            />
+                        </li>
 
-                <div className={'col-span-6 mb-[30px] mt-[50px]'}>
-                    <Card
-                        position={"Direktor"}
-                        img={'profile.png'}
-                        name={'Familiya Ism Otasining ismi'}
-                        receptionDays={': Dushanba c 10:00 до 13:00'}
-                        phone={'998909000000'}
-                        mail={'info@tmsiti.uz'}
-                    />
-                </div>
+                    )}
+                </ul>
 
-                <div className={'col-span-12 w-full h-[1px] bg-[#001A57]'}></div>
-
-                <div className={'col-span-12 flex justify-between my-[30px]'}>
-                    <Card
-                        position={"Direktor"}
-                        img={'profile.png'}
-                        name={'Familiya Ism Otasining ismi'}
-                        receptionDays={': Dushanba c 10:00 до 13:00'}
-                        phone={'998909000000'}
-                        mail={'info@tmsiti.uz'}
-                    />
-
-                    <Card
-                        position={"Direktor"}
-                        img={'profile.png'}
-                        name={'Familiya Ism Otasining ismi'}
-                        receptionDays={': Dushanba c 10:00 до 13:00'}
-                        phone={'998909000000'}
-                        mail={'info@tmsiti.uz'}
-                    />
-                </div>
-
-                <div className={'col-span-12 flex justify-between'}>
-                    <Card
-                        position={"Direktor"}
-                        img={'profile.png'}
-                        name={'Familiya Ism Otasining ismi'}
-                        receptionDays={': Dushanba c 10:00 до 13:00'}
-                        phone={'998909000000'}
-                        mail={'info@tmsiti.uz'}
-                    />
-
-                    <Card
-                        position={"Direktor"}
-                        img={'profile.png'}
-                        name={'Familiya Ism Otasining ismi'}
-                        receptionDays={': Dushanba c 10:00 до 13:00'}
-                        phone={'998909000000'}
-                        mail={'info@tmsiti.uz'}
-                    />
-                </div>
             </section>
         </Main>
     );

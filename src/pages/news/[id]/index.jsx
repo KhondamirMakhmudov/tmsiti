@@ -27,7 +27,7 @@ const NewsItemPage = () => {
             <Menu active={0}/>
             <section className={'grid grid-cols-12 container mx-auto gap-x-[30px] mb-[30px]'}>
                 <div className={'col-span-6'}>
-                    <p className={'text-[#2E6DFF] mb-[20px] font-bold'}>Admin, <span>{dayjs(get(data,'data.news_datetime')).format("DD MMM YYYY")}</span></p>
+                    <p className={'text-[#2E6DFF] mb-[20px] font-bold'}><span>{dayjs(get(data,'data.news_datetime')).format("DD MMM YYYY")}</span></p>
 
                     <NewsTitle size={'3xl'}>
                         {get(data,'data.news_title')}
@@ -45,16 +45,15 @@ const NewsItemPage = () => {
                                    loader={() => `${get(data,'data.news_image')}`}
                                    src={`${get(data,'data.news_image')}`}
                                    layout={'fill'}
-                                   objectFit={'cover'} />
+                                   objectFit={'contain'} />
                         </div>
 
                         <figcaption className={'text-sm text-neutral-600 dark:text-neutral-400'}>
-                            Lorem ipsum dolor sit amet consectetur. Elementum risus duis elit potenti senectus dictum.
-                            Lectus rhoncus fermentum velit magna sapien turpis pellentesque et.
+                            {get(data, 'data.img_caption')}
                         </figcaption>
                     </figure>
                 </div>
-                <div className={'col-span-12 mt-3'}>
+                <div className={'col-span-12 mt-[30px]'}>
                     {parse(get(data,'data.news_text'))}
                 </div>
             </section>

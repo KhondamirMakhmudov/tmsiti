@@ -5,4 +5,5 @@ export const URLS = {
     news: 'news/',
     ads: 'ads/',
     discuss: 'discuss/',
+    workers: 'workers/'
 }

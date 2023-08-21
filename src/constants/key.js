@@ -5,4 +5,6 @@ export const KEYS = {
     news: 'news',
     ads: 'ads',
     discuss: 'discuss',
+    workers: 'workers',
+
 }
