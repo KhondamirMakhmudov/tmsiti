@@ -65,7 +65,7 @@ const SHNQ = () => {
                     </Title>
                 </div>
 
-                <div className={'col-span-12 pb-10'}>
+                <div className={'col-span-12 '}>
                     <ul>
                         {
                             get(subSystem, 'data', []).map((item, i) =>
@@ -98,7 +98,7 @@ const SHNQ = () => {
                                                             }
                                                             }
                                                             key={get(groupItem, 'id')}
-                                                            className={clsx(' py-[10px] mb-[10px]  text-[#1A4DC2] border-b  text-lg border-b-black transition cursor-pointer  hover:text-[#1B41C6] font-medium', {
+                                                            className={clsx(' py-[10px]  text-[#1A4DC2] border-b  text-lg border-b-black transition cursor-pointer  hover:text-[#1B41C6] font-medium', {
                                                                 '!text-[#017EFA]': get(groupItem, 'id') == groupId,
                                                                 '!mb-[10px]': get(group, 'data.results', [])?.length == j + 1
                                                             })}>

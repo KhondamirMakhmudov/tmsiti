@@ -42,6 +42,7 @@ const Announcement = () => {
                                 date={get(item, 'ads_datetime')}
                                 title={get(item, 'ads_title')}
                                 description={get(item, 'ads_text')}
+                                url={'#'}
                             />
                         </li>
                     )}
