@@ -20,7 +20,7 @@ const Announcement = () => {
                         HeaderBody={<Title>Barcha e`lonlar</Title>}
                         key={KEYS.ads}
                         url={URLS.ads}
-                        date={'ads_dateTime'}
+                        date={'ads_datetime'}
                         title={'ads_title'}
                         description={'ads_text'}
                         defaultPageSize={0}
