@@ -20,6 +20,7 @@ const ListView = ({
                       title,
                       description,
                       shnkNumber,
+
                       params = {},
                       enabled = true,
                       getCount = () => {
@@ -66,8 +67,6 @@ const ListView = ({
                                     pageSize={pageSize}
                                     page={page}
                                     setPage={setPage}
-
-
                                 /></> :
                             <p className={'py-5'}><span> Ushbu sahifada malumotlar hali mavjud emas...</span></p>}
                     </li>
@@ -77,6 +76,7 @@ const ListView = ({
                 page={page}
                 setPage={setPage}
                 pageCount={get(data, 'data.total_pages', 10)}
+                className={'mb-[50px]'}
             />
         </>
     );
