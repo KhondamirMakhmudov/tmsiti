@@ -116,11 +116,11 @@ export const menuData = [
                 url: '/news',
             },
 
-            {
-                id: 4,
-                title: 'Xalqaro munosobat',
-                url: '/management',
-            },
+            // {
+            //     id: 4,
+            //     title: 'Xalqaro munosobat',
+            //     url: '/management',
+            // },
 
         ]
     },

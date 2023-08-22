@@ -79,56 +79,56 @@ export default function Home() {
         </section>
 
         <div className={'h-[130px] w-full bg-[#001A57]  text-[#fff] '}>
-                    <Swiper style={{ width: '100%', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center'}} loop={true} centeredSlides={true} navigation={true} slidesPerView={1}  className={' swiper flex grid grid-cols-12 container mx-auto  '}>
-                            <SwiperButtons>
-                                    <SwiperSlide>
-                                        <div className={'flex items-center gap-x-[30px]'}>
-                                            <div>
-                                                <p className={'text-base'}>Muhokamalar</p>
-                                                <span className={'text-sm text-[#BCBCBC]'}>Iyul 15-25, 2023</span>
-                                            </div>
+                    {/*<Swiper style={{ width: '100%', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center'}} loop={true} centeredSlides={true} navigation={true} slidesPerView={1}  className={' swiper flex grid grid-cols-12 container mx-auto  '}>*/}
+                    {/*        <SwiperButtons>*/}
+                    {/*                <SwiperSlide>*/}
+                    {/*                    <div className={'flex items-center gap-x-[30px]'}>*/}
+                    {/*                        <div>*/}
+                    {/*                            <p className={'text-base'}>Muhokamalar</p>*/}
+                    {/*                            <span className={'text-sm text-[#BCBCBC]'}>Iyul 15-25, 2023</span>*/}
+                    {/*                        </div>*/}
 
-                                            <div className={'w-[1px] h-[80px] bg-[#fff]'}></div>
+                    {/*                        <div className={'w-[1px] h-[80px] bg-[#fff]'}></div>*/}
 
-                                            <div>
-                                                <p className={'text-2xl font-medium'}>ShNK 1.02.07-19 - Qurilish uchun muhandislik-texnik izlanishlar. Asosiy qoidalar</p>
-                                                <span className={'text-sm text-[#BCBCBC]'}>Shaharsozlik normalari va qoidalariga kiritilayotga o‘zgartirishlarga o‘z fikringizni bildiring, muhokalarda ishtirok eting!</span>
-                                            </div>
-                                        </div>
-                                    </SwiperSlide>
+                    {/*                        <div>*/}
+                    {/*                            <p className={'text-2xl font-medium'}>ShNK 1.02.07-19 - Qurilish uchun muhandislik-texnik izlanishlar. Asosiy qoidalar</p>*/}
+                    {/*                            <span className={'text-sm text-[#BCBCBC]'}>Shaharsozlik normalari va qoidalariga kiritilayotga o‘zgartirishlarga o‘z fikringizni bildiring, muhokalarda ishtirok eting!</span>*/}
+                    {/*                        </div>*/}
+                    {/*                    </div>*/}
+                    {/*                </SwiperSlide>*/}
 
-                                    <SwiperSlide>
-                                        <div className={'flex items-center gap-x-[30px]'}>
-                                            <div>
-                                                <p className={'text-base'}>Muhokamalar</p>
-                                                <span className={'text-sm text-[#BCBCBC]'}>Iyul 15-25, 2023</span>
-                                            </div>
+                    {/*                <SwiperSlide>*/}
+                    {/*                    <div className={'flex items-center gap-x-[30px]'}>*/}
+                    {/*                        <div>*/}
+                    {/*                            <p className={'text-base'}>Muhokamalar</p>*/}
+                    {/*                            <span className={'text-sm text-[#BCBCBC]'}>Iyul 15-25, 2023</span>*/}
+                    {/*                        </div>*/}
 
-                                            <div className={'w-[1px] h-[80px] bg-[#fff]'}></div>
+                    {/*                        <div className={'w-[1px] h-[80px] bg-[#fff]'}></div>*/}
 
-                                            <div>
-                                                <p className={'text-2xl font-medium'}>ShNK 1.02.07-19 - Qurilish uchun muhandislik-texnik izlanishlar. Asosiy qoidalar</p>
-                                                <span className={'text-sm text-[#BCBCBC]'}>Shaharsozlik normalari va qoidalariga kiritilayotga o‘zgartirishlarga o‘z fikringizni bildiring, muhokalarda ishtirok eting!</span>
-                                            </div>
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className={'flex items-center gap-x-[30px]'}>
-                                            <div>
-                                                <p className={'text-base'}>Muhokamalar</p>
-                                                <span className={'text-sm text-[#BCBCBC]'}>Iyul 15-25, 2023</span>
-                                            </div>
+                    {/*                        <div>*/}
+                    {/*                            <p className={'text-2xl font-medium'}>ShNK 1.02.07-19 - Qurilish uchun muhandislik-texnik izlanishlar. Asosiy qoidalar</p>*/}
+                    {/*                            <span className={'text-sm text-[#BCBCBC]'}>Shaharsozlik normalari va qoidalariga kiritilayotga o‘zgartirishlarga o‘z fikringizni bildiring, muhokalarda ishtirok eting!</span>*/}
+                    {/*                        </div>*/}
+                    {/*                    </div>*/}
+                    {/*                </SwiperSlide>*/}
+                    {/*                <SwiperSlide>*/}
+                    {/*                    <div className={'flex items-center gap-x-[30px]'}>*/}
+                    {/*                        <div>*/}
+                    {/*                            <p className={'text-base'}>Muhokamalar</p>*/}
+                    {/*                            <span className={'text-sm text-[#BCBCBC]'}>Iyul 15-25, 2023</span>*/}
+                    {/*                        </div>*/}
 
-                                            <div className={'w-[1px] h-[80px] bg-[#fff]'}></div>
+                    {/*                        <div className={'w-[1px] h-[80px] bg-[#fff]'}></div>*/}
 
-                                            <div>
-                                                <p className={'text-2xl font-medium'}>ShNK 1.02.07-19 - Qurilish uchun muhandislik-texnik izlanishlar. Asosiy qoidalar</p>
-                                                <span className={'text-sm text-[#BCBCBC]'}>Shaharsozlik normalari va qoidalariga kiritilayotga o‘zgartirishlarga o‘z fikringizni bildiring, muhokalarda ishtirok eting!</span>
-                                            </div>
-                                        </div>
-                                    </SwiperSlide>
-                            </SwiperButtons>
-                    </Swiper>
+                    {/*                        <div>*/}
+                    {/*                            <p className={'text-2xl font-medium'}>ShNK 1.02.07-19 - Qurilish uchun muhandislik-texnik izlanishlar. Asosiy qoidalar</p>*/}
+                    {/*                            <span className={'text-sm text-[#BCBCBC]'}>Shaharsozlik normalari va qoidalariga kiritilayotga o‘zgartirishlarga o‘z fikringizni bildiring, muhokalarda ishtirok eting!</span>*/}
+                    {/*                        </div>*/}
+                    {/*                    </div>*/}
+                    {/*                </SwiperSlide>*/}
+                    {/*        </SwiperButtons>*/}
+                    {/*</Swiper>*/}
         </div>
 
         <section>
