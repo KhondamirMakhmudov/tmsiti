@@ -33,14 +33,14 @@ const NewsItemPage = () => {
                         {get(data,'data.news_title')}
                     </NewsTitle>
 
-                    <p className={'text-2xl text-[#001A57] mt-[20px]'}>
+                    <p className={'text-xl text-[#001A57] mt-[20px]'}>
                         {get(data,'data.news_desc')}
                     </p>
                 </div>
 
                 <div className={'col-span-6'}>
                     <figure>
-                        <div className={'relative w-full h-96'}>
+                        <div className={'relative w-full h-96 -z-10'}>
                             <Image alt={'img'}
                                    loader={() => `${get(data,'data.news_image')}`}
                                    src={`${get(data,'data.news_image')}`}
