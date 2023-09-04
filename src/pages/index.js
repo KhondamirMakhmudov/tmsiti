@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Title from "@/components/title";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from "swiper/modules"
+import {Autoplay, Pagination, Navigation, A11y} from "swiper/modules"
 
 // Import Swiper styles
 import 'swiper/css';
@@ -12,19 +12,57 @@ import 'swiper/css';
 import { useSwiper } from 'swiper/react';
 
 import {SwiperButtons} from "@/components/buttons";
+import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
+import {KEYS} from "@/constants/key";
+import {URLS} from "@/constants/url";
+import {get, head} from "lodash";
+import dayjs from "dayjs";
+import {SwiperButtonNext} from "@/components/buttons/swiperButtonNext";
+import React, {useState} from "react";
+import {SwiperButtonPrev} from "@/components/buttons/swiperButtonPrev";
 
 
 
 export default function Home() {
+
     const swiper = useSwiper();
+
+    const {data, isLoading} = useGetTMSITIQuery({
+        key: KEYS.news,
+        url: URLS.news
+    })
+
+    const {data: news, isLoading:isLoadingNews} = useGetTMSITIQuery({key: KEYS.news,
+        url: URLS.news,
+    })
+
+    const {data: discussion, isLoading: isLoadingDiscuss} = useGetTMSITIQuery({
+        url: URLS.discuss,
+        key: KEYS.discuss
+    })
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+
+    const prevSlide = () => {
+        const isFirstSlide = currentIndex === 0;
+        const newIndex = isFirstSlide ? get(data, 'data.results', []).length - 1 : currentIndex - 1
+        setCurrentIndex(newIndex)
+    }
+
+    const nextSlide = () => {
+        const isLastSlide = currentIndex === get(data, 'data.results', []).length - 1;
+        const newIndex = isLastSlide ? 0 : currentIndex + 1;
+        setCurrentIndex(newIndex)
+    }
+
   return (
     <Main>
         <Menu active={0} className={'relative z-30'} />
 
         <section className={'container mx-auto grid grid-cols-12 gap-x-[30px] items-center'}>
             <div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
+
                         className={'col-span-5'}>
                 <h1 className={'text-[64px] text-[#14255B] font-bold mb-[90px]'}>
                     Biz qurilishda taraqqiyotni ilhomlantiramiz.
@@ -78,57 +116,40 @@ export default function Home() {
             </div>
         </section>
 
-        <div className={'h-[130px] w-full bg-[#001A57]  text-[#fff] '}>
-                    {/*<Swiper style={{ width: '100%', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center'}} loop={true} centeredSlides={true} navigation={true} slidesPerView={1}  className={' swiper flex grid grid-cols-12 container mx-auto  '}>*/}
-                    {/*        <SwiperButtons>*/}
-                    {/*                <SwiperSlide>*/}
-                    {/*                    <div className={'flex items-center gap-x-[30px]'}>*/}
-                    {/*                        <div>*/}
-                    {/*                            <p className={'text-base'}>Muhokamalar</p>*/}
-                    {/*                            <span className={'text-sm text-[#BCBCBC]'}>Iyul 15-25, 2023</span>*/}
-                    {/*                        </div>*/}
+        <div className={'h-[130px] w-full bg-[#001A57]  text-[#fff]'}>
+                    <div
+                        className={' grid grid-cols-12  gap-x-[30px] container mx-auto  '}>
+                        <button className={'swiper-slide-left col-span-2'}>
+                            <Image src={'/icons/arrow-left.svg'} alt={'right'} width={44} height={44}/>
+                        </button>
 
-                    {/*                        <div className={'w-[1px] h-[80px] bg-[#fff]'}></div>*/}
+                        {
+                            get(discussion, 'data.results', []).map(discussionItem =>
+                                // eslint-disable-next-line react/jsx-key
 
-                    {/*                        <div>*/}
-                    {/*                            <p className={'text-2xl font-medium'}>ShNK 1.02.07-19 - Qurilish uchun muhandislik-texnik izlanishlar. Asosiy qoidalar</p>*/}
-                    {/*                            <span className={'text-sm text-[#BCBCBC]'}>Shaharsozlik normalari va qoidalariga kiritilayotga o‘zgartirishlarga o‘z fikringizni bildiring, muhokalarda ishtirok eting!</span>*/}
-                    {/*                        </div>*/}
-                    {/*                    </div>*/}
-                    {/*                </SwiperSlide>*/}
+                                    <div key={get(discussionItem, 'id')} className={'col-span-8 flex items-center gap-x-[30px]'}>
+                                        <div>
+                                            <p className={'text-base'}>Muhokamalar</p>
+                                            <span className={'text-sm text-[#BCBCBC]'}>{dayjs(get(discussionItem, 'shnk_datetime')).format("DD.MM.YYYY")}</span>
+                                        </div>
 
-                    {/*                <SwiperSlide>*/}
-                    {/*                    <div className={'flex items-center gap-x-[30px]'}>*/}
-                    {/*                        <div>*/}
-                    {/*                            <p className={'text-base'}>Muhokamalar</p>*/}
-                    {/*                            <span className={'text-sm text-[#BCBCBC]'}>Iyul 15-25, 2023</span>*/}
-                    {/*                        </div>*/}
+                                        <div className={'w-[1px] h-[80px] bg-[#fff]'}></div>
 
-                    {/*                        <div className={'w-[1px] h-[80px] bg-[#fff]'}></div>*/}
+                                        <div>
+                                            <p className={'text-2xl font-medium'}>{get(discussionItem, 'shnk_number')} - {get(discussionItem, 'shnk_title')}</p>
+                                            <span className={'text-sm text-[#BCBCBC]'}>{get(discussionItem, 'shnk_description')}</span>
+                                        </div>
+                                    </div>
 
-                    {/*                        <div>*/}
-                    {/*                            <p className={'text-2xl font-medium'}>ShNK 1.02.07-19 - Qurilish uchun muhandislik-texnik izlanishlar. Asosiy qoidalar</p>*/}
-                    {/*                            <span className={'text-sm text-[#BCBCBC]'}>Shaharsozlik normalari va qoidalariga kiritilayotga o‘zgartirishlarga o‘z fikringizni bildiring, muhokalarda ishtirok eting!</span>*/}
-                    {/*                        </div>*/}
-                    {/*                    </div>*/}
-                    {/*                </SwiperSlide>*/}
-                    {/*                <SwiperSlide>*/}
-                    {/*                    <div className={'flex items-center gap-x-[30px]'}>*/}
-                    {/*                        <div>*/}
-                    {/*                            <p className={'text-base'}>Muhokamalar</p>*/}
-                    {/*                            <span className={'text-sm text-[#BCBCBC]'}>Iyul 15-25, 2023</span>*/}
-                    {/*                        </div>*/}
 
-                    {/*                        <div className={'w-[1px] h-[80px] bg-[#fff]'}></div>*/}
+                            )
+                        }
 
-                    {/*                        <div>*/}
-                    {/*                            <p className={'text-2xl font-medium'}>ShNK 1.02.07-19 - Qurilish uchun muhandislik-texnik izlanishlar. Asosiy qoidalar</p>*/}
-                    {/*                            <span className={'text-sm text-[#BCBCBC]'}>Shaharsozlik normalari va qoidalariga kiritilayotga o‘zgartirishlarga o‘z fikringizni bildiring, muhokalarda ishtirok eting!</span>*/}
-                    {/*                        </div>*/}
-                    {/*                    </div>*/}
-                    {/*                </SwiperSlide>*/}
-                    {/*        </SwiperButtons>*/}
-                    {/*</Swiper>*/}
+                        <button className={'col-span-2 '}>
+                            <Image src={'/icons/arrow-right.svg'} alt={'right'} width={44} height={44}/>
+                        </button>
+
+                    </div>
         </div>
 
         <section>
@@ -144,48 +165,42 @@ export default function Home() {
                 </div>
 
                 <div className={'col-span-6'}>
-                    <div>
-                        <img src={'/images/img1.png'} alt='news-main-img' className={'w-full] h-[468px]'}/>
-                        <p className={'text-[#2E6DFF] mt-[30px] font-bold'}>Yangilik 07.19.2023</p>
-                        <h2 className={'text-2xl font-bold text-[#001A57] mt-[20px] w-[690px]'}>Lorem ipsum dolor sit amet consectetur. Nec nibh  odio ornare quis quam rutrum eros id.</h2>
-                        <p className={'text-[#A9AFC5] mt-[10px] w-[690px]'}>Lorem ipsum dolor sit amet consectetur. Consequat sagittis amet vitae porta urna. Pretium lobortis scelerisque congue sit sodales a vitae ultricies.</p>
-                    </div>
+                    {
+                        head(get(data, 'data.results', []).map(item =>
+                            <div key={get(item, 'id')}>
+                                <img src={get(item, 'news_image')} alt='news-main-img' className={'w-[690px] h-[468px] object-cover'}/>
+                                <p className={'text-[#2E6DFF] mt-[30px] font-bold'}>Yangilik {dayjs(get(item, 'news_datetime')).format("DD.MM.YYYY")}</p>
+                                <Link href={'#'}>
+                                    <h2 className={'text-2xl font-bold text-[#001A57] hover:text-[#2E6DFF] hover:underline mt-[20px] w-[690px]'}>{get(item, 'news_title')}</h2>
+                                </Link>
+                                <p className={'text-[#A9AFC5] mt-[10px] w-[690px]'}>{get(item, 'news_desc')}</p>
+                            </div>
+                        ))
+                    }
                 </div>
 
                 <div className={'col-span-6'}>
                     <ul>
-                        <li className={'flex '}>
-                            <div>
-                                <p className={'text-[#2E6DFF] mb-[20px] font-bold'}>Yangilik 07.19.2023</p>
-                                <h2 className={'text-xl font-bold'}>Lorem ipsum dolor sit amet consectetur. Sed eu dui vitae arcu condimentum nec arcu.</h2>
-                            </div>
+                        {
+                            get(data, 'data.results', []).map(item =>
+                                <li key={get(item, 'id')} className={''}>
+                                    <div className={'flex gap-x-[30px]'}>
+                                        <div>
+                                            <p className={'text-[#2E6DFF] mb-[20px] font-bold'}>Yangilik {dayjs(get(item, 'news_datetime')).format("DD.MM.YYYY")}</p>
+                                            <Link href={`news/${get(news, 'data.results[id]')}`}>
+                                                <h2 className={'text-xl hover:text-[#2E6DFF] hover:underline font-bold'}>{get(item, 'news_title')}</h2>
+                                            </Link>
+                                        </div>
 
-                            <img src={'/images/img1.png'} alt={'news-img'} className={'w-[330px] h-[189px]'}/>
-                        </li>
+                                        <img src={get(item, 'news_image')} alt={'news-img'} className={'w-[330px] h-[189px]'}/>
+                                    </div>
 
-                        <li className={'w-[full] h-[1px] bg-[#001A57] my-[30px]'}>
-                        </li>
+                                    <div className={'w-full h-[1px] bg-gray-900 my-[30px]'}></div>
+                                </li>
 
-                        <li className={'flex'}>
-                            <div>
-                                <p className={'text-[#2E6DFF] mb-[20px] font-bold'}>Yangilik 07.19.2023</p>
-                                <h2 className={'text-xl font-bold'}>Lorem ipsum dolor sit amet consectetur. Sed eu dui vitae arcu condimentum nec arcu.</h2>
-                            </div>
 
-                            <img src={'/images/img1.png'} alt={'news-img'} className={'w-[330px] h-[189px]'}/>
-                        </li>
-
-                        <li className={'w-[full] h-[1px] bg-[#001A57] my-[30px]'}>
-                        </li>
-
-                        <li className={'flex pb-[30px]'}>
-                            <div>
-                                <p className={'text-[#2E6DFF] mb-[20px] font-bold'}>Yangilik 07.19.2023</p>
-                                <h2 className={'text-xl font-bold'}>Lorem ipsum dolor sit amet consectetur. Sed eu dui vitae arcu condimentum nec arcu.</h2>
-                            </div>
-
-                            <img src={'/images/img1.png'} alt={'news-img'} className={'w-[330px] h-[189px]'}/>
-                        </li>
+                            )
+                        }
                     </ul>
                 </div>
             </div>

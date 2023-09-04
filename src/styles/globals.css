@@ -30,3 +30,22 @@ body {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+
+.swiper-shnk {
+  display: flex;
+
+  row-gap: 20px;
+}
+
+
+.swiper-slide-shnk {
+  width: 70%;
+}
+
+.swiper-slide-left {
+  width: 15%;
+}
+
+.swiper-slide-right {
+  width: 15%;
+}
