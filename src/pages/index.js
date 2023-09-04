@@ -117,39 +117,7 @@ export default function Home() {
         </section>
 
         <div className={'h-[130px] w-full bg-[#001A57]  text-[#fff]'}>
-                    <div
-                        className={' grid grid-cols-12  gap-x-[30px] container mx-auto  '}>
-                        <button className={'swiper-slide-left col-span-2'}>
-                            <Image src={'/icons/arrow-left.svg'} alt={'right'} width={44} height={44}/>
-                        </button>
 
-                        {
-                            get(discussion, 'data.results', []).map(discussionItem =>
-                                // eslint-disable-next-line react/jsx-key
-
-                                    <div key={get(discussionItem, 'id')} className={'col-span-8 flex items-center gap-x-[30px]'}>
-                                        <div>
-                                            <p className={'text-base'}>Muhokamalar</p>
-                                            <span className={'text-sm text-[#BCBCBC]'}>{dayjs(get(discussionItem, 'shnk_datetime')).format("DD.MM.YYYY")}</span>
-                                        </div>
-
-                                        <div className={'w-[1px] h-[80px] bg-[#fff]'}></div>
-
-                                        <div>
-                                            <p className={'text-2xl font-medium'}>{get(discussionItem, 'shnk_number')} - {get(discussionItem, 'shnk_title')}</p>
-                                            <span className={'text-sm text-[#BCBCBC]'}>{get(discussionItem, 'shnk_description')}</span>
-                                        </div>
-                                    </div>
-
-
-                            )
-                        }
-
-                        <button className={'col-span-2 '}>
-                            <Image src={'/icons/arrow-right.svg'} alt={'right'} width={44} height={44}/>
-                        </button>
-
-                    </div>
         </div>
 
         <section>
@@ -208,3 +176,5 @@ export default function Home() {
     </Main>
   )
 }
+
+
