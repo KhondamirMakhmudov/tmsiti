@@ -58,7 +58,7 @@ const SHNQ = () => {
         <Main>
             <Menu/>
 
-            <section className={"grid grid-cols-12 container mx-auto "}>
+            <section className={"grid grid-cols-12 container mx-auto mb-[50px]"}>
                 <div className={"col-span-12"}>
                     <Title>
                         Shaharsozlik normalari va qoidalari
@@ -172,9 +172,3 @@ const SHNQ = () => {
 };
 
 export default SHNQ;
-// color: #1A4DC2;
-// font-family: Noto Sans;
-// font-size: 18px;
-// font-style: normal;
-// font-weight: 500;
-// line-height: normal;
