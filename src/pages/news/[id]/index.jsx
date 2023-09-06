@@ -45,7 +45,7 @@ const NewsItemPage = () => {
                                    loader={() => `${get(data,'data.news_image')}`}
                                    src={`${get(data,'data.news_image')}`}
                                     layout={'fill'}
-                                   objectFit={'contain'} />
+                                   objectFit={'cover'} />
                         </div>
 
                         <figcaption className={'text-sm text-start mt-[10px] text-neutral-600 dark:text-neutral-400'}>

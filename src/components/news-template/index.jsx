@@ -7,9 +7,11 @@ const NewsTemplate = ({imgUrl, dateTime, title, description, url}) => {
 
     return (
         <>
-            <div className={'flex gap-x-[30px]'}>
-                <img src={`${imgUrl}`} alt={'news-img'} className={'w-[330px] h-[189px] object-contain'}/>
-                <div>
+            <div className={'grid grid-cols-12 gap-x-[30px]'}>
+                <div className={'col-span-3'}>
+                    <img src={`${imgUrl}`} alt={'news-img'} className={'w-full h-[189px] object-cover '}/>
+                </div>
+                <div className={'col-span-9'}>
                     <p className={'text-[#2E6DFF] mb-[20px] font-bold'}>{date}</p>
                     <Link href={`${url}`}>
                         <h2 className={'text-xl font-bold hover:text-[#2E6DFF] hover:underline'}>{title}</h2>

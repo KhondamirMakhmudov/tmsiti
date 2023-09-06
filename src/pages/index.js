@@ -15,7 +15,7 @@ import {SwiperButtons} from "@/components/buttons";
 import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
 import {KEYS} from "@/constants/key";
 import {URLS} from "@/constants/url";
-import {drop, get, head} from "lodash";
+import {drop, get, head, slice} from "lodash";
 import dayjs from "dayjs";
 import {SwiperButtonNext} from "@/components/buttons/swiperButtonNext";
 import React, {useState} from "react";
@@ -32,9 +32,7 @@ export default function Home() {
         url: URLS.news
     })
 
-    const {data: news, isLoading:isLoadingNews} = useGetTMSITIQuery({key: KEYS.news,
-        url: URLS.news,
-    })
+
 
     const {data: discussion, isLoading: isLoadingDiscuss} = useGetTMSITIQuery({
         url: URLS.discuss,
@@ -203,7 +201,7 @@ export default function Home() {
                             <div key={get(item, 'id')}>
                                 <img src={get(item, 'news_image')} alt='news-main-img' className={'w-[690px] h-[468px] object-cover'}/>
                                 <p className={'text-[#2E6DFF] mt-[30px] font-bold'}>Yangilik {dayjs(get(item, 'news_datetime')).format("DD.MM.YYYY")}</p>
-                                <Link href={`/news/${get(news, 'data.id')}`}>
+                                <Link href={`/news/${get(item, 'id')}`}>
                                     <h2 className={'text-2xl  font-bold text-[#001A57] hover:text-[#2E6DFF] hover:underline mt-[20px] w-[690px]'}>{get(item, 'news_title')}</h2>
                                 </Link>
                                 <p className={'text-[#A9AFC5] mt-[10px] w-[690px]'}>{get(item, 'news_desc')}</p>
@@ -214,25 +212,27 @@ export default function Home() {
 
                 <div className={'col-span-6'}>
                     <ul className={'grid grid-rows-12 '}>
+
                         {
-                            drop(get(data, 'data.results', []).map(item =>
+                            slice(drop(get(data, 'data.results', []).map(item =>
                                 <li key={get(item, 'id')} className={'row-span-4'}>
+
                                     <div className={'flex gap-x-[30px]'}>
                                         <div className={'w-[408px]'}>
                                             <p className={'text-[#2E6DFF] mb-[20px] font-bold'}>Yangilik {dayjs(get(item, 'news_datetime')).format("DD.MM.YYYY")}</p>
-                                            <Link href={`news/${get(news, 'data.results[id]')}`}>
+                                            <Link href={`/news/${get(item, 'id')}`}>
                                                 <h2 className={'text-xl hover:text-[#2E6DFF] hover:underline font-bold'}>{get(item, 'news_title')}</h2>
                                             </Link>
                                         </div>
 
-                                        <img src={get(item, 'news_image')} alt={'news-img'} className={'w-[330px] h-[189px] object-contain'}/>
+                                        <img src={get(item, 'news_image')} alt={'news-img'} className={'w-[330px] h-[189px] object-cover'}/>
                                     </div>
 
                                     <div className={'w-full h-[1px] bg-gray-900 my-[30px]'}></div>
                                 </li>
 
 
-                            ))
+                            )), 0, 3)
                         }
                     </ul>
                 </div>
