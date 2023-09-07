@@ -149,7 +149,7 @@ export default function Home() {
                     <Image src={'/icons/arrow-left.svg'} alt={'right'} width={44} height={44}/>
                 </button>
 
-                <Swiper modules={[Autoplay, Pagination, Navigation]} autoplay={{delay: 3000, disableOnInteraction: false}}loop={true} className={'mx-auto container mt-[20px] flex items-center justify-center gap-x-[76px]'}>
+                <Swiper modules={[Autoplay, Pagination, Navigation]} autoplay={{delay: 3000, disableOnInteraction: false}}loop={true} className={'mx-auto container flex items-center justify-center gap-x-[76px]'}>
                     <SwiperButtonPrev/>
                     {
                         get(discussion, 'data.results', []).map(item =>
