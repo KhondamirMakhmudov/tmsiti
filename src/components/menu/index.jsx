@@ -69,7 +69,7 @@ export const menuData = [
     {
         id: 4,
         title: 'Tizimlar',
-        url: '/systems',
+        url: '/',
         filterUrl:'',
         subMenu: [
             {
@@ -143,7 +143,7 @@ const Menu = ({active = 0, className}) => {
                     {
                         menuData.map(item => <li key={get(item, 'id')} className={'dropdown relative'}>
                             <Link
-                                className={clsx('hover:text-[#2E6DFF] font-semibold transition-all border-b border-b-transparent font-medium uppercase', {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
+                                className={clsx('hover:text-[#2E6DFF] font-semibold transition-all border-b border-b-transparent  uppercase', {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
                                 href={get(item, 'url')}>{t(get(item, 'title'))}
                             </Link>
 
@@ -154,7 +154,7 @@ const Menu = ({active = 0, className}) => {
 
                                             <Link
                                                 key={get(subItem, 'id')}
-                                                className={clsx('hover:text-[#2E6DFF] font-semibold  transition-all text-sm border-b-transparent font-medium uppercase', {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
+                                                className={clsx('hover:text-[#2E6DFF] transition-all text-sm border-b-transparent font-medium uppercase', {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
                                                 href={get(subItem, 'url')}>
 
                                                         <li className={'p-[10px] border-b-[1px] border-b-[#D6E0F5]'}>{t(get(subItem, 'title'))}</li>

@@ -5,27 +5,39 @@ import Link from "next/link";
 import Title from "@/components/title";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {Autoplay, Pagination, Navigation, A11y} from "swiper/modules"
-
-// Import Swiper styles
-import 'swiper/css';
-
-import { useSwiper } from 'swiper/react';
-
-import {SwiperButtons} from "@/components/buttons";
 import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
 import {KEYS} from "@/constants/key";
 import {URLS} from "@/constants/url";
 import {drop, get, head, slice} from "lodash";
 import dayjs from "dayjs";
-import {SwiperButtonNext} from "@/components/buttons/swiperButtonNext";
-import React, {useState} from "react";
-import {SwiperButtonPrev} from "@/components/buttons/swiperButtonPrev";
+import React, {useEffect, useState} from "react";
+import {motion, useAnimation} from "framer-motion";
+
+
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/navigation';
+
+
+
 
 
 
 export default function Home() {
+    const controls = useAnimation();
 
-    const swiper = useSwiper();
+    const handleScroll = () => {
+        const scrollY = window.scrollY;
+        controls.start({ translateY: 1, opacity: 1, translateX: 0 });
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
 
     const {data, isLoading} = useGetTMSITIQuery({
         key: KEYS.news,
@@ -39,29 +51,16 @@ export default function Home() {
         key: KEYS.discuss
     })
 
-    const [currentIndex, setCurrentIndex] = useState(0);
 
 
-    const prevSlide = () => {
-        const isFirstSlide = currentIndex === 0;
-        const newIndex = isFirstSlide ? get(data, 'data.results', []).length - 1 : currentIndex - 1
-        setCurrentIndex(newIndex)
-    }
 
-    const nextSlide = () => {
-        const isLastSlide = currentIndex === get(data, 'data.results', []).length - 1;
-        const newIndex = isLastSlide ? 0 : currentIndex + 1;
-        setCurrentIndex(newIndex)
-    }
 
   return (
     <Main>
-        <Menu active={0} className={'relative z-30'} />
+        <Menu active={0} className={'relative z-30 !mb-0'} />
 
         <section className={'container mx-auto grid grid-cols-12 gap-x-[30px] items-center'}>
-            <div
-
-                        className={'col-span-5'}>
+            <div className={'col-span-5'}>
                 <h1 className={'text-[64px] text-[#14255B] font-bold mb-[90px]'}>
                     Biz qurilishda taraqqiyotni ilhomlantiramiz.
                 </h1>
@@ -114,43 +113,16 @@ export default function Home() {
             </div>
         </section>
 
-        {/*<section className={'h-[130px] w-full bg-[#001A57] flex items-center justify-center text-[#fff]'}>*/}
 
-        {/*    <div className={'mx-auto container flex justify-between items-center gap-x-[76px]'}>*/}
-        {/*        <button>*/}
-        {/*            <Image src={'/icons/arrow-left.svg'} alt={'right'} width={44} height={44}/>*/}
-        {/*        </button>*/}
-
-        {/*        <div className={'flex items-center justify-between gap-x-[30px]'}>*/}
-        {/*            <div>*/}
-        {/*                <h4 className={'text-base'}>Muhokamalar</h4>*/}
-        {/*                <p className={'text-[#BCBCBC] text-[14px]'}>Iyul 15-25, 2023</p>*/}
-        {/*            </div>*/}
-
-        {/*            <div className={'w-[1px] h-[80px] bg-white'}></div>*/}
-
-        {/*            <div>*/}
-        {/*                <h4 className={'text-2xl'}>ShNK 1.02.07-19 - Qurilish uchun muhandislik-texnik izlanishlar. Asosiy qoidalar</h4>*/}
-        {/*                <p className={'text-base text-[#BCBCBC]'}>Shaharsozlik normalari va qoidalariga kiritilayotga o‘zgartirishlarga o‘z fikringizni bildiring, muhokalarda ishtirok eting!</p>*/}
-        {/*            </div>*/}
-
-        {/*        </div>*/}
-
-
-        {/*        <button>*/}
-        {/*            <Image src={'/icons/arrow-right.svg'} alt={'right'} width={44} height={44}/>*/}
-        {/*        </button>*/}
-        {/*    </div>*/}
-        {/*</section>*/}
-
-        <section className={'h-[130px] mt-[40px] w-full bg-[#001A57] flex items-center justify-center text-[#fff]'}>
+        <section className={'h-[130px]  w-full bg-[#001A57] flex items-center justify-center text-[#fff]'}>
             <div className={' container mx-auto'}>
-                <button>
-                    <Image src={'/icons/arrow-left.svg'} alt={'right'} width={44} height={44}/>
-                </button>
 
-                <Swiper modules={[Autoplay, Pagination, Navigation]} autoplay={{delay: 3000, disableOnInteraction: false}}loop={true} className={'mx-auto container flex items-center justify-center gap-x-[76px]'}>
-                    <SwiperButtonPrev/>
+
+                <Swiper
+                    modules={[Pagination, Navigation]}
+                    navigation={true}
+                    loop={true} className={'mx-auto container flex items-center justify-center gap-x-[76px]'}>
+
                     {
                         get(discussion, 'data.results', []).map(item =>
                             // eslint-disable-next-line react/jsx-key
@@ -164,7 +136,9 @@ export default function Home() {
                                     <div className={'w-[1px] h-[80px] bg-white'}></div>
 
                                     <div className={'w-[975px]'}>
-                                        <h4 className={'text-2xl'}>{get(item, 'shnk_number')} - {get(item, 'shnk_title')}</h4>
+                                        <Link href={`/discussion/${get(item, 'id', '')}`} className={'hover:underline cursor-pointer transition-all duration-500'}>
+                                            <h4 className={'text-2xl'}>{get(item, 'shnk_number')} - {get(item, 'shnk_title')}</h4>
+                                        </Link>
                                         <p className={'text-base text-[#BCBCBC]'}>{get(item, 'shnk_description')}</p>
                                     </div>
 
@@ -174,17 +148,20 @@ export default function Home() {
                     }
 
 
-                    <SwiperButtonNext/>
+
                 </Swiper>
 
-                <button>
-                    <Image src={'/icons/arrow-right.svg'} alt={'left'} width={44} height={44}/>
-                </button>
+
+
             </div>
         </section>
-
-        <section className={'mb-[82px]'}>
+ 
+        <motion.section
+            initial={{ translateY: 100 , opacity: 0}}
+            animate={controls}
+            className={'mb-[82px]'}>
             <div className={'grid grid-cols-12 container mx-auto'}>
+
                 <div className={'col-span-12 flex justify-between pt-[50px] pb-[30px] items-end '}>
                     <Title>
                         So‘nggi yangiliklar
@@ -195,7 +172,10 @@ export default function Home() {
                     </Link>
                 </div>
 
-                <div className={'col-span-6'}>
+                <motion.div
+                    initial={{translateY: 200, opacity: 0}}
+                    animate={controls}
+                    className={'col-span-6'}>
                     {
                         head(get(data, 'data.results', []).map(item =>
                             <div key={get(item, 'id')}>
@@ -208,14 +188,14 @@ export default function Home() {
                             </div>
                         ))
                     }
-                </div>
+                </motion.div>
 
                 <div className={'col-span-6'}>
                     <ul className={'grid grid-rows-12 '}>
 
                         {
                             slice(drop(get(data, 'data.results', []).map(item =>
-                                <li key={get(item, 'id')} className={'row-span-4'}>
+                                <motion.li initial={{translateX: 100, opacity: 0}} animate={controls} key={get(item, 'id')} className={'row-span-4'}>
 
                                     <div className={'flex gap-x-[30px]'}>
                                         <div className={'w-[408px]'}>
@@ -229,7 +209,7 @@ export default function Home() {
                                     </div>
 
                                     <div className={'w-full h-[1px] bg-gray-900 my-[30px]'}></div>
-                                </li>
+                                </motion.li>
 
 
                             )), 0, 3)
@@ -237,7 +217,7 @@ export default function Home() {
                     </ul>
                 </div>
             </div>
-        </section>
+        </motion.section>
     </Main>
   )
 }
