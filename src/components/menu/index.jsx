@@ -4,6 +4,7 @@ import {get, isEmpty, isEqual, isNull} from "lodash"
 import clsx from "clsx";
 import {useTranslation} from "react-i18next";
 import Brand from "@/components/brand";
+import {motion} from "framer-motion";
 
 export const menuData = [
     {
@@ -75,7 +76,7 @@ export const menuData = [
             {
                 id: 1,
                 title: 'Klassifikator',
-                url: 'https://catalog-tmsiti.vercel.app/classifier',
+                url: 'https://catalog.tmsiti.uz/classifier',
             },
             //
             // {
@@ -135,7 +136,7 @@ export const menuData = [
 const Menu = ({active = 0, className}) => {
     const {t} = useTranslation()
     return (
-        <div className={` bg-[#fff]  py-5  mb-[50px] ${className}`}>
+        <motion.div initial={{ opacity:0, top: 100 }} animate={{ opacity: 1, top: 0 }} className={` bg-[#fff]  py-5  mb-[50px] ${className}`}>
             <div className={'container mx-auto flex justify-between items-center'}>
                 <Brand/>
 
@@ -171,7 +172,7 @@ const Menu = ({active = 0, className}) => {
                 </ul>
             </div>
 
-        </div>
+        </motion.div>
     );
 };
 

@@ -28,7 +28,7 @@ export default function Home() {
 
     const handleScroll = () => {
         const scrollY = window.scrollY;
-        controls.start({ translateY: 1, opacity: 1, translateX: 0 });
+        controls.start({ translateY: 1, opacity: 1, translateX: 0});
     }
 
     useEffect(() => {
@@ -61,12 +61,12 @@ export default function Home() {
 
         <section className={'container mx-auto grid grid-cols-12 gap-x-[30px] items-center'}>
             <div className={'col-span-5'}>
-                <h1 className={'text-[64px] text-[#14255B] font-bold mb-[90px]'}>
+                <motion.h1 initial={{scale: 0.01}} transition={{delay: 0.3}} animate={{scale: 1}} className={'text-[64px] text-[#14255B] font-bold mb-[90px]'}>
                     Biz qurilishda taraqqiyotni ilhomlantiramiz.
-                </h1>
+                </motion.h1>
 
                 <div className={'flex gap-x-[30px]'}>
-                    <div className={'p-[15px] border-t-[1px] border-[#14255B]'}>
+                    <motion.div initial={{scale: 0.01}} transition={{delay: 0.5}} animate={{scale: 1}} className={'p-[15px] border-t-[1px] border-[#14255B]'}>
                         <Link href={'/shnk'} className={'uppercase text-[#2E6DFF] text-base'}>
                             Shnq
                         </Link>
@@ -74,9 +74,9 @@ export default function Home() {
                         <Link href={'/shnk'} className={'text-[#001A57] hover:text-[#5D84CB] hover:underline text-2xl font-bold transition-all duration-400'}>
                             <p>Shaharsozlik normalari va qoidalari</p>
                         </Link>
-                    </div>
+                    </motion.div>
 
-                    <div className={'p-[15px] border-t-[1px] border-[#14255B]'}>
+                    <motion.div initial={{scale: 0.01}} transition={{delay: 0.7}} animate={{scale: 1}} className={'p-[15px] border-t-[1px] border-[#14255B]'}>
                         <Link href={'/standards'} className={'uppercase text-[#2E6DFF] text-base'}>
                             Standartlar
                         </Link>
@@ -84,10 +84,10 @@ export default function Home() {
                         <Link href={'/standards'} className={'text-[#001A57] hover:text-[#5D84CB] hover:underline text-2xl font-bold transition-all duration-400'}>
                             <p>Texnik jihatdan tartib solish sohasidagi normativ hujjatlar</p>
                         </Link>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
-            <div className={'col-span-7'}>
+            <motion.div initial={{translateX: 500, opacity: 0.001}} animate={{translateX: 0, opacity: 1}} transition={{delay: 1}} className={'col-span-7'}>
                 {/*<ImageGallery items={images} infinite showPlayButton />*/}
                 <Swiper loop={true} centeredSlides={true} autoplay={{delay: 3000, disableOnInteraction: false}} className={'absolute z-10'} modules={[Autoplay, Pagination, Navigation]}>
                     <SwiperSlide className={'swiper-slide'}>
@@ -110,12 +110,12 @@ export default function Home() {
                         <Image src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
                     </SwiperSlide>
                 </Swiper>
-            </div>
+            </motion.div>
         </section>
 
 
         <section className={'h-[130px]  w-full bg-[#001A57] flex items-center justify-center text-[#fff]'}>
-            <div className={' container mx-auto'}>
+            <motion.div initial={{translateY: 100 , opacity: 0}} animate={controls}  className={' container mx-auto'}>
 
 
                 <Swiper
@@ -153,7 +153,7 @@ export default function Home() {
 
 
 
-            </div>
+            </motion.div>
         </section>
  
         <motion.section
