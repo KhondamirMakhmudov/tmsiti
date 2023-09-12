@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Lang from "@/components/lang";
-import Marquee from "react-fast-marquee";
+
 
 
 

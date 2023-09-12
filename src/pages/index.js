@@ -201,7 +201,7 @@ export default function Home() {
                                         <div className={'w-[408px]'}>
                                             <p className={'text-[#2E6DFF] mb-[20px] font-bold'}>Yangilik {dayjs(get(item, 'news_datetime')).format("DD.MM.YYYY")}</p>
                                             <Link href={`/news/${get(item, 'id')}`}>
-                                                <h2 className={'text-xl hover:text-[#2E6DFF] hover:underline font-bold'}>{get(item, 'news_title')}</h2>
+                                                <h2 className={'text-xl hover:text-[#2E6DFF] hover:underline font-bold line-clamp-5'}>{get(item, 'news_title')}</h2>
                                             </Link>
                                         </div>
 
