@@ -8,12 +8,14 @@ import {get} from "lodash";
 import NewsTemplate from "@/components/news-template";
 import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
 import {useRouter} from "next/router";
+import {motion} from "framer-motion";
+import SkeletonLoader from "@/components/loader/skeleton";
 
 
 const News = () => {
 
 
-    const {data: news, isLoading:isLoadingNews} = useGetTMSITIQuery({key: KEYS.news,
+    const {data: news, isLoading:isLoadingNews, isFetching: isFetchingNews} = useGetTMSITIQuery({key: KEYS.news,
         url: URLS.news,
     })
 
@@ -24,23 +26,26 @@ const News = () => {
             <Menu active={0}/>
 
             <div className={'grid grid-cols-12 gap-x-[30px] container mx-auto'}>
-                <div className={'col-span-12 mt-[50px] mb-[30px]'}>
+                <motion.div initial={{translateX: '-200px'}} animate={{translateX: '0px'}}  className={'col-span-12 mt-[50px] mb-[30px]'}>
                     <Title>
                         Barcha yangiliklar
                     </Title>
-                </div>
+                </motion.div>
 
                 <ul className={'col-span-12'}>
                     {
                         get(news, 'data.results', []).map(newsItem =>
                             <li key={get(newsItem, 'id')}>
-                                <NewsTemplate
-                                    imgUrl={(get(newsItem, 'news_image'))}
-                                    dateTime={get(newsItem, 'news_datetime')}
-                                    title={get(newsItem, 'news_title')}
-                                    description={get(newsItem, 'news_desc')}
-                                    url={`/news/${get(newsItem,'id','#')}`}
-                                />
+                                {isFetchingNews ? <SkeletonLoader/> :
+                                    <NewsTemplate
+                                        imgUrl={(get(newsItem, 'news_image'))}
+                                        dateTime={get(newsItem, 'news_datetime')}
+                                        title={get(newsItem, 'news_title')}
+                                        description={get(newsItem, 'news_desc')}
+                                        url={`/news/${get(newsItem,'id','#')}`}
+                                    />
+                                }
+
                             </li>
                         )
                     }

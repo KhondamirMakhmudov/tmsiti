@@ -18,6 +18,10 @@ const SHNQ = () => {
     const [docId, setDocId] = useState(null);
     const [toggleSubSystem, setToggleSubSystem] = useState(true)
     const [toggleGroup, setToggleGroup] = useState(true)
+    const [showSystem, setShowSystem] = useState(false)
+    const [showGroup, setShowGroup] = useState(false);
+
+
 
 
     const {data: subSystem, isLoading: isLoadingSystem} = useGetSHNKQuery({
@@ -59,14 +63,14 @@ const SHNQ = () => {
             <Menu/>
 
             <section className={"grid grid-cols-12 container mx-auto mb-[50px]"}>
-                <div className={"col-span-12"}>
+                <motion.div initial={{translateX: '-200px'}} animate={{translateX: '0px'}} transition={{duration: 0.3}} className={"col-span-12"}>
                     <Title>
                         Shaharsozlik normalari va qoidalari
                     </Title>
-                </div>
+                </motion.div>
 
                 <div className={'col-span-12 '}>
-                    <ul>
+                    <motion.ul initial={{translateX: '-200px'}} animate={{translateX: '0px'}}>
                         {
                             get(subSystem, 'data', []).map((item, i) =>
                                 <li  onClick={(e) => {
@@ -74,10 +78,11 @@ const SHNQ = () => {
                                     setSystemId(get(item, 'id'));
                                     setGroupId(null);
                                     setDocId(null);
+                                    setShowSystem(!showSystem)
                                 }} key={get(item, 'id')}
                                     className={clsx('mb-[20px] transition cursor-pointer text-2xl font-semibold ', {
-                                        'text-[#1B41C6] font-medium hover:bg-transparent': get(item, 'id') == systemId,
-                                        '!mb-0': get(subSystem, 'data', [])?.length == i + 1
+                                        'text-[#1B41C6] font-medium hover:bg-transparent': get(item, 'id') === systemId,
+                                        '!mb-0': get(subSystem, 'data', [])?.length === i + 1
                                     })}
                                 >
                                     <div className={'flex justify-between items-center'}>
@@ -87,20 +92,21 @@ const SHNQ = () => {
 
                                     </div>
                                     {get(item, 'id') === systemId && ((isLoadingGroup) ?
-                                            <h1>Yuklanmoqda...</h1> : (toggleSubSystem &&
-                                                <ul className={'py-3'}>
+                                            <h1>Yuklanmoqda...</h1> : (toggleSubSystem && !showSystem &&
+                                                <motion.ul initial={{opacity: 0, translateY: "30px"}} animate={{opacity: 1, translateY: "0px"}} className={'py-3'}>
                                                     {get(group, 'data', []).map((groupItem, j) =>
                                                         <li
                                                             onClick={(e) => {
                                                                 e.stopPropagation();
                                                                 setGroupId(get(groupItem, 'id'));
                                                                 setDocId(null)
+                                                                setShowGroup(!showGroup)
                                                             }
                                                             }
                                                             key={get(groupItem, 'id')}
                                                             className={clsx(' py-[10px]  text-[#1A4DC2] border-b  text-lg border-b-black transition cursor-pointer  hover:text-[#1B41C6] font-medium', {
-                                                                '!text-[#017EFA]': get(groupItem, 'id') == groupId,
-                                                                '!mb-[10px]': get(group, 'data.results', [])?.length == j + 1
+                                                                '!text-[#017EFA]': get(groupItem, 'id') === groupId,
+                                                                '!mb-[10px]': get(group, 'data.results', [])?.length === j + 1
                                                             })}>
                                                             <div className={'flex justify-between items-center'}>
                                                                 <p onClick={(e) => {
@@ -117,8 +123,8 @@ const SHNQ = () => {
                                                             </div>
 
                                                             {get(groupItem, 'id') === groupId && (isLoadingDoc ?
-                                                                <h1>Yuklanmoqda...</h1> : (toggleGroup &&
-                                                                    <ul className={'mt-[10px]'}>
+                                                                <h1>Yuklanmoqda...</h1> : (toggleGroup && !showGroup && (
+                                                                    <motion.ul initial={{opacity: 0, translateY: '100px'}} animate={{opacity: 1, translateY: '0px'}} transition={{duration: 0.4}} className={'mt-[10px]'}>
                                                                         {
                                                                             get(docs, 'data', []).map(docItem =>
                                                                                 <li key={get(docItem, 'id')}
@@ -135,7 +141,7 @@ const SHNQ = () => {
                                                                                         <button
                                                                                             className={'uppercase text-[#2E6DFF]'}>
                                                                                             <Link target={'_blank'}
-                                                                                                  href={`${config.API_URL}/${get(docItem, 'shnk_pdf_link')}`}>
+                                                                                                  href={`${config.BASE_SHNK_URL}/${get(docItem, 'shnk_pdf_link')}`}>
                                                                                                 <abbr
                                                                                                     title={'pdf file(uz)'}
                                                                                                     className={'no-underline'}>uzb</abbr>
@@ -145,7 +151,7 @@ const SHNQ = () => {
                                                                                         <button
                                                                                             className={'uppercase text-[#2E6DFF]'}>
                                                                                             <Link target={'_blank'}
-                                                                                                  href={`${config.API_URL}/${get(docItem, 'shnk_pdf_link')}`}>
+                                                                                                  href={`${config.BASE_SHNK_URL}/${get(docItem, 'shnk_pdf_link')}`}>
                                                                                                 <abbr
                                                                                                     title={'pdf file(ru)'}
                                                                                                     className={'no-underline'}>rus</abbr>
@@ -155,16 +161,16 @@ const SHNQ = () => {
                                                                                 </li>
                                                                             )
                                                                         }
-                                                                    </ul>))}
+                                                                    </motion.ul>)))}
                                                         </li>
                                                     )}
-                                                </ul>)
+                                                </motion.ul>)
                                     )}
 
                                 </li>
                             )
                         }
-                    </ul>
+                    </motion.ul>
                 </div>
             </section>
         </Main>

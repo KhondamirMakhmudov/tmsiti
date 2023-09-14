@@ -27,25 +27,15 @@ body {
 .content__min_h{
   min-height: calc(100vh - 425px);
 }
+
+.dropdown-menu {
+  position: absolute;
+  transform: translateY(30px);
+
+}
+
 .dropdown:hover .dropdown-menu {
   display: block;
-}
-
-.swiper-shnk {
-  display: flex;
-
-  row-gap: 20px;
-}
-
-
-.swiper-slide-shnk {
-  width: 70%;
-}
-
-.swiper-slide-left {
-  width: 15%;
-}
-
-.swiper-slide-right {
-  width: 15%;
+  top: 100%;
+  transform: translateY(0px);
 }

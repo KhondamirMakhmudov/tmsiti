@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Link from "next/link";
 import {get, isEmpty, isEqual, isNull} from "lodash"
 import clsx from "clsx";
@@ -135,21 +135,31 @@ export const menuData = [
 ]
 const Menu = ({active = 0, className}) => {
     const {t} = useTranslation()
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
     return (
         <motion.div initial={{ opacity:0, top: 100 }} animate={{ opacity: 1, top: 0 }} className={` bg-[#fff]  py-5  mb-[50px] ${className}`}>
             <div className={'container mx-auto flex justify-between items-center'}>
                 <Brand/>
 
-                <ul className={'text-[#001A57] flex justify-between gap-x-[30px]'}>
+                <ul className={'text-[#001A57] menu flex justify-between gap-x-[30px]'}>
                     {
-                        menuData.map(item => <li key={get(item, 'id')} className={'dropdown relative'}>
+                        menuData.map(item => <li key={get(item, 'id')} className={'dropdown relative'} onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
                             <Link
                                 className={clsx('hover:text-[#2E6DFF] font-semibold transition-all border-b border-b-transparent  uppercase', {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
                                 href={get(item, 'url')}>{t(get(item, 'title'))}
                             </Link>
 
-                            {isEmpty(get(item, 'subMenu')) ? '' :
-                                <ul className={'hidden left-[-10px]  bg-gray-50 dropdown-menu absolute w-[180px] text-start  rounded-[5px]'}>
+                            {isOpen && isEmpty(get(item, 'subMenu')) ? '' :
+                                <motion.ul
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    transition={{ duration: 0.3 }}
+                                    className={'hidden translate-y-[30px] hover:translate-y-[0px] z-50  transition-all duration-500  bg-gray-50 dropdown-menu absolute w-[180px] text-start  rounded-[5px]'}>
                                     {
                                         get(item, 'subMenu', []).map(subItem =>
 
@@ -164,7 +174,7 @@ const Menu = ({active = 0, className}) => {
 
                                         )
                                     }
-                                </ul>
+                                </motion.ul>
                             }
 
                         </li>)

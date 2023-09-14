@@ -4,6 +4,7 @@ import Menu from "@/components/menu";
 import Image from "next/image";
 import Link from "next/link";
 import Title from "@/components/title";
+import {motion} from "framer-motion";
 
 const About = () => {
     const [activeButton, setActiveButton] = useState(0);
@@ -16,17 +17,17 @@ const About = () => {
         <Main>
             <Menu active={0}/>
 
-            <section className={'grid grid-cols-12 container mx-auto'}>
-                <div className={'col-span-12'}>
+            <motion.section initial={{translateX: '-200px'}} animate={{translateX: '0px'}} className={'grid grid-cols-12 container mx-auto'}>
+                <div className={'col-span-12 z-0'}>
                     <Title classNames={'col-span-12'}>
                         Biz haqimizda
                     </Title>
                 </div>
-            </section>
+            </motion.section>
 
             <section className={' flex justify-between gap-x-[30px]  container mx-auto mb-[50px]'}>
 
-                <div>
+                <motion.div initial={{translateX: '-200px'}} animate={{translateX: '0px'}} transition={{duration: 0.4}}>
                     <p className={"text-2xl mb-[30px] w-[950px]"}>O’zbekiston Respublikasi Qurilish va uy-joy kommunal xo‘jaligi vazirligi huzuridagi <strong>«Qurilishda texnik me`yorlash va standartlashtirish ilmiy-tadqiqot instituti»</strong> Davlat muassasasi O‘zbekiston Respublikasi Prezidentining 2022-yil 22-sentabrdagi <strong>“Respublikada kapital Qurilish sohasida buyurtmachi xizmati faoliyatini takomillashtirish chora-tadbirlari to‘g‘risida”</strong>gi <Link href={'https://lex.uz/uz/docs/-6203336'} className={'text-[#1A4DC2] underline'}>PQ-378-son</Link> qaroriga asosan O‘zbekiston Respublikasi Qurilish vazirligi huzurida tashkil etilgan.</p>
                     <p className={'w-[950px]'}>Qurilish vazirining 2022-yil 22-noyabrdagi 202-sonli buyrug‘iga ko‘ra Institut faoliyatining ustuvor yo‘nalishlari etib quyidagilar belgilangan:</p>
 
@@ -67,8 +68,8 @@ const About = () => {
 
                         <li>sohaga oid tegishli yo‘nalishlarda kadrlarni maqsadli tayyorlash va malakasini oshirish (shu jumladan, mahalliy va xorijiy ta’lim va ilmiy-tadqiqot muassasalari bilan hamkorlikda yoki qo‘shma ta’lim dasturlari asosida).</li>
                     </ul>
-                </div>
-                <div>
+                </motion.div>
+                <motion.div initial={{translateX: '200px'}} animate={{translateX: '0px'}} transition={{duration: 0.4}}>
                     <img src={'/images/certificate.png'} alt={'certificate'} className={'w-[450px] mb-[30px]'}/>
 
 
@@ -89,7 +90,7 @@ const About = () => {
 
 
                     </div>
-                </div>
+                </motion.div>
             </section>
 
 
