@@ -5,6 +5,8 @@ import clsx from "clsx";
 import {useTranslation} from "react-i18next";
 import Brand from "@/components/brand";
 import {motion} from "framer-motion";
+import MenuIcon from '@mui/icons-material/Menu';
+import {Button, MenuItem} from "@mui/material";
 
 export const menuData = [
     {
@@ -141,11 +143,11 @@ const Menu = ({active = 0, className}) => {
         setIsOpen(!isOpen);
     };
     return (
-        <motion.div initial={{ opacity:0, top: 100 }} animate={{ opacity: 1, top: 0 }} className={` bg-[#fff]  py-5  mb-[50px] ${className}`}>
+        <motion.div initial={{ opacity:0, top: 100 }} animate={{ opacity: 1, top: 0 }} className={` bg-[#fff]  py-5 px-5 md:px-0  mb-[50px] ${className}`}>
             <div className={'container mx-auto flex justify-between items-center'}>
                 <Brand/>
 
-                <ul className={'text-[#001A57] menu flex justify-between gap-x-[30px]'}>
+                <ul className={'md:flex text-[#001A57] menu hidden justify-between gap-x-[30px]'}>
                     {
                         menuData.map(item => <li key={get(item, 'id')} className={'dropdown relative'} onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
                             <Link
@@ -180,6 +182,12 @@ const Menu = ({active = 0, className}) => {
                         </li>)
                     }
                 </ul>
+
+                <Button className={"inline-block md:hidden"} variant={"text"}>
+                    <MenuIcon />
+                </Button>
+
+
             </div>
 
         </motion.div>

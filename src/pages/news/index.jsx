@@ -36,7 +36,7 @@ const News = () => {
                     {
                         get(news, 'data.results', []).map(newsItem =>
                             <li key={get(newsItem, 'id')}>
-                                {isFetchingNews ? <SkeletonLoader/> :
+                                {isFetchingNews && isLoadingNews ? <SkeletonLoader/> :
                                     <NewsTemplate
                                         imgUrl={(get(newsItem, 'news_image'))}
                                         dateTime={get(newsItem, 'news_datetime')}

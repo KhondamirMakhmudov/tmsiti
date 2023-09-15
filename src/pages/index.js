@@ -60,34 +60,34 @@ export default function Home() {
         <Menu active={0} className={'relative z-30 !mb-0'} />
 
         <section className={'container mx-auto grid grid-cols-12 gap-x-[30px] items-center'}>
-            <div className={'col-span-5'}>
-                <motion.h1 initial={{scale: 0.01}} transition={{delay: 0.3}} animate={{scale: 1}} className={'text-[64px] text-[#14255B] font-bold mb-[90px]'}>
+            <div className={'col-span-12 md:col-span-5  relative  before:absolute md:before:object-none before:object-cover md:before:opacity-100 before:opacity-60  before:inset-0  before:bg-pattern md:before:bg-none   md:bg-none'} >
+                <motion.h1 initial={{scale: 0.01}} transition={{delay: 0.3}} animate={{scale: 1}} className={' px-[10px] md:px-0 md:text-[64px] relative text-[45px] text-[#14255B] font-bold md:mb-[90px] mb-[50px]'}>
                     Biz qurilishda taraqqiyotni ilhomlantiramiz.
                 </motion.h1>
 
-                <div className={'flex gap-x-[30px]'}>
-                    <motion.div initial={{scale: 0.01}} transition={{delay: 0.5}} animate={{scale: 1}} className={'p-[15px] border-t-[1px] border-[#14255B]'}>
-                        <Link href={'/shnk'} className={'uppercase text-[#2E6DFF] text-base'}>
+                <div className={'flex gap-x-[30px] relative px-[10px] md:px-0'}>
+                    <motion.div initial={{scale: 0.01}} transition={{delay: 0.5}} animate={{scale: 1}} className={'p-[15px]  border-t-[1px] border-[#14255B]'}>
+                        <Link href={'/shnk'} className={'uppercase text-[#2E6DFF] text-sm md:text-base'}>
                             Shnq
                         </Link>
 
-                        <Link href={'/shnk'} className={'text-[#001A57] hover:text-[#5D84CB] hover:underline text-2xl font-bold transition-all duration-400'}>
+                        <Link href={'/shnk'} className={'text-[#001A57] hover:text-[#5D84CB] hover:underline md:text-2xl text-xl font-bold transition-all duration-400'}>
                             <p>Shaharsozlik normalari va qoidalari</p>
                         </Link>
                     </motion.div>
 
                     <motion.div initial={{scale: 0.01}} transition={{delay: 0.7}} animate={{scale: 1}} className={'p-[15px] border-t-[1px] border-[#14255B]'}>
-                        <Link href={'/standards'} className={'uppercase text-[#2E6DFF] text-base'}>
+                        <Link href={'/standards'} className={'uppercase text-[#2E6DFF] text-sm md:text-base'}>
                             Standartlar
                         </Link>
 
-                        <Link href={'/standards'} className={'text-[#001A57] hover:text-[#5D84CB] hover:underline text-2xl font-bold transition-all duration-400'}>
+                        <Link href={'/standards'} className={'text-[#001A57] hover:text-[#5D84CB] hover:underline md:text-2xl text-xl font-bold transition-all duration-400'}>
                             <p>Texnik jihatdan tartib solish sohasidagi normativ hujjatlar</p>
                         </Link>
                     </motion.div>
                 </div>
             </div>
-            <motion.div initial={{translateX: 500, opacity: 0.001}} animate={{translateX: 0, opacity: 1}} transition={{delay: 1}} className={'col-span-7'}>
+            <motion.div initial={{translateX: 500, opacity: 0.001}} animate={{translateX: 0, opacity: 1}} transition={{delay: 1}} className={'md:col-span-7 md:block hidden'}>
                 {/*<ImageGallery items={images} infinite showPlayButton />*/}
                 <Swiper loop={true} centeredSlides={true} autoplay={{delay: 3000, disableOnInteraction: false}} className={'absolute z-10'} modules={[Autoplay, Pagination, Navigation]}>
                     <SwiperSlide className={'swiper-slide'}>
