@@ -141,7 +141,7 @@ const SHNQ = () => {
                                                                                         <button
                                                                                             className={'uppercase text-[#2E6DFF]'}>
                                                                                             <Link target={'_blank'}
-                                                                                                  href={`${config.BASE_SHNK_URL}/${get(docItem, 'shnk_pdf_link')}`}>
+                                                                                                  href={`${config.BASE_SHNK_URL}${get(docItem, 'shnk_pdf_link')}`}>
                                                                                                 <abbr
                                                                                                     title={'pdf file(uz)'}
                                                                                                     className={'no-underline'}>uzb</abbr>
@@ -151,7 +151,7 @@ const SHNQ = () => {
                                                                                         <button
                                                                                             className={'uppercase text-[#2E6DFF]'}>
                                                                                             <Link target={'_blank'}
-                                                                                                  href={`${config.BASE_SHNK_URL}/${get(docItem, 'shnk_pdf_link')}`}>
+                                                                                                  href={`${config.BASE_SHNK_URL}${get(docItem, 'shnk_pdf_link')}`}>
                                                                                                 <abbr
                                                                                                     title={'pdf file(ru)'}
                                                                                                     className={'no-underline'}>rus</abbr>
