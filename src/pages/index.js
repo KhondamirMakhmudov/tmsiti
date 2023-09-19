@@ -60,7 +60,7 @@ export default function Home() {
         <Menu active={0} className={'relative z-30 !mb-0'} />
 
         <section className={'container mx-auto grid grid-cols-12 gap-x-[30px] items-center'}>
-            <div className={'col-span-12 md:col-span-5   '} >
+            <div className={'col-span-12 md:col-span-5'} >
 
                 <div className={"relative h-[450px] md:h-auto md:before:bg-none flex justify-center text-center before:absolute md:before:object-none before:opacity-60   before:inset-0 before:bg-pattern md:text-start before:object-cover before:h-[450px]"}>
                     <motion.h1 initial={{scale: 0.01}} transition={{delay: 0.3}} animate={{scale: 1}} className={' px-5 md:px-0 md:text-[64px] relative top-[100px] md:top-0 text-[45px] text-[#14255B] font-bold md:mb-[90px] mb-[50px]'}>
