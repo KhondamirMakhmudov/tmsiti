@@ -60,13 +60,17 @@ export default function Home() {
         <Menu active={0} className={'relative z-30 !mb-0'} />
 
         <section className={'container mx-auto grid grid-cols-12 gap-x-[30px] items-center'}>
-            <div className={'col-span-12 md:col-span-5  relative  before:absolute md:before:object-none before:object-cover md:before:opacity-100 before:opacity-60  before:inset-0  before:bg-pattern md:before:bg-none   md:bg-none'} >
-                <motion.h1 initial={{scale: 0.01}} transition={{delay: 0.3}} animate={{scale: 1}} className={' px-[10px] md:px-0 md:text-[64px] relative text-[45px] text-[#14255B] font-bold md:mb-[90px] mb-[50px]'}>
-                    Biz qurilishda taraqqiyotni ilhomlantiramiz.
-                </motion.h1>
+            <div className={'col-span-12 md:col-span-5   '} >
 
-                <div className={'flex gap-x-[30px] relative px-[10px] md:px-0'}>
-                    <motion.div initial={{scale: 0.01}} transition={{delay: 0.5}} animate={{scale: 1}} className={'p-[15px]  border-t-[1px] border-[#14255B]'}>
+                <div className={"relative h-[450px] md:h-auto md:before:bg-none flex justify-center text-center before:absolute md:before:object-none before:opacity-60   before:inset-0 before:bg-pattern md:text-start before:object-cover before:h-[450px]"}>
+                    <motion.h1 initial={{scale: 0.01}} transition={{delay: 0.3}} animate={{scale: 1}} className={' px-5 md:px-0 md:text-[64px] relative top-[100px] md:top-0 text-[45px] text-[#14255B] font-bold md:mb-[90px] mb-[50px]'}>
+                        Biz qurilishda taraqqiyotni ilhomlantiramiz.
+                    </motion.h1>
+                </div>
+
+
+                <div className={'flex flex-col md:flex-row gap-x-[30px] relative px-5 md:px-0'}>
+                    <motion.div initial={{scale: 0.01}} transition={{delay: 0.5}} animate={{scale: 1}} className={'p-[15px]  md:border-t-[1px] border-t-[0px]  border-[#14255B]'}>
                         <Link href={'/shnk'} className={'uppercase text-[#2E6DFF] text-sm md:text-base'}>
                             Shnq
                         </Link>
@@ -76,7 +80,7 @@ export default function Home() {
                         </Link>
                     </motion.div>
 
-                    <motion.div initial={{scale: 0.01}} transition={{delay: 0.7}} animate={{scale: 1}} className={'p-[15px] border-t-[1px] border-[#14255B]'}>
+                    <motion.div initial={{scale: 0.01}} transition={{delay: 0.7}} animate={{scale: 1}} className={'p-[15px] md:border-t-[1px] border-t-[0px] border-[#14255B]'}>
                         <Link href={'/standards'} className={'uppercase text-[#2E6DFF] text-sm md:text-base'}>
                             Standartlar
                         </Link>
@@ -127,19 +131,19 @@ export default function Home() {
                         get(discussion, 'data.results', []).map(item =>
                             // eslint-disable-next-line react/jsx-key
                             <SwiperSlide>
-                                <div className={'flex items-center justify-center  gap-x-[30px]'}>
+                                <div className={'flex items-center justify-center  gap-x-[30px] px-[20px]'}>
                                     <div>
-                                        <h4 className={'text-base'}>Muhokamalar</h4>
-                                        <p className={'text-[#BCBCBC] text-[14px]'}>{dayjs(get(item, 'shnk_datetime')).format("MMM DD-MM, YYYY")}</p>
+                                        <h4 className={'text-sm md:text-base'}>Muhokamalar</h4>
+                                        <p className={'text-[#BCBCBC] text-[14px] text-xs md:text-[14px]'}>{dayjs(get(item, 'shnk_datetime')).format("MMM DD-MM, YYYY")}</p>
                                     </div>
 
                                     <div className={'w-[1px] h-[80px] bg-white'}></div>
 
                                     <div className={'w-[975px]'}>
                                         <Link href={`/discussion/${get(item, 'id', '')}`} className={'hover:underline cursor-pointer transition-all duration-500'}>
-                                            <h4 className={'text-2xl'}>{get(item, 'shnk_number')} - {get(item, 'shnk_title')}</h4>
+                                            <h4 className={'md:text-2xl text-base'}>{get(item, 'shnk_number')} - {get(item, 'shnk_title')}</h4>
                                         </Link>
-                                        <p className={'text-base text-[#BCBCBC]'}>{get(item, 'shnk_description')}</p>
+                                        <p className={'text-xs md:text-base line-clamp-2 md:line-clamp-none text-[#BCBCBC]'}>{get(item, 'shnk_description')}</p>
                                     </div>
 
                                 </div>
@@ -147,15 +151,13 @@ export default function Home() {
                         )
                     }
 
-
-
                 </Swiper>
 
 
 
             </motion.div>
         </section>
- 
+
         <motion.section
             initial={{ translateY: 100 , opacity: 0}}
             animate={controls}
@@ -175,22 +177,22 @@ export default function Home() {
                 <motion.div
                     initial={{translateY: 200, opacity: 0}}
                     animate={controls}
-                    className={'col-span-6'}>
+                    className={'md:col-span-6 col-span-12 pb-[20px] mb-[20px] md:pb-0 mb:mb-0 md:border-b-0 md:border-none border-b-[#C5C6C7] border-b-[1px]'}>
                     {
                         head(get(data, 'data.results', []).map(item =>
                             <div key={get(item, 'id')}>
                                 <img src={get(item, 'news_image')} alt='news-main-img' className={'w-[690px] h-[468px] object-cover'}/>
                                 <p className={'text-[#2E6DFF] mt-[30px] font-bold'}>Yangilik {dayjs(get(item, 'news_datetime')).format("DD.MM.YYYY")}</p>
                                 <Link href={`/news/${get(item, 'id')}`}>
-                                    <h2 className={'text-2xl  font-bold text-[#001A57] hover:text-[#2E6DFF] hover:underline mt-[20px] w-[690px]'}>{get(item, 'news_title')}</h2>
+                                    <h2 className={'text-2xl  font-bold text-[#001A57] hover:text-[#2E6DFF] hover:underline mt-[20px] md:w-[690px] w-[600px] md:line-clamp-none line-clamp-2'}>{get(item, 'news_title')}</h2>
                                 </Link>
-                                <p className={'text-[#A9AFC5] mt-[10px] w-[690px]'}>{get(item, 'news_desc')}</p>
+                                <p className={'text-[#A9AFC5] mt-[10px] d:w-[690px] w-[600px]'}>{get(item, 'news_desc')}</p>
                             </div>
                         ))
                     }
                 </motion.div>
 
-                <div className={'col-span-6'}>
+                <div className={'md:col-span-6 col-span-12'}>
                     <ul className={'grid grid-rows-12 '}>
 
                         {
@@ -221,5 +223,3 @@ export default function Home() {
     </Main>
   )
 }
-
-
