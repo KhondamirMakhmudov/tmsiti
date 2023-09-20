@@ -140,7 +140,8 @@ export const menuData = [
 const Menu = ({active = 0, className}) => {
     const {t} = useTranslation()
     const [isOpen, setIsOpen] = useState(false);
-    const [openMenu, setOpenMenu] = useState()
+    const [openMenu, setOpenMenu] = useState(false)
+    const [openDropdownMenu, setOpenDropdownMenu] = useState(false)
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
@@ -148,14 +149,18 @@ const Menu = ({active = 0, className}) => {
     const toggleMenu = () => {
         setOpenMenu(!openMenu)
     }
+
+    const toggleDropdownMenu = () => {
+        setOpenDropdownMenu(!openDropdownMenu)
+    }
     return (
         <motion.div initial={{ opacity:0, top: 100 }} animate={{ opacity: 1, top: 0 }} className={` bg-[#fff] py-5 px-5 md:px-0  mb-[50px] ${className}`}>
             <div className={'container mx-auto flex justify-between items-center'}>
                 <Brand/>
 
                 <div className={`${!openMenu ? "hidden" : "visible translate-x-0 transition-all duration-300 md:relative z-50 absolute top-0 md:h-auto h-screen w-screen bg-white md:bg-none right-0 md:w-auto  text-end "} md:block`}>
-                    <div className={"md:hidden flex justify-between px-[20px] py-[10px]"}>
-                        <Link href={'/'} onClick={toggleMenu}>
+                    <div className={"md:hidden flex justify-between items-center px-[20px] py-[15px]"}>
+                        <Link href={'/'} onClick={toggleMenu} className={'ml-[20px]'}>
                             {/*<Image src={'/icons/brand.svg'} alt={'brand'} className={'ml-[20px]'} width={52} height={56}/>*/}
                             <Brand />
                         </Link>
@@ -164,9 +169,47 @@ const Menu = ({active = 0, className}) => {
                             <CloseIcon/>
                         </Button>
                     </div>
-                    <ul className={`md:flex text-[#001A57] menu  justify-between gap-x-[30px]  md:mt-0 bg-[#F2F4F5] md:bg-white px-[20px] `}>
+                    {/*desktop version nav-bar*/}
+                    <ul className={`md:flex hidden text-[#001A57] menu  justify-between gap-x-[30px] bg-white `}>
                         {
-                            menuData.map(item => <li key={get(item, 'id')} className={'dropdown relative py-[18px] md:py-0  md:mb-0  text-start md:text-start'} onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
+                            menuData.map(item => <li key={get(item, 'id')} className={'dropdown relative py-0 text-start'} onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
+                                <Link
+                                    className={clsx('hover:text-[#2E6DFF] font-semibold transition-all border-b border-b-transparent  uppercase', {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
+                                    href={get(item, 'url')}>{t(get(item, 'title'))}
+                                </Link>
+
+                                {isOpen &&  isEmpty(get(item, 'subMenu')) ? '' :
+                                    <motion.ul
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: -10 }}
+                                        transition={{ duration: 0.3 }}
+                                        onClick={toggleMenu}
+                                        className={'hidden translate-y-[30px] hover:translate-y-[0px] z-50 transition-all duration-500  bg-gray-50 dropdown-menu absolute w-[180px] text-start  rounded-[5px]'}>
+                                        {
+                                            get(item, 'subMenu', []).map(subItem =>
+
+                                                <Link
+                                                    key={get(subItem, 'id')}
+                                                    className={clsx('hover:text-[#2E6DFF] transition-all text-sm border-b-transparent font-medium uppercase', {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
+                                                    href={get(subItem, 'url')}>
+
+                                                    <li className={'p-[10px] border-b-[1px] border-b-[#D6E0F5] '}>{t(get(subItem, 'title'))}</li>
+
+                                                </Link>
+
+                                            )
+                                        }
+                                    </motion.ul>
+                                }
+
+                            </li>)
+                        }
+                    </ul>
+                    {/*mobile version nav-bar*/}
+                    <ul className={`md:hidden flex flex-col text-[#001A57]   justify-between gap-x-[30px]  md:mt-0 bg-[#F2F4F5] md:bg-white px-[20px] md:px-0`}>
+                        {
+                            menuData.map(item => <li key={get(item, 'id')} onClick={toggleDropdownMenu} className={' relative py-[18px] text-start ml-[20px]'}>
                                 <Link
                                     className={clsx('hover:text-[#2E6DFF] font-semibold transition-all border-b border-b-transparent  uppercase', {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
                                     href={get(item, 'url')}>{t(get(item, 'title'))}
@@ -178,13 +221,14 @@ const Menu = ({active = 0, className}) => {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -10 }}
                                         transition={{ duration: 0.3 }}
-                                        className={'hidden translate-y-[30px] hover:translate-y-[0px] z-50 transition-all duration-500  bg-gray-50 dropdown-menu absolute w-[180px] text-start  rounded-[5px]'}>
+
+                                        className={` translate-y-[30px] hover:translate-y-[0px] z-50 transition-all duration-500  bg-gray-50 absolute w-[180px] text-start rounded-[5px]`}>
                                         {
                                             get(item, 'subMenu', []).map(subItem =>
 
                                                 <Link
                                                     key={get(subItem, 'id')}
-                                                    className={clsx('hover:text-[#2E6DFF] transition-all text-sm border-b-transparent font-medium uppercase', {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
+                                                    className={clsx(` ${openDropdownMenu ? 'hidden' : 'visible'} hover:text-[#2E6DFF] transition-all text-sm border-b-transparent font-medium uppercase`, {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
                                                     href={get(subItem, 'url')}>
 
                                                     <li className={'p-[10px] border-b-[1px] border-b-[#D6E0F5] '}>{t(get(subItem, 'title'))}</li>
