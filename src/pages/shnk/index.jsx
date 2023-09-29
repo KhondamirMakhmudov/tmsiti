@@ -132,32 +132,34 @@ const SHNQ = () => {
                                                                                         e.stopPropagation();
                                                                                         setDocId(get(docItem, 'id'));
                                                                                     }}
-                                                                                    className={'text-lg text-black mb-[10px] grid grid-cols-12 gap-x-[30px]'}
+
                                                                                 >
-                                                                                    <p className={'col-span-2'}>  {get(docItem, 'shnk_type')} {get(docItem, 'shnk_code')}</p>
-                                                                                    <h4 className={'col-span-9'}>{get(docItem, 'shnk_title')}</h4>
-                                                                                    <div
-                                                                                        className={'flex  gap-x-[5px] items-center col-span-1 justify-end'}>
-                                                                                        <button
-                                                                                            className={'uppercase text-[#2E6DFF]'}>
-                                                                                            <Link target={'_blank'}
-                                                                                                  href={`${config.BASE_SHNK_URL}${get(docItem, 'shnk_pdf_link')}`}>
-                                                                                                <abbr
-                                                                                                    title={'pdf file(uz)'}
-                                                                                                    className={'no-underline'}>uzb</abbr>
-                                                                                            </Link>
-                                                                                        </button>
-                                                                                        <p className={'text-[#2E6DFF]'}>/</p>
-                                                                                        <button
-                                                                                            className={'uppercase text-[#2E6DFF]'}>
-                                                                                            <Link target={'_blank'}
-                                                                                                  href={`${config.BASE_SHNK_URL}${get(docItem, 'shnk_pdf_link')}`}>
-                                                                                                <abbr
-                                                                                                    title={'pdf file(ru)'}
-                                                                                                    className={'no-underline'}>rus</abbr>
-                                                                                            </Link>
-                                                                                        </button>
-                                                                                    </div>
+                                                                                    <Link href={'shnk/id'} className={'text-lg text-black mb-[10px] grid grid-cols-12 gap-x-[30px]'}>
+                                                                                        <p className={'col-span-2'}>  {get(docItem, 'shnk_type')} {get(docItem, 'shnk_code')}</p>
+                                                                                        <h4 className={'col-span-9'}>{get(docItem, 'shnk_title')}</h4>
+                                                                                        <div
+                                                                                            className={'flex  gap-x-[5px] items-center col-span-1 justify-end'}>
+                                                                                            <button
+                                                                                                className={'uppercase text-[#2E6DFF]'}>
+                                                                                                <Link target={'_blank'}
+                                                                                                      href={`${config.BASE_SHNK_URL}${get(docItem, 'shnk_pdf_link')}`}>
+                                                                                                    <abbr
+                                                                                                        title={'pdf file(uz)'}
+                                                                                                        className={'no-underline'}>uzb</abbr>
+                                                                                                </Link>
+                                                                                            </button>
+                                                                                            <p className={'text-[#2E6DFF]'}>/</p>
+                                                                                            <button
+                                                                                                className={'uppercase text-[#2E6DFF]'}>
+                                                                                                <Link target={'_blank'}
+                                                                                                      href={`${config.BASE_SHNK_URL}${get(docItem, 'shnk_pdf_link')}`}>
+                                                                                                    <abbr
+                                                                                                        title={'pdf file(ru)'}
+                                                                                                        className={'no-underline'}>rus</abbr>
+                                                                                                </Link>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </Link>
                                                                                 </li>
                                                                             )
                                                                         }
