@@ -41,6 +41,8 @@ const Management = () => {
                                 name={get(item, 'worker_name')}
                                 receptionDays={get(item, 'worker_reception_day')}
                                 phone={get(item, 'worker_phone')}
+                                bachelor={get(item, 'worker_bachelor')}
+                                master={get(item, 'worker_master')}
                             />
                         </motion.div>
                     ))
