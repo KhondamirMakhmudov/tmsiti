@@ -2,7 +2,7 @@ import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
 
-const Card = ({name, img, position, phone, mail, receptionDays}) => {
+const Card = ({name, img, position, phone, mail, receptionDays, bachelor, master}) => {
     return (
         <div className={'flex gap-x-[30px]'}>
             <div>
@@ -24,6 +24,12 @@ const Card = ({name, img, position, phone, mail, receptionDays}) => {
 
                 {/* Mail pochta */}
                 <Link className={'text-base text-[#001A57]'}  href={`mailto:${mail}`}>Elektron pochta: {mail} </Link>
+
+                {/* Bachelor */}
+                <p>Bakalavr bo`yicha mutaxassisligi: {bachelor}</p>
+
+                {/* Bachelor */}
+                <p>Magistratura bo`yicha mutaxassisligi: {master}</p>
             </div>
         </div>
     );
