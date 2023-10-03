@@ -2,7 +2,8 @@ import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
 
-const Card = ({name, img, position, phone, mail, receptionDays, bachelor, master}) => {
+const Card = ({name, img, position, phone, mail, receptionDays, bachelor, master, academicTitle}) => {
+
     return (
         <div className={'flex gap-x-[30px]'}>
             <div>
@@ -28,8 +29,11 @@ const Card = ({name, img, position, phone, mail, receptionDays, bachelor, master
                 {/* Bachelor */}
                 <p>Bakalavr bo`yicha mutaxassisligi: {bachelor}</p>
 
-                {/* Bachelor */}
+                {/* Master */}
                 <p>Magistratura bo`yicha mutaxassisligi: {master}</p>
+
+                {/* Ilmiy daraja yoki unvon   */}
+                <p>Ilmiy daraja yoki unvon: {academicTitle}</p>
             </div>
         </div>
     );

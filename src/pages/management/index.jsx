@@ -43,6 +43,8 @@ const Management = () => {
                                 phone={get(item, 'worker_phone')}
                                 bachelor={get(item, 'worker_bachelor')}
                                 master={get(item, 'worker_master')}
+                                academicTitle={get(item, 'academic_title')}
+
                             />
                         </motion.div>
                     ))
