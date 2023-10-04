@@ -6,7 +6,7 @@ import Title from "@/components/title";
 import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
 import {KEYS} from "@/constants/key";
 import {URLS} from "@/constants/url";
-import {drop, get, head} from "lodash";
+import {drop, get, head, isEmpty, isNil} from "lodash";
 import {motion} from "framer-motion";
 
 
@@ -19,6 +19,7 @@ const Management = () => {
     if (isLoading) {
         return "...Loading"
     }
+    console.log("data =>", get(data, 'data'))
     return (
         <Main>
             <Menu active={0}/>
@@ -34,6 +35,7 @@ const Management = () => {
 
                 {
                     head(get(data, 'data', []).map(item =>
+
                         <motion.div initial={{opacity: 0, translateX: 300}} animate={{opacity: 1, translateX: 0}} transition={{delay: .7}} className={'col-span-12'} key={get(item, 'id')}>
                             <Card
                                 position={get(item, 'worker_post')}
@@ -42,9 +44,8 @@ const Management = () => {
                                 receptionDays={get(item, 'worker_reception_day')}
                                 phone={get(item, 'worker_phone')}
                                 bachelor={get(item, 'worker_bachelor')}
-                                master={get(item, 'worker_master')}
-                                academicTitle={get(item, 'academic_title')}
-
+                                master={!isNil(get(item, 'worker_master')) ? <p>Magistratura bo`yicha mutaxassisligi: {get(item, 'worker_master')}</p> : '' }
+                                academicTitle={!isNil(get(item, 'academic_title')) ? <p>Ilmiy daraja yoki unvon: {get(item, 'academic_title')}</p> : ''}
                             />
                         </motion.div>
                     ))
@@ -66,7 +67,8 @@ const Management = () => {
                             receptionDays={get(item, 'worker_reception_day')}
                             phone={get(item, 'worker_phone')}
                             bachelor={get(item, 'worker_bachelor')}
-                            master={get(item, 'worker_master')}
+                            master={!isNil(get(item, 'worker_master')) ? <p>Magistratura bo`yicha mutaxassisligi: {get(item, 'worker_master')}</p> : '' }
+                            academicTitle={!isNil(get(item, 'academic_title')) ? <p>Ilmiy daraja yoki unvon: {get(item, 'academic_title')}</p> : ''}
                         />
 
                     </li>

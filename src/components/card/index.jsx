@@ -1,8 +1,16 @@
 import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
+import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
+import {KEYS} from "@/constants/key";
+import {URLS} from "@/constants/url";
+import {get, isEmpty, isNil} from "lodash";
 
 const Card = ({name, img, position, phone, mail, receptionDays, bachelor, master, academicTitle}) => {
+    const {data, isLoading} = useGetTMSITIQuery({
+        key: KEYS.workers,
+        url: URLS.workers
+    })
 
     return (
         <div className={'flex gap-x-[30px]'}>
@@ -30,10 +38,10 @@ const Card = ({name, img, position, phone, mail, receptionDays, bachelor, master
                 <p>Bakalavr bo`yicha mutaxassisligi: {bachelor}</p>
 
                 {/* Master */}
-                <p>Magistratura bo`yicha mutaxassisligi: {master}</p>
+                <p>{master}</p>
 
                 {/* Ilmiy daraja yoki unvon   */}
-                <p>Ilmiy daraja yoki unvon: {academicTitle}</p>
+                <p>{academicTitle}</p>
             </div>
         </div>
     );
