@@ -140,8 +140,8 @@ export const menuData = [
 const Menu = ({active = 0, className}) => {
     const {t} = useTranslation()
     const [isOpen, setIsOpen] = useState(false);
-    const [openMenu, setOpenMenu] = useState(false)
-    const [openDropdownMenu, setOpenDropdownMenu] = useState(false)
+    const [openMenu, setOpenMenu] = useState(false);
+    const [openDropdownMenu, setOpenDropdownMenu] = useState(null)
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
@@ -209,29 +209,40 @@ const Menu = ({active = 0, className}) => {
                     {/*mobile version nav-bar*/}
                     <ul className={`md:hidden flex flex-col text-[#001A57]   justify-between gap-x-[30px]  md:mt-0 bg-[#F2F4F5] md:bg-white px-[20px] md:px-0`}>
                         {
-                            menuData.map(item => <li key={get(item, 'id')} onClick={toggleDropdownMenu} className={' relative py-[18px] text-start ml-[20px]'}>
+                            menuData.map(item =>
+                                <li
+                                    key={get(item, 'id')}
+                                    onClick={(e)=> {
+                                        e.stopPropagation();
+                                        toggleDropdownMenu();
+                                        setOpenDropdownMenu(get(item, 'id'))
+
+                                    }}
+                                    className={' relative py-[18px] text-start ml-[20px]'}>
                                 <Link
                                     className={clsx('hover:text-[#2E6DFF] font-semibold transition-all border-b border-b-transparent  uppercase', {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
                                     href={get(item, 'url')}>{t(get(item, 'title'))}
                                 </Link>
 
-                                {isOpen && isEmpty(get(item, 'subMenu')) ? '' :
+                                {active === get(item, 'id') ? '' :
+
                                     <motion.ul
                                         initial={{ opacity: 0, y: -10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -10 }}
                                         transition={{ duration: 0.3 }}
 
-                                        className={` translate-y-[30px] hover:translate-y-[0px] z-50 transition-all duration-500  bg-gray-50 absolute w-[180px] text-start rounded-[5px]`}>
+
+                                        className={` translate-y-[30px] hover:translate-y-[0px] z-50 transition-all duration-500  bg-gray-50  w-[180px] text-start rounded-[5px]`}>
                                         {
                                             get(item, 'subMenu', []).map(subItem =>
 
                                                 <Link
                                                     key={get(subItem, 'id')}
-                                                    className={clsx(` ${openDropdownMenu ? 'hidden' : 'visible'} hover:text-[#2E6DFF] transition-all text-sm border-b-transparent font-medium uppercase`, {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
+                                                    className={clsx(`   hover:text-[#2E6DFF] transition-all text-sm border-b-transparent font-medium uppercase`, {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
                                                     href={get(subItem, 'url')}>
 
-                                                    <li className={'p-[10px] border-b-[1px] border-b-[#D6E0F5] '}>{t(get(subItem, 'title'))}</li>
+                                                    <li className={`p-[10px] border-b-[1px] border-b-[#D6E0F5] ${get(item, "id") !== openDropdownMenu ? 'hidden' : 'visible'} `}>{t(get(subItem, 'title'))}</li>
 
                                                 </Link>
 

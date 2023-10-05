@@ -162,7 +162,7 @@ export default function Home() {
             initial={{ translateY: 100 , opacity: 0}}
             animate={controls}
             className={'mb-[82px]'}>
-            <div className={'grid grid-cols-12 container mx-auto'}>
+            <div className={'grid grid-cols-12 gap-x-[30px] container mx-auto'}>
 
                 <div className={'col-span-12 flex justify-between pt-[50px] pb-[30px] items-end '}>
                     <Title>
@@ -184,9 +184,9 @@ export default function Home() {
                                 <img src={get(item, 'news_image')} alt='news-main-img' className={'w-[690px] h-[468px] object-cover'}/>
                                 <p className={'text-[#2E6DFF] mt-[30px] font-bold'}>Yangilik {dayjs(get(item, 'news_datetime')).format("DD.MM.YYYY")}</p>
                                 <Link href={`/news/${get(item, 'id')}`}>
-                                    <h2 className={'text-2xl  font-bold text-[#001A57] hover:text-[#2E6DFF] hover:underline mt-[20px] md:w-[690px] w-[600px] md:line-clamp-none line-clamp-2'}>{get(item, 'news_title')}</h2>
+                                    <h2 className={'text-2xl  font-bold text-[#001A57] hover:text-[#2E6DFF] hover:underline mt-[20px]  md:line-clamp-none line-clamp-2'}>{get(item, 'news_title')}</h2>
                                 </Link>
-                                <p className={'text-[#A9AFC5] mt-[10px] d:w-[690px] w-[600px]'}>{get(item, 'news_desc')}</p>
+                                <p className={'text-[#A9AFC5] mt-[10px] '}>{get(item, 'news_desc')}</p>
                             </div>
                         ))
                     }
