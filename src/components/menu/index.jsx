@@ -142,6 +142,10 @@ const Menu = ({active = 0, className}) => {
     const [isOpen, setIsOpen] = useState(false);
     const [openMenu, setOpenMenu] = useState(false);
     const [openDropdownMenu, setOpenDropdownMenu] = useState(null)
+    const [menu, setMenu] = useState();
+    const dropdownMenu = () => {
+        setMenu(!menu)
+    }
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
@@ -178,12 +182,9 @@ const Menu = ({active = 0, className}) => {
                                     href={get(item, 'url')}>{t(get(item, 'title'))}
                                 </Link>
 
-                                {isOpen &&  isEmpty(get(item, 'subMenu')) ? '' :
-                                    <motion.ul
-                                        initial={{ opacity: 0, y: -10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -10 }}
-                                        transition={{ duration: 0.3 }}
+                                {isEmpty(get(item, 'subMenu')) ? '' :
+                                    <ul
+
                                         onClick={toggleMenu}
                                         className={'hidden translate-y-[30px] hover:translate-y-[0px] z-50 transition-all duration-500  bg-gray-50 dropdown-menu absolute w-[180px] text-start  rounded-[5px]'}>
                                         {
@@ -200,21 +201,21 @@ const Menu = ({active = 0, className}) => {
 
                                             )
                                         }
-                                    </motion.ul>
+                                    </ul>
                                 }
 
                             </li>)
                         }
                     </ul>
                     {/*mobile version nav-bar*/}
-                    <ul className={`md:hidden flex flex-col text-[#001A57]   justify-between gap-x-[30px]  md:mt-0 bg-[#F2F4F5] md:bg-white px-[20px] md:px-0`}>
+                    <ul className={`md:hidden flex flex-col text-[#001A57] justify-between gap-x-[30px] bg-[#F2F4F5] `}>
                         {
                             menuData.map(item =>
                                 <li
                                     key={get(item, 'id')}
                                     onClick={(e)=> {
                                         e.stopPropagation();
-                                        toggleDropdownMenu();
+                                        setMenu(!menu);
                                         setOpenDropdownMenu(get(item, 'id'))
 
                                     }}
@@ -224,16 +225,13 @@ const Menu = ({active = 0, className}) => {
                                     href={get(item, 'url')}>{t(get(item, 'title'))}
                                 </Link>
 
-                                {active === get(item, 'id') ? '' :
+                                {menu ? '' :
 
                                     <motion.ul
-                                        initial={{ opacity: 0, y: -10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -10 }}
-                                        transition={{ duration: 0.3 }}
-
-
-                                        className={` translate-y-[30px] hover:translate-y-[0px] z-50 transition-all duration-500  bg-gray-50  w-[180px] text-start rounded-[5px]`}>
+                                        initial={{opacity:0, translateY: 20}}
+                                        animate={{opacity: 1, translateY: 0}}
+                                        transition={{delay: 0.2}}
+                                        className={` transition-all duration-500  bg-gray-50  w-full text-start `}>
                                         {
                                             get(item, 'subMenu', []).map(subItem =>
 
@@ -242,7 +240,11 @@ const Menu = ({active = 0, className}) => {
                                                     className={clsx(`   hover:text-[#2E6DFF] transition-all text-sm border-b-transparent font-medium uppercase`, {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
                                                     href={get(subItem, 'url')}>
 
-                                                    <li className={`p-[10px] border-b-[1px] border-b-[#D6E0F5] ${get(item, "id") !== openDropdownMenu ? 'hidden' : 'visible'} `}>{t(get(subItem, 'title'))}</li>
+                                                    <motion.li
+                                                        initial={{opacity:0, translateY: 10}}
+                                                        animate={{opacity: 1, translateY: 0}}
+
+                                                        className={`p-[10px] border-b-[1px] border-b-[#D6E0F5] ${get(item, "id") !== openDropdownMenu ? 'hidden' : 'visible'} `}>{t(get(subItem, 'title'))}</motion.li>
 
                                                 </Link>
 
