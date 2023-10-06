@@ -69,7 +69,7 @@ export default function Home() {
                 </div>
 
 
-                <div className={'flex flex-col md:flex-row gap-x-[30px] relative px-5 md:px-0'}>
+                <div className={'flex flex-col md:flex-row gap-x-[30px] relative  md:px-0'}>
                     <motion.div initial={{scale: 0.01}} transition={{delay: 0.5}} animate={{scale: 1}} className={'p-[15px]  md:border-t-[1px] border-t-[0px]  border-[#14255B]'}>
                         <Link href={'/shnk'} className={'uppercase text-[#2E6DFF] text-sm md:text-base'}>
                             Shnq
@@ -162,14 +162,14 @@ export default function Home() {
             initial={{ translateY: 100 , opacity: 0}}
             animate={controls}
             className={'mb-[82px]'}>
-            <div className={'grid grid-cols-12 gap-x-[30px] container mx-auto'}>
+            <div className={'grid grid-cols-12 gap-x-[30px] container mx-auto p-[20px] md:p-0'}>
 
                 <div className={'col-span-12 flex justify-between pt-[50px] pb-[30px] items-end '}>
                     <Title>
                         So‘nggi yangiliklar
                     </Title>
 
-                    <Link href={'/news'} className={"underline text-[#2E6DFF] text-base font-bold"}>
+                    <Link href={'/news'} className={"underline text-[#2E6DFF] md:text-base text-[12px] font-bold"}>
                         Barcha yangiliklar
                     </Link>
                 </div>
@@ -177,11 +177,11 @@ export default function Home() {
                 <motion.div
                     initial={{translateY: 200, opacity: 0}}
                     animate={controls}
-                    className={'md:col-span-6 col-span-12 pb-[20px] mb-[20px] md:pb-0 mb:mb-0 md:border-b-0 md:border-none border-b-[#C5C6C7] border-b-[1px]'}>
+                    className={'md:col-span-6 col-span-12 pb-[20px] mb-[20px] md:pb-0 mb:mb-0 md:border-b-0 md:border-none border-b-[#C5C6C7] border-b-[1px] '}>
                     {
                         head(get(data, 'data.results', []).map(item =>
                             <div key={get(item, 'id')}>
-                                <img src={get(item, 'news_image')} alt='news-main-img' className={'w-[690px] h-[468px] object-cover'}/>
+                                <img src={get(item, 'news_image')} alt='news-main-img' className={'md:w-[690px] md:h-[468px]   object-cover'}/>
                                 <p className={'text-[#2E6DFF] mt-[30px] font-bold'}>Yangilik {dayjs(get(item, 'news_datetime')).format("DD.MM.YYYY")}</p>
                                 <Link href={`/news/${get(item, 'id')}`}>
                                     <h2 className={'text-2xl  font-bold text-[#001A57] hover:text-[#2E6DFF] hover:underline mt-[20px]  md:line-clamp-none line-clamp-2'}>{get(item, 'news_title')}</h2>
@@ -201,13 +201,13 @@ export default function Home() {
 
                                     <div className={'flex gap-x-[30px]'}>
                                         <div className={'w-[408px]'}>
-                                            <p className={'text-[#2E6DFF] mb-[20px] font-bold'}>Yangilik {dayjs(get(item, 'news_datetime')).format("DD.MM.YYYY")}</p>
+                                            <p className={'text-[#2E6DFF] md:text-base text-sm mb-[20px] font-bold'}>Yangilik {dayjs(get(item, 'news_datetime')).format("DD.MM.YYYY")}</p>
                                             <Link href={`/news/${get(item, 'id')}`}>
-                                                <h2 className={'text-xl hover:text-[#2E6DFF] hover:underline font-bold line-clamp-5'}>{get(item, 'news_title')}</h2>
+                                                <h2 className={'md:text-xl text-base  hover:text-[#2E6DFF] hover:underline font-bold line-clamp-5'}>{get(item, 'news_title')}</h2>
                                             </Link>
                                         </div>
 
-                                        <img src={get(item, 'news_image')} alt={'news-img'} className={'w-[330px] h-[189px] object-cover'}/>
+                                        <img src={get(item, 'news_image')} alt={'news-img'} className={'md:w-[330px] md:h-[189px] w-[250px]  object-cover'}/>
                                     </div>
 
                                     <div className={'w-full h-[1px] bg-gray-900 my-[30px]'}></div>

@@ -18,7 +18,7 @@ const Discussion = () => {
 
     return (
         <Main>
-            <Menu active={0}/>
+            <Menu active={5}/>
 
 
             <section className={'grid grid-cols-12 gap-x-[30px] container mx-auto'}>
