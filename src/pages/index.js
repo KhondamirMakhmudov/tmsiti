@@ -207,7 +207,7 @@ export default function Home() {
                                             </Link>
                                         </div>
 
-                                        <img src={get(item, 'news_image')} alt={'news-img'} className={'md:w-[330px] md:h-[189px] w-full h-[180px]  object-cover mb-[10px] md:mb-0'}/>
+                                        <img src={get(item, 'news_image')} alt={'news-img'} className={'md:w-[330px] md:h-[189px]  h-[180px]  object-cover mb-[10px] md:mb-0'}/>
                                     </div>
 
                                     <div className={'w-full h-[1px] bg-gray-900 my-[30px]'}></div>
