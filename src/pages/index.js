@@ -184,9 +184,9 @@ export default function Home() {
                                 <img src={get(item, 'news_image')} alt='news-main-img' className={'md:w-[690px] md:h-[468px]   object-cover'}/>
                                 <p className={'text-[#2E6DFF] mt-[30px] font-bold'}>Yangilik {dayjs(get(item, 'news_datetime')).format("DD.MM.YYYY")}</p>
                                 <Link href={`/news/${get(item, 'id')}`}>
-                                    <h2 className={'text-2xl  font-bold text-[#001A57] hover:text-[#2E6DFF] hover:underline mt-[20px]  md:line-clamp-none line-clamp-2'}>{get(item, 'news_title')}</h2>
+                                    <h2 className={'md:text-2xl text-xl font-bold text-[#001A57] hover:text-[#2E6DFF] hover:underline mt-[20px]  md:line-clamp-none line-clamp-2'}>{get(item, 'news_title')}</h2>
                                 </Link>
-                                <p className={'text-[#A9AFC5] mt-[10px] '}>{get(item, 'news_desc')}</p>
+                                <p className={'text-[#A9AFC5] mt-[10px] md:text-base text-sm line-clamp-3 md:line-clamp-0'}>{get(item, 'news_desc')}</p>
                             </div>
                         ))
                     }
@@ -199,15 +199,15 @@ export default function Home() {
                             slice(drop(get(data, 'data.results', []).map(item =>
                                 <motion.li initial={{translateX: 100, opacity: 0}} animate={controls} key={get(item, 'id')} className={'row-span-4'}>
 
-                                    <div className={'flex gap-x-[30px]'}>
+                                    <div className={'flex gap-x-[30px] md:flex-row flex-col-reverse'}>
                                         <div className={'w-[408px]'}>
                                             <p className={'text-[#2E6DFF] md:text-base text-sm mb-[20px] font-bold'}>Yangilik {dayjs(get(item, 'news_datetime')).format("DD.MM.YYYY")}</p>
                                             <Link href={`/news/${get(item, 'id')}`}>
-                                                <h2 className={'md:text-xl text-base  hover:text-[#2E6DFF] hover:underline font-bold line-clamp-5'}>{get(item, 'news_title')}</h2>
+                                                <h2 className={'md:text-xl text-base  hover:text-[#2E6DFF] hover:underline font-bold md:line-clamp-5 line-clamp-3'}>{get(item, 'news_title')}</h2>
                                             </Link>
                                         </div>
 
-                                        <img src={get(item, 'news_image')} alt={'news-img'} className={'md:w-[330px] md:h-[189px] w-[250px]  object-cover'}/>
+                                        <img src={get(item, 'news_image')} alt={'news-img'} className={'md:w-[330px] md:h-[189px] w-full h-[180px]  object-cover mb-[10px] md:mb-0'}/>
                                     </div>
 
                                     <div className={'w-full h-[1px] bg-gray-900 my-[30px]'}></div>
