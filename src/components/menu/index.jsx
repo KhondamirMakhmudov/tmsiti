@@ -208,14 +208,18 @@ const Menu = ({active = 0, className}) => {
                         }
                     </ul>
                     {/*mobile version nav-bar*/}
-                    <ul className={`md:hidden flex flex-col text-[#001A57] justify-between gap-x-[30px] bg-[#F2F4F5] ml-[20px]`}>
+                    <motion.ul
+                        initial={{opacity: 0, translateX: 200}}
+                        animate={{opacity: 1, translateX: 0}}
+                        transition={{delay:0.2}}
+                        className={`md:hidden flex flex-col text-[#001A57] justify-between gap-x-[30px] bg-[#F2F4F5] ml-[20px]`}>
                         {
                             menuData.map(item =>
                                 <li
                                     key={get(item, 'id')}
                                     onClick={(e)=> {
                                         e.stopPropagation();
-                                        setMenu(!menu);
+                                        setMenu(!menu); 
                                         setOpenDropdownMenu(get(item, 'id'))
 
                                     }}
@@ -255,7 +259,7 @@ const Menu = ({active = 0, className}) => {
 
                             </li>)
                         }
-                    </ul>
+                    </motion.ul>
                 </div>
 
                 <div className={'block md:hidden'}>

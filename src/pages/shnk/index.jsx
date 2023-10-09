@@ -62,7 +62,7 @@ const SHNQ = () => {
         <Main>
             <Menu/>
 
-            <section className={"grid grid-cols-12 container mx-auto mb-[50px]"}>
+            <section className={"grid grid-cols-12 container mx-auto mb-[50px] px-[20px]"}>
                 <motion.div initial={{translateX: '-200px'}} animate={{translateX: '0px'}} transition={{duration: 0.3}} className={"col-span-12"}>
                     <Title>
                         Shaharsozlik normalari va qoidalari
@@ -80,7 +80,7 @@ const SHNQ = () => {
                                     setDocId(null);
                                     setShowSystem(!showSystem)
                                 }} key={get(item, 'id')}
-                                    className={clsx('mb-[20px] transition cursor-pointer text-2xl font-semibold ', {
+                                    className={clsx('mb-[20px] transition cursor-pointer md:text-2xl text-lg font-semibold ', {
                                         'text-[#1B41C6] font-medium hover:bg-transparent': get(item, 'id') === systemId,
                                         '!mb-0': get(subSystem, 'data', [])?.length === i + 1
                                     })}
@@ -104,7 +104,7 @@ const SHNQ = () => {
                                                             }
                                                             }
                                                             key={get(groupItem, 'id')}
-                                                            className={clsx(' py-[10px]  text-[#1A4DC2] border-b  text-lg border-b-black transition cursor-pointer  hover:text-[#1B41C6] font-medium', {
+                                                            className={clsx(' py-[10px]  text-[#1A4DC2] border-b  md:text-lg text-base border-b-black transition cursor-pointer  hover:text-[#1B41C6] font-medium', {
                                                                 '!text-[#017EFA]': get(groupItem, 'id') === groupId,
                                                                 '!mb-[10px]': get(group, 'data.results', [])?.length === j + 1
                                                             })}>
@@ -115,10 +115,10 @@ const SHNQ = () => {
                                                                     className={'font-medium'}>{get(groupItem, 'group_code')}</span>. {get(groupItem, 'group_title')}
                                                                 </p>
                                                                 <motion.div animate={{
-                                                                    rotate: get(item, 'id') === systemId ? 180 : 0,
+                                                                    rotate: get(item, 'id') === groupId ? 180 : 0,
                                                                 }}>
                                                                     <Image src={'/icons/arrow-up.svg'} alt={'up-down'}
-                                                                           width={24} height={24}/>
+                                                                           width={24} height={24} className={'md:w-[24px] md:h-[24px] w-[19px] h-[19px]'}/>
                                                                 </motion.div>
                                                             </div>
 
@@ -132,13 +132,13 @@ const SHNQ = () => {
                                                                                         e.stopPropagation();
                                                                                         setDocId(get(docItem, 'id'));
                                                                                     }}
-
+                                                                                    className={'md:border-0 border border-[#D0D3D8] md:py-0 md:px-0 py-[10px]  rounded-[8px] px-[10px] md:my-0 my-[5px]'}
                                                                                 >
-                                                                                    <Link href={'shnk/id'} className={'text-lg text-black mb-[10px] grid grid-cols-12 gap-x-[30px]'}>
+                                                                                    <Link href={'shnk/id'} className={'md:text-lg text-[12px] text-black mb-[10px] md:grid md:grid-cols-12  gap-x-[10px] md:gap-x-[30px]'}>
                                                                                         <p className={'col-span-2'}>  {get(docItem, 'shnk_type')} {get(docItem, 'shnk_code')}</p>
                                                                                         <h4 className={'col-span-9'}>{get(docItem, 'shnk_title')}</h4>
                                                                                         <div
-                                                                                            className={'flex  gap-x-[5px] items-center col-span-1 justify-end'}>
+                                                                                            className={'flex  gap-x-[5px] items-center col-span-1 md:justify-end'}>
                                                                                             <button
                                                                                                 className={'uppercase text-[#2E6DFF]'}>
                                                                                                 <Link target={'_blank'}
