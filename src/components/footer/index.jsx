@@ -12,26 +12,26 @@ const Footer = () => {
         <footer>
             <div className={'bg-[#28366D] bg-no-repeat bg-cover  py-[50px]  '} style={{backgroundImage: "url(/images/footer-background.png)"}}>
                 <div className={'container mx-auto text-white'}>
-                    <div className="grid grid-cols-12 gap-x-[30px]">
-                        <div className="col-span-3">
+                    <div className="grid md:grid-cols-12 grid-rows-12 gap-x-[30px] px-[20px] text-center md:text-start">
+                        <div className="row-span-12 md:col-span-3 ">
                             <Brand active={1}/>
-                            <p className={'my-5'}>Qurilish sohasida texnik me’yorlar, shaharzoslik normalari va standartlar reglamentlar</p>
+                            <p className={'my-5  md:w-auto'}>Qurilish sohasida texnik me’yorlar, shaharzoslik normalari va standartlar reglamentlar</p>
 
-                            <ul className={'flex my-2.5'}>
-                                <li className={'mr-3'}>
+                            <ul className={'flex justify-center md:justify-start items-center my-2.5 gap-x-[10px]'}>
+                                <li>
                                     <p>Ijtimoiy tarmoqlar:</p>
                                 </li>
-                                <li className={'mr-3'}>
+                                <li>
                                     <Link href={'#'}>
                                         <Image width={24} alt={'social-media'} height={24} src={'/icons/telegram.svg'}/>
                                     </Link>
                                 </li>
-                                <li className={'mr-3'}>
+                                <li>
                                     <Link href={'#'}>
                                         <Image width={24} alt={'social-media'} height={24} src={'/icons/instagram.svg'}/>
                                     </Link>
                                 </li>
-                                <li className={'mr-3'}>
+                                <li>
                                     <Link href={'#'}>
                                         <Image width={24} alt={'social-media'} height={24} src={'/icons/facebook.svg'}/>
                                     </Link>
@@ -39,10 +39,10 @@ const Footer = () => {
                             </ul>
 
                         </div>
-                        <div className={'col-span-9 flex justify-end gap-x-[30px]'}>
+                        <div className={' row-span-12  md:col-span-9 flex flex-col md:flex-row justify-center  md:justify-end gap-x-[30px]'}>
                             <div className="">
-                                <h4 className={'text-xl font-bold mb-[30px]'}>Institut</h4>
-                                <ul className={'text-[#D9D9D9]'}>
+                                <h4 className={'md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]'}>Institut</h4>
+                                <ul className={'text-[#D9D9D9] text-sm md:text-base'}>
                                     <li className={'mb-[10px]'}>
                                         <Link href={'/management'}>Rahbariyat</Link>
                                     </li>
@@ -66,7 +66,7 @@ const Footer = () => {
 
 
                             <div className="">
-                                <h4 className={'text-xl font-bold mb-[30px]'}>Normalar</h4>
+                                <h4 className={'md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]'}>Normalar</h4>
                                 <ul className={'text-[#D9D9D9]'}>
                                     <li className={'mb-[10px]'}>
                                         <Link href={'/'}>SHNK</Link>
@@ -82,7 +82,7 @@ const Footer = () => {
                             </div>
 
                             <div className="">
-                                <h4 className={'text-xl font-bold mb-[30px]'}>Tizimlar</h4>
+                                <h4 className={'md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]'}>Tizimlar</h4>
                                 <ul className={'text-[#D9D9D9]'}>
                                     <li className={'mb-[10px]'}>
                                         <Link href={'/'}>Klassifikator</Link>
@@ -98,7 +98,7 @@ const Footer = () => {
                             </div>
 
                             <div className="">
-                                <h4 className={'text-xl font-bold mb-[30px]'}>Xabarlar</h4>
+                                <h4 className={'md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]'}>Xabarlar</h4>
                                 <ul className={'text-[#D9D9D9]'}>
                                     <li className={'mb-[10px]'}>
                                         <Link href={'/'}>E’lonlar</Link>
@@ -118,7 +118,7 @@ const Footer = () => {
                             </div>
 
                             <div className="">
-                                <h4 className={'text-xl font-bold mb-[30px]'}>Biz haqimizda</h4>
+                                <h4 className={'md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]'}>Biz haqimizda</h4>
                                 <ul className={'text-[#D9D9D9]'}>
                                     <li className={'text-base mb-[10px]'}>
                                         <p href={'/'}>Toshkent shahar, Shayxontohur tumani, Abay ko’chasi 6A-Bino</p>
@@ -138,8 +138,8 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className={'bg-[#001A57] h-[30px] w-full text-[#fff] flex justify-center items-center text-xs'}>
-                <p>Qurilishda texnik me’yorlash va standartlashtirish ilmiy-tadqiqot instituti| All rights reserved © 2021</p>
+            <div className={'bg-[#001A57] h-[50px] md:h-[30px] w-full text-[#fff] flex justify-center items-center text-[10px] md:text-xs'}>
+                <p>Qurilishda texnik me’yorlash va standartlashtirish ilmiy-tadqiqot instituti | All rights reserved © 2021</p>
             </div>
         </footer>
     );
