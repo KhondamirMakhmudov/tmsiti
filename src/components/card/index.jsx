@@ -13,35 +13,35 @@ const Card = ({name, img, position, phone, mail, receptionDays, bachelor, master
     })
 
     return (
-        <div className={'flex gap-x-[30px]'}>
+        <div className={'flex gap-x-[30px] justify-center items-center px-[20px]'}>
             <div>
-                <img src={`${img}`} alt={"profile-img"} className={'w-[210px] h-[250px] object-contain'} />
+                <img src={`${img}`} alt={"profile-img"} className={'w-[210px] md:h-[250px] object-contain'} />
             </div>
 
             <div>
                 {/* lavozim */}
-                <h4 className={'text-lg text-[#2B4764]'}>{position}</h4>
+                <h4 className={'md:text-lg text-base  text-[#2B4764]'}>{position}</h4>
 
                 {/* F.I.O */}
-                <h2 className={'font-semibold text-2xl mb-[30px]'}>{name}</h2>
+                <h2 className={'font-semibold text-lg md:text-2xl mb-[30px]'}>{name}</h2>
 
                 {/* Qabul kunlari */}
-                <p>Qabul kunlari: {receptionDays}</p>
+                <p className={'md:text-base text-sm'}>Qabul kunlari: {receptionDays}</p>
 
                 {/* Telefon raqam */}
-                <Link className={'text-base text-[#001A57] py-[30px]'} href={`tel:${phone}`}>Telefon: {phone}</Link> <br/>
+                <Link className={'md:text-base text-sm text-[#001A57] py-[30px]'} href={`tel:${phone}`}>Telefon: {phone}</Link> <br/>
 
                 {/* Mail pochta */}
-                <Link className={'text-base text-[#001A57]'}  href={`mailto:${mail}`}>Elektron pochta: {mail} </Link>
+                <Link className={'md:text-base text-sm text-[#001A57]'}  href={`mailto:${mail}`}>Elektron pochta: {mail} </Link>
 
                 {/* Bachelor */}
-                <p>Bakalavr bo`yicha mutaxassisligi: {bachelor}</p>
+                <p className={'md:text-base text-sm'}>Bakalavr bo`yicha mutaxassisligi: {bachelor}</p>
 
                 {/* Master */}
-                <p>{master}</p>
+                <p className={'md:text-base text-sm'}>{master}</p>
 
                 {/* Ilmiy daraja yoki unvon   */}
-                <p>{academicTitle}</p>
+                <p className={'md:text-base text-sm'}>{academicTitle}</p>
             </div>
         </div>
     );
