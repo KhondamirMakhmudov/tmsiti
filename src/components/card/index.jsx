@@ -13,7 +13,7 @@ const Card = ({name, img, position, phone, mail, receptionDays, bachelor, master
     })
 
     return (
-        <div className={'flex gap-x-[30px] justify-center items-center px-[20px]'}>
+        <div className={'flex gap-x-[30px]  '}>
             <div>
                 <img src={`${img}`} alt={"profile-img"} className={'w-[210px] md:h-[250px] object-contain'} />
             </div>
