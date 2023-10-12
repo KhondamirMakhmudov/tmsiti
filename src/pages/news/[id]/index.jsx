@@ -10,6 +10,9 @@ import {get} from "lodash";
 import parse from 'html-react-parser';
 import dayjs from "dayjs";
 import Image from "next/image";
+import SkeletonLoader from "@/components/loader/skeleton";
+import NewsTemplate from "@/components/news-template";
+import Link from "next/link";
 
 const NewsItemPage = () => {
     const router = useRouter()
@@ -19,6 +22,14 @@ const NewsItemPage = () => {
         url: `${URLS.news}${id}`,
         enabled: !!(id)
     });
+
+    const {data: news, isLoading: isLoadingNews, isFetching: isFetchingNews} = useGetTMSITIQuery({
+        key: KEYS.news,
+        url: URLS.news
+
+    })
+
+
     if (isLoading) {
         return "Loading...";
     }
@@ -26,39 +37,81 @@ const NewsItemPage = () => {
         <Main>
             <Menu active={0}/>
             <section className={'grid grid-cols-12 container mx-auto gap-x-[30px] mb-[30px]'}>
-                <div className={'col-span-6'}>
+
+                <div className={'col-span-12 mb-[30px]'}>
                     <p className={'text-[#2E6DFF] mb-[20px] font-bold'}><span>{dayjs(get(data,'data.news_datetime')).format("DD MMM YYYY")}</span></p>
 
                     <NewsTitle size={'3xl'}>
                         {get(data,'data.news_title')}
                     </NewsTitle>
-
-                    <p className={'text-xl text-[#001A57] mt-[20px]'}>
-                        {get(data,'data.news_desc')}
-                    </p>
                 </div>
 
-                <div className={'col-span-6'}>
+                <div className={'col-span-6 '}>
                     <figure>
                         <div className={'relative w-full h-96 -z-10'}>
                             <Image alt={'img'}
                                    loader={() => `${get(data,'data.news_image')}`}
                                    src={`${get(data,'data.news_image')}`}
-                                    layout={'fill'}
+                                   layout={'fill'}
                                    objectFit={'cover'} />
                         </div>
 
                         <figcaption className={'text-sm text-start mt-[10px] text-neutral-600 dark:text-neutral-400'}>
                             {get(data, 'data.img_desc')}
                         </figcaption>
+
                     </figure>
+
+                    <div className={'col-span-12 mt-[30px]'}>
+                        {parse(get(data,'data.news_text'))}
+                    </div>
                 </div>
-                <div className={'col-span-12 mt-[30px]'}>
-                    {parse(get(data,'data.news_text'))}
+
+                <div className={'col-span-6'}>
+                    <h4 className={'text-xl font-semibold'}>Boshqa yangiliklar</h4>
+
+                    <div className={'w-full h-[1px] bg-[#001A57] mt-[10px] mb-[20px]'}>
+
+                    </div>
+
+                    <ul>
+                        {
+                            get(news, 'data.results', []).map(newsItem =>
+                                <li key={get(newsItem, 'id')} className={'mb-[20px] '}>
+                                    {isFetchingNews && isLoadingNews ? <SkeletonLoader/> :
+                                        <div className={'flex gap-x-[30px]'}>
+                                            <img src={`${get(newsItem, 'news_image')}`} className={'w-[210px] h-[120px]'}/>
+                                            <div className={'mb-[10px]'}>
+                                                <p className={'text-[#2E6DFF] text-xs font-bold'}>{dayjs(get(newsItem, 'news_datetime')).format("DD.MM.YYYY")}</p>
+
+                                                <Link href={`/news/${get(newsItem,'id','#')}`}>
+                                                    <h2 className={'text-sm font-bold hover:text-[#2E6DFF] hover:underline'}>{get(newsItem, 'news_title')}</h2>
+                                                </Link>
+                                            </div>
+                                        </div>
+
+
+                                    }
+
+                                </li>
+                            )
+                        }
+
+                    </ul>
+
                 </div>
+
             </section>
         </Main>
     );
 };
 
 export default NewsItemPage;
+
+// <NewsTemplate
+//     imgUrl={(get(newsItem, 'news_image'))}
+//     dateTime={get(newsItem, 'news_datetime')}
+//     title={get(newsItem, 'news_title')}
+//
+//     url={`/news/${get(newsItem,'id','#')}`}
+// />
