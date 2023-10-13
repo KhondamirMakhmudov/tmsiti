@@ -36,7 +36,7 @@ const NewsItemPage = () => {
     return (
         <Main>
             <Menu active={0}/>
-            <section className={'grid grid-cols-12 container mx-auto gap-x-[30px] mb-[30px]'}>
+            <section className={'grid grid-cols-12 container mx-auto gap-x-[30px] mb-[70px]'}>
 
                 <div className={'col-span-12 mb-[30px]'}>
                     <p className={'text-[#2E6DFF] mb-[20px] font-bold'}><span>{dayjs(get(data,'data.news_datetime')).format("DD MMM YYYY")}</span></p>
@@ -46,9 +46,9 @@ const NewsItemPage = () => {
                     </NewsTitle>
                 </div>
 
-                <div className={'col-span-6 '}>
+                <div className={'col-span-7 '}>
                     <figure>
-                        <div className={'relative w-full h-96 -z-10'}>
+                        <div className={'relative w-full h-[650px] -z-10'}>
                             <Image alt={'img'}
                                    loader={() => `${get(data,'data.news_image')}`}
                                    src={`${get(data,'data.news_image')}`}
@@ -67,7 +67,7 @@ const NewsItemPage = () => {
                     </div>
                 </div>
 
-                <div className={'col-span-6'}>
+                <div className={'col-span-5'}>
                     <h4 className={'text-xl font-semibold'}>Boshqa yangiliklar</h4>
 
                     <div className={'w-full h-[1px] bg-[#001A57] mt-[10px] mb-[20px]'}>
@@ -80,9 +80,15 @@ const NewsItemPage = () => {
                                 <li key={get(newsItem, 'id')} className={'mb-[20px] '}>
                                     {isFetchingNews && isLoadingNews ? <SkeletonLoader/> :
                                         <div className={'flex gap-x-[30px]'}>
-                                            <img src={`${get(newsItem, 'news_image')}`} className={'w-[210px] h-[120px]'}/>
+
+                                            <Image alt={'img'}
+                                                   loader={() => `${get(newsItem,'news_image')}`}
+                                                   src={`${get(newsItem,'news_image')}`}
+                                                   width={210} height={120}
+                                                   objectFit={'cover'} className={''}/>
+
                                             <div className={'mb-[10px]'}>
-                                                <p className={'text-[#2E6DFF] text-xs font-bold'}>{dayjs(get(newsItem, 'news_datetime')).format("DD.MM.YYYY")}</p>
+                                                <p className={'text-[#2E6DFF] text-xs font-bold mb-[10px]'}>{dayjs(get(newsItem, 'news_datetime')).format("DD.MM.YYYY")}</p>
 
                                                 <Link href={`/news/${get(newsItem,'id','#')}`}>
                                                     <h2 className={'text-sm font-bold hover:text-[#2E6DFF] hover:underline'}>{get(newsItem, 'news_title')}</h2>
@@ -98,6 +104,12 @@ const NewsItemPage = () => {
                         }
 
                     </ul>
+
+                    <div className={'mt-[30px]'}>
+                        <Link href={'/news'} className={'py-[13px] px-[55px] bg-[#1A4DC2] font-bold text-[#fff] hover:bg-[#1641A6] transition-colors duration-300'}>
+                            Batafsil
+                        </Link>
+                    </div>
 
                 </div>
 
