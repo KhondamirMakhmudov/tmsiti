@@ -121,7 +121,7 @@ const Footer = () => {
                                 <h4 className={'md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]'}>Biz haqimizda</h4>
                                 <ul className={'text-[#D9D9D9]'}>
                                     <li className={'text-base mb-[10px]'}>
-                                        <p href={'/'}>Toshkent shahar, Shayxontohur tumani, Abay ko’chasi 6A-Bino</p>
+                                        <p>Toshkent shahar, Shayxontohur tumani, Abay ko’chasi 6A-Bino</p>
                                     </li>
                                     <li className={' text-base '}>
                                         <Link href={'tel:+998 71 244-51-84'}>Phone:+998 71 244-51-84</Link> <br/>

@@ -79,15 +79,15 @@ const NewsItemPage = () => {
                             get(news, 'data.results', []).map(newsItem =>
                                 <li key={get(newsItem, 'id')} className={'mb-[20px] '}>
                                     {isFetchingNews && isLoadingNews ? <SkeletonLoader/> :
-                                        <div className={'flex gap-x-[30px]'}>
+                                        <div className={'grid grid-cols-6 gap-x-[30px]'}>
 
-                                            <Image alt={'img'}
-                                                   loader={() => `${get(newsItem,'news_image')}`}
-                                                   src={`${get(newsItem,'news_image')}`}
-                                                   width={210} height={120}
-                                                   objectFit={'cover'} className={''}/>
 
-                                            <div className={'mb-[10px]'}>
+                                            <div className={'col-span-2'}>
+                                                <img alt={'img'} src={`${get(newsItem,'news_image')}`} className={'object-cover w-full h-[120px]'}/>
+                                            </div>
+
+
+                                            <div className={'col-span-4 mb-[10px]'}>
                                                 <p className={'text-[#2E6DFF] text-xs font-bold mb-[10px]'}>{dayjs(get(newsItem, 'news_datetime')).format("DD.MM.YYYY")}</p>
 
                                                 <Link href={`/news/${get(newsItem,'id','#')}`}>
