@@ -25,11 +25,18 @@ import 'swiper/css/navigation';
 
 export default function Home() {
     const controls = useAnimation();
+    const [domLoaded, setDomLoaded] = useState(false);
+
+
 
     const handleScroll = () => {
         const scrollY = window.scrollY;
         controls.start({ translateY: 1, opacity: 1, translateX: 0});
     }
+
+    useEffect(() => {
+        setDomLoaded(true);
+    }, []);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
@@ -93,68 +100,66 @@ export default function Home() {
             </div>
             <motion.div initial={{translateX: 500, opacity: 0.001}} animate={{translateX: 0, opacity: 1}} transition={{delay: 1}} className={'md:col-span-7 md:block hidden'}>
                 {/*<ImageGallery items={images} infinite showPlayButton />*/}
-                <Swiper loop={true} centeredSlides={true} autoplay={{delay: 3000, disableOnInteraction: false}} className={'absolute z-10'} modules={[Autoplay, Pagination, Navigation]}>
-                    <SwiperSlide className={'swiper-slide'}>
-                        <Image src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
-                    </SwiperSlide>
+                {domLoaded && (
+                    <Swiper loop={true} centeredSlides={true} autoplay={{delay: 3000, disableOnInteraction: false}} className={'absolute z-10'} modules={[Autoplay, Pagination, Navigation]}>
+                        <SwiperSlide className={'swiper-slide'}>
+                            <Image src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
+                        </SwiperSlide>
 
-                    <SwiperSlide>
-                        <Image src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
-                    </SwiperSlide>
+                        <SwiperSlide>
+                            <Image src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
+                        </SwiperSlide>
 
-                    <SwiperSlide>
-                        <Image src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
-                    </SwiperSlide>
+                        <SwiperSlide>
+                            <Image src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
+                        </SwiperSlide>
 
-                    <SwiperSlide>
-                        <Image src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
-                    </SwiperSlide>
+                        <SwiperSlide>
+                            <Image src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
+                        </SwiperSlide>
 
-                    <SwiperSlide>
-                        <Image src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
-                    </SwiperSlide>
-                </Swiper>
+                        <SwiperSlide>
+                            <Image src={'/images/img.png'} alt={''} className={'w-[945px] h-[734px]'} width={945} height={734}/>
+                        </SwiperSlide>
+                    </Swiper>
+                )}
             </motion.div>
         </section>
 
 
         <section className={'h-[130px]  w-full bg-[#001A57] flex items-center justify-center text-[#fff]'}>
             <motion.div initial={{translateY: 100 , opacity: 0}} animate={controls}  className={' container mx-auto'}>
+                {domLoaded && (
+                    <Swiper
+                        modules={[Pagination, Navigation]}
+                        navigation={true}
+                        loop={true} className={'mx-auto container flex items-center justify-center gap-x-[76px]'}>
+                        {
+                            get(discussion, 'data.results', []).map(item =>
+                                // eslint-disable-next-line react/jsx-key
+                                <SwiperSlide>
+                                    <div className={'flex items-center justify-center  gap-x-[30px] px-[20px]'}>
+                                        <div>
+                                            <h4 className={'text-sm md:text-base'}>Muhokamalar</h4>
+                                            <p className={'text-[#BCBCBC] text-[14px] text-xs md:text-[14px]'}>{dayjs(get(item, 'shnk_datetime')).format("MMM DD-MM, YYYY")}</p>
+                                        </div>
 
+                                        <div className={'w-[1px] h-[80px] bg-white'}></div>
 
-                <Swiper
-                    modules={[Pagination, Navigation]}
-                    navigation={true}
-                    loop={true} className={'mx-auto container flex items-center justify-center gap-x-[76px]'}>
+                                        <div className={'w-[975px]'}>
+                                            <Link href={`/discussion/${get(item, 'id', '')}`} className={'hover:underline cursor-pointer transition-all duration-500'}>
+                                                <h4 className={'md:text-2xl text-base'}>{get(item, 'shnk_number')} - {get(item, 'shnk_title')}</h4>
+                                            </Link>
+                                            <p className={'text-xs md:text-base line-clamp-2 md:line-clamp-none text-[#BCBCBC]'}>{get(item, 'shnk_description')}</p>
+                                        </div>
 
-                    {
-                        get(discussion, 'data.results', []).map(item =>
-                            // eslint-disable-next-line react/jsx-key
-                            <SwiperSlide>
-                                <div className={'flex items-center justify-center  gap-x-[30px] px-[20px]'}>
-                                    <div>
-                                        <h4 className={'text-sm md:text-base'}>Muhokamalar</h4>
-                                        <p className={'text-[#BCBCBC] text-[14px] text-xs md:text-[14px]'}>{dayjs(get(item, 'shnk_datetime')).format("MMM DD-MM, YYYY")}</p>
                                     </div>
+                                </SwiperSlide>
+                            )
+                        }
 
-                                    <div className={'w-[1px] h-[80px] bg-white'}></div>
-
-                                    <div className={'w-[975px]'}>
-                                        <Link href={`/discussion/${get(item, 'id', '')}`} className={'hover:underline cursor-pointer transition-all duration-500'}>
-                                            <h4 className={'md:text-2xl text-base'}>{get(item, 'shnk_number')} - {get(item, 'shnk_title')}</h4>
-                                        </Link>
-                                        <p className={'text-xs md:text-base line-clamp-2 md:line-clamp-none text-[#BCBCBC]'}>{get(item, 'shnk_description')}</p>
-                                    </div>
-
-                                </div>
-                            </SwiperSlide>
-                        )
-                    }
-
-                </Swiper>
-
-
-
+                    </Swiper>
+                )}
             </motion.div>
         </section>
 

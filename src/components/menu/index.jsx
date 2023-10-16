@@ -164,10 +164,12 @@ const Menu = ({active = 0, className}) => {
 
                 <div className={`${!openMenu ? "hidden" : "visible translate-x-0 transition-all duration-300 md:relative z-50 absolute top-0 md:h-auto h-screen w-screen bg-white md:bg-none right-0 md:w-auto  text-end "} md:block`}>
                     <div className={"md:hidden flex justify-between items-center px-[20px] py-[15px]"}>
-                        <Link href={'/'} onClick={toggleMenu} className={'ml-[20px]'}>
-                            {/*<Image src={'/icons/brand.svg'} alt={'brand'} className={'ml-[20px]'} width={52} height={56}/>*/}
+                        <div onClick={toggleMenu} className={'ml-[20px]'}>
                             <Brand />
-                        </Link>
+                        </div>
+                            {/*<Image src={'/icons/brand.svg'} alt={'brand'} className={'ml-[20px]'} width={52} height={56}/>*/}
+
+
 
                         <Button variant={"text"}  onClick={toggleMenu}>
                             <CloseIcon/>

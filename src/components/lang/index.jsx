@@ -32,7 +32,7 @@ const Lang = () => {
         </div>
         {open && <motion.ul className={'absolute top-full bg-white w-full text-[#8E8E8E] text-sm p-2 capitalize z-10'}>
           {
-            langs.map(lang => <li onClick={()=>handleLangItemClick(get(lang,'key'))} className={clsx('hover:text-[#1890FF] cursor-pointer',{'text-[#1890FF]':get(lang,'key',config.DEFAULT_APP_LANG) == language})} key={get(lang, 'id')}>
+            langs.map(lang => <li onClick={()=>handleLangItemClick(get(lang,'key'))} className={clsx('hover:text-[#1890FF] cursor-pointer',{'text-[#1890FF]':get(lang,'key',config.DEFAULT_APP_LANG) === language})} key={get(lang, 'id')}>
               {
                 get(lang, 'title')
               }
