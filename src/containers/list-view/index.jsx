@@ -11,7 +11,7 @@ import ListHeader from "@/containers/list-view/components/list-header";
 import ListBody from "@/containers/list-view/components/list-body";
 import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
 
-const ListView = ({
+const  ListView = ({
                       HeaderBody = null,
                       columns = [],
                       url,
