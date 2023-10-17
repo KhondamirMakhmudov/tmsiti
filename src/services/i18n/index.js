@@ -20,8 +20,8 @@ i18n
         fallbackLng: storage.get('i18nextLng') || config.DEFAULT_APP_LANG,
         backend: {
             /* translation file path */
-            loadPath: `${config.API_URL}translations/?lang={{lng}}`,
-            addPath: `${config.API_URL}translations/`,
+            // loadPath: `${config.API_URL}translations/?lang={{lng}}`,
+            // addPath: `${config.API_URL}translations/`,
         },
         debug: false,
         keySeparator: false,
