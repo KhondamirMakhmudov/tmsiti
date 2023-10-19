@@ -21,7 +21,9 @@ const Announcement = () => {
     return (
         <Main>
             <Menu/>
-            <div className={'grid grid-cols-12 container mx-auto'}>
+
+
+            <div className={'grid grid-cols-12 container mx-auto  px-[20px] md:px-0'}>
                 {/*<div className={'col-span-12'}>*/}
                 {/*    <ListView*/}
                 {/*        HeaderBody={<Title>Barcha e`lonlar</Title>}*/}
@@ -33,6 +35,11 @@ const Announcement = () => {
                 {/*        defaultPageSize={0}*/}
                 {/*    />*/}
                 {/*</div>*/}
+                <div className={'col-span-12'}>
+                    <Title >
+                        Barcha e’lonlar
+                    </Title>
+                </div>
 
                 <ul className={'col-span-12'}>
                     {

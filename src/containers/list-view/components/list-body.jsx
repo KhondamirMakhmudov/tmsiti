@@ -16,14 +16,14 @@ const ListBody = ({ dateTime, description, title, url, shnkNumber,
 
     return (
         <div className={'border-b-[1px] border-black pb-[30px] mb-[30px]'}>
-            <p className={'text-[#2E6DFF] mb-[20px] font-bold'}>{date}</p>
-            <h2 className={'text-xl font-bold hover:text-[#2E6DFF] cursor-pointer hover:underline'}>
+            <p className={'text-[#2E6DFF] mb-[20px] font-bold text-sm md:text-base'}>{date}</p>
+            <h2 className={'text-lg md:text-xl font-bold hover:text-[#2E6DFF] cursor-pointer hover:underline'}>
                 <Link href={`${url}`}>
                     {shnkNumber} - {title}
                 </Link>
 
             </h2>
-            <p className={'text-[#A9AFC5] mt-[10px] '}>{description}</p>
+            <p className={'text-[#A9AFC5] mt-[10px] text-xs md:text-base'}>{description}</p>
         </div>
     );
 };

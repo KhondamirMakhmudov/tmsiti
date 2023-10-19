@@ -21,11 +21,11 @@ const Discussion = () => {
             <Menu active={5}/>
 
 
-            <section className={'grid grid-cols-12 gap-x-[30px] container mx-auto'}>
+            <section className={'grid grid-cols-12 gap-x-[30px] container mx-auto px-[20px] md:px-0'}>
 
                 <div className={'col-span-12'}>
                     <ListView
-                        HeaderBody={<Title>Muhokamalar</Title>}
+                        HeaderBody={<Title >Muhokamalar</Title>}
                         url={URLS.discuss}
                         key={KEYS.discuss}
                         date={'shnk_datetime'}
