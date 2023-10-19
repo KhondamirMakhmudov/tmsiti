@@ -27,15 +27,15 @@ const NewsTemplate = ({imgUrl, dateTime, title, description, url}) => {
 
             <div className={'visible md:hidden'}>
                 <div className={'flex flex-col gap-x-[30px]'}>
-                    <div className={'grid grid-cols-6 gap-x-[20px] justify-between'}>
-                        <div className={'col-span-3'}>
+                    <div className={'flex flex-col gap-x-[20px] justify-between'}>
+                        <div className={''}>
                             <img src={`${imgUrl}`} alt={'news-img'} className={'w-full h-[189px] object-cover '}/>
                         </div>
 
-                        <div className={'col-span-3'}>
+                        <div className={'mt-[20px]'}>
                             <p className={'text-[#2E6DFF] mb-[20px] font-bold md:text-base text-xs'}>{date}</p>
                             <Link href={`${url}`}>
-                                <h2 className={'text-base md:text-xl line-clamp-5 font-bold hover:text-[#2E6DFF] hover:underline'}>{title}</h2>
+                                <h2 className={'text-[18px] md:text-xl line-clamp-5 font-bold hover:text-[#2E6DFF] hover:underline'}>{title}</h2>
                             </Link>
                         </div>
                     </div>
