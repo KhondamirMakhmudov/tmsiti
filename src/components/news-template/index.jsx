@@ -27,8 +27,8 @@ const NewsTemplate = ({imgUrl, dateTime, title, description, url}) => {
 
             <div className={'visible md:hidden'}>
                 <div className={'flex flex-col gap-x-[30px]'}>
-                    <div className={'grid grid-cols-7 gap-x-[20px] justify-between'}>
-                        <div className={'col-span-4'}>
+                    <div className={'grid grid-cols-6 gap-x-[20px] justify-between'}>
+                        <div className={'col-span-3'}>
                             <img src={`${imgUrl}`} alt={'news-img'} className={'w-full h-[189px] object-cover '}/>
                         </div>
 
