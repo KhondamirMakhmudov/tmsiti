@@ -23,11 +23,8 @@ const Management = () => {
     return (
         <Main>
             <Menu active={0}/>
-            
-
-            
             <section className={'grid grid-cols-12 container mx-auto gap-x-[30px] '}>
-                <div className={'col-span-12'}>
+                <div className={'col-span-12 px-[20px] md:px-0'}>
                     <Title>
                         Rahbariyat
                     </Title>
@@ -36,7 +33,7 @@ const Management = () => {
                 {
                     head(get(data, 'data', []).map(item =>
 
-                        <motion.div initial={{opacity: 0, translateX: 300}} animate={{opacity: 1, translateX: 0}} transition={{delay: .7}} className={'col-span-12'} key={get(item, 'id')}>
+                        <motion.div initial={{opacity: 0, translateX: 300}} animate={{opacity: 1, translateX: 0}} transition={{delay: .7}} className={'col-span-12 px-[20px] md:px-0'} key={get(item, 'id')}>
                             <Card
                                 position={get(item, 'worker_post')}
                                 img={get(item, 'worker_image')}
@@ -59,7 +56,7 @@ const Management = () => {
 
             <motion.ul initial={{opacity: 0, translateY: 300}} animate={{opacity: 1, translateY: 0}} transition={{delay: .9}} className={'grid grid-cols-12 container gap-x-[30px] mx-auto mb-[59px]'}>
                 {drop(get(data, 'data', []).map(item =>
-                    <li key={get(item, 'id')} className={'my-[30px] col-span-6'}>
+                    <li key={get(item, 'id')} className={'my-[30px] md:col-span-6 col-span-12 px-[20px] md:px-0'}>
                         <Card
                             position={get(item, 'worker_post')}
                             img={get(item, 'worker_image')}
