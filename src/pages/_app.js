@@ -12,8 +12,8 @@ export default function App({Component, pageProps: {session, ...pageProps}}) {
   const [queryClient] = useState(() => reactQueryClient);
   return (
 
-      <QueryClientProvider client={queryClient}>
-          <Hydrate state={pageProps?.dehydratedState}>
+      <QueryClientProvider client={queryClient} >
+          <Hydrate>
             <NextNProgress height={5} color={'#1890FF'}/>
             <Component {...pageProps} />
             <ReactQueryDevtools initialIsOpen={false}/>

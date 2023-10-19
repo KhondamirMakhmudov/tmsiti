@@ -3,8 +3,7 @@ export const KEYS = {
     group: 'group',
     doc: 'doc',
     news: 'news',
-    ads: 'ads',
-    discuss: 'discuss',
     workers: 'workers',
+    discuss: 'discuss'
 
 }

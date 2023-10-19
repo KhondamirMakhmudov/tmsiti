@@ -19,7 +19,8 @@ module.exports = {
         'contain': 'contain',
         '100%': '100% 100%',
 
-    },
+      },
+
   },
   plugins: [],
 }

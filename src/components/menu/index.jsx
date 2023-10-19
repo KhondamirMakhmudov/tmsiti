@@ -1,3 +1,4 @@
+"use s"
 import React, {useState} from 'react';
 import Link from "next/link";
 import {get, isEmpty, isEqual, isNull} from "lodash"

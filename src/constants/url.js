@@ -3,7 +3,6 @@ export const URLS = {
     group: 'shnk/group',
     doc: 'shnk/doc',
     news: 'news/',
-    ads: 'ads/',
+    workers: 'workers/',
     discuss: 'discuss/',
-    workers: 'workers/'
 }

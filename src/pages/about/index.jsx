@@ -74,19 +74,22 @@ const About = () => {
 
 
                     <div className={'flex justify-center gap-x-[50px] mb-[31px]'}>
-                        <a target="_blank" href={'/images/certificate.png'}>
+                        <Link href={'/images/certificate.png'} target={"_blank"}>
+
                             <button onClick={() => setActiveButton(0)} className={`flex  items-center  w-[170px] bg-[#1A4DC2] text-[#000] py-[13px] px-[46px] gap-x-[10px] rounded-[5px]`}>
                                 <Image src={'/icons/document.svg'} alt={'document'} width={24} height={24} />
                                 <p className={'text-sm text-white'}>Nizom</p>
                             </button>
-                        </a>
 
-                        <a target="_blank" href={'/images/profile.png'}>
+                        </Link>
+
+                        <Link href={'/images/profile.png'} target={"_blank"}>
                             <button onClick={() => setActiveButton(1)} className={`flex items-center border border-[#001A57] w-[170px]  py-[13px] px-[46px] gap-x-[10px] rounded-[5px]`}>
                                 <Image src={'/icons/document_black.svg'} alt={'document'} width={24} height={24} />
                                 <p className={'text-sm text-[#001A57] font-medium'}>Ustav</p>
                             </button>
-                        </a>
+
+                        </Link>
 
 
                     </div>
@@ -99,5 +102,6 @@ const About = () => {
         </Main>
     );
 };
+//
 
 export default About;

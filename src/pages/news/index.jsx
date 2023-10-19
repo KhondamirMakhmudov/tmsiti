@@ -25,7 +25,7 @@ const News = () => {
         <Main>
             <Menu active={0}/>
 
-            <div className={'grid grid-cols-12 gap-x-[30px] container mx-auto'}>
+            <div className={'grid grid-cols-12 gap-x-[30px] container mx-auto px-[20px] md:px-0'}>
                 <motion.div initial={{translateX: '-200px'}} animate={{translateX: '0px'}}  className={'col-span-12 mt-[50px] mb-[30px]'}>
                     <Title>
                         Barcha yangiliklar

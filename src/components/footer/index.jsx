@@ -125,7 +125,6 @@ const Footer = () => {
                                     </li>
                                     <li className={' text-base '}>
                                         <Link href={'tel:+998 71 244-51-84'}>Phone:+998 71 244-51-84</Link> <br/>
-
                                     </li>
                                     <li className={'text-base'}>
                                         <Link href={'mailto:info@tmsiti.uz'}>Email:info@tmsiti.uz</Link>

@@ -46,7 +46,7 @@ const Select = ({
     const [selectedOption, setSelectedOption] = useState(defaultValue);
     useEffect(() => {
         getValue(selectedOption)
-    }, [selectedOption])
+    }, [])
 
 
     return (

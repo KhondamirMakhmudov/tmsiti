@@ -47,10 +47,10 @@ body {
 .excel:hover {
   background: #C5C5C5;
   transition: .7s ease-out;
-  .excel-button {
-    opacity: 1;
-    transition: .7s ease-out;
-  }
 
 }
 
+excel:hover .excel-button {
+  opacity: 1;
+  transition: .7s ease-out;
+}
