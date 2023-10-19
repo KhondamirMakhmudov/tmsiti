@@ -167,7 +167,7 @@ export default function Home() {
             initial={{ translateY: 100 , opacity: 0}}
             animate={controls}
             className={'mb-[82px]'}>
-            <div className={'grid grid-cols-12 gap-x-[30px] container mx-auto p-[20px] md:p-0'}>
+            <div className={'grid grid-cols-12 gap-x-[30px] container mx-auto px-[20px] md:px-0'}>
 
                 <div className={'col-span-12 flex justify-between pt-[50px] pb-[30px] items-end '}>
                     <Title>
@@ -212,7 +212,7 @@ export default function Home() {
                                             </Link>
                                         </div>
 
-                                        <img src={get(item, 'news_image')} alt={'news-img'} className={'md:w-[330px] md:h-[189px]  h-[180px]  object-cover mb-[10px] md:mb-0'}/>
+                                        <img src={get(item, 'news_image')} alt={'news-img'} className={'md:w-[330px] md:h-[189px] w-[430px] h-[180px]  object-cover mb-[10px] md:mb-0'}/>
                                     </div>
 
                                     <div className={'w-full h-[1px] bg-gray-900 my-[30px]'}></div>
