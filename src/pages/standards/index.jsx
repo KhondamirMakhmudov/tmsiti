@@ -16,22 +16,22 @@ const Standards = () => {
             <Menu/>
 
             <section className={'grid grid-cols-12 gap-x-[30px] container mx-auto'}>
-                <div className={'col-span-12'}>
-                    <Title>
+                <div className={'col-span-12 px-[20px] md:px-0'}>
+                    <Title >
                         faol, muomaladan chiqarilgan davlat standartlar, tashkilot standartlari va xalqaro standartlar reestri
                     </Title>
 
                 </div>
             </section>
 
-            <div className={'bg-[#28366D] bg-no-repeat bg-cover  pt-[30px] pb-[20px]  mb-[30px]'} style={{backgroundImage: "url(/images/background-search-box.png)"}}>
+            <div className={'bg-[#28366D] bg-no-repeat bg-cover  pt-[30px] pb-[20px]  mb-[30px] px-[20px] md:px-0'} style={{backgroundImage: "url(/images/background-search-box.png)"}}>
                 <div className={'grid grid-cols-12 gap-x-[30px] container mx-auto'}>
-                    <form className={'col-span-12 flex gap-x-[30px] '}>
+                    <form className={'col-span-12 flex md:gap-x-[30px] gap-y-[20px] flex-wrap-reverse md:flex-nowrap '}>
                         <input type={'text'} placeholder={"Standart raqami"} className={'max-w-[270px] w-full text-sm py-[15px] px-[20px] placeholder-[#001A57] outline-0 rounded-[5px]'}/>
                         <input type={'text'} placeholder={"Standart nomi"} className={'w-full text-sm py-[15px] px-[20px] placeholder-[#001A57] outline-0 rounded-[5px]'}/>
                     </form>
 
-                    <form className={'col-span-12 flex gap-x-[30px] mb-[20px]'}>
+                    <form className={'col-span-12 flex flex-col md:flex-row  gap-x-[30px] mb-[20px]'}>
 
                         <Select
                             placeholder={'Standart toifasini tanlang'}
@@ -45,12 +45,12 @@ const Standards = () => {
 
                     </form>
 
-                    <div className={'col-span-12'}>
+                    <div className={'col-span-12 '}>
                         <h4 className={'font-semibold text-sm text-[#fff] mb-[14px]'}>Holati</h4>
                     </div>
 
-                    <div className={'col-span-12 flex justify-between items-center'}>
-                        <div className={'flex gap-x-[20px] items-center '}>
+                    <div className={'col-span-12 flex flex-col md:flex-row justify-between md:items-center '}>
+                        <div className={'flex flex-col md:flex-row md:gap-x-[20px] '}>
                             <CheckboxTemplate>Amalda</CheckboxTemplate>
 
                             <CheckboxTemplate>Amalda emas</CheckboxTemplate>
@@ -60,14 +60,14 @@ const Standards = () => {
                             <CheckboxTemplate>Reestrdan chiqarilgan</CheckboxTemplate>
                         </div>
 
-                        <p className={'italic text-xs font-medium text-[#fff] '}>*Tizimdagi ma’lumotlar O‘zStandart reestridan olingan</p>
+                        <p className={'italic text-xs font-medium text-[#fff] mt-[20px]'}>*Tizimdagi ma’lumotlar O‘zStandart reestridan olingan</p>
                     </div>
 
 
                 </div>
             </div>
 
-            <div className={'grid grid-cols-12 container mx-auto'}>
+            <div className={'grid grid-cols-12 container mx-auto px-[20px] md:px-0'}>
                 <Template
                     code={'O‘zDSt 652:2011'}
                     content={'Комбикорма, сырье. Методь определения металломагнитной примеси'}
