@@ -6,7 +6,7 @@ const Hierarchy = () => {
     return (
         <Main>
             <Menu active={0}/>
-            <div className={'grid grid-cols-12 container mx-auto'}>
+            <div className={'grid grid-cols-12 container mx-auto px-[20px]'}>
                 <div className={'col-span-12 mb-[50px]'}>
                     <Title>
                         Tashkiliy tuzilma
