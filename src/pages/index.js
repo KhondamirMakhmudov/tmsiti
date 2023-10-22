@@ -198,11 +198,11 @@ export default function Home() {
                 </motion.div>
 
                 <div className={'md:col-span-6 col-span-12'}>
-                    <ul className={'grid grid-rows-12 '}>
+                    <ul className={'grid grid-cols-12 '}>
 
                         {
                             slice(drop(get(data, 'data.results', []).map(item =>
-                                <motion.li initial={{translateX: 100, opacity: 0}} animate={controls} key={get(item, 'id')} className={'row-span-4'}>
+                                <motion.li initial={{translateX: 100, opacity: 0}} animate={controls} key={get(item, 'id')} className={'col-span-12'}>
 
                                     <div className={'flex gap-x-[30px] md:flex-row flex-col-reverse'}>
                                         <div className={'w-[408px]'}>
@@ -212,7 +212,7 @@ export default function Home() {
                                             </Link>
                                         </div>
 
-                                        <img src={get(item, 'news_image')} alt={'news-img'} className={'md:w-[330px] md:h-[189px] w-[30 0px] h-[180px]  object-cover mb-[10px] md:mb-0'}/>
+                                        <img src={get(item, 'news_image')} alt={'news-img'} className={'md:w-[330px] md:h-[189px]  h-[180px]  object-cover mb-[10px] md:mb-0'}/>
                                     </div>
 
                                     <div className={'w-full h-[1px] bg-gray-900 my-[30px]'}></div>

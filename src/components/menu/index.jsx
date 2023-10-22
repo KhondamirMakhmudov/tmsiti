@@ -222,7 +222,7 @@ const Menu = ({active = 0, className}) => {
                                     key={get(item, 'id')}
                                     onClick={(e)=> {
                                         e.stopPropagation();
-                                        setMenu(!menu); 
+                                        setMenu(!menu);
                                         setOpenDropdownMenu(get(item, 'id'))
 
                                     }}
@@ -254,6 +254,7 @@ const Menu = ({active = 0, className}) => {
                                                         className={`p-[10px] border-b-[1px] border-b-[#D6E0F5] ${get(item, "id") !== openDropdownMenu ? 'hidden' : 'visible'} `}>{t(get(subItem, 'title'))}</motion.li>
 
                                                 </Link>
+
 
                                             )
                                         }
