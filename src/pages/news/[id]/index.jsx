@@ -23,6 +23,7 @@ const NewsItemPage = () => {
         enabled: !!(id)
     });
 
+
     const {data: news, isLoading: isLoadingNews, isFetching: isFetchingNews} = useGetTMSITIQuery({
         key: KEYS.news,
         url: URLS.news
@@ -32,6 +33,10 @@ const NewsItemPage = () => {
 
     if (isLoading) {
         return "Loading...";
+    }
+
+    const SelectNews = () => {
+
     }
     return (
         <Main>
@@ -76,7 +81,7 @@ const NewsItemPage = () => {
                     <ul>
                         {
                             slice(get(news, 'data.results', []).map(newsItem =>
-                                <li key={get(newsItem, 'id')} className={'mb-[20px] '} onClick={() => {}}>
+                                <li key={get(newsItem, 'id')} className={'mb-[20px] '}>
                                     {isFetchingNews && isLoadingNews ? <SkeletonLoader/> :
                                         <div className={'grid grid-cols-6 gap-x-[30px]'}>
                                             <div className={'col-span-2'}>

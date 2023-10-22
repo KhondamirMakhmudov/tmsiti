@@ -15,7 +15,7 @@ export const menuData = [
     {
         id: 1,
         title: 'Institut',
-        url: '',
+        url: '#',
         filterUrl:'',
         subMenu: [
             {
@@ -75,7 +75,7 @@ export const menuData = [
     {
         id: 4,
         title: 'Tizimlar',
-        url: '/',
+        url: '#',
         filterUrl:'',
         subMenu: [
             {
@@ -101,7 +101,7 @@ export const menuData = [
     {
         id: 5,
         title: 'Xabarlar',
-        url: '/',
+        url: '#',
         filterUrl:'',
         subMenu: [
             {
@@ -215,7 +215,7 @@ const Menu = ({active = 0, className}) => {
                         initial={{opacity: 0, translateX: 200}}
                         animate={{opacity: 1, translateX: 0}}
                         transition={{delay:0.2}}
-                        className={`md:hidden flex flex-col text-[#001A57] justify-between gap-x-[30px] bg-[#F2F4F5] ml-[20px]`}>
+                        className={`md:hidden flex flex-col text-[#001A57] bg-[#F2F4F5]`}>
                         {
                             menuData.map(item =>
                                 <li
@@ -226,7 +226,7 @@ const Menu = ({active = 0, className}) => {
                                         setOpenDropdownMenu(get(item, 'id'))
 
                                     }}
-                                    className={` relative ${menu ? 'py-[10px]' : 'py-[5px]'} text-start `}>
+                                    className={` relative py-[5px] text-center`}>
                                 <Link
                                     className={clsx('hover:text-[#2E6DFF] font-semibold transition-all border-b border-b-transparent  uppercase', {'!border-b-[#1890FF] text-white': isEqual(get(item, 'id'), active)})}
                                     href={get(item, 'url')}>{t(get(item, 'title'))}
@@ -238,7 +238,7 @@ const Menu = ({active = 0, className}) => {
                                         initial={{opacity:0, translateY: 20}}
                                         animate={{opacity: 1, translateY: 0}}
                                         transition={{delay: 0.2}}
-                                        className={` transition-all duration-500  bg-gray-50  w-full text-start mt-[5px] mb-0`}>
+                                        className={` transition-all duration-500  bg-gray-50  w-full text-center mt-[5px] mb-0`}>
                                         {
                                             get(item, 'subMenu', []).map(subItem =>
 
