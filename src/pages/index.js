@@ -205,7 +205,7 @@ export default function Home() {
                                 <motion.li initial={{translateX: 100, opacity: 0}} animate={controls} key={get(item, 'id')} className={'col-span-12'}>
 
                                     <div className={'flex gap-x-[30px] md:flex-row flex-col-reverse'}>
-                                        <div className={'w-[408px]'}>
+                                        <div>
                                             <p className={'text-[#2E6DFF] md:text-base text-sm mb-[20px] font-bold'}>Yangilik {dayjs(get(item, 'news_datetime')).format("DD.MM.YYYY")}</p>
                                             <Link href={`/news/${get(item, 'id')}`}>
                                                 <h2 className={'md:text-xl text-base  hover:text-[#2E6DFF] hover:underline font-bold md:line-clamp-5 line-clamp-3'}>{get(item, 'news_title')}</h2>
