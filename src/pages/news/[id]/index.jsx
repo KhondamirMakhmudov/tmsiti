@@ -6,7 +6,7 @@ import {useRouter} from "next/router";
 import {KEYS} from "@/constants/key";
 import {URLS} from "@/constants/url";
 import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
-import {get} from "lodash";
+import {get, slice} from "lodash";
 import parse from 'html-react-parser';
 import dayjs from "dayjs";
 import Image from "next/image";
@@ -36,19 +36,19 @@ const NewsItemPage = () => {
     return (
         <Main>
             <Menu active={0}/>
-            <section className={'grid grid-cols-12 container mx-auto gap-x-[30px] mb-[70px]'}>
+            <section className={'grid grid-cols-12 container mx-auto gap-x-[30px] mb-[70px] md:px-0 px-[20px]'}>
 
-                <div className={'col-span-12 mb-[30px]'}>
-                    <p className={'text-[#2E6DFF] mb-[20px] font-bold'}><span>{dayjs(get(data,'data.news_datetime')).format("DD MMM YYYY")}</span></p>
+                <div className={'col-span-12 mb-[30px] '}>
+                    <p className={'text-[#2E6DFF] mb-[20px] font-bold text-sm md:text-base'}><span>{dayjs(get(data,'data.news_datetime')).format("DD MMM YYYY")}</span></p>
 
-                    <NewsTitle size={'3xl'}>
+                    <NewsTitle>
                         {get(data,'data.news_title')}
                     </NewsTitle>
                 </div>
 
-                <div className={'col-span-7 '}>
+                <div className={' col-span-12 md:col-span-7 mb-[30px] md:mb-0'}>
                     <figure>
-                        <div className={'relative w-full h-[650px] -z-10'}>
+                        <div className={'relative w-full md:h-[650px] h-[400px] -z-10'}>
                             <Image alt={'img'}
                                    loader={() => `${get(data,'data.news_image')}`}
                                    src={`${get(data,'data.news_image')}`}
@@ -59,7 +59,6 @@ const NewsItemPage = () => {
                         <figcaption className={'text-sm text-start mt-[10px] text-neutral-600 dark:text-neutral-400'}>
                             {get(data, 'data.img_desc')}
                         </figcaption>
-
                     </figure>
 
                     <div className={'col-span-12 mt-[30px]'}>
@@ -67,7 +66,7 @@ const NewsItemPage = () => {
                     </div>
                 </div>
 
-                <div className={'col-span-5'}>
+                <div className={'md:col-span-5 col-span-12   '}>
                     <h4 className={'text-xl font-semibold'}>Boshqa yangiliklar</h4>
 
                     <div className={'w-full h-[1px] bg-[#001A57] mt-[10px] mb-[20px]'}>
@@ -76,12 +75,10 @@ const NewsItemPage = () => {
 
                     <ul>
                         {
-                            get(news, 'data.results', []).map(newsItem =>
-                                <li key={get(newsItem, 'id')} className={'mb-[20px] '}>
+                            slice(get(news, 'data.results', []).map(newsItem =>
+                                <li key={get(newsItem, 'id')} className={'mb-[20px] '} onClick={() => {}}>
                                     {isFetchingNews && isLoadingNews ? <SkeletonLoader/> :
                                         <div className={'grid grid-cols-6 gap-x-[30px]'}>
-
-
                                             <div className={'col-span-2'}>
                                                 <img alt={'img'} src={`${get(newsItem,'news_image')}`} className={'object-cover w-full h-[120px]'}/>
                                             </div>
@@ -91,7 +88,7 @@ const NewsItemPage = () => {
                                                 <p className={'text-[#2E6DFF] text-xs font-bold mb-[10px]'}>{dayjs(get(newsItem, 'news_datetime')).format("DD.MM.YYYY")}</p>
 
                                                 <Link href={`/news/${get(newsItem,'id','#')}`}>
-                                                    <h2 className={'text-sm font-bold hover:text-[#2E6DFF] hover:underline'}>{get(newsItem, 'news_title')}</h2>
+                                                    <h2 className={'text-sm font-bold hover:text-[#2E6DFF] hover:underline line-clamp-4 md:line-clamp-0'}>{get(newsItem, 'news_title')}</h2>
                                                 </Link>
                                             </div>
                                         </div>
@@ -100,12 +97,12 @@ const NewsItemPage = () => {
                                     }
 
                                 </li>
-                            )
+                            ), 0, 5)
                         }
 
                     </ul>
 
-                    <div className={'mt-[30px]'}>
+                    <div className={'md:mt-[30px] mt-[50px] text-center md:text-start'}>
                         <Link href={'/news'} className={'py-[13px] px-[55px] bg-[#1A4DC2] font-bold text-[#fff] hover:bg-[#1641A6] transition-colors duration-300'}>
                             Batafsil
                         </Link>
