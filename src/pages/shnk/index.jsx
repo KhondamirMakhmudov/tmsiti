@@ -52,7 +52,7 @@ const SHNQ = () => {
             setSystemId(get(head(get(subSystem, 'data', [])), 'id'))
         }
     }, [get(subSystem, 'data', [])])
-
+ 
     if (isLoadingSystem) {
         return <p>Loading...</p>
     }

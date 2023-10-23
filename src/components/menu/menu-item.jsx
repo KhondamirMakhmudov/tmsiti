@@ -20,7 +20,7 @@ const MenuItem = ({
     if (!isEqual(openDropdownMenu, get(item, "id"))) {
       setMenu(false);
     }
-  }, [openDropdownMenu]);
+  }, [item, openDropdownMenu]);
   return (
     <li
       key={key}
