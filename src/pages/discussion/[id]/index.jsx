@@ -241,28 +241,34 @@ const DiscussItemPage = () => {
         {/*mobile version*/}
 
         <div
-          className={`col-span-12 md:col-span-5  md:hidden block bottom-sheet ${
+          className={` relative col-span-12 md:col-span-5  md:hidden block bottom-sheet rounded-[40px] ${
             open ? "open" : ""
           }`}
         >
-          <p className={"text-2xl mb-[30px]"}>Fikr bildirish:</p>
+          <p className={"text-xl mb-[10px] p-[25px]"}>Fikr bildirish:</p>
 
           <div
             className={
               "bg-transparent  flex flex-col p-[20px] h-[791px]  shadow-2xl "
             }
           >
-            <div className={"overflow-y-scroll flex flex-col gap-[30px]"}>
+            <div
+              className={"overflow-y-scroll h-[300px] flex flex-col gap-[30px]"}
+            >
               <Commentator />
               <Commentator />
               <Commentator />
               <Commentator />
             </div>
 
-            <div className={"relative pb-[50px] pt-[30px] w-full "}>
+            <div
+              className={
+                "absolute left-0 bottom-[180px] pb-[50px] pt-[30px] w-full px-[20px]"
+              }
+            >
               <input
                 className={
-                  " rounded-[5px] w-full bg-[#F2F4F7] py-[14px] px-[20px] focus:outline-[#2E6DFF]"
+                  " rounded-[5px] w-full bg-[#F2F4F7] py-[14px] px-[15px] focus:outline-[#2E6DFF]"
                 }
                 placeholder={"reply"}
               />
