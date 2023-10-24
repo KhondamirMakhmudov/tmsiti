@@ -62,7 +62,7 @@ excel:hover .excel-button {
   width: 100%;
   height: 700px;
   background-color: #fff;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.7s ease-in-out;
   box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.2);
 }
 .bottom-sheet.open {

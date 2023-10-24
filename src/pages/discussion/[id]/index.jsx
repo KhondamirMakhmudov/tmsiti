@@ -263,7 +263,7 @@ const DiscussItemPage = () => {
 
             <div
               className={
-                "absolute left-0 bottom-[180px] pb-[50px] pt-[30px] w-full px-[20px]"
+                "absolute left-0 bottom-[180px]  pt-[30px] w-full px-[20px]"
               }
             >
               <input
