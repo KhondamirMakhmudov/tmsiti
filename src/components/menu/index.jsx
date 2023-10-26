@@ -193,7 +193,7 @@ const Menu = ({ active = 0, className }) => {
               >
                 <Link
                   className={clsx(
-                    "hover:text-[#2E6DFF] font-semibold transition-all border-b border-b-transparent  uppercase",
+                    " text-[#001A57] font-semibold transition-all border-b border-b-transparent  uppercase",
                     { "text-[#2E6DFF]": isEqual(get(item, "id"), active) },
                   )}
                   href={get(item, "url")}
@@ -216,7 +216,7 @@ const Menu = ({ active = 0, className }) => {
                         className={clsx(
                           "hover:text-[#2E6DFF] transition-all text-sm border-b-transparent font-medium uppercase",
                           {
-                            "!border-b-[#1890FF] text-white": isEqual(
+                            "!border-b-[#1890FF] text-[#001A57]": isEqual(
                               get(item, "id"),
                               active,
                             ),

@@ -245,7 +245,19 @@ const DiscussItemPage = () => {
             open ? "open" : ""
           }`}
         >
-          <p className={"text-xl mb-[10px] p-[25px]"}>Fikr bildirish:</p>
+          <div className={"flex items-center justify-between p-[25px]"}>
+            <p className={"text-xl  "}>Fikr bildirish:</p>
+            <Image
+              src={"/images/close.png"}
+              alt={"close"}
+              width={30}
+              height={30}
+              className={
+                "cursor-pointer hover:rotate-90 transition-all duration-300"
+              }
+              onClick={toggleSheet}
+            />
+          </div>
 
           <div
             className={
