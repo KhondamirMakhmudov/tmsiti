@@ -9,8 +9,6 @@ import { get } from "lodash";
 import dayjs from "dayjs";
 import Commentator from "@/components/commentator";
 import Image from "next/image";
-import { BottomSheet } from "react-spring-bottom-sheet";
-import "react-spring-bottom-sheet/dist/style.css";
 
 const DiscussItemPage = () => {
   const [open, setOpen] = useState(false);
