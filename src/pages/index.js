@@ -67,7 +67,7 @@ export default function Home() {
               transition={{ delay: 0.3 }}
               animate={{ scale: 1 }}
               className={
-                " px-5 md:px-0 md:text-[64px] relative top-[100px] md:top-0 text-[45px] text-[#14255B] font-bold md:mb-[90px] mb-[50px]"
+                "  md:px-0 md:text-[64px] relative top-[100px] md:top-0 text-[45px] text-[#14255B] font-bold md:mb-[90px] mb-[50px]"
               }
             >
               Biz qurilishda taraqqiyotni ilhomlantiramiz.
@@ -84,7 +84,7 @@ export default function Home() {
               transition={{ delay: 0.5 }}
               animate={{ scale: 1 }}
               className={
-                "p-[15px]  md:border-t-[1px] border-t-[0px]  border-[#14255B]"
+                "p-[20px] md:px-0  md:border-t-[1px] border-t-[0px]  border-[#14255B]"
               }
             >
               <Link
@@ -109,7 +109,7 @@ export default function Home() {
               transition={{ delay: 0.7 }}
               animate={{ scale: 1 }}
               className={
-                "p-[15px] md:border-t-[1px] border-t-[0px] border-[#14255B]"
+                "p-[20px] md:px-0 md:border-t-[1px] border-t-[0px] border-[#14255B]"
               }
             >
               <Link
@@ -201,9 +201,10 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/*desktop version*/}
       <section
         className={
-          "h-[130px]  w-full bg-[#001A57] flex items-center justify-center text-[#fff]"
+          "h-[130px]  w-full bg-[#001A57] md:flex hidden items-center justify-center text-[#fff]"
         }
       >
         <motion.div
@@ -270,6 +271,74 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/*mobile version*/}
+      <section
+        className={
+          "h-[130px] md:hidden   w-full bg-[#001A57] flex items-center justify-center text-[#fff]"
+        }
+      >
+        <motion.div
+          initial={{ translateY: 100, opacity: 0 }}
+          animate={controls}
+          className={" container mx-auto"}
+        >
+          {domLoaded && (
+            <Swiper
+              modules={[Pagination, Navigation]}
+              loop={true}
+              className={
+                "mx-auto container flex items-center justify-center gap-x-[76px]"
+              }
+            >
+              {get(discussion, "data.results", []).map((item) => (
+                // eslint-disable-next-line react/jsx-key
+                <SwiperSlide>
+                  <div
+                    className={
+                      "flex items-center justify-center  gap-x-[30px] px-[20px]"
+                    }
+                  >
+                    <div>
+                      <h4 className={"text-sm md:text-base"}>Muhokamalar</h4>
+                      <p
+                        className={
+                          "text-[#BCBCBC] text-[14px] text-xs md:text-[14px]"
+                        }
+                      >
+                        {dayjs(get(item, "shnk_datetime")).format(
+                          "MMM DD-MM, YYYY",
+                        )}
+                      </p>
+                    </div>
+
+                    <div className={"w-[1px] h-[80px] bg-white"}></div>
+
+                    <div className={"w-[975px]"}>
+                      <Link
+                        href={`/discussion/${get(item, "id", "")}`}
+                        className={
+                          "hover:underline cursor-pointer transition-all duration-500"
+                        }
+                      >
+                        <h4 className={"md:text-2xl text-base"}>
+                          {get(item, "shnk_number")} - {get(item, "shnk_title")}
+                        </h4>
+                      </Link>
+                      <p
+                        className={
+                          "text-xs md:text-base line-clamp-2 md:line-clamp-none text-[#BCBCBC]"
+                        }
+                      >
+                        {get(item, "shnk_description")}
+                      </p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
+        </motion.div>
+      </section>
       <motion.section
         initial={{ translateY: 100, opacity: 0 }}
         animate={controls}
