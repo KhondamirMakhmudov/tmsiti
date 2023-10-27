@@ -310,7 +310,7 @@ export default function Home() {
                   <img
                     src={get(item, "news_image")}
                     alt="news-main-img"
-                    className={"md:w-[690px] md:h-[468px]   object-cover"}
+                    className={"md:w-full md:h-[468px]   object-cover"}
                   />
                   <p className={"text-[#2E6DFF] mt-[30px] font-bold"}>
                     Yangilik{" "}
@@ -350,10 +350,10 @@ export default function Home() {
                     >
                       <div
                         className={
-                          "flex gap-x-[30px] md:flex-row flex-col-reverse"
+                          "md:grid md:grid-cols-6 flex gap-x-[30px] flex-col-reverse"
                         }
                       >
-                        <div>
+                        <div className={"md:col-span-4"}>
                           <p
                             className={
                               "text-[#2E6DFF] md:text-base text-sm mb-[20px] font-bold"
@@ -375,13 +375,15 @@ export default function Home() {
                           </Link>
                         </div>
 
-                        <img
-                          src={get(item, "news_image")}
-                          alt={"news-img"}
-                          className={
-                            "md:w-[330px] md:h-[189px]  h-[180px]  object-cover mb-[10px] md:mb-0"
-                          }
-                        />
+                        <div className={"md:col-span-2"}>
+                          <img
+                            src={get(item, "news_image")}
+                            alt={"news-img"}
+                            className={
+                              "md:w-full md:h-[189px]    object-cover mb-[10px] md:mb-0"
+                            }
+                          />
+                        </div>
                       </div>
 
                       <div
