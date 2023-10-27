@@ -274,7 +274,7 @@ export default function Home() {
       {/*mobile version*/}
       <section
         className={
-          "h-[130px] md:hidden   w-full bg-[#001A57] flex items-center justify-center text-[#fff]"
+          " md:hidden h-full w-full flex items-center justify-center text-[#fff]"
         }
       >
         <motion.div
@@ -295,14 +295,16 @@ export default function Home() {
                 <SwiperSlide>
                   <div
                     className={
-                      "flex items-center justify-center  gap-x-[30px] px-[20px]"
+                      "flex items-start justify-center flex-col w-[350px] border border-[#001A57] shadow-2xl rounded-[30px]  gap-y-[15px] p-[20px]"
                     }
                   >
                     <div>
-                      <h4 className={"text-sm md:text-base"}>Muhokamalar</h4>
+                      <h4 className={"text-sm md:text-base text-[#001A57]"}>
+                        Muhokamalar
+                      </h4>
                       <p
                         className={
-                          "text-[#BCBCBC] text-[14px] text-xs md:text-[14px]"
+                          "text-[#001A57] text-[14px] text-xs md:text-[14px]"
                         }
                       >
                         {dayjs(get(item, "shnk_datetime")).format(
@@ -311,22 +313,22 @@ export default function Home() {
                       </p>
                     </div>
 
-                    <div className={"w-[1px] h-[80px] bg-white"}></div>
+                    {/*<div className={"w-full h-[1px] bg-white"}></div>*/}
 
-                    <div className={"w-[975px]"}>
+                    <div className={""}>
                       <Link
                         href={`/discussion/${get(item, "id", "")}`}
                         className={
                           "hover:underline cursor-pointer transition-all duration-500"
                         }
                       >
-                        <h4 className={"md:text-2xl text-base"}>
+                        <h4 className={"md:text-2xl text-base text-[#001A57]"}>
                           {get(item, "shnk_number")} - {get(item, "shnk_title")}
                         </h4>
                       </Link>
                       <p
                         className={
-                          "text-xs md:text-base line-clamp-2 md:line-clamp-none text-[#BCBCBC]"
+                          "text-xs md:text-base line-clamp-2 md:line-clamp-none text-[#002D97] mt-[10px]"
                         }
                       >
                         {get(item, "shnk_description")}
