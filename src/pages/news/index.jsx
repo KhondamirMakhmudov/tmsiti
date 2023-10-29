@@ -36,25 +36,6 @@ const News = () => {
           <Title>Barcha yangiliklar</Title>
         </motion.div>
 
-        {/*<ul className={'col-span-12'}>*/}
-        {/*    {*/}
-        {/*        get(news, 'data.results', []).map(newsItem =>*/}
-        {/*            <li key={get(newsItem, 'id')}>*/}
-        {/*                {isFetchingNews && isLoadingNews ? <SkeletonLoader/> :*/}
-        {/*                    <NewsTemplate*/}
-        {/*                        imgUrl={(get(newsItem, 'news_image'))}*/}
-        {/*                        dateTime={get(newsItem, 'news_datetime')}*/}
-        {/*                        title={get(newsItem, 'news_title')}*/}
-        {/*                        description={get(newsItem, 'news_desc')}*/}
-        {/*                        url={`/news/${get(newsItem,'id','#')}`}*/}
-        {/*                    />*/}
-        {/*                }*/}
-
-        {/*            </li>*/}
-        {/*        )*/}
-        {/*    }*/}
-
-        {/*</ul>*/}
         <div className={"col-span-12"}>
           <NewsList
             key={KEYS.news}

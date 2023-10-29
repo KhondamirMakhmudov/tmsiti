@@ -274,7 +274,7 @@ export default function Home() {
       {/*mobile version*/}
       <section
         className={
-          " md:hidden h-full w-full flex items-center justify-center text-[#fff]"
+          " md:hidden  flex items-center justify-center text-[#fff] px-[20px]"
         }
       >
         <motion.div
@@ -285,6 +285,8 @@ export default function Home() {
           {domLoaded && (
             <Swiper
               modules={[Pagination, Navigation]}
+              spaceBetween={300}
+              slidesPerView={2}
               loop={true}
               className={
                 "mx-auto container flex items-center justify-center gap-x-[76px]"
@@ -295,7 +297,7 @@ export default function Home() {
                 <SwiperSlide>
                   <div
                     className={
-                      "flex items-start justify-center flex-col w-[350px] border border-[#001A57] shadow-2xl rounded-[30px]  gap-y-[15px] p-[20px]"
+                      "flex items-start justify-center flex-col w-[350px] border border-[#001A57]  rounded-[30px]  gap-y-[15px] p-[20px]"
                     }
                   >
                     <div>
