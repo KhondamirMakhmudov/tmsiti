@@ -297,7 +297,7 @@ export default function Home() {
                 <SwiperSlide>
                   <div
                     className={
-                      "flex items-start justify-center flex-col w-[350px] border border-[#001A57]  rounded-[30px]  gap-y-[15px] p-[20px]"
+                      "flex items-start justify-center flex-col w-[30px] border border-[#001A57]  rounded-[30px]  gap-y-[15px] p-[20px]"
                     }
                   >
                     <div>
@@ -328,13 +328,13 @@ export default function Home() {
                           {get(item, "shnk_number")} - {get(item, "shnk_title")}
                         </h4>
                       </Link>
-                      <p
-                        className={
-                          "text-xs md:text-base line-clamp-2 md:line-clamp-none text-[#002D97] mt-[10px]"
-                        }
-                      >
-                        {get(item, "shnk_description")}
-                      </p>
+                      {/*<p*/}
+                      {/*  className={*/}
+                      {/*    "text-xs md:text-base line-clamp-2 md:line-clamp-none text-[#002D97] mt-[10px]"*/}
+                      {/*  }*/}
+                      {/*>*/}
+                      {/*  {get(item, "shnk_description")}*/}
+                      {/*</p>*/}
                     </div>
                   </div>
                 </SwiperSlide>
