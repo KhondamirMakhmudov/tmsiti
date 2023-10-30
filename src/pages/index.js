@@ -297,7 +297,7 @@ export default function Home() {
                 <SwiperSlide>
                   <div
                     className={
-                      "flex items-start justify-center flex-col w-[30px] border border-[#001A57]  rounded-[30px]  gap-y-[15px] p-[20px]"
+                      "flex items-start justify-center flex-col w-[300px] border border-[#001A57]  rounded-[30px]  gap-y-[15px] p-[20px]"
                     }
                   >
                     <div>
