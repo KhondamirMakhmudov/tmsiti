@@ -33,7 +33,7 @@ const MenuItem = ({
       {!isEmpty(get(item, "subMenu", [])) ? (
         <a
           className={clsx(
-            "hover:text-[#2E6DFF] font-semibold transition-all border-b border-b-transparent  uppercase",
+            "hover:text-[#2E6DFF] font-semibold cursor-pointer transition-all border-b border-b-transparent  uppercase",
             {
               "!border-b-[#1890FF] text-white": isEqual(
                 get(item, "id"),
