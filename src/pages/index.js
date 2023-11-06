@@ -67,7 +67,7 @@ export default function Home() {
               transition={{ delay: 0.3 }}
               animate={{ scale: 1 }}
               className={
-                "  md:px-0 md:text-[64px] relative top-[100px] md:top-0 text-[45px] text-[#14255B] font-bold md:mb-[90px] mb-[50px]"
+                "  md:px-0 md:text-[30px] lg:text-[45px] xl:text-[64px] relative top-[100px] md:top-0 text-[45px] text-[#14255B] font-bold md:mb-[60px] lg:mb-[90px] mb-[50px]"
               }
             >
               Biz qurilishda taraqqiyotni ilhomlantiramiz.
@@ -76,7 +76,7 @@ export default function Home() {
 
           <div
             className={
-              "flex flex-col md:flex-row gap-x-[30px] relative  md:px-0"
+              "flex flex-col md:flex-row lg:gap-x-[30px] md:gap-x-[20px] relative  md:px-0"
             }
           >
             <motion.div
@@ -89,7 +89,9 @@ export default function Home() {
             >
               <Link
                 href={"/shnk"}
-                className={"uppercase text-[#2E6DFF] text-sm md:text-base"}
+                className={
+                  "uppercase text-[#2E6DFF] md:text-sm lg:text-base xl:text-lg"
+                }
               >
                 Shnq
               </Link>
@@ -97,7 +99,7 @@ export default function Home() {
               <Link
                 href={"/shnk"}
                 className={
-                  "text-[#001A57] hover:text-[#5D84CB] hover:underline md:text-2xl text-xl font-bold transition-all duration-400"
+                  "text-[#001A57] hover:text-[#5D84CB] hover:underline md:text-base lg:text-xl xl:text-2xl text-xl font-bold transition-all duration-400"
                 }
               >
                 <p>Shaharsozlik normalari va qoidalari</p>
@@ -114,7 +116,9 @@ export default function Home() {
             >
               <Link
                 href={"/standards"}
-                className={"uppercase text-[#2E6DFF] text-sm md:text-base"}
+                className={
+                  "uppercase text-[#2E6DFF] text-sm md:text-sm lg:text-base xl:text-lg"
+                }
               >
                 Standartlar
               </Link>
@@ -122,7 +126,7 @@ export default function Home() {
               <Link
                 href={"/standards"}
                 className={
-                  "text-[#001A57] hover:text-[#5D84CB] hover:underline md:text-2xl text-xl font-bold transition-all duration-400"
+                  "text-[#001A57] hover:text-[#5D84CB] hover:underline md:text-base lg:text-xl xl:text-2xl text-xl font-bold transition-all duration-400"
                 }
               >
                 <p>
@@ -144,14 +148,13 @@ export default function Home() {
               loop={true}
               centeredSlides={true}
               autoplay={{ delay: 3000, disableOnInteraction: false }}
-              className={"absolute z-10"}
               modules={[Autoplay, Pagination, Navigation]}
             >
               <SwiperSlide className={"swiper-slide"}>
                 <Image
                   src={"/images/img.png"}
                   alt={""}
-                  className={"w-[945px] h-[734px]"}
+                  className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
                   width={945}
                   height={734}
                 />
@@ -161,37 +164,7 @@ export default function Home() {
                 <Image
                   src={"/images/img.png"}
                   alt={""}
-                  className={"w-[945px] h-[734px]"}
-                  width={945}
-                  height={734}
-                />
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <Image
-                  src={"/images/img.png"}
-                  alt={""}
-                  className={"w-[945px] h-[734px]"}
-                  width={945}
-                  height={734}
-                />
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <Image
-                  src={"/images/img.png"}
-                  alt={""}
-                  className={"w-[945px] h-[734px]"}
-                  width={945}
-                  height={734}
-                />
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <Image
-                  src={"/images/img.png"}
-                  alt={""}
-                  className={"w-[945px] h-[734px]"}
+                  className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
                   width={945}
                   height={734}
                 />
@@ -226,14 +199,16 @@ export default function Home() {
                 <SwiperSlide>
                   <div
                     className={
-                      "flex items-center justify-center  gap-x-[30px] px-[20px]"
+                      "flex items-center justify-center md:gap-x-[10px] lg:gap-x-[30px] px-[20px]"
                     }
                   >
                     <div>
-                      <h4 className={"text-sm md:text-base"}>Muhokamalar</h4>
+                      <h4 className={"text-sm md:text-xs lg:text-base"}>
+                        Muhokamalar
+                      </h4>
                       <p
                         className={
-                          "text-[#BCBCBC] text-[14px] text-xs md:text-[14px]"
+                          "text-[#BCBCBC] text-[14px] text-xs md:text-[10px] lg:text-[14px]"
                         }
                       >
                         {dayjs(get(item, "shnk_datetime")).format(
@@ -251,13 +226,13 @@ export default function Home() {
                           "hover:underline cursor-pointer transition-all duration-500"
                         }
                       >
-                        <h4 className={"md:text-2xl text-base"}>
+                        <h4 className={"md:text-sm lg:text-xl text-base"}>
                           {get(item, "shnk_number")} - {get(item, "shnk_title")}
                         </h4>
                       </Link>
                       <p
                         className={
-                          "text-xs md:text-base line-clamp-2 md:line-clamp-none text-[#BCBCBC]"
+                          "text-xs md:text-xs lg:text-base line-clamp-2 md:line-clamp-none text-[#BCBCBC]"
                         }
                       >
                         {get(item, "shnk_description")}
@@ -363,7 +338,7 @@ export default function Home() {
             <Link
               href={"/news"}
               className={
-                "underline text-[#2E6DFF] md:text-base text-[12px] font-bold"
+                "underline text-[#2E6DFF] lg:text-sm xl:text-base md:text-xs text-[12px] font-bold"
               }
             >
               Barcha yangiliklar
@@ -383,7 +358,9 @@ export default function Home() {
                   <img
                     src={get(item, "news_image")}
                     alt="news-main-img"
-                    className={"md:w-full md:h-[468px]   object-cover"}
+                    className={
+                      "md:w-full md:h-[300px] lg:h-[350px] xl:h-[468px]   object-cover"
+                    }
                   />
                   <p className={"text-[#2E6DFF] mt-[30px] font-bold"}>
                     Yangilik{" "}
@@ -392,7 +369,7 @@ export default function Home() {
                   <Link href={`/news/${get(item, "id")}`}>
                     <h2
                       className={
-                        "md:text-2xl text-xl font-bold text-[#001A57] hover:text-[#2E6DFF] hover:underline mt-[20px]  md:line-clamp-none line-clamp-2"
+                        "lg:text-2xl md:text-lg text-xl font-bold text-[#001A57] hover:text-[#2E6DFF] hover:underline mt-[20px]  md:line-clamp-none line-clamp-2"
                       }
                     >
                       {get(item, "news_title")}
@@ -400,7 +377,7 @@ export default function Home() {
                   </Link>
                   <p
                     className={
-                      "text-[#A9AFC5] mt-[10px] md:text-base text-sm line-clamp-3 md:line-clamp-0"
+                      "text-[#A9AFC5] mt-[10px] md:text-base text-sm line-clamp-3 md:line-clamp-6"
                     }
                   >
                     {get(item, "news_desc")}
@@ -426,10 +403,10 @@ export default function Home() {
                           "md:grid md:grid-cols-6 flex gap-x-[30px] flex-col-reverse"
                         }
                       >
-                        <div className={"md:col-span-4"}>
+                        <div className={"md:col-span-3"}>
                           <p
                             className={
-                              "text-[#2E6DFF] md:text-base text-sm mb-[20px] font-bold"
+                              "text-[#2E6DFF] lg:text-base md:text-xs text-sm mb-[20px] font-bold"
                             }
                           >
                             Yangilik{" "}
@@ -440,7 +417,7 @@ export default function Home() {
                           <Link href={`/news/${get(item, "id")}`}>
                             <h2
                               className={
-                                "md:text-xl text-base  hover:text-[#2E6DFF] hover:underline font-bold md:line-clamp-5 line-clamp-3"
+                                "xl:text-xl lg:text-base md:text-sm text-base  hover:text-[#2E6DFF] hover:underline font-bold lg:line-clamp-5 md:line-clamp-4 line-clamp-3"
                               }
                             >
                               {get(item, "news_title")}
@@ -448,12 +425,12 @@ export default function Home() {
                           </Link>
                         </div>
 
-                        <div className={"md:col-span-2"}>
+                        <div className={"md:col-span-3"}>
                           <img
                             src={get(item, "news_image")}
                             alt={"news-img"}
                             className={
-                              "md:w-full md:h-[189px]    object-cover mb-[10px] md:mb-0"
+                              "md:w-full lg:h-[189px]   object-cover mb-[10px] md:mb-0"
                             }
                           />
                         </div>

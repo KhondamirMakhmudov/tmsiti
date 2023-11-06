@@ -1,4 +1,3 @@
-"use s";
 import React, { useState } from "react";
 import Link from "next/link";
 import { get, isEmpty, isEqual, isNull } from "lodash";
@@ -169,7 +168,7 @@ const Menu = ({ active = 0, className }) => {
         >
           <div
             className={
-              "md:hidden flex justify-between items-center px-[20px] py-[15px]"
+              "md:hidden flex justify-between items-center lg:px-[20px]  py-[15px]"
             }
           >
             <div onClick={toggleMenu} className={"ml-[20px]"}>
@@ -182,12 +181,14 @@ const Menu = ({ active = 0, className }) => {
           </div>
           {/*desktop version nav-bar*/}
           <ul
-            className={`md:flex hidden text-[#001A57] menu  justify-between gap-x-[30px] bg-white `}
+            className={`md:flex hidden text-green menu  justify-between md:gap-x-[15px] xl:gap-x-[30px] bg-white `}
           >
             {menuData.map((item) => (
               <li
                 key={get(item, "id")}
-                className={"dropdown relative py-0 text-start"}
+                className={
+                  "dropdown relative py-0 text-start xl:text-base md:text-xs lg:text-sm"
+                }
                 onMouseEnter={toggleDropdown}
                 onMouseLeave={toggleDropdown}
               >
@@ -207,14 +208,14 @@ const Menu = ({ active = 0, className }) => {
                   <ul
                     onClick={toggleMenu}
                     className={
-                      "hidden translate-y-[30px] hover:translate-y-[0px] z-50 transition-all duration-500  bg-gray-50 dropdown-menu absolute w-[180px] text-start  rounded-[5px]"
+                      "hidden translate-y-[30px] hover:translate-y-[0px] z-50 transition-all duration-500  bg-gray-50 dropdown-menu absolute lg:w-[180px] w-[100px] text-start  rounded-[5px]"
                     }
                   >
                     {get(item, "subMenu", []).map((subItem) => (
                       <Link
                         key={get(subItem, "id")}
                         className={clsx(
-                          "hover:text-[#2E6DFF] transition-all text-sm border-b-transparent font-medium uppercase",
+                          "hover:text-[#2E6DFF] transition-all text-[10px] lg:text-sm border-b-transparent font-medium uppercase",
                           {
                             "!border-b-[#1890FF] text-[#001A57]": isEqual(
                               get(item, "id"),
