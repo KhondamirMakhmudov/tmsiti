@@ -59,10 +59,16 @@ const NewsItemPage = () => {
           <NewsTitle>{get(data, "data.news_title")}</NewsTitle>
         </div>
 
-        <div className={" col-span-12 md:col-span-7 mb-[30px] md:mb-0"}>
+        <div
+          className={
+            " col-span-12 md:col-span-7 md:max-w-[810px] mb-[30px] md:mb-0"
+          }
+        >
           <figure>
             <div
-              className={"relative md:w-[810px] md:h-[458px] h-[400px] -z-10"}
+              className={
+                "relative md:max-w-[810px] md:h-[458px] h-[400px] -z-10"
+              }
             >
               <Image
                 alt={"img"}
@@ -101,8 +107,8 @@ const NewsItemPage = () => {
                   {isFetchingNews && isLoadingNews ? (
                     <SkeletonLoader />
                   ) : (
-                    <div className={"grid grid-cols-7"}>
-                      <div className={"col-span-3"}>
+                    <div className={"flex gap-x-[30px]"}>
+                      <div className={"min-w-[210px]"}>
                         <img
                           alt={"img"}
                           src={`${get(newsItem, "news_image")}`}
