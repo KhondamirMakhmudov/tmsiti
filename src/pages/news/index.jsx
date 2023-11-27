@@ -38,6 +38,7 @@ const News = () => {
 
         <div className={"col-span-12"}>
           <NewsList
+            dateTime={"news_datetime"}
             key={KEYS.news}
             url={URLS.news}
             news_title={"news_title"}

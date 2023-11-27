@@ -67,7 +67,7 @@ const NewsItemPage = () => {
           <figure>
             <div
               className={
-                "relative md:max-w-[810px] md:h-[458px] h-[400px] -z-10"
+                "relative md:max-w-[810px] md:max-h-[450px] h-[400px] -z-10"
               }
             >
               <Image
