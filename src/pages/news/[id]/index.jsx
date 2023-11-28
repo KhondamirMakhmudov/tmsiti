@@ -10,7 +10,7 @@ import { get, slice } from "lodash";
 import parse from "html-react-parser";
 import dayjs from "dayjs";
 import Image from "next/image";
-import SkeletonLoader from "@/components/loader/skeleton";
+
 import NewsTemplate from "@/components/news-template";
 import Link from "next/link";
 

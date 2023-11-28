@@ -9,7 +9,7 @@ import NewsTemplate from "@/components/news-template";
 import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
-import SkeletonLoader from "@/components/loader/skeleton";
+
 import NewsList from "@/containers/news-list";
 
 const News = () => {
