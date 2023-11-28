@@ -99,7 +99,7 @@ const NewsItemPage = () => {
               get(news, "data.results", []).map((newsItem) => (
                 <li key={get(newsItem, "id")} className={"mb-[20px]"}>
                   {isFetchingNews && isLoadingNews ? (
-                    <SkeletonLoader />
+                    " "
                   ) : (
                     <div className={"grid grid-cols-9 gap-x-[30px]"}>
                       <div className={"col-span-3 "}>
@@ -157,11 +157,3 @@ const NewsItemPage = () => {
 };
 
 export default NewsItemPage;
-
-// <NewsTemplate
-//     imgUrl={(get(newsItem, 'news_image'))}
-//     dateTime={get(newsItem, 'news_datetime')}
-//     title={get(newsItem, 'news_title')}
-//
-//     url={`/news/${get(newsItem,'id','#')}`}
-// />
