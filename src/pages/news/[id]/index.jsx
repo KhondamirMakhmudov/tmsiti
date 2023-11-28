@@ -42,7 +42,7 @@ const NewsItemPage = () => {
       <Menu active={0} />
       <section
         className={
-          "grid grid-cols-12 container mx-auto gap-x-[30px] mb-[70px] md:px-0 px-[20px]"
+          "grid grid-cols-12 container mx-auto gap-x-[30px] mb-[90px] md:px-0 px-[20px]"
         }
       >
         <div className={"col-span-12 mb-[30px] "}>
@@ -59,8 +59,8 @@ const NewsItemPage = () => {
           <NewsTitle>{get(data, "data.news_title")}</NewsTitle>
         </div>
 
-        <div className={" col-span-12 md:col-span-7 mb-[30px] md:mb-0"}>
-          <figure>
+        <div className={" col-span-12 md:col-span-7 mb-[90px] md:mb-0"}>
+          <figure className={"md:w-[810px] md:h-[458px]"}>
             <div
               className={"relative md:w-[810px] md:h-[458px] h-[400px] -z-10"}
             >
@@ -82,7 +82,7 @@ const NewsItemPage = () => {
             </figcaption>
           </figure>
 
-          <div className={"col-span-12 mt-[30px]"}>
+          <div className={"col-span-7 mt-[30px] md:w-[810px] "}>
             {parse(get(data, "data.news_text"))}
           </div>
         </div>
@@ -97,12 +97,12 @@ const NewsItemPage = () => {
           <ul>
             {slice(
               get(news, "data.results", []).map((newsItem) => (
-                <li key={get(newsItem, "id")} className={"mb-[20px] "}>
+                <li key={get(newsItem, "id")} className={"mb-[20px]"}>
                   {isFetchingNews && isLoadingNews ? (
                     <SkeletonLoader />
                   ) : (
-                    <div className={"grid grid-cols-7"}>
-                      <div className={"col-span-3"}>
+                    <div className={"grid grid-cols-9 gap-x-[30px]"}>
+                      <div className={"col-span-3 "}>
                         <img
                           alt={"img"}
                           src={`${get(newsItem, "news_image")}`}
@@ -110,7 +110,7 @@ const NewsItemPage = () => {
                         />
                       </div>
 
-                      <div className={"col-span-4 mb-[10px]"}>
+                      <div className={"col-span-6 mb-[10px]"}>
                         <p
                           className={
                             "text-[#2E6DFF] text-xs font-bold mb-[10px]"

@@ -61,13 +61,15 @@ const About = () => {
             qaroriga asosan O‘zbekiston Respublikasi Qurilish vazirligi huzurida
             tashkil etilgan.
           </p>
-          <p className={"md:w-[950px] text-sm"}>
+          <p className={"md:w-[950px] text-sm md:text-base"}>
             Qurilish vazirining 2022-yil 22-noyabrdagi 202-sonli buyrug‘iga
             ko‘ra Institut faoliyatining ustuvor yo‘nalishlari etib quyidagilar
             belgilangan:
           </p>
 
-          <ul className={"list-disc md:w-[950px] text-xs ml-[30px]"}>
+          <ul
+            className={"list-disc md:w-[950px] text-xs md:text-base ml-[30px]"}
+          >
             <li>
               qurilish resurslarini guruhlarga va bo‘limlarga tasniflagan holda,
               har biri alohida identifikatsiya raqamlanishi va standartlarga
@@ -177,7 +179,7 @@ const About = () => {
                   width={24}
                   height={24}
                 />
-                <p className={"text-xs text-white"}>Nizom</p>
+                <p className={"text-xs md:text-sm text-white"}>Nizom</p>
               </button>
             </Link>
 
@@ -192,7 +194,9 @@ const About = () => {
                   width={24}
                   height={24}
                 />
-                <p className={"text-sm text-[#001A57] font-medium"}>Ustav</p>
+                <p className={"md:text-sm text-xs text-[#001A57] font-medium"}>
+                  Ustav
+                </p>
               </button>
             </Link>
           </div>
