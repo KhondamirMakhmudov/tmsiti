@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
-import { get, isNil } from "lodash";
+import { drop, get, isNil } from "lodash";
 import NewsTitle from "@/components/news-title";
 import NewsCard from "@/components/news-card";
 import Pagination from "@/components/pagination";
@@ -15,7 +15,7 @@ const NewsCardTemplate = ({
   getCount = () => {},
   hasActionColumn = false,
   viewUrl = "#",
-  defaultPageSize = 5,
+  defaultPageSize = 10,
   imgUrl,
   dateTime,
   news_title,
@@ -42,10 +42,14 @@ const NewsCardTemplate = ({
     <>
       {isFetching}
       <NewsTitle>{HeaderBody}</NewsTitle>
+
       {get(data, "data.results", [])?.length > 0 ? (
-        <ul>
-          {get(data, "data.results", []).map((item) => (
-            <li key={get(item, "id")}>
+        <ul className={"grid grid-cols-12 gap-x-[30px]"}>
+          {drop(get(data, "data.results", []), 1).map((item) => (
+            <li
+              className={"col-span-4 w-[450px] mt-[50px]"}
+              key={get(item, "id")}
+            >
               <NewsCard
                 title={get(item, `${news_title}`)}
                 description={get(item, `${news_description}`)}
@@ -61,11 +65,12 @@ const NewsCardTemplate = ({
           <span> Ushbu sahifada malumotlar hali mavjud emas...</span>
         </p>
       )}
+
       <Pagination
         page={page}
         setPage={setPage}
         pageCount={get(data, "data.total_pages", 10)}
-        className={"mb-[50px]"}
+        className={"my-[50px]"}
       />
     </>
   );
