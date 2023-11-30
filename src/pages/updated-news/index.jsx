@@ -71,7 +71,7 @@ const Index = () => {
                     className={
                       "px-[55px] py-[13px] inline-block border-[2px] border-[#1A4DC2] bg-transparent hover:bg-[#1A4DC2] hover:text-[#fff] transition-all mt-[20px] rounded-[5px] font-bold text-[#1A4DC2]"
                     }
-                    href={"#"}
+                    href={`/news/${get(item, "id")}`}
                   >
                     Batafsil
                   </Link>
