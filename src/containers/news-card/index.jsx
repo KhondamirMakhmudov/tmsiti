@@ -70,7 +70,7 @@ const NewsCardTemplate = ({
         page={page}
         setPage={setPage}
         pageCount={get(data, "data.total_pages", 10)}
-        className={"my-[50px]"}
+        className={"mb-[50px] mt-[50px]"}
       />
     </>
   );

@@ -56,7 +56,7 @@ export default function Home() {
           "container mx-auto grid grid-cols-12 gap-x-[30px] items-center"
         }
       >
-        <div className={"col-span-12 md:col-span-5"}>
+        <div className={"col-span-12 md:col-span-6"}>
           <div
             className={
               "relative h-[450px] md:h-auto md:before:bg-none flex justify-center text-center before:absolute md:before:object-none before:opacity-60   before:inset-0 before:bg-pattern md:text-start before:object-cover before:h-[450px]"
@@ -84,14 +84,12 @@ export default function Home() {
               transition={{ delay: 0.5 }}
               animate={{ scale: 1 }}
               className={
-                "p-[20px] md:px-0  md:border-t-[1px] border-t-[0px]  border-[#14255B]"
+                "px-[20px] md:px-0   md:border-t-[1px] border-t-[0px]  border-[#14255B]"
               }
             >
               <Link
                 href={"/shnk"}
-                className={
-                  "uppercase text-[#2E6DFF] md:text-sm lg:text-base xl:text-lg"
-                }
+                className={"uppercase text-[#2E6DFF] text-xs md:text-sm"}
               >
                 Shnq
               </Link>
@@ -99,7 +97,7 @@ export default function Home() {
               <Link
                 href={"/shnk"}
                 className={
-                  "text-[#001A57] hover:text-[#5D84CB] hover:underline md:text-base lg:text-xl xl:text-2xl text-xl font-bold transition-all duration-400"
+                  "text-[#001A57] hover:text-[#5D84CB] hover:underline md:text-base lg:text-xl  text-base font-bold transition-all duration-400"
                 }
               >
                 <p>Shaharsozlik normalari va qoidalari</p>
@@ -111,14 +109,12 @@ export default function Home() {
               transition={{ delay: 0.7 }}
               animate={{ scale: 1 }}
               className={
-                "p-[20px] md:px-0 md:border-t-[1px] border-t-[0px] border-[#14255B]"
+                "px-[20px] md:px-0 md:border-t-[1px] border-t-[0px] border-[#14255B]"
               }
             >
               <Link
                 href={"/standards"}
-                className={
-                  "uppercase text-[#2E6DFF] text-sm md:text-sm lg:text-base xl:text-lg"
-                }
+                className={"uppercase text-[#2E6DFF] text-xs md:text-sm "}
               >
                 Standartlar
               </Link>
@@ -126,7 +122,7 @@ export default function Home() {
               <Link
                 href={"/standards"}
                 className={
-                  "text-[#001A57] hover:text-[#5D84CB] hover:underline md:text-base lg:text-xl xl:text-2xl text-xl font-bold transition-all duration-400"
+                  "text-[#001A57] hover:text-[#5D84CB] hover:underline md:text-base lg:text-xl text-base font-bold transition-all duration-400"
                 }
               >
                 <p>
@@ -140,7 +136,7 @@ export default function Home() {
           initial={{ translateX: 500, opacity: 0.001 }}
           animate={{ translateX: 0, opacity: 1 }}
           transition={{ delay: 1 }}
-          className={"md:col-span-7 md:block hidden"}
+          className={"md:col-span-6 md:block hidden"}
         >
           {/*<ImageGallery items={images} infinite showPlayButton />*/}
           {domLoaded && (
@@ -336,7 +332,7 @@ export default function Home() {
             <Title>So‘nggi yangiliklar</Title>
 
             <Link
-              href={"/news"}
+              href={"/updated-news"}
               className={
                 "underline text-[#2E6DFF] lg:text-sm xl:text-base md:text-xs text-[12px] font-bold"
               }
@@ -354,34 +350,36 @@ export default function Home() {
           >
             {head(
               get(data, "data.results", []).map((item) => (
-                <div key={get(item, "id")}>
-                  <img
-                    src={get(item, "news_image")}
-                    alt="news-main-img"
-                    className={
-                      "md:w-full md:h-[300px] lg:h-[350px] xl:h-[468px]   object-cover"
-                    }
-                  />
-                  <p className={"text-[#2E6DFF] mt-[30px] font-bold"}>
-                    Yangilik{" "}
-                    {dayjs(get(item, "news_datetime")).format("DD.MM.YYYY")}
-                  </p>
-                  <Link href={`/news/${get(item, "id")}`}>
-                    <h2
+                <div key={get(item, "id")} className={"grid-cols-12 grid "}>
+                  <div className={"col-span-12 w-[690px]"}>
+                    <img
+                      src={get(item, "news_image")}
+                      alt="news-main-img"
                       className={
-                        "lg:text-2xl md:text-lg text-xl font-bold text-[#001A57] hover:text-[#2E6DFF] hover:underline mt-[20px]  md:line-clamp-none line-clamp-2"
+                        "md:w-full md:h-[300px] lg:h-[350px] xl:h-[468px]   object-cover"
+                      }
+                    />
+                    <p className={"text-[#2E6DFF] mt-[30px] font-bold"}>
+                      Yangilik{" "}
+                      {dayjs(get(item, "news_datetime")).format("DD.MM.YYYY")}
+                    </p>
+                    <Link href={`/news/${get(item, "id")}`}>
+                      <h2
+                        className={
+                          "lg:text-2xl md:text-lg text-xl font-bold text-[#001A57] hover:text-[#2E6DFF] hover:underline mt-[20px]  md:line-clamp-none line-clamp-2"
+                        }
+                      >
+                        {get(item, "news_title")}
+                      </h2>
+                    </Link>
+                    <p
+                      className={
+                        "text-[#A9AFC5] mt-[10px] md:text-base text-sm line-clamp-3 md:line-clamp-6"
                       }
                     >
-                      {get(item, "news_title")}
-                    </h2>
-                  </Link>
-                  <p
-                    className={
-                      "text-[#A9AFC5] mt-[10px] md:text-base text-sm line-clamp-3 md:line-clamp-6"
-                    }
-                  >
-                    {get(item, "news_desc")}
-                  </p>
+                      {get(item, "news_desc")}
+                    </p>
+                  </div>
                 </div>
               )),
             )}
@@ -406,7 +404,7 @@ export default function Home() {
                         <div className={"md:col-span-3"}>
                           <p
                             className={
-                              "text-[#2E6DFF] lg:text-base md:text-xs text-sm mb-[20px] font-bold"
+                              "text-[#2E6DFF] lg:text-sm md:text-xs text-sm mb-[20px] font-bold"
                             }
                           >
                             Yangilik{" "}
@@ -425,7 +423,7 @@ export default function Home() {
                           </Link>
                         </div>
 
-                        <div className={"md:col-span-3"}>
+                        <div className={"md:col-span-3 md:w-[330px]"}>
                           <img
                             src={get(item, "news_image")}
                             alt={"news-img"}

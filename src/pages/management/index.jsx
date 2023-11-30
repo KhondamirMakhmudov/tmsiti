@@ -8,6 +8,7 @@ import { KEYS } from "@/constants/key";
 import { URLS } from "@/constants/url";
 import { drop, get, head, isEmpty, isNil } from "lodash";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Management = () => {
   const { data, isLoading } = useGetTMSITIQuery({
@@ -27,6 +28,13 @@ const Management = () => {
   return (
     <Main>
       <Menu active={0} />
+      <section className={"bg-[#EFF3FA] text-xs text-[#607198] mb-[70px]"}>
+        <div className={"container py-[12px]"}>
+          <Link href={"/"}>Bosh sahifa / </Link>
+          <Link href={"#"}>Institut / </Link>
+          <Link href={"#"}>Rahbariyat </Link>
+        </div>
+      </section>
       <section className={"grid grid-cols-12 container mx-auto gap-x-[30px] "}>
         <div className={"col-span-12 px-[20px] md:px-0"}>
           <Title>Rahbariyat</Title>

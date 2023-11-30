@@ -114,7 +114,7 @@ export const menuData = [
       {
         id: 3,
         title: "Yangiliklar",
-        url: "/news",
+        url: "/updated-news",
       },
 
       // {
@@ -155,7 +155,7 @@ const Menu = ({ active = 0, className }) => {
     <motion.div
       initial={{ opacity: 0, top: 100 }}
       animate={{ opacity: 1, top: 0 }}
-      className={` bg-[#fff] py-5 px-5 md:px-0  mb-[50px] ${className}`}
+      className={` bg-[#fff] py-5 px-5 md:px-0  ${className}`}
     >
       <div className={"container mx-auto flex justify-between items-center"}>
         <Brand />

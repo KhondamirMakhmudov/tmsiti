@@ -108,10 +108,10 @@ const Footer = () => {
                 </h4>
                 <ul className={"text-[#D9D9D9]"}>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/"}>SHNK</Link>
+                    <Link href={"/shnk"}>SHNK</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/machine-mechano"}>Standartlar</Link>
+                    <Link href={"/standards"}>Standartlar</Link>
                   </li>
                   <li className={"mb-[10px]"}>
                     <Link href={"/works"}>Reestr</Link>
@@ -135,7 +135,7 @@ const Footer = () => {
                   {/*    <Link href={'/machine-mechano'}>Kalkulyator</Link>*/}
                   {/*</li>*/}
                   <li className={"mb-[10px]"}>
-                    <Link href={"/works"}>Lug‘at</Link>
+                    <Link href={"/dictionary"}>Lug‘at</Link>
                   </li>
                 </ul>
               </div>
@@ -150,13 +150,13 @@ const Footer = () => {
                 </h4>
                 <ul className={"text-[#D9D9D9]"}>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/"}>E’lonlar</Link>
+                    <Link href={"/announcement"}>E’lonlar</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/machine-mechano"}>Muhokamalar</Link>
+                    <Link href={"/discussion"}>Muhokamalar</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/works"}>Yangiliklar</Link>
+                    <Link href={"/updated-news"}>Yangiliklar</Link>
                   </li>
 
                   <li className={"mb-[10px]"}>

@@ -7,6 +7,7 @@ import CheckboxTemplate from "@/components/checkbox";
 import { get } from "lodash";
 import GridView from "src/containers/list-view";
 import { getOptionList } from "@/utils";
+import Link from "next/link";
 
 const Dictionary = () => {
   const columns = [
@@ -44,7 +45,14 @@ const Dictionary = () => {
   return (
     <Main>
       <Menu />
+      <section className={"bg-[#EFF3FA] text-xs text-[#607198] mb-[70px]"}>
+        <div className={"container py-[12px]"}>
+          <Link href={"/"}>Bosh sahifa / </Link>
 
+          <Link href={"#"}>Tizimlar / </Link>
+          <Link href={"#"}>Lug`at</Link>
+        </div>
+      </section>
       <section
         className={
           "grid grid-cols-12 gap-x-[30px] container mx-auto px-[20px] md:px-0"

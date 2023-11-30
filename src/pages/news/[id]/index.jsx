@@ -38,8 +38,26 @@ const NewsItemPage = () => {
     <Main>
       <Menu active={0} />
       <section
+        className={"bg-[#EFF3FA] text-xs text-[#607198] !mt-0 mb-[70px]"}
+      >
+        <div className={"container py-[12px] flex gap-x-[5px]"}>
+          <Link href={"/"}>Bosh sahifa /</Link>
+          <Link href={"#"}>Xabarlar /</Link>
+          <Link href={"/news"}>Yangiliklar /</Link>
+          <div
+            className={
+              "w-[220px] overflow-hidden whitespace-normal line-clamp-1"
+            }
+          >
+            <Link href={`#`} className={""}>
+              {get(data, "data.news_title")}
+            </Link>
+          </div>
+        </div>
+      </section>
+      <section
         className={
-          "grid grid-cols-12 container mx-auto gap-x-[30px] mb-[70px] md:px-0 px-[20px]"
+          "grid grid-cols-12 container mx-auto gap-x-[30px] mb-[90px] md:px-0 px-[20px]"
         }
       >
         <div className={"col-span-12 mb-[30px] "}>

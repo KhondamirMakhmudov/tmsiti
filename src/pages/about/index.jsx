@@ -16,7 +16,13 @@ const About = () => {
   return (
     <Main>
       <Menu active={0} />
-
+      <section className={"bg-[#EFF3FA] text-xs text-[#607198] mb-[70px]"}>
+        <div className={"container py-[12px]"}>
+          <Link href={"/"}>Bosh sahifa / </Link>
+          <Link href={"#"}>Institut / </Link>
+          <Link href={"#"}>Biz haqimizda </Link>
+        </div>
+      </section>
       <motion.section
         initial={{ translateX: "-200px" }}
         animate={{ translateX: "0px" }}
@@ -154,7 +160,7 @@ const About = () => {
           animate={{ translateX: "0px" }}
           transition={{ duration: 0.4 }}
           className={
-            "col-span-12 flex items-center justify-center flex-col mt-[20px]"
+            "col-span-12 flex items-center justify-center md:justify-start md:items-start flex-col mt-[20px]"
           }
         >
           <img

@@ -23,6 +23,13 @@ const Index = () => {
   return (
     <Main>
       <Menu active={0} />
+      <section className={"bg-[#EFF3FA] text-xs text-[#607198]"}>
+        <div className={"container py-[12px]"}>
+          <Link href={"/"}>Bosh sahifa / </Link>
+          <Link href={"#"}>Xabarlar / </Link>
+          <Link href={"/news"}>Yangiliklar </Link>
+        </div>
+      </section>
       <div
         className={
           "grid grid-cols-12 gap-x-[30px] container mx-auto px-[20px] md:px-0"

@@ -9,6 +9,7 @@ import { get } from "lodash";
 import dayjs from "dayjs";
 import Commentator from "@/components/commentator";
 import Image from "next/image";
+import Link from "next/link";
 
 const DiscussItemPage = () => {
   const [open, setOpen] = useState(false);
@@ -35,6 +36,24 @@ const DiscussItemPage = () => {
   return (
     <Main>
       <Menu className={"!mb-[30px]"} active={0} />
+      <section
+        className={"bg-[#EFF3FA] text-xs text-[#607198] !mt-0 mb-[70px]"}
+      >
+        <div className={"container py-[12px] flex gap-x-[5px]"}>
+          <Link href={"/"}>Bosh sahifa /</Link>
+          <Link href={"#"}>Xabarlar /</Link>
+          <Link href={"/news"}>Muhokamalar /</Link>
+          <div
+            className={
+              "w-[220px] overflow-hidden whitespace-normal line-clamp-1"
+            }
+          >
+            <Link href={`#`} className={""}>
+              {get(data, "data.shnk_number")} - {get(data, "data.shnk_title")}
+            </Link>
+          </div>
+        </div>
+      </section>
       <div
         className={
           "grid grid-cols-12 gap-x-[30px] container mx-auto px-[20px] md:px-0"
