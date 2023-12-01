@@ -38,7 +38,7 @@ const ShnkId = () => {
           "bg-[#EFF3FA] grid grid-cols-12 container mx-auto px-[29px] py-[5px] gap-x-[50px]"
         }
       >
-        <div className={"flex col-span-3 items-center gap-x-[20px] "}>
+        <div className={"flex col-span-4 items-center gap-x-[16px] "}>
           <h3 className={"text-base text-[#001A57] font-semibold "}>
             Kuchga kirish sanasi:
           </h3>
@@ -51,8 +51,8 @@ const ShnkId = () => {
           </p>
         </div>
 
-        <div className={"col-span-3 items-center gap-x-[50px] flex"}>
-          <button className={"flex items-center gap-x-[20px]"}>
+        <div className={"col-span-4 items-center gap-x-[50px] flex"}>
+          <button className={"flex items-center gap-x-[18px]"}>
             <p className={"text-base text-[#001A57] font-semibold "}>
               Yuklab olish
             </p>
@@ -65,7 +65,7 @@ const ShnkId = () => {
             />
           </button>
 
-          <button className={"flex items-center gap-x-[20px]"}>
+          <button className={"flex items-center gap-x-[18px]"}>
             <p className={"text-base text-[#001A57] font-semibold"}>
               Chop etish
             </p>
@@ -79,7 +79,7 @@ const ShnkId = () => {
           </button>
         </div>
 
-        <div className={"col-span-6 relative"}>
+        <div className={"col-span-4 relative"}>
           <input
             type={"search"}
             className={"w-full p-[10px] rounded-[5px] "}
