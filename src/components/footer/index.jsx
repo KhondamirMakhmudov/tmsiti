@@ -156,7 +156,7 @@ const Footer = () => {
                     <Link href={"/discussion"}>Muhokamalar</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/updated-news"}>Yangiliklar</Link>
+                    <Link href={"/news"}>Yangiliklar</Link>
                   </li>
 
                   <li className={"mb-[10px]"}>

@@ -114,7 +114,7 @@ export const menuData = [
       {
         id: 3,
         title: "Yangiliklar",
-        url: "/updated-news",
+        url: "/news",
       },
 
       // {

@@ -332,7 +332,7 @@ export default function Home() {
             <Title>So‘nggi yangiliklar</Title>
 
             <Link
-              href={"/updated-news"}
+              href={"/news"}
               className={
                 "underline text-[#2E6DFF] lg:text-sm xl:text-base md:text-xs text-[12px] font-bold"
               }
