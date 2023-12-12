@@ -127,7 +127,7 @@ export const menuData = [
   {
     id: 6,
     title: "Bog‘lanish",
-    url: "/connect",
+    url: "/contact",
     subMenu: [],
   },
 ];
