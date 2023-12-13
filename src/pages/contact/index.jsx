@@ -181,30 +181,57 @@ const Index = () => {
                 type={"text"}
                 placeholder={"FIO"}
                 className={
-                  "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)]"
+                  "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] placeholder:text-[#535E8A]"
                 }
               />
               <input
                 type={"email"}
                 placeholder={"E-mail"}
                 className={
-                  "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)]"
+                  "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] placeholder:text-[#535E8A]"
                 }
               />
               <input
                 type={"tel"}
                 placeholder={"Telefon nomer"}
                 className={
-                  "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)]"
+                  "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] placeholder:text-[#535E8A]"
                 }
               />
+
+              <select
+                name={"Murojaat turi"}
+                className={
+                  "py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] text-[#535E8A] "
+                }
+              >
+                <option disabled={true}>Murojaat turi</option>
+                <option>world</option>
+              </select>
 
               <textarea
                 placeholder={"Murojaat matni"}
                 className={
-                  "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)]"
+                  "w-full h-[192px] py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] placeholder:text-[#535E8A]"
                 }
               ></textarea>
+
+              <label className="text-sm cursor-pointer text-[#1A4DC2] ml-[30px]">
+                <input
+                  type="file"
+                  className={"hidden"}
+                  accept={".pdf, .doc, .docx"}
+                />
+                Fayl biriktirish
+              </label>
+
+              <button
+                className={
+                  "py-[13px] px-[33px] bg-[#1A4DC2] w-[230px] text-[#fff] mx-auto hover:bg-[#1E56D8] transition-all duration-300"
+                }
+              >
+                Murojaatni yuborish
+              </button>
             </form>
           </div>
         </div>
