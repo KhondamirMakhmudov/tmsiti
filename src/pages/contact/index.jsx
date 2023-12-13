@@ -1,10 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import Main from "@/layouts/main";
 import Menu from "@/components/menu";
 import Link from "next/link";
 import Title from "@/components/title";
+import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
+import { KEYS } from "@/constants/key";
+import { URLS } from "@/constants/url";
+import usePostQuery from "@/hooks/api/usePostQuery";
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/router";
 
 const Index = () => {
+  const router = useRouter();
+
+  const { mutate: fillRequirements, isLoading: isLoadingContact } =
+    usePostQuery({
+      listKeyId: KEYS.appeal,
+    });
+
+  const onSubmit = ({
+    full_name,
+    email,
+    phone,
+    text,
+    file,
+    appeal_category,
+  }) => {
+    let formContact = new FormData();
+    formContact.append("full_name", full_name);
+    formContact.append("email", email);
+    formContact.append("phone", phone);
+    formContact.append("text", text);
+    formContact.append("file", file);
+    formContact.append("appeal_category", appeal_category);
+    fillRequirements(
+      {
+        url: URLS.appeal,
+        attributes: formContact,
+      },
+      {
+        onSuccess: () => {
+          toast.success(
+            "Xabaringiz muvaffaqiyatli yuborildi",
+            {
+              position: "top-right",
+            },
+            router.push("/contact"),
+          );
+        },
+        onError: (error) => {
+          toast.error(`Error is ${error}`, { position: "top-right" });
+        },
+      },
+    );
+  };
   return (
     <Main>
       <Menu />
