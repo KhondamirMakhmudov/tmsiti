@@ -15,7 +15,7 @@ const Index = () => {
         </div>
       </section>
       <section className={"container mb-[250px]"}>
-        <Title>Bog'lanish</Title>
+        <Title>Bog`lanish</Title>
         <div className={"bg-[#F7F9FC] px-[50px] py-[30px] flex gap-x-[50px]"}>
           <div className={" w-[605px]"}>
             <div
