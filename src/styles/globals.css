@@ -88,6 +88,56 @@ input[type='file']{
     display: none;
   }
 }
+.label-float{
+  position: relative;
+  padding-top: 13px;
+}
+
+
+
+
+
+.label-float input::placeholder{
+  color:transparent;
+}
+
+.label-float label{
+  pointer-events: none;
+  position: absolute;
+  top: calc(50% - 6px);
+  left: 30px;
+  transition: all .1s linear;
+  -webkit-transition: all .1s linear;
+  -moz-transition: all .1s linear;
+  background-color: white;
+
+  border-radius: 100px;
+
+  box-sizing: border-box;
+}
+
+.label-float input:required:invalid + label{
+  color: red;
+}
+.label-float input:focus:required:invalid{
+  border: 2px solid red;
+}
+
+
+
+.label-float input:required:invalid + label:before{
+  content: '*';
+}
+.label-float input:focus + label,
+.label-float input:not(:placeholder-shown) + label{
+  font-size: 11px;
+  top: 0;
+  padding: 5px;
+  left: 15px;
+  color: #ffffff;
+  background: #3951b2;
+
+}
 
 
 

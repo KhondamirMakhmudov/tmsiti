@@ -1,6 +1,6 @@
 import React from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { requestTMSITI } from "../../services/api";
+import { requestTMSITI } from "@/services/api";
 import { toast } from "react-hot-toast";
 import { isArray, get, forEach, isObject, values } from "lodash";
 import { useTranslation } from "react-i18next";

@@ -15,11 +15,21 @@ import { get } from "lodash";
 const Index = () => {
   const router = useRouter();
   const [contact, setContact] = useState({});
+  const [fileName, setFileName] = useState("Fayl biriktirish");
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ values: contact });
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setFileName(file.name);
+    } else {
+      setFileName("Choose a file");
+    }
+  };
 
   const { data, isLoading } = useGetTMSITIQuery({
     key: KEYS.appealCategory,
@@ -44,7 +54,7 @@ const Index = () => {
     formContact.append("email", email);
     formContact.append("phone", phone);
     formContact.append("text", text);
-    formContact.append("file", file);
+    formContact.append("file", file[0]);
     formContact.append("appeal_category", appeal_category);
     fillRequirements(
       {
@@ -58,7 +68,7 @@ const Index = () => {
             {
               position: "top-right",
             },
-            router.push("/contact"),
+            router.push("/"),
           );
         },
         onError: (error) => {
@@ -76,8 +86,8 @@ const Index = () => {
           <Link href={"#"}>Bog`lanish </Link>
         </div>
       </section>
-      <section className={"container mb-[250px]"}>
-        <Title>Bog`lanish</Title>
+      <section className={"container mb-[70px]"}>
+        <Title>Boglanish</Title>
         <div className={"bg-[#F7F9FC] px-[50px] py-[30px] flex gap-x-[50px]"}>
           <div className={" w-[605px]"}>
             <div
@@ -240,59 +250,98 @@ const Index = () => {
           <div className={"col-span-5 w-[605px]"}>
             <form
               className={"flex flex-col gap-y-[20px]"}
-              enctype="multipart/form-data"
               onSubmit={handleSubmit(onSubmit)}
             >
-              <input
-                type={"text"}
-                placeholder={"FIO"}
-                {...register("full_name", { required: true })}
-                className={
-                  "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] placeholder:text-[#535E8A]"
-                }
-              />
-              <input
-                type={"email"}
-                placeholder={"E-mail"}
-                {...register("email", { required: true })}
-                className={
-                  "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] placeholder:text-[#535E8A]"
-                }
-              />
-              <input
-                type={"tel"}
-                placeholder={"Telefon nomer"}
-                {...register("phone", { required: true })}
-                className={
-                  "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] placeholder:text-[#535E8A]"
-                }
-              />
-
-              <select
-                name={"Murojaat turi"}
-                className={
-                  "py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] text-[#535E8A] "
-                }
-                {...register("appeal_category", { required: true })}
-              >
-                <option value={get(data, "data.name")}>1</option>
-              </select>
-
-              <textarea
-                placeholder={"Murojaat matni"}
-                {...register("text", { required: true })}
-                className={
-                  "w-full h-[192px] py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] placeholder:text-[#535E8A]"
-                }
-              ></textarea>
-
-              <div className="text-sm cursor-pointer text-[#1A4DC2] ml-[30px] customerFileBtn flex">
-                <label htmlFor="inputGroupFile">Fayl biriktirish</label>
+              {/*FIO*/}
+              <div className={"label-float"}>
                 <input
-                  type="file"
-                  accept={".pdf, .doc, .docx"}
-                  {...register("file")}
+                  type={"text"}
+                  placeholder={""}
+                  {...register("full_name", { required: true })}
+                  className={
+                    "w-full !focus:outline-none !focus:bg-white py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] cursor-pointer focus:outline-none rounded-[5px] placeholder:text-[#535E8A]"
+                  }
                 />
+                <label className={"text-[#535E8A]"}>FIO</label>
+              </div>
+
+              {/*Email*/}
+              <div className={"label-float"}>
+                <input
+                  type={"email"}
+                  placeholder={"E-mail"}
+                  {...register("email", { required: true })}
+                  className={
+                    " w-full py-[13px] px-[30px] text-[15px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] cursor-pointer focus:outline-none rounded-[5px] placeholder:text-[#535E8A]"
+                  }
+                />
+                <label>E-mail</label>
+              </div>
+
+              {/*Telefon nomer*/}
+              <div className={"label-float"}>
+                <input
+                  type={"tel"}
+                  placeholder={""}
+                  {...register("phone", { required: true })}
+                  className={
+                    "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] cursor-pointer focus:outline-none placeholder:text-[#535E8A]"
+                  }
+                />
+                <label>Telefon nomer</label>
+              </div>
+
+              {/*Murojaat turi*/}
+              <div className={"label-float"}>
+                <input
+                  list={"search-list"}
+                  placeholder={"Murojaat turi"}
+                  className={
+                    "placeholder:text-[#535E8A] py-[15px] px-[30px] border-gray-200 focus:border-gray-500  focus:outline-none w-full shadow-xl rounded-[5px] relative"
+                  }
+                  {...register("appeal_category")}
+                />
+                <label>Murojaat turi</label>
+                <datalist
+                  id={"search-list"}
+                  className={"w-[1000px]"}
+                  onChange={(e) => setPageSize(e?.target?.value)}
+                >
+                  {get(data, "data", []).map((item) => (
+                    <option
+                      key={get(item, "id")}
+                      value={get(item, "")}
+                    ></option>
+                  ))}
+                </datalist>
+              </div>
+
+              <div className={"label-float"}>
+                <textarea
+                  placeholder={"Murojaat matni"}
+                  {...register("text", { required: true })}
+                  className={
+                    "w-full h-[192px] py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] placeholder:text-[#535E8A]"
+                  }
+                ></textarea>
+              </div>
+
+              {/*<div className="text-sm cursor-pointer text-[#1A4DC2] ml-[30px]  flex">*/}
+              {/*  <label htmlFor="inputGroupFile">Fayl biriktirish</label>*/}
+              {/*  <input type="file" {...register("file")} className={"hidden"} />*/}
+              {/*</div>*/}
+
+              <div className=" ">
+                <label htmlFor="fileInput" className="text-[#535E8A]">
+                  <span>{fileName}</span>
+                  <input
+                    id="fileInput"
+                    type="file"
+                    className="hidden"
+                    {...register("file")}
+                    onChange={handleFileChange}
+                  />
+                </label>
               </div>
 
               <button
