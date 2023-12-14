@@ -6,4 +6,5 @@ export const KEYS = {
   workers: "workers",
   discuss: "discuss",
   appeal: "appeal",
+  appealCategory: "appealCategory",
 };

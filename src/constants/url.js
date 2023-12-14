@@ -6,4 +6,5 @@ export const URLS = {
   workers: "workers/",
   discuss: "discuss/",
   appeal: "appeal/",
+  appealCategory: "appeal/appeal_category/",
 };

@@ -9,9 +9,22 @@ import { URLS } from "@/constants/url";
 import usePostQuery from "@/hooks/api/usePostQuery";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import { get } from "lodash";
 
 const Index = () => {
   const router = useRouter();
+  const [contact, setContact] = useState({});
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ values: contact });
+
+  const { data, isLoading } = useGetTMSITIQuery({
+    key: KEYS.appealCategory,
+    url: URLS.appealCategory,
+  });
 
   const { mutate: fillRequirements, isLoading: isLoadingContact } =
     usePostQuery({
@@ -225,10 +238,15 @@ const Index = () => {
           <div className={"col-span-1 w-[2px] bg-[#2E6DFF]"}></div>
 
           <div className={"col-span-5 w-[605px]"}>
-            <form className={"flex flex-col gap-y-[20px]"}>
+            <form
+              className={"flex flex-col gap-y-[20px]"}
+              enctype="multipart/form-data"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <input
                 type={"text"}
                 placeholder={"FIO"}
+                {...register("full_name", { required: true })}
                 className={
                   "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] placeholder:text-[#535E8A]"
                 }
@@ -236,6 +254,7 @@ const Index = () => {
               <input
                 type={"email"}
                 placeholder={"E-mail"}
+                {...register("email", { required: true })}
                 className={
                   "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] placeholder:text-[#535E8A]"
                 }
@@ -243,6 +262,7 @@ const Index = () => {
               <input
                 type={"tel"}
                 placeholder={"Telefon nomer"}
+                {...register("phone", { required: true })}
                 className={
                   "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] placeholder:text-[#535E8A]"
                 }
@@ -253,26 +273,27 @@ const Index = () => {
                 className={
                   "py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] text-[#535E8A] "
                 }
+                {...register("appeal_category", { required: true })}
               >
-                <option disabled={true}>Murojaat turi</option>
-                <option>world</option>
+                <option value={get(data, "data.name")}>1</option>
               </select>
 
               <textarea
                 placeholder={"Murojaat matni"}
+                {...register("text", { required: true })}
                 className={
                   "w-full h-[192px] py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] placeholder:text-[#535E8A]"
                 }
               ></textarea>
 
-              <label className="text-sm cursor-pointer text-[#1A4DC2] ml-[30px]">
+              <div className="text-sm cursor-pointer text-[#1A4DC2] ml-[30px] customerFileBtn flex">
+                <label htmlFor="inputGroupFile">Fayl biriktirish</label>
                 <input
                   type="file"
-                  className={"hidden"}
                   accept={".pdf, .doc, .docx"}
+                  {...register("file")}
                 />
-                Fayl biriktirish
-              </label>
+              </div>
 
               <button
                 className={
