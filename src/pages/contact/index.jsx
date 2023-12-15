@@ -27,7 +27,7 @@ const Index = () => {
     if (file) {
       setFileName(file.name);
     } else {
-      setFileName("Choose a file");
+      setFileName("Faylni biriktirish");
     }
   };
 
@@ -310,7 +310,7 @@ const Index = () => {
                   {get(data, "data", []).map((item) => (
                     <option
                       key={get(item, "id")}
-                      value={get(item, "")}
+                      value={get(item, "id")}
                     ></option>
                   ))}
                 </datalist>
@@ -331,13 +331,13 @@ const Index = () => {
               {/*  <input type="file" {...register("file")} className={"hidden"} />*/}
               {/*</div>*/}
 
-              <div className=" ">
+              <div className=" flex  ">
                 <label htmlFor="fileInput" className="text-[#535E8A]">
-                  <span>{fileName}</span>
+                  <span className={"text-[#1A4DC2]"}>{fileName}</span>
                   <input
                     id="fileInput"
                     type="file"
-                    className="hidden"
+                    className={"opacity-0"}
                     {...register("file")}
                     onChange={handleFileChange}
                   />
