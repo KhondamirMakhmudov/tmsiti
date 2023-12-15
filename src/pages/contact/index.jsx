@@ -292,28 +292,49 @@ const Index = () => {
               </div>
 
               {/*Murojaat turi*/}
+              {/*<div className={"label-float"}>*/}
+              {/*  <input*/}
+              {/*    list={"search-list"}*/}
+              {/*    placeholder={"Murojaat turi"}*/}
+              {/*    className={*/}
+              {/*      "placeholder:text-[#535E8A] py-[15px] px-[30px] border-gray-200 focus:border-gray-500  focus:outline-none w-full shadow-xl rounded-[5px] relative"*/}
+              {/*    }*/}
+              {/*    {...register("appeal_category")}*/}
+              {/*  />*/}
+              {/*  <label>Murojaat turi</label>*/}
+              {/*  <datalist*/}
+              {/*    id={"search-list"}*/}
+              {/*    className={"w-[1000px]"}*/}
+              {/*    onChange={(e) => setPageSize(e?.target?.value)}*/}
+              {/*  >*/}
+              {/*    {get(data, "data", []).map((item) => (*/}
+              {/*      <option*/}
+              {/*        key={get(item, "id")}*/}
+              {/*        value={get(item, "id")}*/}
+              {/*        {...register("appeal_category")}*/}
+              {/*      >*/}
+              {/*        {get(item, "name")}*/}
+              {/*      </option>*/}
+              {/*    ))}*/}
+              {/*  </datalist>*/}
+              {/*</div>*/}
+
               <div className={"label-float"}>
-                <input
-                  list={"search-list"}
-                  placeholder={"Murojaat turi"}
+                <select
                   className={
-                    "placeholder:text-[#535E8A] py-[15px] px-[30px] border-gray-200 focus:border-gray-500  focus:outline-none w-full shadow-xl rounded-[5px] relative"
+                    "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] cursor-pointer focus:outline-none"
                   }
                   {...register("appeal_category")}
-                />
-                <label>Murojaat turi</label>
-                <datalist
-                  id={"search-list"}
-                  className={"w-[1000px]"}
-                  onChange={(e) => setPageSize(e?.target?.value)}
+                  placeholder={"Murojaat turi"}
                 >
                   {get(data, "data", []).map((item) => (
                     <option
                       key={get(item, "id")}
                       value={get(item, "id")}
+                      label={get(item, "name")}
                     ></option>
                   ))}
-                </datalist>
+                </select>
               </div>
 
               <div className={"label-float"}>
