@@ -2,16 +2,11 @@ import React from "react";
 import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
 import { KEYS } from "@/constants/key";
 import { URLS } from "@/constants/url";
-import { Man } from "@mui/icons-material";
 import Main from "@/layouts/main";
 import Menu from "@/components/menu";
 import { motion } from "framer-motion";
 import Title from "@/components/title";
-import { get, head } from "lodash";
-import dayjs from "dayjs";
 import Link from "next/link";
-import NewsList from "@/containers/news-list";
-import NewsCard from "@/components/news-card";
 import NewsCardTemplate from "@/containers/news-card";
 
 const Index = () => {

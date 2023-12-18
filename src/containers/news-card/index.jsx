@@ -6,6 +6,8 @@ import NewsCard from "@/components/news-card";
 import Pagination from "@/components/pagination";
 import dayjs from "dayjs";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 
 const NewsCardTemplate = ({
   HeaderBody = null,
@@ -25,14 +27,15 @@ const NewsCardTemplate = ({
 }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [dataHead, setDataHead] = useState([]); // Assuming your paginated data is stored here
-
-  const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(defaultPageSize);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
   const { data, isLoading, isFetching } = useGetTMSITIQuery({
     key: key,
     url: url,
     params: {
-      page,
+      page: searchParams.get("page"),
       ...params,
       page_size: pageSize,
     },
@@ -56,6 +59,8 @@ const NewsCardTemplate = ({
       (currentPage + 1) * itemsPerPage,
     ),
   );
+
+  console.log("searchParams", searchParams);
 
   return (
     <>
@@ -180,8 +185,10 @@ const NewsCardTemplate = ({
         itemsPerPage={itemsPerPage}
         handlePageChange={handlePageChange}
         currentPage={currentPage}
-        page={page}
-        setPage={setPage}
+        page={searchParams.get("page") || 1}
+        setPage={(val) => {
+          router.replace(`/news?page=${val}`);
+        }}
         pageCount={get(data, "data.total_pages", 10)}
         className={"mb-[50px] mt-[50px]"}
       />
