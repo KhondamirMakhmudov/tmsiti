@@ -50,7 +50,7 @@ const Header = () => {
               />
               <Link href={"mailto: TMSITI@exat.uz"}>TMSITI@exat.uz</Link>
             </div>
-            <Lang />
+            {/*<Lang />*/}
           </div>
         </div>
       </div>

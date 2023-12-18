@@ -4,6 +4,7 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { config } from "@/config";
 import storage from "../storage";
+import i18next from "i18next";
 
 i18n
 
@@ -14,7 +15,7 @@ i18n
   .use(LanguageDetector)
 
   // Enables the hook initialization module
-  .use(initReactI18next)
+  .use(i18next)
   .init({
     lng: storage.get("i18nextLng") || config.DEFAULT_APP_LANG,
     fallbackLng: storage.get("i18nextLng") || config.DEFAULT_APP_LANG,

@@ -79,22 +79,11 @@ input[type='file']{
   background-color:transparent;
 }
 
-.customerFileBtn input[type='file'] {
-  padding:6px 0 0 7px;
-  &::-webkit-file-upload-button {
-    display: none;
-  }
-  &::file-selector-button {
-    display: none;
-  }
-}
+
 .label-float{
   position: relative;
   padding-top: 13px;
 }
-
-
-
 
 
 .label-float input::placeholder{

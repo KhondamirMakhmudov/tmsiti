@@ -13,7 +13,6 @@ const Pagination = ({
       <ReactPaginate
         forcePage={page - 1}
         onPageChange={({ selected }) => setPage(selected + 1)}
-        z
         pageCount={pageCount}
         nextLabel={
           <span className={"bg-black"}>
