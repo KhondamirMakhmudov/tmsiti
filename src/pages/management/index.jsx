@@ -28,7 +28,7 @@ const Management = () => {
   return (
     <Main>
       <Menu active={0} />
-      <section className={"bg-[#EFF3FA] text-xs text-[#607198] mb-[70px]"}>
+      <section className={"bg-[#EFF3FA] text-xs text-[#607198] mb-[50px]"}>
         <div className={"container py-[12px]"}>
           <Link href={"/"}>Bosh sahifa / </Link>
           <Link href={"#"}>Institut / </Link>

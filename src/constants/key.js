@@ -7,4 +7,5 @@ export const KEYS = {
   discuss: "discuss",
   appeal: "appeal",
   appealCategory: "appealCategory",
+  structuralDivisions: "structuralDivisions",
 };

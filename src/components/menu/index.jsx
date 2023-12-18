@@ -19,26 +19,31 @@ export const menuData = [
     subMenu: [
       {
         id: 1,
+        title: "Institut haqida",
+        url: "/about",
+      },
+      {
+        id: 2,
         title: "Rahbariyat",
         url: "/management",
       },
 
       {
-        id: 2,
-        title: "Tuzilma",
+        id: 3,
+        title: "Tashkiliy tuzilma",
         url: "/structure",
       },
 
       {
-        id: 3,
-        title: "Me`yoriy hujjatlar",
-        url: "/management",
+        id: 4,
+        title: "Tarkibiy bo’linmalar",
+        url: "/structural-divisions",
       },
 
       {
-        id: 4,
-        title: "Biz haqimizda",
-        url: "/about",
+        id: 5,
+        title: "Vakansiyalar",
+        url: "/vacancies",
       },
 
       // {
@@ -56,21 +61,43 @@ export const menuData = [
   },
   {
     id: 2,
-    title: "SHNQ",
-    url: "/shnk",
+    title: "Me’yoriy hujjatlar",
+    url: "",
     filterUrl: "",
-    subMenu: [],
+    subMenu: [
+      {
+        id: 1,
+        title: "Qonun, qaror va farmonlar",
+        url: "/#",
+      },
+
+      {
+        id: 2,
+        title: "Shaharsozlik norma va qoidalari",
+        url: "/shnk",
+      },
+
+      {
+        id: 3,
+        title: "Standartlar",
+        url: "/#",
+      },
+
+      {
+        id: 4,
+        title: "Qurilish reglamentlari",
+        url: "/#",
+      },
+      {
+        id: 5,
+        title: "Muhokamalar",
+        url: "/discussion",
+      },
+    ],
   },
   {
     id: 3,
-    title: "Standartlar",
-    url: "/standards",
-    filterUrl: "",
-    subMenu: [],
-  },
-  {
-    id: 4,
-    title: "Tizimlar",
+    title: "Faoliyat",
     url: "",
     filterUrl: "",
     subMenu: [
@@ -79,22 +106,23 @@ export const menuData = [
         title: "Klassifikator",
         url: "https://catalog.tmsiti.uz/classifier",
       },
-      //
-      // {
-      //     id: 2,
-      //     title: 'Kalkulyator',
-      //     url: '/structure',
-      // },
+
+      {
+        id: 2,
+        title: "Elektron fond",
+        url: "#",
+      },
 
       {
         id: 3,
-        title: "Lug‘at",
-        url: "/dictionary",
+        title: "Laboratoriya",
+        url: "#",
       },
     ],
   },
+
   {
-    id: 5,
+    id: 4,
     title: "Xabarlar",
     url: "",
     filterUrl: "",
@@ -107,21 +135,33 @@ export const menuData = [
 
       {
         id: 2,
-        title: "Muhokamalar",
-        url: "/discussion",
-      },
-
-      {
-        id: 3,
         title: "Yangiliklar",
         url: "/news",
       },
 
-      // {
-      //     id: 4,
-      //     title: 'Xalqaro munosobat',
-      //     url: '/management',
-      // },
+      {
+        id: 3,
+        title: "Uchrashuvlar",
+        url: "#",
+      },
+
+      {
+        id: 4,
+        title: "Ommaviy tadbirlar",
+        url: "#",
+      },
+
+      {
+        id: 5,
+        title: "Xalqaro hamkorlik",
+        url: "#",
+      },
+
+      {
+        id: 5,
+        title: "Seminar, ko’rgazmalar",
+        url: "#",
+      },
     ],
   },
   {

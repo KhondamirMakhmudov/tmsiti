@@ -11,6 +11,7 @@ import { toast } from "react-hot-toast";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { get } from "lodash";
+import { motion } from "framer-motion";
 
 const Index = () => {
   const router = useRouter();
@@ -80,17 +81,26 @@ const Index = () => {
   return (
     <Main>
       <Menu />
-      <section className={"bg-[#EFF3FA] text-xs text-[#607198] mb-[70px]"}>
+      <section className={"bg-[#EFF3FA] text-xs text-[#607198] mb-[50px]"}>
         <div className={"container py-[12px]"}>
           <Link href={"/"}>Bosh sahifa / </Link>
-          <Link href={"#"}>Bog`lanish </Link>
+          <Link href={"#"}>Bog’lanish </Link>
         </div>
       </section>
       <section className={"container mb-[70px]"}>
-        <Title>Boglanish</Title>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <Title>Bog’lanish</Title>
+        </motion.div>
         <div className={"bg-[#F7F9FC] px-[50px] py-[30px] flex gap-x-[50px]"}>
           <div className={" w-[605px]"}>
-            <div
+            <motion.div
+              initial={{ translateY: "-100px" }}
+              animate={{ translateY: 0 }}
+              transition={{ duration: 0.4 }}
               className={
                 "bg-white w-full h-[404px] col-span-6 shadow-[0_1px_5px_0_rgba(40,54,109,0.15)]"
               }
@@ -103,11 +113,16 @@ const Index = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
-            </div>
+            </motion.div>
             <ul
               className={"text-[#001A57] mt-[30px] flex flex-col gap-y-[12px]"}
             >
-              <li className={"flex gap-x-[10px]"}>
+              <motion.li
+                initial={{ translateY: "100px" }}
+                animate={{ translateY: 0 }}
+                transition={{ duration: 0.5 }}
+                className={"flex gap-x-[10px]"}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -140,8 +155,13 @@ const Index = () => {
                 <p className={"text-[]"}>
                   Toshkent shahar, Abay ko‘chasi, 6-uy
                 </p>
-              </li>
-              <li className={"flex gap-x-[10px]"}>
+              </motion.li>
+              <motion.li
+                initial={{ translateY: "80px" }}
+                animate={{ translateY: 0 }}
+                transition={{ duration: 0.7 }}
+                className={"flex gap-x-[10px]"}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -172,8 +192,13 @@ const Index = () => {
                   </defs>
                 </svg>
                 <Link href={"mailto: info@tmsiti.uz"}>info@tmsiti.uz</Link>
-              </li>
-              <li className={"flex gap-x-[10px]"}>
+              </motion.li>
+              <motion.li
+                className={"flex gap-x-[10px]"}
+                initial={{ translateY: "60px" }}
+                animate={{ translateY: 0 }}
+                transition={{ duration: 0.9 }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -204,8 +229,13 @@ const Index = () => {
                   </defs>
                 </svg>
                 <Link href={"mailto: TMSITI@exat.uz"}>TMSITI@exat.uz</Link>
-              </li>
-              <li className={"flex gap-x-[10px]"}>
+              </motion.li>
+              <motion.li
+                className={"flex gap-x-[10px]"}
+                initial={{ translateY: "40px" }}
+                animate={{ translateY: 0 }}
+                transition={{ duration: 1.1 }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -241,11 +271,16 @@ const Index = () => {
                 >
                   +998 71 244-51-84
                 </Link>
-              </li>
+              </motion.li>
             </ul>
           </div>
 
-          <div className={"col-span-1 w-[2px] bg-[#2E6DFF]"}></div>
+          <motion.div
+            initial={{ opacity: 0, translateY: "-50px" }}
+            animate={{ opacity: 1, translateY: "0px" }}
+            transition={{ duration: 1 }}
+            className={"col-span-1 w-[2px] bg-[#2E6DFF]"}
+          ></motion.div>
 
           <div className={"col-span-5 w-[605px]"}>
             <form
@@ -253,7 +288,12 @@ const Index = () => {
               onSubmit={handleSubmit(onSubmit)}
             >
               {/*FIO*/}
-              <div className={"label-float"}>
+              <motion.div
+                className={"label-float"}
+                initial={{ opacity: 0, translateX: "120px" }}
+                animate={{ opacity: 1, translateX: "0px" }}
+                transition={{ duration: 0.9 }}
+              >
                 <input
                   type={"text"}
                   placeholder={""}
@@ -263,10 +303,15 @@ const Index = () => {
                   }
                 />
                 <label className={"text-[#535E8A]"}>FIO</label>
-              </div>
+              </motion.div>
 
               {/*Email*/}
-              <div className={"label-float"}>
+              <motion.div
+                className={"label-float"}
+                initial={{ opacity: 0, translateX: "120px" }}
+                animate={{ opacity: 1, translateX: "0px" }}
+                transition={{ duration: 1.2 }}
+              >
                 <input
                   type={"email"}
                   placeholder={"E-mail"}
@@ -276,10 +321,15 @@ const Index = () => {
                   }
                 />
                 <label>E-mail</label>
-              </div>
+              </motion.div>
 
               {/*Telefon nomer*/}
-              <div className={"label-float"}>
+              <motion.div
+                className={"label-float"}
+                initial={{ opacity: 0, translateX: "120px" }}
+                animate={{ opacity: 1, translateX: "0px" }}
+                transition={{ duration: 1.5 }}
+              >
                 <input
                   type={"tel"}
                   placeholder={""}
@@ -289,7 +339,7 @@ const Index = () => {
                   }
                 />
                 <label>Telefon nomer</label>
-              </div>
+              </motion.div>
 
               {/*Murojaat turi*/}
               {/*<div className={"label-float"}>*/}
@@ -319,7 +369,12 @@ const Index = () => {
               {/*  </datalist>*/}
               {/*</div>*/}
 
-              <div className={"label-float"}>
+              <motion.div
+                className={"label-float"}
+                initial={{ opacity: 0, translateX: "120px" }}
+                animate={{ opacity: 1, translateX: "0px" }}
+                transition={{ duration: 1.8 }}
+              >
                 <select
                   className={
                     "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] cursor-pointer focus:outline-none"
@@ -335,9 +390,14 @@ const Index = () => {
                     ></option>
                   ))}
                 </select>
-              </div>
+              </motion.div>
 
-              <div className={"label-float"}>
+              <motion.div
+                className={"label-float"}
+                initial={{ opacity: 0, translateX: "120px" }}
+                animate={{ opacity: 1, translateX: "0px" }}
+                transition={{ duration: 2.1 }}
+              >
                 <textarea
                   placeholder={"Murojaat matni"}
                   {...register("text", { required: true })}
@@ -345,14 +405,19 @@ const Index = () => {
                     "w-full h-[192px] py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] placeholder:text-[#535E8A]"
                   }
                 ></textarea>
-              </div>
+              </motion.div>
 
               {/*<div className="text-sm cursor-pointer text-[#1A4DC2] ml-[30px]  flex">*/}
               {/*  <label htmlFor="inputGroupFile">Fayl biriktirish</label>*/}
               {/*  <input type="file" {...register("file")} className={"hidden"} />*/}
               {/*</div>*/}
 
-              <div className=" flex  ">
+              <motion.div
+                className=" flex  "
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+              >
                 <label htmlFor="fileInput" className="text-[#535E8A]">
                   <span className={"text-[#1A4DC2]"}>{fileName}</span>
                   <input
@@ -363,15 +428,22 @@ const Index = () => {
                     onChange={handleFileChange}
                   />
                 </label>
-              </div>
+              </motion.div>
 
-              <button
+              <motion.button
+                initial={{
+                  opacity: 0,
+                  translateY: "20px",
+                  transLateZ: "20px",
+                }}
+                animate={{ opacity: 1, translateY: "0px", translateZ: "0px" }}
+                transition={{ duration: 0.2 }}
                 className={
                   "py-[13px] px-[33px] bg-[#1A4DC2] w-[230px] text-[#fff] mx-auto hover:bg-[#1E56D8] transition-all duration-300"
                 }
               >
                 Murojaatni yuborish
-              </button>
+              </motion.button>
             </form>
           </div>
         </div>

@@ -7,4 +7,5 @@ export const URLS = {
   discuss: "discuss/",
   appeal: "appeal/",
   appealCategory: "appeal/appeal_category/",
+  structuralDivisions: "structural-divisions",
 };
