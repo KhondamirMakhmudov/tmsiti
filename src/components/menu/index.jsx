@@ -158,7 +158,7 @@ export const menuData = [
       },
 
       {
-        id: 5,
+        id: 6,
         title: "Seminar, ko’rgazmalar",
         url: "#",
       },

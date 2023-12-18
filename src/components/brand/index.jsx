@@ -34,7 +34,7 @@ const Brand = ({ active = 0 }) => {
           }
         >
           {t(
-            "Qurilishda texnik me’yorlash va standartlashtirish ilmiy-tadqiqot instituti",
+            "Texnik me’yorlash va standartlashtirish ilmiy-tadqiqot instituti",
           )}
         </span>
       </Link>

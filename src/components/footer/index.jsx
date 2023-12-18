@@ -78,16 +78,21 @@ const Footer = () => {
                 </h4>
                 <ul className={"text-[#D9D9D9] text-sm md:text-base"}>
                   <li className={"mb-[10px]"}>
+                    <Link href={"/about"}>Institut haqida</Link>
+                  </li>
+                  <li className={"mb-[10px]"}>
                     <Link href={"/management"}>Rahbariyat</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/structure"}>Tuzilma</Link>
+                    <Link href={"/structure"}>Tashkiliy tuzilma</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/"}>Me`yoriy hujjatlar</Link>
+                    <Link href={"/structural-divisions"}>
+                      Tarkibiy bo’linmalar
+                    </Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/about"}>Biz haqimizda</Link>
+                    <Link href={"/vacancies"}>Vakansiyalar</Link>
                   </li>
                   {/*<li className={'mb-[10px]'}>*/}
                   {/*    <Link href={'/classifier'}>Laboratoriya</Link>*/}
@@ -104,17 +109,23 @@ const Footer = () => {
                     "md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]"
                   }
                 >
-                  Normalar
+                  Me’yoriy hujjatlar
                 </h4>
                 <ul className={"text-[#D9D9D9]"}>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/shnk"}>SHNK</Link>
+                    <Link href={"#"}>Qonun, qaror va farmonlar</Link>
+                  </li>
+                  <li className={"mb-[10px]"}>
+                    <Link href={"/shnk"}>Shaharsozlik norma va qoidalari</Link>
                   </li>
                   <li className={"mb-[10px]"}>
                     <Link href={"/standards"}>Standartlar</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/works"}>Reestr</Link>
+                    <Link href={"/works"}>Qurilish reglamentlari</Link>
+                  </li>
+                  <li className={"mb-[10px]"}>
+                    <Link href={"/discussion"}>Muhokamalar</Link>
                   </li>
                 </ul>
               </div>
@@ -125,17 +136,19 @@ const Footer = () => {
                     "md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]"
                   }
                 >
-                  Tizimlar
+                  Faoliyat
                 </h4>
                 <ul className={"text-[#D9D9D9]"}>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/"}>Klassifikator</Link>
+                    <Link href={"https://catalog.tmsiti.uz/classifier"}>
+                      Klassifikator
+                    </Link>
                   </li>
-                  {/*<li className={'mb-[10px]'}>*/}
-                  {/*    <Link href={'/machine-mechano'}>Kalkulyator</Link>*/}
-                  {/*</li>*/}
                   <li className={"mb-[10px]"}>
-                    <Link href={"/dictionary"}>Lug‘at</Link>
+                    <Link href={"#"}>Elektron fond</Link>
+                  </li>
+                  <li className={"mb-[10px]"}>
+                    <Link href={"#"}>Laboratoriya</Link>
                   </li>
                 </ul>
               </div>
@@ -152,27 +165,33 @@ const Footer = () => {
                   <li className={"mb-[10px]"}>
                     <Link href={"/announcement"}>E’lonlar</Link>
                   </li>
-                  <li className={"mb-[10px]"}>
-                    <Link href={"/discussion"}>Muhokamalar</Link>
-                  </li>
+
                   <li className={"mb-[10px]"}>
                     <Link href={"/news"}>Yangiliklar</Link>
                   </li>
+                  <li className={"mb-[10px]"}>
+                    <Link href={"#"}>Uchrashuvlar</Link>
+                  </li>
+                  <li className={"mb-[10px]"}>
+                    <Link href={"#"}>Ommaviy tadbirlar</Link>
+                  </li>
 
                   <li className={"mb-[10px]"}>
-                    <Link href={"/works"}>Xalqaro munosobat</Link>
+                    <Link href={"#"}>Xalqaro hamkorlik</Link>
                   </li>
                 </ul>
               </div>
 
               <div className="">
-                <h4
-                  className={
-                    "md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]"
-                  }
-                >
-                  Biz haqimizda
-                </h4>
+                <Link href={"/contact"}>
+                  <h4
+                    className={
+                      "md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]"
+                    }
+                  >
+                    Bog‘lanish
+                  </h4>
+                </Link>
                 <ul className={"text-[#D9D9D9]"}>
                   <li className={"text-base mb-[10px]"}>
                     <p>

@@ -15,11 +15,6 @@ const Management = () => {
     key: KEYS.workers,
     url: URLS.workers,
   });
-  const { data: scheduleList, isLoading: isLoadingSchedule } =
-    useGetTMSITIQuery({
-      key: KEYS.scheduleList,
-      url: URLS.scheduleList,
-    });
 
   if (isLoading) {
     return "...Loading";

@@ -18,7 +18,7 @@ const ShnkId = () => {
       >
         <div className={"container py-[12px] flex gap-x-[5px]"}>
           <Link href={"/"}>Bosh sahifa /</Link>
-          <Link href={"#"}>ShNQ /</Link>
+          <Link href={"#"}>Shaharsozlik normalari va qoidalari /</Link>
 
           <div
             className={

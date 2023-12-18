@@ -1,4 +1,5 @@
 export const URLS = {
+  ads: "ads/",
   subSystem: "shnk/subsystem",
   group: "shnk/group",
   doc: "shnk/doc",

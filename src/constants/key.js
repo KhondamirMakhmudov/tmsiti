@@ -1,4 +1,5 @@
 export const KEYS = {
+  ads: "ads",
   subSystem: "subsystem",
   group: "group",
   doc: "doc",

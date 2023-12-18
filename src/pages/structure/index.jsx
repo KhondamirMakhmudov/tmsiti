@@ -21,7 +21,7 @@ const Hierarchy = () => {
 
         <div className={"col-span-12 mb-[100px]"}>
           <img
-            src={"images/hierarchy.png"}
+            src={"icons/Tuzilma.svg"}
             className={"w-full h-full"}
             alt={"hierchachy"}
           />

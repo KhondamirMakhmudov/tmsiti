@@ -114,7 +114,8 @@ const NewsCardTemplate = ({
 
       {head(
         get(data, "data.results", []).map((item) => (
-          <div className={"col-span-12"} key={get(item, "id")}>
+          // eslint-disable-next-line react/jsx-key
+          <div className={"col-span-12"}>
             <div className={"grid grid-cols-12 gap-x-[30px]"}>
               <div className={"col-span-4 w-[450px]"}>
                 <img

@@ -60,7 +60,7 @@ const SHNQ = () => {
       <section className={"bg-[#EFF3FA] text-xs text-[#607198] mb-[70px]"}>
         <div className={"container py-[12px]"}>
           <Link href={"/"}>Bosh sahifa / </Link>
-          <Link href={"#"}>ShNQ / </Link>
+          <Link href={"#"}>Shaharsozlik normalari va qoidalari / </Link>
           <Link href={"#"}></Link>
         </div>
       </section>
