@@ -42,7 +42,7 @@ export default function Home() {
     url: URLS.news,
   });
 
-  const NewsInReel = get(data, "data.results").filter(
+  const NewsInReel = get(data, "data.results", []).filter(
     (item) => get(item, "news_in_reel") === true,
   );
 
