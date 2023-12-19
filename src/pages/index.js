@@ -42,6 +42,10 @@ export default function Home() {
     url: URLS.news,
   });
 
+  const NewsInReel = get(data, "data.results").filter(
+    (item) => get(item, "news_in_reel") === true,
+  );
+
   const { data: discussion, isLoading: isLoadingDiscuss } = useGetTMSITIQuery({
     url: URLS.discuss,
     key: KEYS.discuss,
@@ -387,62 +391,115 @@ export default function Home() {
 
           <div className={"md:col-span-6 col-span-12"}>
             <ul className={"grid grid-cols-12 "}>
-              {slice(
-                drop(
-                  get(data, "data.results", []).map((item) => (
-                    <motion.li
-                      initial={{ translateX: 100, opacity: 0 }}
-                      animate={{ translateX: 0, opacity: 1 }}
-                      key={get(item, "id")}
-                      className={"col-span-12"}
+              {drop(
+                NewsInReel.map((news) => (
+                  <motion.li
+                    initial={{ translateX: 100, opacity: 0 }}
+                    animate={{ translateX: 0, opacity: 1 }}
+                    key={get(news, "id")}
+                    className={"col-span-12"}
+                  >
+                    <divnews
+                      className={
+                        "md:grid md:grid-cols-6 flex gap-x-[30px] flex-col-reverse"
+                      }
                     >
-                      <div
-                        className={
-                          "md:grid md:grid-cols-6 flex gap-x-[30px] flex-col-reverse"
-                        }
-                      >
-                        <div className={"md:col-span-3"}>
-                          <p
+                      <div className={"md:col-span-3"}>
+                        <p
+                          className={
+                            "text-[#2E6DFF] lg:text-sm md:text-xs text-sm mb-[20px] font-bold"
+                          }
+                        >
+                          Yangilik{" "}
+                          {dayjs(get(news, "news_datetime")).format(
+                            "DD.MM.YYYY",
+                          )}
+                        </p>
+                        <Link href={`/news/${get(news, "id")}`}>
+                          <h2
                             className={
-                              "text-[#2E6DFF] lg:text-sm md:text-xs text-sm mb-[20px] font-bold"
+                              "xl:text-xl lg:text-base md:text-sm text-base  hover:text-[#2E6DFF] hover:underline font-bold lg:line-clamp-5 md:line-clamp-4 line-clamp-3"
                             }
                           >
-                            Yangilik{" "}
-                            {dayjs(get(item, "news_datetime")).format(
-                              "DD.MM.YYYY",
-                            )}
-                          </p>
-                          <Link href={`/news/${get(item, "id")}`}>
-                            <h2
-                              className={
-                                "xl:text-xl lg:text-base md:text-sm text-base  hover:text-[#2E6DFF] hover:underline font-bold lg:line-clamp-5 md:line-clamp-4 line-clamp-3"
-                              }
-                            >
-                              {get(item, "news_title")}
-                            </h2>
-                          </Link>
-                        </div>
-
-                        <div className={"md:col-span-3 md:w-[330px]"}>
-                          <img
-                            src={get(item, "news_image")}
-                            alt={"news-img"}
-                            className={
-                              "md:w-full lg:h-[189px]   object-cover mb-[10px] md:mb-0"
-                            }
-                          />
-                        </div>
+                            {get(news, "news_title")}
+                          </h2>
+                        </Link>
                       </div>
 
-                      <div
-                        className={"w-full h-[1px] bg-gray-900 my-[30px]"}
-                      ></div>
-                    </motion.li>
-                  )),
-                ),
-                0,
-                3,
+                      <div className={"md:col-span-3 md:w-[330px]"}>
+                        <img
+                          src={get(news, "news_image")}
+                          alt={"news-img"}
+                          className={
+                            "md:w-full lg:h-[189px]   object-cover mb-[10px] md:mb-0"
+                          }
+                        />
+                      </div>
+                    </divnews>
+
+                    <div
+                      className={"w-full h-[1px] bg-gray-900 my-[30px]"}
+                    ></div>
+                  </motion.li>
+                )),
               )}
+
+              {/*{slice(*/}
+              {/*  drop(*/}
+              {/*    get(data, "data.results", []).map((item) => (*/}
+              {/*      <motion.li*/}
+              {/*        initial={{ translateX: 100, opacity: 0 }}*/}
+              {/*        animate={{ translateX: 0, opacity: 1 }}*/}
+              {/*        key={get(item, "id")}*/}
+              {/*        className={"col-span-12"}*/}
+              {/*      >*/}
+              {/*        <div*/}
+              {/*          className={*/}
+              {/*            "md:grid md:grid-cols-6 flex gap-x-[30px] flex-col-reverse"*/}
+              {/*          }*/}
+              {/*        >*/}
+              {/*          <div className={"md:col-span-3"}>*/}
+              {/*            <p*/}
+              {/*              className={*/}
+              {/*                "text-[#2E6DFF] lg:text-sm md:text-xs text-sm mb-[20px] font-bold"*/}
+              {/*              }*/}
+              {/*            >*/}
+              {/*              Yangilik{" "}*/}
+              {/*              {dayjs(get(item, "news_datetime")).format(*/}
+              {/*                "DD.MM.YYYY",*/}
+              {/*              )}*/}
+              {/*            </p>*/}
+              {/*            <Link href={`/news/${get(item, "id")}`}>*/}
+              {/*              <h2*/}
+              {/*                className={*/}
+              {/*                  "xl:text-xl lg:text-base md:text-sm text-base  hover:text-[#2E6DFF] hover:underline font-bold lg:line-clamp-5 md:line-clamp-4 line-clamp-3"*/}
+              {/*                }*/}
+              {/*              >*/}
+              {/*                {get(item, "news_title")}*/}
+              {/*              </h2>*/}
+              {/*            </Link>*/}
+              {/*          </div>*/}
+
+              {/*          <div className={"md:col-span-3 md:w-[330px]"}>*/}
+              {/*            <img*/}
+              {/*              src={get(item, "news_image")}*/}
+              {/*              alt={"news-img"}*/}
+              {/*              className={*/}
+              {/*                "md:w-full lg:h-[189px]   object-cover mb-[10px] md:mb-0"*/}
+              {/*              }*/}
+              {/*            />*/}
+              {/*          </div>*/}
+              {/*        </div>*/}
+
+              {/*        <div*/}
+              {/*          className={"w-full h-[1px] bg-gray-900 my-[30px]"}*/}
+              {/*        ></div>*/}
+              {/*      </motion.li>*/}
+              {/*    )),*/}
+              {/*  ),*/}
+              {/*  0,*/}
+              {/*  3,*/}
+              {/*)}*/}
             </ul>
           </div>
         </div>
