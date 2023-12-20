@@ -399,7 +399,7 @@ export default function Home() {
                     key={get(news, "id")}
                     className={"col-span-12"}
                   >
-                    <divnews
+                    <div
                       className={
                         "md:grid md:grid-cols-6 flex gap-x-[30px] flex-col-reverse"
                       }
@@ -435,7 +435,7 @@ export default function Home() {
                           }
                         />
                       </div>
-                    </divnews>
+                    </div>
 
                     <div
                       className={"w-full h-[1px] bg-gray-900 my-[30px]"}
