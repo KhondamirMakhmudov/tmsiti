@@ -80,7 +80,7 @@ export const menuData = [
       {
         id: 3,
         title: "Standartlar",
-        url: "/#",
+        url: "/standards",
       },
 
       {
@@ -110,7 +110,7 @@ export const menuData = [
       {
         id: 2,
         title: "Elektron fond",
-        url: "#",
+        url: "/standards",
       },
 
       {
