@@ -17,23 +17,20 @@ const Standards = () => {
       <section className={"bg-[#EFF3FA] text-xs text-[#607198] mb-[70px]"}>
         <div className={"container py-[12px]"}>
           <Link href={"/"}>Bosh sahifa / </Link>
-          <Link href={"#"}>Standartlar</Link>
+          <Link href={"#"}>Elektron standartlar fondi</Link>
         </div>
       </section>
       <section className={"grid grid-cols-12 gap-x-[30px] container mx-auto"}>
         <div className={"col-span-12 px-[20px] md:px-0"}>
-          <Title>
-            faol, muomaladan chiqarilgan davlat standartlar, tashkilot
-            standartlari va xalqaro standartlar reestri
-          </Title>
+          <Title textFormatter={"uppercase"}>Elektron standartlar fondi</Title>
         </div>
       </section>
 
       <div
         className={
-          "bg-[#28366D] bg-no-repeat bg-cover  pt-[30px] pb-[20px]  mb-[30px] px-[20px] md:px-0"
+          "bg-[#546CA6] bg-no-repeat bg-cover  pt-[30px] pb-[20px]  mb-[30px] px-[20px] md:px-0"
         }
-        style={{ backgroundImage: "url(/images/background-search-box.png)" }}
+        style={{ backgroundImage: "url(/images/bg-search-box.png)" }}
       >
         <div className={"grid grid-cols-12 gap-x-[30px] container mx-auto"}>
           <form
@@ -43,14 +40,14 @@ const Standards = () => {
           >
             <input
               type={"text"}
-              placeholder={"Standart raqami"}
+              placeholder={"Hujjat raqami"}
               className={
                 "max-w-[270px] w-full text-sm py-[15px] px-[20px] placeholder-[#001A57] outline-0 rounded-[5px]"
               }
             />
             <input
               type={"text"}
-              placeholder={"Standart nomi"}
+              placeholder={"Kalit so’z"}
               className={
                 "w-full text-sm py-[15px] px-[20px] placeholder-[#001A57] outline-0 rounded-[5px]"
               }
@@ -62,36 +59,36 @@ const Standards = () => {
               "col-span-12 flex flex-col md:flex-row  gap-x-[30px] mb-[20px]"
             }
           >
-            <Select placeholder={"Standart toifasini tanlang"} />
+            <Select placeholder={"Hujjat toifasini tanlang"} />
             <Select placeholder={"Shartli belgisi"} />
-            <Select placeholder={"OKS klassifikator"} />
+            <Select placeholder={"Hujjat tasdiqlangan yili"} />
           </form>
 
-          <div className={"col-span-12 "}>
-            <h4 className={"font-semibold text-sm text-[#fff] mb-[14px]"}>
-              Holati
-            </h4>
-          </div>
+          {/*<div className={"col-span-12 "}>*/}
+          {/*  <h4 className={"font-semibold text-sm text-[#fff] mb-[14px]"}>*/}
+          {/*    Holati*/}
+          {/*  </h4>*/}
+          {/*</div>*/}
 
-          <div
-            className={
-              "col-span-12 flex flex-col md:flex-row justify-between md:items-center "
-            }
-          >
-            <div className={"flex flex-col md:flex-row md:gap-x-[20px] "}>
-              <CheckboxTemplate>Amalda</CheckboxTemplate>
+          {/*<div*/}
+          {/*  className={*/}
+          {/*    "col-span-12 flex flex-col md:flex-row justify-between md:items-center "*/}
+          {/*  }*/}
+          {/*>*/}
+          {/*  <div className={"flex flex-col md:flex-row md:gap-x-[20px] "}>*/}
+          {/*    <CheckboxTemplate>Amalda</CheckboxTemplate>*/}
 
-              <CheckboxTemplate>Amalda emas</CheckboxTemplate>
+          {/*    <CheckboxTemplate>Amalda emas</CheckboxTemplate>*/}
 
-              <CheckboxTemplate>Muddati o‘tgan</CheckboxTemplate>
+          {/*    <CheckboxTemplate>Muddati o‘tgan</CheckboxTemplate>*/}
 
-              <CheckboxTemplate>Reestrdan chiqarilgan</CheckboxTemplate>
-            </div>
+          {/*    <CheckboxTemplate>Reestrdan chiqarilgan</CheckboxTemplate>*/}
+          {/*  </div>*/}
 
-            <p className={"italic text-xs font-medium text-[#fff] mt-[20px]"}>
-              *Tizimdagi ma’lumotlar O‘zStandart reestridan olingan
-            </p>
-          </div>
+          {/*  <p className={"italic text-xs font-medium text-[#fff] mt-[20px]"}>*/}
+          {/*    *Tizimdagi ma’lumotlar O‘zStandart reestridan olingan*/}
+          {/*  </p>*/}
+          {/*</div>*/}
         </div>
       </div>
 

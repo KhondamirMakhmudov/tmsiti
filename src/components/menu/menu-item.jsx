@@ -10,7 +10,7 @@ const MenuItem = ({
   active,
   setOpenDropdownMenu,
   openDropdownMenu,
-  key,
+  keyItem,
 }) => {
   const { t } = useTranslation();
   // const [openDropdownMenu, setOpenDropdownMenu] = useState(null);
@@ -23,7 +23,7 @@ const MenuItem = ({
   }, [item, openDropdownMenu]);
   return (
     <li
-      key={key}
+      key={keyItem}
       onClick={(e) => {
         setOpenDropdownMenu(get(item, "id"));
         setMenu((prevState) => !prevState);
