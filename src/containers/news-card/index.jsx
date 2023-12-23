@@ -41,6 +41,7 @@ const NewsCardTemplate = ({
     },
     enabled,
   });
+
   useEffect(() => {
     if (!isNil(get(data, "count"))) {
       getCount(get(data, "count", 0));
@@ -64,53 +65,8 @@ const NewsCardTemplate = ({
 
   return (
     <>
-      {isFetching}
+      {isLoading && isFetching ? <p>Loading, please, wait</p> : ""}
       <NewsTitle>{HeaderBody}</NewsTitle>
-
-      {currentItems &&
-        currentItems.map((item, index) => (
-          // eslint-disable-next-line react/jsx-key
-          <div className={"col-span-12"}>
-            <div className={"grid grid-cols-12 gap-x-[30px]"}>
-              <div className={"col-span-4 w-[450px]"}>
-                <img
-                  src={get(item, "news_image")}
-                  alt="news-main-img"
-                  className={"w-[450px] h-[260px]   object-cover"}
-                />
-              </div>
-              <div className={"col-span-8"}>
-                <p className={"text-[#2E6DFF]  font-bold"}>
-                  {dayjs(get(item, "news_datetime")).format("DD.MM.YYYY")}
-                </p>
-                <Link href={`/news/${get(item, "id")}`}>
-                  <h2
-                    className={
-                      "lg:text-xl md:text-lg text-xl font-bold text-[#001A57] hover:text-[#2E6DFF] hover:underline mt-[20px]  md:line-clamp-none line-clamp-2"
-                    }
-                  >
-                    {get(item, "news_title")}
-                  </h2>
-                </Link>
-                <p
-                  className={
-                    "text-[#A9AFC5] mt-[10px] md:text-base text-sm line-clamp-3 md:line-clamp-6"
-                  }
-                >
-                  {get(item, "news_desc")}
-                </p>
-                <Link
-                  className={
-                    "px-[55px] py-[13px] inline-block border-[2px] border-[#1A4DC2] bg-transparent hover:bg-[#1A4DC2] hover:text-[#fff] transition-all mt-[20px] rounded-[5px] font-bold text-[#1A4DC2]"
-                  }
-                  href={`/news/${get(item, "id")}`}
-                >
-                  Batafsil
-                </Link>
-              </div>
-            </div>
-          </div>
-        ))}
 
       {head(
         get(data, "data.results", []).map((item) => (
