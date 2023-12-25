@@ -17,7 +17,11 @@ const About = () => {
     <Main>
       <Menu active={0} />
       <section className={"bg-[#EFF3FA] text-xs text-[#607198] mb-[70px]"}>
-        <div className={"container py-[12px]"}>
+        <div
+          className={
+            "container py-[12px] px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
+          }
+        >
           <Link href={"/"}>Bosh sahifa / </Link>
           <Link href={"#"}>Institut / </Link>
           <Link href={"#"}>Biz haqimizda </Link>
@@ -26,7 +30,9 @@ const About = () => {
       <motion.section
         initial={{ translateX: "-200px" }}
         animate={{ translateX: "0px" }}
-        className={"grid grid-cols-12 container mx-auto px-[20px] md:px-0"}
+        className={
+          "grid grid-cols-12 container mx-auto px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
+        }
       >
         <div className={"col-span-12 z-0"}>
           <Title classNames={"col-span-12"}>Biz haqimizda</Title>
@@ -35,7 +41,7 @@ const About = () => {
 
       <section
         className={
-          " md:flex grid grid-cols-12 justify-between gap-x-[30px]  container mx-auto mb-[50px] px-[20px] md:px-0"
+          " md:flex flex-col  xl:flex-row grid grid-cols-12 justify-between gap-x-[30px]  container mx-auto mb-[50px] px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
         }
       >
         <motion.div
@@ -44,7 +50,11 @@ const About = () => {
           transition={{ duration: 0.4 }}
           className={"col-span-12"}
         >
-          <p className={"md:text-2xl text-base mb-[30px] m:w-[950px] "}>
+          <p
+            className={
+              "md:text-lg lg:text-xl xl:text-xl text-base mb-[30px] m:w-[950px] "
+            }
+          >
             O’zbekiston Respublikasi Qurilish va uy-joy kommunal xo‘jaligi
             vazirligi huzuridagi{" "}
             <strong>
@@ -73,9 +83,7 @@ const About = () => {
             belgilangan:
           </p>
 
-          <ul
-            className={"list-disc md:w-[950px] text-xs md:text-base ml-[30px]"}
-          >
+          <ul className={"list-disc  text-xs md:text-base ml-[30px]"}>
             <li>
               qurilish resurslarini guruhlarga va bo‘limlarga tasniflagan holda,
               har biri alohida identifikatsiya raqamlanishi va standartlarga
@@ -160,7 +168,7 @@ const About = () => {
           animate={{ translateX: "0px" }}
           transition={{ duration: 0.4 }}
           className={
-            "col-span-12 flex items-center justify-center md:justify-start md:items-start flex-col mt-[20px]"
+            "col-span-12 flex items-center justify-center xl:justify-start xl:items-start flex-col mt-[20px]"
           }
         >
           <img

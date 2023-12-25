@@ -24,14 +24,20 @@ const Management = () => {
     <Main>
       <Menu active={0} />
       <section className={"bg-[#EFF3FA] text-xs text-[#607198] mb-[50px]"}>
-        <div className={"container py-[12px]"}>
+        <div
+          className={
+            "container py-[12px] px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
+          }
+        >
           <Link href={"/"}>Bosh sahifa / </Link>
           <Link href={"#"}>Institut / </Link>
           <Link href={"#"}>Rahbariyat </Link>
         </div>
       </section>
       <section className={"grid grid-cols-12 container mx-auto gap-x-[30px] "}>
-        <div className={"col-span-12 px-[20px] md:px-0"}>
+        <div
+          className={"col-span-12 px-[20px] md:px-[15px] lg:px-[10px] xl:px-0 "}
+        >
           <Title>Rahbariyat</Title>
         </div>
 
