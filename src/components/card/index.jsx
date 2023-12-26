@@ -24,7 +24,11 @@ const Card = ({
 
   return (
     <>
-      <div className={"flex gap-x-[30px]  items-center md:items-start"}>
+      <div
+        className={
+          "flex  gap-x-[30px] flex-col md:flex-row items-center md:items-start border px-[10px] rounded-[5px] shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] md:shadow-none md:rounded-0 md:px-0 md:border-none"
+        }
+      >
         <div className={"min-w-[210px] h-[250px]"}>
           <img
             src={`${img}`}
@@ -33,20 +37,32 @@ const Card = ({
           />
         </div>
 
-        <div>
+        <div className={""}>
           {/* lavozim */}
-          <h4 className={"md:text-lg text-base  text-[#2B4764]"}>{position}</h4>
+          <h4
+            className={
+              "md:text-lg text-base  text-[#2B4764] text-center mt-[10px] md:mt-0"
+            }
+          >
+            {position}
+          </h4>
           {/* F.I.O */}
-          <h2 className={"font-semibold text-lg md:text-2xl mb-[30px]"}>
+          <h2
+            className={
+              "font-semibold text-lg md:text-2xl mb-[30px] text-center"
+            }
+          >
             {name}
           </h2>
           {/* Qabul kunlari */}
-          <p className={"md:text-base text-sm"}>
+          <p className={"lg:text-base md:text-sm text-xs pt-[10px]"}>
             Qabul kunlari: {receptionDays}
           </p>
           {/* Telefon raqam */}
           <Link
-            className={"md:text-base text-sm text-[#001A57] py-[30px]"}
+            className={
+              "lg:text-base md:text-sm text-xs text-[#001A57] pt-[10px]"
+            }
             href={`tel:${phone}`}
           >
             Telefon: {phone}
@@ -54,19 +70,25 @@ const Card = ({
           <br />
           {/* Mail pochta */}
           <Link
-            className={"md:text-base text-sm text-[#001A57]"}
+            className={
+              " lg:text-base md:text-sm text-xs text-[#001A57] pt-[10px]"
+            }
             href={`mailto:${mail}`}
           >
             Elektron pochta: {mail}{" "}
           </Link>
           {/* Bachelor */}
-          <p className={"md:text-base text-sm"}>
+          <p className={" lg:text-base md:text-sm text-xs pt-[10px] "}>
             Bakalavr bo`yicha mutaxassisligi: {bachelor}
           </p>
           {/* Master */}
-          <p className={"md:text-base text-sm"}>{master}</p>
+          <p className={" lg:text-base md:text-sm text-xs pt-[10px]"}>
+            {master}
+          </p>
           {/* Ilmiy daraja yoki unvon   */}
-          <p className={"md:text-base text-sm"}>{academicTitle}</p>
+          <p className={" lg:text-base md:text-sm text-xs pt-[10px]"}>
+            {academicTitle}
+          </p>
         </div>
       </div>
 

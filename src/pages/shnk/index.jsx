@@ -58,7 +58,11 @@ const SHNQ = () => {
     <Main>
       <Menu />
       <section className={"bg-[#EFF3FA] text-xs text-[#607198] mb-[70px]"}>
-        <div className={"container py-[12px]"}>
+        <div
+          className={
+            "container py-[12px] px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
+          }
+        >
           <Link href={"/"}>Bosh sahifa / </Link>
           <Link href={"#"}>Shaharsozlik normalari va qoidalari / </Link>
           <Link href={"#"}></Link>
@@ -73,12 +77,14 @@ const SHNQ = () => {
           initial={{ translateX: "-200px" }}
           animate={{ translateX: "0px" }}
           transition={{ duration: 0.3 }}
-          className={"col-span-12"}
+          className={"col-span-12 px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"}
         >
           <Title>Shaharsozlik normalari va qoidalari</Title>
         </motion.div>
 
-        <div className={"col-span-12 "}>
+        <div
+          className={"col-span-12 px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"}
+        >
           <motion.ul
             initial={{ translateX: "-200px" }}
             animate={{ translateX: "0px" }}
