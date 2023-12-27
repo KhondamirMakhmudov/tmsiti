@@ -44,7 +44,7 @@ const Standards = () => {
 
         <div
           className={
-            "col-span-12 text-center flex flex-col justify-center items-center"
+            "col-span-12 text-center flex flex-col justify-center items-center mb-[70px]"
           }
         >
           <div className={"mb-[20px]"}>
