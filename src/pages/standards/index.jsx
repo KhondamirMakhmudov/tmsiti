@@ -44,7 +44,7 @@ const Standards = () => {
         <div
           className={"col-span-12 text-center flex justify-center items-center"}
         >
-          {parse(obj["news_text"])}
+          {parse(get(obj, "news_text"))}
         </div>
       </section>
     </Main>

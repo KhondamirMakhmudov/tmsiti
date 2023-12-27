@@ -121,6 +121,8 @@ const Index = () => {
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.318241820355!2d69.25291087649907!3d41.32369269994296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b6cfbdaaaab%3A0x67ef3b5628043557!2zNmEg0YPQu9C40YbQsCDQkNCx0LDRjywg0KLQsNGI0LrQtdC90YIgMTAwMDExLCDQo9C30LHQtdC60LjRgdGC0LDQvQ!5e0!3m2!1sru!2s!4v1702381372997!5m2!1sru!2s"
                 allowFullScreen=""
+                width={605}
+                height={404}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
