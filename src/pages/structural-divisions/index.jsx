@@ -11,8 +11,8 @@ import { get, isNil } from "lodash";
 
 const Index = () => {
   const { data, isLoading } = useGetTMSITIQuery({
-    key: KEYS.structuralDivisions,
-    url: URLS.structuralDivisions,
+    key: KEYS.workersStructural,
+    url: URLS.workersStructural,
   });
   return (
     <Main>
@@ -29,42 +29,39 @@ const Index = () => {
           <Title>Tarkiribiy bo’linmalar</Title>
         </div>
 
-        <div className={"grid grid-cols-12 gap-[30px]"}>
-          {/*  //////////////////////////////////////////////////////////////////// */}
-          {/*  AFTER CREATING API BY BACKEND DEVELOPER, DELETER COMMENT FROM THEM */}
-          {/*  //////////////////////////////////////////////////////////////////// */}
-          {/*{get(data, "data", "-").map((item) => (*/}
-          {/*  <div key={get(item, "id")} className={"col-span-6"}>*/}
-          {/*    <Card*/}
-          {/*      position={get(item, "worker_post")}*/}
-          {/*      img={get(item, "worker_image")}*/}
-          {/*      name={get(item, "worker_name")}*/}
-          {/*      receptionDays={get(item, "worker_reception_day")}*/}
-          {/*      phone={get(item, "worker_phone")}*/}
-          {/*      bachelor={get(item, "worker_bachelor")}*/}
-          {/*      master={*/}
-          {/*        !isNil(get(item, "worker_master")) ? (*/}
-          {/*          <p>*/}
-          {/*            Magistratura bo`yicha mutaxassisligi:{" "}*/}
-          {/*            {get(item, "worker_master")}*/}
-          {/*          </p>*/}
-          {/*        ) : (*/}
-          {/*          ""*/}
-          {/*        )*/}
-          {/*      }*/}
-          {/*      academicTitle={*/}
-          {/*        !isNil(get(item, "academic_title")) ? (*/}
-          {/*          <p>*/}
-          {/*            Ilmiy daraja yoki unvon: {get(item, "academic_title")}*/}
-          {/*          </p>*/}
-          {/*        ) : (*/}
-          {/*          ""*/}
-          {/*        )*/}
-          {/*      }*/}
-          {/*    />*/}
-          {/*  </div>*/}
-          {/*))}*/}
-        </div>
+        {/*<div className={"grid grid-cols-12 gap-[30px]"}>*/}
+        {/*  {get(data, "data", "-").map((item) => (*/}
+        {/*    <div key={get(item, "id")} className={"col-span-6"}>*/}
+        {/*      <Card*/}
+        {/*        position={get(item, "worker_post")}*/}
+        {/*        img={get(item, "worker_image")}*/}
+        {/*        name={get(item, "worker_name")}*/}
+        {/*        receptionDays={get(item, "worker_reception_day")}*/}
+        {/*        phone={get(item, "worker_phone")}*/}
+        {/*        bachelor={get(item, "worker_bachelor")}*/}
+        {/*        master={*/}
+        {/*          !isNil(get(item, "worker_master")) ? (*/}
+        {/*            <p>*/}
+        {/*              Magistratura bo`yicha mutaxassisligi:{" "}*/}
+        {/*              {get(item, "worker_master")}*/}
+        {/*            </p>*/}
+        {/*          ) : (*/}
+        {/*            ""*/}
+        {/*          )*/}
+        {/*        }*/}
+        {/*        academicTitle={*/}
+        {/*          !isNil(get(item, "academic_title")) ? (*/}
+        {/*            <p>*/}
+        {/*              Ilmiy daraja yoki unvon: {get(item, "academic_title")}*/}
+        {/*            </p>*/}
+        {/*          ) : (*/}
+        {/*            ""*/}
+        {/*          )*/}
+        {/*        }*/}
+        {/*      />*/}
+        {/*    </div>*/}
+        {/*  ))}*/}
+        {/*</div>*/}
       </section>
     </Main>
   );

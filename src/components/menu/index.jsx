@@ -110,7 +110,7 @@ export const menuData = [
       {
         id: 2,
         title: "Elektron fond",
-        url: "/standards",
+        url: "/electronic-fund",
       },
 
       {
