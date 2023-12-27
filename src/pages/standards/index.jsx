@@ -8,6 +8,7 @@ import Checkbox from "@/components/checkbox";
 import CheckboxTemplate from "@/components/checkbox";
 import Template from "@/components/template";
 import Pagination from "@/components/pagination";
+import NewsTitle from "@/components/news-title";
 import Link from "next/link";
 import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
 import { KEYS } from "@/constants/key";
@@ -42,9 +43,14 @@ const Standards = () => {
         {/*<h2>{get(data, "data")["news_title"]} </h2>*/}
 
         <div
-          className={"col-span-12 text-center flex justify-center items-center"}
+          className={
+            "col-span-12 text-center flex flex-col justify-center items-center"
+          }
         >
-          {parse(get(obj, "news_text"))}
+          <div className={"mb-[20px]"}>
+            <NewsTitle>{get(obj, "news_title")}</NewsTitle>
+          </div>
+          {parse(get(obj, "news_text") || " ")}
         </div>
       </section>
     </Main>
