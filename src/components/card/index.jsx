@@ -41,7 +41,7 @@ const Card = ({
           {/* lavozim */}
           <h4
             className={
-              "md:text-lg text-base  text-[#2B4764] text-center mt-[10px] md:mt-0"
+              "md:text-lg text-base  text-[#2B4764] text-center md:text-start mt-[10px] md:mt-0"
             }
           >
             {position}
@@ -49,110 +49,64 @@ const Card = ({
           {/* F.I.O */}
           <h2
             className={
-              "font-semibold text-lg md:text-2xl mb-[30px] text-center"
+              "font-semibold text-lg md:text-2xl mb-[30px] text-center md:text-start"
             }
           >
             {name}
           </h2>
           {/* Qabul kunlari */}
-          <p className={"lg:text-base md:text-sm text-xs pt-[10px]"}>
+          <p
+            className={
+              "lg:text-base md:text-sm text-xs mt-[10px] text-center md:text-start"
+            }
+          >
             Qabul kunlari: {receptionDays}
           </p>
           {/* Telefon raqam */}
-          <Link
-            className={
-              "lg:text-base md:text-sm text-xs text-[#001A57] pt-[10px]"
-            }
-            href={`tel:${phone}`}
-          >
-            Telefon: {phone}
-          </Link>{" "}
-          <br />
+          <div className={"text-center md:text-start mt-[10px]"}>
+            <Link
+              className={"lg:text-base md:text-sm text-xs text-[#001A57] "}
+              href={`tel:${phone}`}
+            >
+              Telefon: {phone}
+            </Link>{" "}
+          </div>
+
           {/* Mail pochta */}
-          <Link
-            className={
-              " lg:text-base md:text-sm text-xs text-[#001A57] pt-[10px]"
-            }
-            href={`mailto:${mail}`}
-          >
-            Elektron pochta: {mail}{" "}
-          </Link>
+          <div className={"text-center md:text-start mt-[10px]"}>
+            <Link
+              className={" lg:text-base md:text-sm text-xs text-[#001A57] "}
+              href={`mailto:${mail}`}
+            >
+              Elektron pochta: {mail}{" "}
+            </Link>
+          </div>
           {/* Bachelor */}
-          <p className={" lg:text-base md:text-sm text-xs pt-[10px] "}>
+          <p
+            className={
+              " lg:text-base md:text-sm text-xs mt-[10px] text-center md:text-start "
+            }
+          >
             Bakalavr bo`yicha mutaxassisligi: {bachelor}
           </p>
           {/* Master */}
-          <p className={" lg:text-base md:text-sm text-xs pt-[10px]"}>
+          <p
+            className={
+              " lg:text-base md:text-sm text-xs mt-[10px] text-center md:text-start"
+            }
+          >
             {master}
           </p>
           {/* Ilmiy daraja yoki unvon   */}
-          <p className={" lg:text-base md:text-sm text-xs pt-[10px]"}>
+          <p
+            className={
+              " lg:text-base md:text-sm text-xs mt-[10px] text-center md:text-start"
+            }
+          >
             {academicTitle}
           </p>
         </div>
       </div>
-
-      {/*<div*/}
-      {/*  className={*/}
-      {/*    "flex flex-col md:hidden gap-x-[30px]  items-center md:items-start"*/}
-      {/*  }*/}
-      {/*>*/}
-      {/*  <div className={"grid grid-cols-6 gap-x-[20px]"}>*/}
-      {/*    <div className={"col-span-2"}>*/}
-      {/*      <img*/}
-      {/*        src={`${img}`}*/}
-      {/*        alt={"profile-img"}*/}
-      {/*        className={"w-[210px] md:h-[250px] object-contain"}*/}
-      {/*      />*/}
-      {/*    </div>*/}
-
-      {/*    <div className={"col-span-4"}>*/}
-      {/*      /!* lavozim *!/*/}
-      {/*      <h4 className={"md:text-lg text-base  text-[#2B4764]"}>*/}
-      {/*        {position}*/}
-      {/*      </h4>*/}
-
-      {/*      /!* F.I.O *!/*/}
-      {/*      <h2 className={"font-semibold text-lg md:text-2xl mb-[30px]"}>*/}
-      {/*        {name}*/}
-      {/*      </h2>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-
-      {/*  <div*/}
-      {/*    className={*/}
-      {/*      "mt-[10px] p-[8px] border-[1px] border-[#c5c5c5] rounded-[5px]"*/}
-      {/*    }*/}
-      {/*  >*/}
-      {/*    /!* Qabul kunlari *!/*/}
-      {/*    <p className={"md:text-base text-sm"}>*/}
-      {/*      Qabul kunlari: {receptionDays}*/}
-      {/*    </p>*/}
-      {/*    /!* Telefon raqam *!/*/}
-      {/*    <Link*/}
-      {/*      className={"md:text-base text-sm text-[#001A57] py-[30px]"}*/}
-      {/*      href={`tel:${phone}`}*/}
-      {/*    >*/}
-      {/*      Telefon: {phone}*/}
-      {/*    </Link>{" "}*/}
-      {/*    <br />*/}
-      {/*    /!* Mail pochta *!/*/}
-      {/*    <Link*/}
-      {/*      className={"md:text-base text-sm text-[#001A57]"}*/}
-      {/*      href={`mailto:${mail}`}*/}
-      {/*    >*/}
-      {/*      Elektron pochta: {mail}{" "}*/}
-      {/*    </Link>*/}
-      {/*    /!* Bachelor *!/*/}
-      {/*    <p className={"md:text-base text-sm"}>*/}
-      {/*      Bakalavr bo`yicha mutaxassisligi: {bachelor}*/}
-      {/*    </p>*/}
-      {/*    /!* Master *!/*/}
-      {/*    <p className={"md:text-base text-sm"}>{master}</p>*/}
-      {/*    /!* Ilmiy daraja yoki unvon   *!/*/}
-      {/*    <p className={"md:text-base text-sm"}>{academicTitle}</p>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
     </>
   );
 };

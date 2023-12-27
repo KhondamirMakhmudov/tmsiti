@@ -8,60 +8,55 @@ import { KEYS } from "@/constants/key";
 import { URLS } from "@/constants/url";
 import Card from "@/components/card";
 import { get, isNil } from "lodash";
+import StructuralCard from "@/components/structural_card";
 
 const Index = () => {
-  const { data, isLoading } = useGetTMSITIQuery({
-    key: KEYS.workersStructural,
-    url: URLS.workersStructural,
+  const { data, isLoading, isFetching } = useGetTMSITIQuery({
+    key: KEYS.structural,
+    url: URLS.structural,
   });
+
+  if (isLoading && isFetching) {
+    return <p>please wait... Loading!</p>;
+  }
+
+  console.log(data, "structural");
   return (
     <Main>
       <Menu />
       <section className={"bg-[#EFF3FA] text-xs text-[#607198] mb-[50px]"}>
-        <div className={"container py-[12px]"}>
+        <div
+          className={
+            "container py-[12px] px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
+          }
+        >
           <Link href={"/"}>Bosh sahifa / </Link>
           <Link href={"#"}>Institut / </Link>
           <Link href={"#"}>Tarkiribiy bo’linmalar </Link>
         </div>
       </section>
       <section className={"container"}>
-        <div>
+        <div className={"px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"}>
           <Title>Tarkiribiy bo’linmalar</Title>
         </div>
 
-        {/*<div className={"grid grid-cols-12 gap-[30px]"}>*/}
-        {/*  {get(data, "data", "-").map((item) => (*/}
-        {/*    <div key={get(item, "id")} className={"col-span-6"}>*/}
-        {/*      <Card*/}
-        {/*        position={get(item, "worker_post")}*/}
-        {/*        img={get(item, "worker_image")}*/}
-        {/*        name={get(item, "worker_name")}*/}
-        {/*        receptionDays={get(item, "worker_reception_day")}*/}
-        {/*        phone={get(item, "worker_phone")}*/}
-        {/*        bachelor={get(item, "worker_bachelor")}*/}
-        {/*        master={*/}
-        {/*          !isNil(get(item, "worker_master")) ? (*/}
-        {/*            <p>*/}
-        {/*              Magistratura bo`yicha mutaxassisligi:{" "}*/}
-        {/*              {get(item, "worker_master")}*/}
-        {/*            </p>*/}
-        {/*          ) : (*/}
-        {/*            ""*/}
-        {/*          )*/}
-        {/*        }*/}
-        {/*        academicTitle={*/}
-        {/*          !isNil(get(item, "academic_title")) ? (*/}
-        {/*            <p>*/}
-        {/*              Ilmiy daraja yoki unvon: {get(item, "academic_title")}*/}
-        {/*            </p>*/}
-        {/*          ) : (*/}
-        {/*            ""*/}
-        {/*          )*/}
-        {/*        }*/}
-        {/*      />*/}
-        {/*    </div>*/}
-        {/*  ))}*/}
-        {/*</div>*/}
+        <div
+          className={
+            "grid grid-cols-12 gap-[30px] px-[20px] md:px-[15px] lg:px-[10px] xl:px-0 mb-[70px]"
+          }
+        >
+          {get(data, "data", []).map((item) => (
+            <div key={get(item, "id")} className={"lg:col-span-6 col-span-12"}>
+              <StructuralCard
+                image={get(item, "image")}
+                position={get(item, "position_uz")}
+                full_name={get(item, "full_name_uz")}
+                phone={get(item, "phone")}
+                email={get(item, "email")}
+              />
+            </div>
+          ))}
+        </div>
       </section>
     </Main>
   );

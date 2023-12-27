@@ -8,6 +8,6 @@ export const URLS = {
   discuss: "discuss/",
   appeal: "appeal/",
   appealCategory: "appeal/appeal_category/",
-  workersStructural: "workers/structural/",
+  structural: "workers/structural/",
   standards: "news/81",
 };

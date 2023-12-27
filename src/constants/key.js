@@ -8,6 +8,6 @@ export const KEYS = {
   discuss: "discuss",
   appeal: "appeal",
   appealCategory: "appealCategory",
-  workersStructural: "workersStructural",
+  structural: "structural",
   standards: "standards",
 };
