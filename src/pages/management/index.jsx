@@ -55,6 +55,7 @@ const Management = () => {
                 img={get(item, "worker_image")}
                 name={get(item, "worker_name")}
                 receptionDays={get(item, "worker_reception_day")}
+                mail={get(item, "worker_email")}
                 phone={get(item, "worker_phone")}
                 bachelor={get(item, "worker_bachelor")}
                 master={
@@ -107,6 +108,7 @@ const Management = () => {
                 position={get(item, "worker_post")}
                 img={get(item, "worker_image")}
                 name={get(item, "worker_name")}
+                mail={get(item, "worker_email")}
                 receptionDays={get(item, "worker_reception_day")}
                 phone={get(item, "worker_phone")}
                 bachelor={get(item, "worker_bachelor")}
