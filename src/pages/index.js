@@ -349,13 +349,17 @@ export default function Home() {
             initial={{ translateY: 200, opacity: 0 }}
             animate={controls}
             className={
-              "md:col-span-6 col-span-12 pb-[20px] mb-[20px] md:pb-0 mb:mb-0 md:border-b-0 md:border-none border-b-[#C5C6C7] border-b-[1px] "
+              "xl:col-span-6 col-span-12 pb-[20px] mb-[20px] md:pb-0 mb:mb-0 md:border-b-0 md:border-none border-b-[#C5C6C7] border-b-[1px] "
             }
           >
             {head(
-              get(data, "data.results", []).map((item) => (
+              NewsInReel.map((item) => (
                 <div key={get(item, "id")} className={"grid-cols-12 grid "}>
-                  <div className={"col-span-12 w-[690px]"}>
+                  <div
+                    className={
+                      "col-span-12 xl:w-[690px] lg:w-[600px] md:w-[500px]"
+                    }
+                  >
                     <img
                       src={get(item, "news_image")}
                       alt="news-main-img"

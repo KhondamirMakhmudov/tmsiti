@@ -32,12 +32,12 @@ const Index = () => {
         >
           <Link href={"/"}>Bosh sahifa / </Link>
           <Link href={"#"}>Institut / </Link>
-          <Link href={"#"}>Tarkiribiy bo’linmalar </Link>
+          <Link href={"#"}>Tarkibiy bo’linmalar </Link>
         </div>
       </section>
       <section className={"container"}>
         <div className={"px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"}>
-          <Title>Tarkiribiy bo’linmalar</Title>
+          <Title>Tarkibiy bo’linmalar</Title>
         </div>
 
         <div
