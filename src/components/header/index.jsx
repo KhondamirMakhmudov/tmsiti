@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Lang from "@/components/lang";
 
-const Header = () => {
+const Header = ({ selectingLanguage }) => {
   return (
     <header className={"hidden md:block"}>
       <marquee className="absolute top-0 pt-1 text-red-600">
@@ -50,8 +50,8 @@ const Header = () => {
               />
               <Link href={"mailto: TMSITI@exat.uz"}>TMSITI@exat.uz</Link>
             </div>
-            <p>Uz</p>
-            {/*<Lang />*/}
+
+            <Lang />
           </div>
         </div>
       </div>

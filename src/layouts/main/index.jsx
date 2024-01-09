@@ -1,20 +1,18 @@
-import React from 'react';
+import React from "react";
 import Header from "@/components/header";
 import Wrapper from "@/components/wrapper";
 import Footer from "@/components/footer";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
-const Main = ({children}) => {
-    const {t} = useTranslation()
-    return (
-        <Wrapper>
-            <Header/>
-            <main className={'content__min_h'}>
-                {children}
-            </main>
-            <Footer/>
-        </Wrapper>
-    );
+const Main = ({ children }) => {
+  const { t } = useTranslation();
+  return (
+    <Wrapper>
+      <Header />
+      <main className={"content__min_h"}>{children}</main>
+      <Footer />
+    </Wrapper>
+  );
 };
 
 export default Main;

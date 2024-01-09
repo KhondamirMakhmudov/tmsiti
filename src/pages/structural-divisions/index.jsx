@@ -6,15 +6,21 @@ import Link from "next/link";
 import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
 import { KEYS } from "@/constants/key";
 import { URLS } from "@/constants/url";
-import Card from "@/components/card";
 import { get, isNil } from "lodash";
 import StructuralCard from "@/components/structural_card";
+import { useSettingsStore } from "@/store";
+import lang from "@/components/lang";
+import { motion } from "framer-motion";
 
 const Index = () => {
   const { data, isLoading, isFetching } = useGetTMSITIQuery({
     key: KEYS.structural,
     url: URLS.structural,
   });
+
+  const language = useSettingsStore((state) => get(state, "lang", ""));
+
+  console.log(language, "LANGUAGE");
 
   if (isLoading && isFetching) {
     return <p>please wait... Loading!</p>;
@@ -46,15 +52,30 @@ const Index = () => {
           }
         >
           {get(data, "data", []).map((item) => (
-            <div key={get(item, "id")} className={"lg:col-span-6 col-span-12"}>
+            <motion.div
+              key={get(item, "id")}
+              className={"lg:col-span-6 col-span-12"}
+            >
               <StructuralCard
                 image={get(item, "image")}
-                position={get(item, "position_uz")}
-                full_name={get(item, "full_name_uz")}
+                position={
+                  language === "Uz"
+                    ? get(item, "position_uz")
+                    : language === "Ru"
+                    ? get(item, "position_ru")
+                    : get(item, "position_en")
+                }
+                full_name={
+                  language === "Uz"
+                    ? get(item, "full_name_uz")
+                    : language === "Ru"
+                    ? get(item, "full_name_ru")
+                    : get(item, "full_name_en")
+                }
                 phone={get(item, "phone")}
                 email={get(item, "email")}
               />
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
