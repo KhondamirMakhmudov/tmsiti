@@ -41,7 +41,7 @@ const NewsCardTemplate = ({
     url: url,
     params: {
       ...params,
-      // page_size: pageSize,
+      page_size: pageSize,
       lang: lang || config.DEFAULT_APP_LANG,
       page: 1,
     },
