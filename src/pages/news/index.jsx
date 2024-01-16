@@ -13,15 +13,6 @@ import { useTranslation } from "react-i18next";
 const Index = () => {
   const { t } = useTranslation();
 
-  const {
-    data: news,
-    isLoading: isLoadingNews,
-    isFetching: isFetchingNews,
-  } = useGetTMSITIQuery({
-    key: KEYS.news,
-    url: URLS.news,
-    params: { lang: "uz" },
-  });
   return (
     <Main>
       <Menu active={0} />

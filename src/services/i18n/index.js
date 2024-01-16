@@ -21,8 +21,8 @@ i18n
     fallbackLng: storage.get("i18nextLng") || config.DEFAULT_APP_LANG,
     backend: {
       /* translation file path */
-      loadPath: `${config.BASE_TMSITI_URL}news/?lang={{lng}}`,
-      addPath: `${config.BASE_TMSITI_URL}news/`,
+      loadPath: `${config.BASE_TRANSLATION_URL}translations/?lang={{lng}}`,
+      addPath: `${config.BASE_TRANSLATION_URL}translations/`,
     },
     debug: false,
     keySeparator: false,

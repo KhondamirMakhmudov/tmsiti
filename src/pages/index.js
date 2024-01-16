@@ -38,7 +38,7 @@ export default function Home() {
   });
 
   const { data, isLoading } = useGetTMSITIQuery({
-    key: KEYS.news,
+    key: KEYS.newsMain,
     url: URLS.news,
   });
 

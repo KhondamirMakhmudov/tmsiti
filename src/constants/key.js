@@ -4,6 +4,7 @@ export const KEYS = {
   group: "group",
   doc: "doc",
   news: "news",
+  newsMain: "newsMain",
   workers: "workers",
   discuss: "discuss",
   appeal: "appeal",

@@ -8,6 +8,8 @@ import dayjs from "dayjs";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
+import { useSettingsStore } from "@/store";
+import { config } from "@/config";
 
 const NewsCardTemplate = ({
   HeaderBody = null,
@@ -30,16 +32,19 @@ const NewsCardTemplate = ({
   const [pageSize, setPageSize] = useState(defaultPageSize);
   const searchParams = useSearchParams();
   const router = useRouter();
+  const lang = useSettingsStore((state) =>
+    get(state, "lang", config.DEFAULT_APP_LANG),
+  );
 
   const { data, isLoading, isFetching } = useGetTMSITIQuery({
     key: key,
     url: url,
     params: {
-      page: searchParams.get("page"),
       ...params,
-      page_size: pageSize,
+      // page_size: pageSize,
+      lang: lang || config.DEFAULT_APP_LANG,
+      page: 1,
     },
-    enabled,
   });
 
   useEffect(() => {
@@ -62,6 +67,7 @@ const NewsCardTemplate = ({
   );
 
   console.log("searchParams", searchParams);
+  console.log("lang", lang);
 
   return (
     <>
