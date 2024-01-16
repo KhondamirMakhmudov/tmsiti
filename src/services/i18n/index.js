@@ -22,7 +22,7 @@ i18n
     backend: {
       /* translation file path */
       loadPath: `${config.BASE_TMSITI_URL}news/?lang={{lng}}`,
-      addPath: `${config.BASE_TMSITI_URL}translations/`,
+      addPath: `${config.BASE_TMSITI_URL}news/`,
     },
     debug: false,
     keySeparator: false,

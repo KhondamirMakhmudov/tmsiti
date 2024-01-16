@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSettingsStore } from "@/store";
-import { get } from "lodash";
+import { get, toLower } from "lodash";
+
+import { useTranslation } from "react-i18next";
 
 const Lang = ({}) => {
+  const { t, i18n } = useTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState(""); // Initialize with an empty string
   const setLang = useSettingsStore((state) => get(state, "setLang", () => {}));
+  // const { i18n } = useTranslation();
   useEffect(() => {
     // Update the selectedLanguage state when the languageSelected prop changes
     setSelectedLanguage(selectedLanguage);
@@ -15,11 +19,17 @@ const Lang = ({}) => {
     setLang(selectedLanguage);
   }, [selectedLanguage]);
 
-  const languages = ["Uz", "En", "Ru"]; // Define your list of languages
+  const languages = ["uz", "en", "ru"]; // Define your list of languages
 
   const handleLanguageChange = (event) => {
     setSelectedLanguage(event.target.value);
+    i18n.changeLanguage(toLower(event.target.value));
+    console.log(i18n.changeLanguage(toLower(event.target.value)));
   };
+
+  // const changeLanguage = (i18language) => {
+  //   i18n.changeLanguage(toLower(i18language));
+  // };
 
   return (
     <div className="language-select relative cursor-pointer">

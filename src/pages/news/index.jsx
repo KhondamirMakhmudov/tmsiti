@@ -8,13 +8,20 @@ import { motion } from "framer-motion";
 import Title from "@/components/title";
 import Link from "next/link";
 import NewsCardTemplate from "@/containers/news-card";
+import { useTranslation } from "react-i18next";
 
 const Index = () => {
+  const { t } = useTranslation();
+
   const {
     data: news,
     isLoading: isLoadingNews,
     isFetching: isFetchingNews,
-  } = useGetTMSITIQuery({ key: KEYS.news, url: URLS.news });
+  } = useGetTMSITIQuery({
+    key: KEYS.news,
+    url: URLS.news,
+    params: { lang: "uz" },
+  });
   return (
     <Main>
       <Menu active={0} />
