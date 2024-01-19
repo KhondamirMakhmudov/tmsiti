@@ -42,9 +42,14 @@ const Index = () => {
         </div>
       </section>
       <section className={"container"}>
-        <div className={"px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"}>
+        <motion.div
+          initial={{ opacity: 0, translateX: "100px" }}
+          animate={{ opacity: 1, translateX: "0px" }}
+          transition={{ duration: 0.5 }}
+          className={"px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"}
+        >
           <Title>Tarkibiy bo’linmalar</Title>
-        </div>
+        </motion.div>
 
         <div
           className={
@@ -53,22 +58,25 @@ const Index = () => {
         >
           {get(data, "data", []).map((item) => (
             <motion.div
+              initial={{ opacity: 0, translateY: "100px" }}
+              animate={{ opacity: 1, translateY: "0px" }}
+              transition={{ duration: 0.7 }}
               key={get(item, "id")}
               className={"lg:col-span-6 col-span-12"}
             >
               <StructuralCard
                 image={get(item, "image")}
                 position={
-                  language === "Uz"
+                  language === "uz"
                     ? get(item, "position_uz")
-                    : language === "Ru"
+                    : language === "ru"
                     ? get(item, "position_ru")
                     : get(item, "position_en")
                 }
                 full_name={
-                  language === "Uz"
+                  language === "uz"
                     ? get(item, "full_name_uz")
-                    : language === "Ru"
+                    : language === "ru"
                     ? get(item, "full_name_ru")
                     : get(item, "full_name_en")
                 }

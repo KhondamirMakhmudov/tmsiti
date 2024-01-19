@@ -16,10 +16,16 @@ import { motion, useAnimation } from "framer-motion";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+import { useSettingsStore } from "@/store";
+import { config } from "@/config";
+import lang from "@/components/lang";
 
 export default function Home() {
   const controls = useAnimation();
   const [domLoaded, setDomLoaded] = useState(false);
+  const lang = useSettingsStore((state) =>
+    get(state, "lang", config.DEFAULT_APP_LANG),
+  );
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
@@ -40,6 +46,10 @@ export default function Home() {
   const { data, isLoading } = useGetTMSITIQuery({
     key: KEYS.newsMain,
     url: URLS.news,
+    params: {
+      lang: lang || config.DEFAULT_APP_LANG,
+      page: 1,
+    },
   });
 
   const NewsInReel = get(data, "data.results", []).filter(
