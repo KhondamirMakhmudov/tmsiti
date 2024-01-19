@@ -43,7 +43,7 @@ const NewsCardTemplate = ({
       ...params,
       page_size: pageSize,
       lang: lang || config.DEFAULT_APP_LANG,
-      page: 1,
+      page: searchParams.get("page"),
     },
   });
 
