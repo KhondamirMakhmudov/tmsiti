@@ -11,13 +11,25 @@ import parse from "html-react-parser";
 import dayjs from "dayjs";
 import Image from "next/image";
 import Link from "next/link";
+import { useSettingsStore } from "@/store";
+import { config } from "@/config";
+import { useTranslation } from "react-i18next";
 
 const NewsItemPage = () => {
   const router = useRouter();
   const { id } = router.query;
+  const lang = useSettingsStore((state) =>
+    get(state, "lang", config.DEFAULT_APP_LANG),
+  );
+  const { t } = useTranslation();
+
+  const htmlString = "<p>This is some <b>HTML</b> content.</p>";
   const { data, isLoading } = useGetTMSITIQuery({
-    key: [KEYS.news, id],
+    key: [KEYS.newsMain, id],
     url: `${URLS.news}${id}`,
+    params: {
+      lang: lang || config.DEFAULT_APP_LANG,
+    },
     enabled: !!id,
   });
 
@@ -28,6 +40,9 @@ const NewsItemPage = () => {
   } = useGetTMSITIQuery({
     key: KEYS.news,
     url: URLS.news,
+    params: {
+      lang: lang || config.DEFAULT_APP_LANG,
+    },
   });
 
   if (isLoading) {
@@ -104,12 +119,12 @@ const NewsItemPage = () => {
           </figure>
 
           <div className={"col-span-12 mt-[30px]"}>
-            {parse(get(data, "data.news_text"))}
+            {parse(get(data, "data.news_text")) || " "}
           </div>
         </div>
 
         <div className={"md:col-span-5 col-span-12   "}>
-          <h4 className={"text-xl font-semibold"}>Boshqa yangiliklar</h4>
+          <h4 className={"text-xl font-semibold"}>{t("Boshqa yangiliklar")}</h4>
 
           <div
             className={"w-full h-[1px] bg-[#001A57] mt-[10px] mb-[20px]"}
