@@ -246,7 +246,6 @@ const Menu = ({ active = 0, className }) => {
                   ""
                 ) : (
                   <ul
-                    onClick={toggleMenu}
                     className={
                       "hidden translate-y-[30px] hover:translate-y-[0px] z-50 transition-all duration-500  bg-gray-50 dropdown-menu absolute lg:w-[180px] w-[100px] text-start  rounded-[5px]"
                     }
