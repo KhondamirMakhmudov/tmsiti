@@ -3,7 +3,7 @@ export const URLS = {
   subSystem: "shnk/subsystem",
   group: "shnk/group",
   doc: "shnk/doc",
-  news: "news/?lang=en",
+  news: "news/",
   workers: "workers/",
   discuss: "discuss/",
   appeal: "appeal/",
