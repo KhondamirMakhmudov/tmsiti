@@ -1,15 +1,6 @@
-{
-  "uz": {
-    "hello": "Salom",
-    "world": "Dunyo"
-  },
-  "en": {
+ {
     "hello": "Hello",
     "world": "World"
-  },
-  "ru": {
-    "hello": "Привет",
-    "world": "Мир"
-  }
+ }
 
-}
+

@@ -13,24 +13,24 @@ import MenuItem from "@/components/menu/menu-item";
 export const menuData = [
   {
     id: 1,
-    title: "Institut",
+    title: "institut",
     url: "",
     filterUrl: "",
     subMenu: [
       {
         id: 1,
-        title: "Institut haqida",
+        title: "about_institute",
         url: "/about",
       },
       {
         id: 2,
-        title: "Rahbariyat",
+        title: "leadership",
         url: "/management",
       },
 
       {
         id: 3,
-        title: "Tashkiliy tuzilma",
+        title: "organizational_structure",
         url: "/structure",
       },
 
@@ -177,6 +177,7 @@ const Menu = ({ active = 0, className }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [openDropdownMenu, setOpenDropdownMenu] = useState(null);
   const [menu, setMenu] = useState();
+
   const dropdownMenu = () => {
     setMenu(!menu);
   };

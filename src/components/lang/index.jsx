@@ -5,9 +5,10 @@ import { get, toLower } from "lodash";
 import { useTranslation } from "react-i18next";
 
 const Lang = ({}) => {
-  // const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState(""); // Initialize with an empty string
   const setLang = useSettingsStore((state) => get(state, "setLang", () => {}));
+
   // const { i18n } = useTranslation();
   useEffect(() => {
     // Update the selectedLanguage state when the languageSelected prop changes
@@ -23,6 +24,7 @@ const Lang = ({}) => {
 
   const handleLanguageChange = (event) => {
     setSelectedLanguage(event.target.value);
+    i18n.changeLanguage(event.target.value);
     // i18n.changeLanguage(toLower(event.target.value));
     // console.log(i18n.changeLanguage(toLower(event.target.value)));
   };

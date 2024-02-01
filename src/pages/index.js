@@ -19,10 +19,12 @@ import "swiper/css/navigation";
 import { useSettingsStore } from "@/store";
 import { config } from "@/config";
 import lang from "@/components/lang";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
   const controls = useAnimation();
   const [domLoaded, setDomLoaded] = useState(false);
+  const { t } = useTranslation();
   const lang = useSettingsStore((state) =>
     get(state, "lang", config.DEFAULT_APP_LANG),
   );
@@ -84,7 +86,7 @@ export default function Home() {
                 "  md:px-0 md:text-[30px] lg:text-[45px] xl:text-[64px] relative top-[100px] md:top-0 text-[45px] text-[#14255B] font-bold md:mb-[60px] lg:mb-[90px] mb-[50px]"
               }
             >
-              Biz qurilishda taraqqiyotni ilhomlantiramiz.
+              {t("hymn")}
             </motion.h1>
           </div>
 
@@ -114,7 +116,7 @@ export default function Home() {
                   "text-[#001A57] hover:text-[#5D84CB] hover:underline md:text-base lg:text-xl  text-base font-bold transition-all duration-400"
                 }
               >
-                <p>Shaharsozlik normalari va qoidalari</p>
+                <p>{t("shnq")}</p>
               </Link>
             </motion.div>
 
@@ -130,7 +132,7 @@ export default function Home() {
                 href={"/standards"}
                 className={"uppercase text-[#2E6DFF] text-xs md:text-sm "}
               >
-                Standartlar
+                {t("standards")}
               </Link>
 
               <Link
@@ -139,9 +141,7 @@ export default function Home() {
                   "text-[#001A57] hover:text-[#5D84CB] hover:underline md:text-base lg:text-xl text-base font-bold transition-all duration-400"
                 }
               >
-                <p>
-                  Texnik jihatdan tartib solish sohasidagi normativ hujjatlar
-                </p>
+                <p>{t("standards_desc")}</p>
               </Link>
             </motion.div>
           </div>
@@ -343,7 +343,7 @@ export default function Home() {
               "col-span-12 flex justify-between pt-[50px] pb-[30px] items-end "
             }
           >
-            <Title>So‘nggi yangiliklar</Title>
+            <Title>{t("last_news")}</Title>
 
             <Link
               href={"/news"}
@@ -351,7 +351,7 @@ export default function Home() {
                 "underline text-[#2E6DFF] lg:text-sm xl:text-base md:text-xs text-[12px] font-bold"
               }
             >
-              Barcha yangiliklar
+              {t("all_news")}
             </Link>
           </div>
 
@@ -378,7 +378,7 @@ export default function Home() {
                       }
                     />
                     <p className={"text-[#2E6DFF] mt-[30px] font-bold"}>
-                      Yangilik{" "}
+                      {t("news")}{" "}
                       {dayjs(get(item, "news_datetime")).format("DD.MM.YYYY")}
                     </p>
                     <Link href={`/news/${get(item, "id")}`}>
@@ -424,7 +424,7 @@ export default function Home() {
                             "text-[#2E6DFF] lg:text-sm md:text-xs text-sm mb-[20px] font-bold"
                           }
                         >
-                          Yangilik{" "}
+                          {t("news")}{" "}
                           {dayjs(get(news, "news_datetime")).format(
                             "DD.MM.YYYY",
                           )}

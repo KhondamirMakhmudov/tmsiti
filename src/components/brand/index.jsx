@@ -33,9 +33,7 @@ const Brand = ({ active = 0 }) => {
             "font-semibold w-[240px]  text-sm  lg:text-base text-start "
           }
         >
-          {t(
-            "Texnik me’yorlash va standartlashtirish ilmiy-tadqiqot instituti",
-          )}
+          {t("company_name")}
         </span>
       </Link>
     </div>

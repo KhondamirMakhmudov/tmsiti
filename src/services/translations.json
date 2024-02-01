@@ -1,0 +1,14 @@
+{
+  "en": {
+    "hello": "Hello",
+    "world": "World"
+  },
+  "ru": {
+    "hello": "Privet",
+    "world": "Mir"
+  },
+  "uz": {
+    "hello": "Salom",
+    "world": "Dunyo"
+  }
+}
