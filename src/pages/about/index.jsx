@@ -5,9 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import Title from "@/components/title";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
   const [activeButton, setActiveButton] = useState(0);
+  const { t } = useTranslation();
 
   const handleClick = (active) => {
     setActiveButton(active);
@@ -22,9 +24,9 @@ const About = () => {
             "container py-[12px] px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
           }
         >
-          <Link href={"/"}>Bosh sahifa / </Link>
-          <Link href={"#"}>Institut / </Link>
-          <Link href={"#"}>Biz haqimizda </Link>
+          <Link href={"/"}>{t("homepage")} / </Link>
+          <Link href={"#"}>{t("institut")} / </Link>
+          <Link href={"#"}>{t("about_us")}</Link>
         </div>
       </section>
       <motion.section
@@ -35,7 +37,7 @@ const About = () => {
         }
       >
         <div className={"col-span-12 z-0"}>
-          <Title classNames={"col-span-12"}>Biz haqimizda</Title>
+          <Title classNames={"col-span-12"}>{t("about_us")}</Title>
         </div>
       </motion.section>
 

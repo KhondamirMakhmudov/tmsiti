@@ -36,13 +36,13 @@ export const menuData = [
 
       {
         id: 4,
-        title: "Tarkibiy bo’linmalar",
+        title: "structure",
         url: "/structural-divisions",
       },
 
       {
         id: 5,
-        title: "Vakansiyalar",
+        title: "vacancies",
         url: "/vacancies",
       },
 

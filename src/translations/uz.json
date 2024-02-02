@@ -12,5 +12,17 @@
   "about_institute": "Institut haqida",
   "leadership": "Rahbariyat",
   "organizational_structure": "Tashkiliy tuzilma",
-  "all_news": "Barcha yangiliklar"
+  "all_news": "Barcha yangiliklar",
+  "news": "Yangilik",
+  "structure": "Tarkibiy bo'linmalar",
+  "vacancies": "Vakansiyalar",
+  "about_us": "Biz haqimizda",
+  "homepage": "Bosh sahifa",
+  "receptionDays": "Qabul kunlari",
+  "phone": "Telefon",
+  "email": "Elektron pochta",
+  "bachelor": "Bakalavr bo`yicha mutaxassisligi",
+  "master": "Magistratura bo`yicha mutaxassisligi",
+  "toast_success_message": "Xabaringiz muvaffaqiyatli yuborildi",
+  "contact": "Bog’lanish"
 }

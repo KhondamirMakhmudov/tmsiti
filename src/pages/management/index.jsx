@@ -9,12 +9,14 @@ import { URLS } from "@/constants/url";
 import { drop, get, head, isEmpty, isNil } from "lodash";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 const Management = () => {
   const { data, isLoading } = useGetTMSITIQuery({
     key: KEYS.workers,
     url: URLS.workers,
   });
+  const { t } = useTranslation();
 
   if (isLoading) {
     return "...Loading";
@@ -29,16 +31,16 @@ const Management = () => {
             "container py-[12px] px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
           }
         >
-          <Link href={"/"}>Bosh sahifa / </Link>
-          <Link href={"#"}>Institut / </Link>
-          <Link href={"#"}>Rahbariyat </Link>
+          <Link href={"/"}>{t("homepage")} / </Link>
+          <Link href={"#"}>{t("institut")} / </Link>
+          <Link href={"#"}>{t("leadership")} </Link>
         </div>
       </section>
       <section className={"grid grid-cols-12 container mx-auto gap-x-[30px] "}>
         <div
           className={"col-span-12 px-[20px] md:px-[15px] lg:px-[10px] xl:px-0 "}
         >
-          <Title>Rahbariyat</Title>
+          <Title>{t("leadership")}</Title>
         </div>
 
         {head(
@@ -61,8 +63,7 @@ const Management = () => {
                 master={
                   !isNil(get(item, "worker_master")) ? (
                     <p>
-                      Magistratura bo`yicha mutaxassisligi:{" "}
-                      {get(item, "worker_master")}
+                      {t("master")}: {get(item, "worker_master")}
                     </p>
                   ) : (
                     ""

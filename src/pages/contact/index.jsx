@@ -13,11 +13,14 @@ import { useForm } from "react-hook-form";
 import { get } from "lodash";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 const Index = () => {
   const router = useRouter();
   const [contact, setContact] = useState({});
   const [fileName, setFileName] = useState("Fayl biriktirish");
+  const { t } = useTranslation();
+
   const {
     register,
     handleSubmit,
@@ -66,7 +69,7 @@ const Index = () => {
       {
         onSuccess: () => {
           toast.success(
-            "Xabaringiz muvaffaqiyatli yuborildi",
+            t("toast_success_message"),
             {
               position: "top-right",
             },
@@ -88,8 +91,8 @@ const Index = () => {
             "container py-[12px] px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
           }
         >
-          <Link href={"/"}>Bosh sahifa / </Link>
-          <Link href={"#"}>Bog’lanish </Link>
+          <Link href={"/"}>{t("homepage")} / </Link>
+          <Link href={"#"}>{t("contact")} </Link>
         </div>
       </section>
       <section

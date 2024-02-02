@@ -10,8 +10,19 @@
   "last_news": "Последние новости",
   "institut": "Институт",
   "about_institute": "Об институте",
-  "leadership": "Лидерство",
+  "leadership": "Руководство",
   "organizational_structure": "Организационная структура",
   "all_news": "Все новости",
-  "news": "Новости"
+  "news": "Новости",
+  "structure": "Составные части",
+  "vacancies": "Вакансии",
+  "about_us": "О нас",
+  "homepage": "Домашняя страница",
+  "receptionDays": "Приемные дни",
+  "phone": "Телефон",
+  "email": "Электронная почта",
+  "bachelor": "Специальность бакалавра",
+  "master": "Специальность магистра",
+  "toast_success_message": "Ваше сообщение было отправлено успешно",
+  "contact": "Связь"
 }

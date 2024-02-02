@@ -13,6 +13,17 @@
   "leadership": "Leadership",
   "organizational_structure": "Organizational structure",
   "all_news": "All news",
-  "news": "News"
+  "news": "News",
+  "structure": "Constituent units",
+  "vacancies": "Vacancies",
+  "about_us": "About us",
+  "homepage": "Homepage",
+  "receptionDays": "Reception days",
+  "phone": "Telephone",
+  "email": "E-mail",
+  "bachelor": "Bachelor's specialty",
+  "master": "Master's specialty",
+  "toast_success_message": "Your message has been sent successfully",
+  "contact": "Contacts"
 
 }

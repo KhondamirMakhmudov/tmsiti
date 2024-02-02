@@ -11,8 +11,10 @@ import StructuralCard from "@/components/structural_card";
 import { useSettingsStore } from "@/store";
 import lang from "@/components/lang";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const Index = () => {
+  const { t } = useTranslation();
   const { data, isLoading, isFetching } = useGetTMSITIQuery({
     key: KEYS.structural,
     url: URLS.structural,
@@ -36,9 +38,9 @@ const Index = () => {
             "container py-[12px] px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
           }
         >
-          <Link href={"/"}>Bosh sahifa / </Link>
-          <Link href={"#"}>Institut / </Link>
-          <Link href={"#"}>Tarkibiy bo’linmalar </Link>
+          <Link href={"/"}>{t("homepage")} / </Link>
+          <Link href={"#"}>{t("institut")} / </Link>
+          <Link href={"#"}>{t("structure")}</Link>
         </div>
       </section>
       <section className={"container"}>
@@ -48,7 +50,7 @@ const Index = () => {
           transition={{ duration: 0.5 }}
           className={"px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"}
         >
-          <Title>Tarkibiy bo’linmalar</Title>
+          <Title>{t("structure")}</Title>
         </motion.div>
 
         <div

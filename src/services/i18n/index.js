@@ -23,6 +23,7 @@ i18next
         translation: enTranslations,
       },
     },
+    lng: "uz",
     fallbackLng: "uz",
     debug: true,
     interpolation: {
