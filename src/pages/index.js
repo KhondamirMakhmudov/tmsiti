@@ -107,7 +107,7 @@ export default function Home() {
                 href={"/shnk"}
                 className={"uppercase text-[#2E6DFF] text-xs md:text-sm"}
               >
-                Shnq
+                {t("SHNQ")}
               </Link>
 
               <Link

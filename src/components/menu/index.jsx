@@ -61,112 +61,112 @@ export const menuData = [
   },
   {
     id: 2,
-    title: "Me’yoriy hujjatlar",
+    title: "documents",
     url: "",
     filterUrl: "",
     subMenu: [
       {
         id: 1,
-        title: "Qonun, qaror va farmonlar",
+        title: "laws",
         url: "/#",
       },
 
       {
         id: 2,
-        title: "Shaharsozlik norma va qoidalari",
+        title: "shnq",
         url: "/shnk",
       },
 
       {
         id: 3,
-        title: "Standartlar",
+        title: "standards",
         url: "/standards",
       },
 
       {
         id: 4,
-        title: "Qurilish reglamentlari",
+        title: "building regulations",
         url: "/#",
       },
       {
         id: 5,
-        title: "Muhokamalar",
+        title: "discussions",
         url: "/discussion",
       },
     ],
   },
   {
     id: 3,
-    title: "Faoliyat",
+    title: "activity",
     url: "",
     filterUrl: "",
     subMenu: [
       {
         id: 1,
-        title: "Klassifikator",
+        title: "classifier",
         url: "https://catalog.tmsiti.uz/classifier",
       },
 
       {
         id: 2,
-        title: "Elektron fond",
+        title: "e-fond",
         url: "/electronic-fund",
       },
 
       {
         id: 3,
-        title: "Laboratoriya",
-        url: "#",
+        title: "lab",
+        url: "/laboratory",
       },
     ],
   },
 
   {
     id: 4,
-    title: "Xabarlar",
+    title: "messages",
     url: "",
     filterUrl: "",
     subMenu: [
       {
         id: 1,
-        title: "E’lonlar",
+        title: "announcements",
         url: "/announcement",
       },
 
       {
         id: 2,
-        title: "Yangiliklar",
+        title: "news",
         url: "/news",
       },
 
       {
         id: 3,
-        title: "Uchrashuvlar",
+        title: "meetings",
         url: "#",
       },
 
       {
         id: 4,
-        title: "Ommaviy tadbirlar",
+        title: "events",
         url: "#",
       },
 
       {
         id: 5,
-        title: "Xalqaro hamkorlik",
+        title: "cooperation",
         url: "#",
       },
 
       {
         id: 6,
-        title: "Seminar, ko’rgazmalar",
+        title: "seminar",
         url: "#",
       },
     ],
   },
   {
     id: 6,
-    title: "Bog‘lanish",
+    title: "contact",
     url: "/contact",
     subMenu: [],
   },
