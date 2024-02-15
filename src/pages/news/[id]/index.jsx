@@ -53,12 +53,12 @@ const NewsItemPage = () => {
     <Main>
       <Menu active={0} />
       <section
-        className={"bg-[#EFF3FA] text-xs text-[#607198] !mt-0 mb-[70px]"}
+        className={"bg-[#EFF3FA] text-xs text-[#607198] !mt-0 mb-[70px] "}
       >
-        <div className={"container py-[12px] flex gap-x-[5px]"}>
-          <Link href={"/"}>Bosh sahifa /</Link>
-          <Link href={"#"}>Xabarlar /</Link>
-          <Link href={"/news"}>Yangiliklar /</Link>
+        <div className={"container py-[12px] flex gap-x-[5px] capitalize"}>
+          <Link href={"/"}>{t("homepage")}/</Link>
+          <Link href={"#"}>{t("messages")} /</Link>
+          <Link href={"/news"}>{t("news")} /</Link>
           <div
             className={
               "w-[220px] overflow-hidden whitespace-normal line-clamp-1"
@@ -124,7 +124,7 @@ const NewsItemPage = () => {
         </div>
 
         <div className={"md:col-span-5 col-span-12   "}>
-          <h4 className={"text-xl font-semibold"}>{t("Boshqa yangiliklar")}</h4>
+          <h4 className={"text-xl font-semibold"}>{t("other_news")}</h4>
 
           <div
             className={"w-full h-[1px] bg-[#001A57] mt-[10px] mb-[20px]"}
@@ -180,10 +180,10 @@ const NewsItemPage = () => {
             <Link
               href={"/news"}
               className={
-                "py-[13px] px-[55px] bg-[#1A4DC2] font-bold text-[#fff] hover:bg-[#1641A6] transition-colors duration-300"
+                "py-[13px] px-[55px] bg-[#1A4DC2] font-bold text-[#fff] hover:bg-[#1641A6] transition-colors duration-300 capitalize"
               }
             >
-              Batafsil
+              {t("more_details")}
             </Link>
           </div>
         </div>

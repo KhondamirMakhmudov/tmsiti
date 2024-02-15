@@ -85,7 +85,7 @@ export const menuData = [
 
       {
         id: 4,
-        title: "building regulations",
+        title: "building_regulations",
         url: "/#",
       },
       {
@@ -109,7 +109,7 @@ export const menuData = [
 
       {
         id: 2,
-        title: "e-fond",
+        title: "e_fond",
         url: "/electronic-fund",
       },
 

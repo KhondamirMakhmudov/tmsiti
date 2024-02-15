@@ -172,7 +172,37 @@ export default function Home() {
 
               <SwiperSlide>
                 <Image
-                  src={"/images/img.png"}
+                  src={"/images/bg-img1.jpg"}
+                  alt={""}
+                  className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
+                  width={945}
+                  height={734}
+                />
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <Image
+                  src={"/images/bg-img5.jpg"}
+                  alt={""}
+                  className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
+                  width={945}
+                  height={734}
+                />
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <Image
+                  src={"/images/bg-img3.jpg"}
+                  alt={""}
+                  className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
+                  width={945}
+                  height={734}
+                />
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <Image
+                  src={"/images/bg-img4.jpg"}
                   alt={""}
                   className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
                   width={945}

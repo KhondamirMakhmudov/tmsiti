@@ -65,7 +65,7 @@ const Footer = () => {
                 " row-span-12  md:col-span-9 flex flex-col md:flex-row justify-center  md:justify-end gap-x-[30px]"
               }
             >
-              <div className="capitalize">
+              <div className="">
                 <h4
                   className={
                     "md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]"
@@ -100,7 +100,7 @@ const Footer = () => {
                 </ul>
               </div>
 
-              <div className="capitalize">
+              <div className="">
                 <h4
                   className={
                     "md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]"
@@ -116,7 +116,7 @@ const Footer = () => {
                     <Link href={"/shnk"}>{t("shnq")}</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/standards"}>{"standards"}</Link>
+                    <Link href={"/standards"}>{t("standards")}</Link>
                   </li>
                   <li className={"mb-[10px]"}>
                     <Link href={"/works"}>{t("building_regulations")}</Link>
@@ -127,7 +127,7 @@ const Footer = () => {
                 </ul>
               </div>
 
-              <div className="capitalize">
+              <div className="">
                 <h4
                   className={
                     "md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]"
@@ -150,7 +150,7 @@ const Footer = () => {
                 </ul>
               </div>
 
-              <div className="capitalize">
+              <div className="">
                 <h4
                   className={
                     "md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]"

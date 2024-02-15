@@ -25,6 +25,7 @@ i18next
     },
     lng: "uz",
     fallbackLng: "uz",
+    keepPreviousData: false,
     debug: true,
     interpolation: {
       escapeValue: false,

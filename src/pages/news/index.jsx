@@ -17,10 +17,10 @@ const Index = () => {
     <Main>
       <Menu active={0} />
       <section className={"bg-[#EFF3FA] text-xs text-[#607198]"}>
-        <div className={"container py-[12px]"}>
-          <Link href={"/"}>Bosh sahifa / </Link>
-          <Link href={"#"}>Xabarlar / </Link>
-          <Link href={"/news"}>Yangiliklar </Link>
+        <div className={"container py-[12px] capitalize"}>
+          <Link href={"/"}>{t("homepage")} / </Link>
+          <Link href={"#"}>{t("messages")} / </Link>
+          <Link href={"/news"}>{t("news")} </Link>
         </div>
       </section>
       <div
@@ -33,7 +33,7 @@ const Index = () => {
           animate={{ translateX: "0px" }}
           className={"col-span-12 mt-[50px] mb-[30px]"}
         >
-          <Title>Barcha yangiliklar</Title>
+          <Title>{t("all_news")}</Title>
         </motion.div>
 
         {/*{head(*/}
