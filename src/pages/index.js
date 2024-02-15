@@ -163,7 +163,7 @@ export default function Home() {
               <SwiperSlide className={"swiper-slide"}>
                 <Image
                   src={"/images/img.png"}
-                  alt={""}
+                  alt={"bg-img"}
                   className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
                   width={945}
                   height={734}
@@ -173,7 +173,7 @@ export default function Home() {
               <SwiperSlide>
                 <Image
                   src={"/images/bg-img1.jpg"}
-                  alt={""}
+                  alt={"bg-img1"}
                   className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
                   width={945}
                   height={734}
@@ -183,7 +183,7 @@ export default function Home() {
               <SwiperSlide>
                 <Image
                   src={"/images/bg-img5.jpg"}
-                  alt={""}
+                  alt={"bg-img2"}
                   className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
                   width={945}
                   height={734}
@@ -193,7 +193,7 @@ export default function Home() {
               <SwiperSlide>
                 <Image
                   src={"/images/bg-img3.jpg"}
-                  alt={""}
+                  alt={"bg-img3"}
                   className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
                   width={945}
                   height={734}
@@ -203,7 +203,7 @@ export default function Home() {
               <SwiperSlide>
                 <Image
                   src={"/images/bg-img4.jpg"}
-                  alt={""}
+                  alt={"bg-img4"}
                   className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
                   width={945}
                   height={734}
