@@ -173,7 +173,7 @@ const Footer = () => {
                     <Link href={"#"}>{t("events")}</Link>
                   </li>
 
-                  <li className={"mb-[10px] capitalize"}>
+                  <li className={"mb-[10px]"}>
                     <Link href={"#"}>{t("cooperation")}</Link>
                   </li>
                 </ul>
