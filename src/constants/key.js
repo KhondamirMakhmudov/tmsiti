@@ -11,4 +11,5 @@ export const KEYS = {
   appealCategory: "appealCategory",
   structural: "structural",
   standards: "standards",
+  buildingRegulations: "buildingRegulations",
 };

@@ -10,4 +10,5 @@ export const URLS = {
   appealCategory: "appeal/appeal_category/",
   structural: "workers/structural/",
   standards: "news/81",
+  buildingRegulations: "shnk/page/",
 };

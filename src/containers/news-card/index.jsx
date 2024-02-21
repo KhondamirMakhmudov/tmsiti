@@ -10,6 +10,7 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 import { useSettingsStore } from "@/store";
 import { config } from "@/config";
+import { useTranslation } from "react-i18next";
 
 const NewsCardTemplate = ({
   HeaderBody = null,
@@ -30,6 +31,7 @@ const NewsCardTemplate = ({
   const [currentPage, setCurrentPage] = useState(0);
   const [dataHead, setDataHead] = useState([]); // Assuming your paginated data is stored here
   const [pageSize, setPageSize] = useState(defaultPageSize);
+  const { t } = useTranslation();
   const searchParams = useSearchParams();
   const router = useRouter();
   const lang = useSettingsStore((state) =>
@@ -79,7 +81,7 @@ const NewsCardTemplate = ({
           // eslint-disable-next-line react/jsx-key
           <div className={"col-span-12"}>
             <div className={"grid grid-cols-12 gap-x-[30px]"}>
-              <div className={"col-span-4 w-[450px]"}>
+              <div className={"col-span-4 md:w-[450px]"}>
                 <img
                   src={get(item, "news_image")}
                   alt="news-main-img"
@@ -108,11 +110,11 @@ const NewsCardTemplate = ({
                 </p>
                 <Link
                   className={
-                    "px-[55px] py-[13px] inline-block border-[2px] border-[#1A4DC2] bg-transparent hover:bg-[#1A4DC2] hover:text-[#fff] transition-all mt-[20px] rounded-[5px] font-bold text-[#1A4DC2]"
+                    "px-[55px] py-[13px] inline-block border-[2px] border-[#1A4DC2] bg-transparent hover:bg-[#1A4DC2] hover:text-[#fff] transition-all mt-[20px] rounded-[5px] font-bold text-[#1A4DC2] capitalize"
                   }
                   href={`/news/${get(item, "id")}`}
                 >
-                  Batafsil
+                  {t("more_details")}
                 </Link>
               </div>
             </div>
@@ -124,7 +126,7 @@ const NewsCardTemplate = ({
         <ul className={"grid grid-cols-12 gap-x-[30px]"}>
           {drop(get(data, "data.results", []), 1).map((item) => (
             <li
-              className={"col-span-4 w-[450px] mt-[50px]"}
+              className={"col-span-4 w-[450px] mt-[50px] md:col-span-4"}
               key={get(item, "id")}
             >
               <NewsCard

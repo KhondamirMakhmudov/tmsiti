@@ -5,6 +5,7 @@ import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
 import { KEYS } from "@/constants/key";
 import { URLS } from "@/constants/url";
 import { get, isEmpty, isNil } from "lodash";
+import { useTranslation } from "react-i18next";
 
 const StructuralCard = ({
   full_name,
@@ -17,6 +18,7 @@ const StructuralCard = ({
   master,
   academicTitle,
 }) => {
+  const { t } = useTranslation();
   const { data, isLoading } = useGetTMSITIQuery({
     key: KEYS.workers,
     url: URLS.workers,
@@ -61,7 +63,7 @@ const StructuralCard = ({
             }
             href={`tel:${phone}`}
           >
-            Telefon: {phone}
+            {t("phone")}: {phone}
           </Link>{" "}
           <br />
           {/* Mail pochta */}
@@ -71,7 +73,7 @@ const StructuralCard = ({
             }
             href={`mailto:${email}`}
           >
-            Elektron pochta: {email}{" "}
+            {t("email")}: {email}{" "}
           </Link>
         </div>
       </div>

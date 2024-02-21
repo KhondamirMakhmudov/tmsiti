@@ -13,11 +13,15 @@ import { useForm } from "react-hook-form";
 import { get } from "lodash";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 const Index = () => {
   const router = useRouter();
   const [contact, setContact] = useState({});
-  const [fileName, setFileName] = useState("Fayl biriktirish");
+
+  const { t } = useTranslation();
+  const [fileName, setFileName] = useState(t("attach_file"));
+
   const {
     register,
     handleSubmit,
@@ -66,7 +70,7 @@ const Index = () => {
       {
         onSuccess: () => {
           toast.success(
-            "Xabaringiz muvaffaqiyatli yuborildi",
+            t("toast_success_message"),
             {
               position: "top-right",
             },
@@ -88,8 +92,10 @@ const Index = () => {
             "container py-[12px] px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
           }
         >
-          <Link href={"/"}>Bosh sahifa / </Link>
-          <Link href={"#"}>Bog’lanish </Link>
+          <Link href={"/"}>{t("homepage")} / </Link>
+          <Link href={"#"} className={"capitalize"}>
+            {t("contact")}{" "}
+          </Link>
         </div>
       </section>
       <section
@@ -101,8 +107,9 @@ const Index = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
+          className={"capitalize"}
         >
-          <Title>Bog’lanish</Title>
+          <Title>{t("contact")}</Title>
         </motion.div>
         <div
           className={
@@ -142,7 +149,7 @@ const Index = () => {
                   height={24}
                 />
                 <p className={"lg:text-base md:text-sm text-xs"}>
-                  Toshkent shahar, Abay ko‘chasi, 6-uy
+                  {t("address")}
                 </p>
               </motion.li>
               <motion.li
@@ -211,7 +218,7 @@ const Index = () => {
                     "w-full !focus:outline-none !focus:bg-white py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] cursor-pointer focus:outline-none rounded-[5px] placeholder:text-[#535E8A]"
                   }
                 />
-                <label className={"text-[#535E8A]"}>FIO</label>
+                <label className={"text-[#535E8A]"}>{t("fullname")}</label>
               </motion.div>
 
               {/*Email*/}
@@ -229,7 +236,7 @@ const Index = () => {
                     " w-full py-[13px] px-[30px] text-[15px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] cursor-pointer focus:outline-none rounded-[5px] placeholder:text-[#535E8A]"
                   }
                 />
-                <label>E-mail</label>
+                <label>{t("email")}</label>
               </motion.div>
 
               {/*Telefon nomer*/}
@@ -247,7 +254,7 @@ const Index = () => {
                     "w-full py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] cursor-pointer focus:outline-none placeholder:text-[#535E8A]"
                   }
                 />
-                <label>Telefon nomer</label>
+                <label>{t("phone")}</label>
               </motion.div>
 
               {/*Murojaat turi*/}
@@ -308,7 +315,7 @@ const Index = () => {
                 transition={{ duration: 2.1 }}
               >
                 <textarea
-                  placeholder={"Murojaat matni"}
+                  placeholder={t("request_text")}
                   {...register("text", { required: true })}
                   className={
                     "w-full h-[192px] py-[13px] px-[30px] shadow-[0_4px_4px_0_rgba(40,54,109,0.15)] rounded-[5px] placeholder:text-[#535E8A]"
@@ -351,7 +358,7 @@ const Index = () => {
                   "py-[13px] px-[33px] bg-[#1A4DC2] md:w-[230px] lg:text-base md:text-sm text-sm text-[#fff] mx-auto hover:bg-[#1E56D8] transition-all duration-300"
                 }
               >
-                Murojaatni yuborish
+                {t("send_request")}
               </motion.button>
             </form>
           </div>

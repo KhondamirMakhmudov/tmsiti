@@ -13,36 +13,36 @@ import MenuItem from "@/components/menu/menu-item";
 export const menuData = [
   {
     id: 1,
-    title: "Institut",
+    title: "institut",
     url: "",
     filterUrl: "",
     subMenu: [
       {
         id: 1,
-        title: "Institut haqida",
+        title: "about_institute",
         url: "/about",
       },
       {
         id: 2,
-        title: "Rahbariyat",
+        title: "leadership",
         url: "/management",
       },
 
       {
         id: 3,
-        title: "Tashkiliy tuzilma",
+        title: "organizational_structure",
         url: "/structure",
       },
 
       {
         id: 4,
-        title: "Tarkibiy bo’linmalar",
+        title: "structure",
         url: "/structural-divisions",
       },
 
       {
         id: 5,
-        title: "Vakansiyalar",
+        title: "vacancies",
         url: "/vacancies",
       },
 
@@ -61,112 +61,117 @@ export const menuData = [
   },
   {
     id: 2,
-    title: "Me’yoriy hujjatlar",
+    title: "documents",
     url: "",
     filterUrl: "",
     subMenu: [
       {
         id: 1,
-        title: "Qonun, qaror va farmonlar",
+        title: "laws",
         url: "/#",
       },
 
       {
         id: 2,
-        title: "Shaharsozlik norma va qoidalari",
+        title: "shnq",
         url: "/shnk",
       },
 
       {
         id: 3,
-        title: "Standartlar",
+        title: "standards",
         url: "/standards",
       },
 
       {
         id: 4,
-        title: "Qurilish reglamentlari",
-        url: "/#",
+        title: "building_regulations",
+        url: "/building-regulations",
       },
       {
         id: 5,
-        title: "Muhokamalar",
+        title: "reference",
+        url: "/reference",
+      },
+      {
+        id: 6,
+        title: "discussions",
         url: "/discussion",
       },
     ],
   },
   {
     id: 3,
-    title: "Faoliyat",
+    title: "activity",
     url: "",
     filterUrl: "",
     subMenu: [
       {
         id: 1,
-        title: "Klassifikator",
+        title: "classifier",
         url: "https://catalog.tmsiti.uz/classifier",
       },
 
       {
         id: 2,
-        title: "Elektron fond",
+        title: "e_fond",
         url: "/electronic-fund",
       },
 
       {
         id: 3,
-        title: "Laboratoriya",
-        url: "#",
+        title: "lab",
+        url: "/laboratory",
       },
     ],
   },
 
   {
     id: 4,
-    title: "Xabarlar",
+    title: "messages",
     url: "",
     filterUrl: "",
     subMenu: [
       {
         id: 1,
-        title: "E’lonlar",
+        title: "announcements",
         url: "/announcement",
       },
 
       {
         id: 2,
-        title: "Yangiliklar",
+        title: "news",
         url: "/news",
       },
 
       {
         id: 3,
-        title: "Uchrashuvlar",
+        title: "meetings",
         url: "#",
       },
 
       {
         id: 4,
-        title: "Ommaviy tadbirlar",
+        title: "events",
         url: "#",
       },
 
       {
         id: 5,
-        title: "Xalqaro hamkorlik",
+        title: "cooperation",
         url: "#",
       },
 
       {
         id: 6,
-        title: "Seminar, ko’rgazmalar",
+        title: "seminar",
         url: "#",
       },
     ],
   },
   {
     id: 6,
-    title: "Bog‘lanish",
+    title: "contact",
     url: "/contact",
     subMenu: [],
   },
@@ -177,6 +182,7 @@ const Menu = ({ active = 0, className }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [openDropdownMenu, setOpenDropdownMenu] = useState(null);
   const [menu, setMenu] = useState();
+
   const dropdownMenu = () => {
     setMenu(!menu);
   };

@@ -5,6 +5,7 @@ import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
 import { KEYS } from "@/constants/key";
 import { URLS } from "@/constants/url";
 import { get, isEmpty, isNil } from "lodash";
+import { useTranslation } from "react-i18next";
 
 const Card = ({
   name,
@@ -17,6 +18,7 @@ const Card = ({
   master,
   academicTitle,
 }) => {
+  const { t } = useTranslation();
   const { data, isLoading } = useGetTMSITIQuery({
     key: KEYS.workers,
     url: URLS.workers,
@@ -60,7 +62,7 @@ const Card = ({
               "lg:text-base md:text-sm text-xs mt-[10px] text-center md:text-start"
             }
           >
-            Qabul kunlari: {receptionDays}
+            {t("receptionDays")}: {receptionDays}
           </p>
           {/* Telefon raqam */}
           <div className={"text-center md:text-start mt-[10px]"}>
@@ -68,7 +70,7 @@ const Card = ({
               className={"lg:text-base md:text-sm text-xs text-[#001A57] "}
               href={`tel:${phone}`}
             >
-              Telefon: {phone}
+              {t("phone")}: {phone}
             </Link>{" "}
           </div>
 
@@ -78,7 +80,7 @@ const Card = ({
               className={" lg:text-base md:text-sm text-xs text-[#001A57] "}
               href={`mailto:${mail}`}
             >
-              Elektron pochta: {mail}{" "}
+              {t("email")}: {mail}{" "}
             </Link>
           </div>
           {/* Bachelor */}
@@ -87,7 +89,7 @@ const Card = ({
               " lg:text-base md:text-sm text-xs mt-[10px] text-center md:text-start "
             }
           >
-            Bakalavr bo`yicha mutaxassisligi: {bachelor}
+            {t("bachelor")}: {bachelor}
           </p>
           {/* Master */}
           <p

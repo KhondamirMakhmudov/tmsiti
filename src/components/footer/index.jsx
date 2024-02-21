@@ -18,10 +18,7 @@ const Footer = () => {
           <div className="grid md:grid-cols-12 grid-rows-12 gap-x-[30px] px-[20px] text-center md:text-start">
             <div className="row-span-12 md:col-span-3 ">
               <Brand active={1} />
-              <p className={"my-5  md:w-auto"}>
-                Qurilish sohasida texnik me’yorlar, shaharzoslik normalari va
-                standartlar reglamentlar
-              </p>
+              <p className={"my-5  md:w-auto"}>{t("institut_desc")}</p>
 
               <ul
                 className={
@@ -29,7 +26,7 @@ const Footer = () => {
                 }
               >
                 <li>
-                  <p>Ijtimoiy tarmoqlar:</p>
+                  <p>{t("social_networks")}:</p>
                 </li>
                 <li>
                   <Link href={"#"}>
@@ -74,25 +71,25 @@ const Footer = () => {
                     "md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]"
                   }
                 >
-                  Institut
+                  {t("institut")}
                 </h4>
                 <ul className={"text-[#D9D9D9] text-sm md:text-base"}>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/about"}>Institut haqida</Link>
+                    <Link href={"/about"}>{t("about_institute")}</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/management"}>Rahbariyat</Link>
+                    <Link href={"/management"}>{t("leadership")}</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/structure"}>Tashkiliy tuzilma</Link>
-                  </li>
-                  <li className={"mb-[10px]"}>
-                    <Link href={"/structural-divisions"}>
-                      Tarkibiy bo’linmalar
+                    <Link href={"/structure"}>
+                      {t("organizational_structure")}
                     </Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/vacancies"}>Vakansiyalar</Link>
+                    <Link href={"/structural-divisions"}>{t("structure")}</Link>
+                  </li>
+                  <li className={"mb-[10px]"}>
+                    <Link href={"/vacancies"}>{t("vacancies")}</Link>
                   </li>
                   {/*<li className={'mb-[10px]'}>*/}
                   {/*    <Link href={'/classifier'}>Laboratoriya</Link>*/}
@@ -109,23 +106,23 @@ const Footer = () => {
                     "md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]"
                   }
                 >
-                  Me’yoriy hujjatlar
+                  {t("documents")}
                 </h4>
                 <ul className={"text-[#D9D9D9]"}>
                   <li className={"mb-[10px]"}>
-                    <Link href={"#"}>Qonun, qaror va farmonlar</Link>
+                    <Link href={"#"}>{t("laws")}</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/shnk"}>Shaharsozlik norma va qoidalari</Link>
+                    <Link href={"/shnk"}>{t("shnq")}</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/standards"}>Standartlar</Link>
+                    <Link href={"/standards"}>{t("standards")}</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/works"}>Qurilish reglamentlari</Link>
+                    <Link href={"/works"}>{t("building_regulations")}</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/discussion"}>Muhokamalar</Link>
+                    <Link href={"/discussion"}>{t("discussions")}</Link>
                   </li>
                 </ul>
               </div>
@@ -136,19 +133,19 @@ const Footer = () => {
                     "md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]"
                   }
                 >
-                  Faoliyat
+                  {t("activity")}
                 </h4>
                 <ul className={"text-[#D9D9D9]"}>
                   <li className={"mb-[10px]"}>
                     <Link href={"https://catalog.tmsiti.uz/classifier"}>
-                      Klassifikator
+                      {t("classifier")}
                     </Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"#"}>Elektron fond</Link>
+                    <Link href={"#"}>{t("e_fond")}</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"#"}>Laboratoriya</Link>
+                    <Link href={"#"}>{t("lab")}</Link>
                   </li>
                 </ul>
               </div>
@@ -159,25 +156,25 @@ const Footer = () => {
                     "md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]"
                   }
                 >
-                  Xabarlar
+                  {t("messages")}
                 </h4>
                 <ul className={"text-[#D9D9D9]"}>
                   <li className={"mb-[10px]"}>
-                    <Link href={"/announcement"}>E’lonlar</Link>
+                    <Link href={"/announcement"}>{t("announcements")}</Link>
                   </li>
 
                   <li className={"mb-[10px]"}>
-                    <Link href={"/news"}>Yangiliklar</Link>
+                    <Link href={"/news"}>{t("news")}</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"#"}>Uchrashuvlar</Link>
+                    <Link href={"#"}>{t("meetings")}</Link>
                   </li>
                   <li className={"mb-[10px]"}>
-                    <Link href={"#"}>Ommaviy tadbirlar</Link>
+                    <Link href={"#"}>{t("events")}</Link>
                   </li>
 
                   <li className={"mb-[10px]"}>
-                    <Link href={"#"}>Xalqaro hamkorlik</Link>
+                    <Link href={"#"}>{t("cooperation")}</Link>
                   </li>
                 </ul>
               </div>
@@ -186,22 +183,19 @@ const Footer = () => {
                 <Link href={"/contact"}>
                   <h4
                     className={
-                      "md:text-xl text-lg font-bold mb-[10px] md:mb-[30px]"
+                      "md:text-xl capitalize text-lg font-bold mb-[10px] md:mb-[30px]"
                     }
                   >
-                    Bog‘lanish
+                    {t("contact")}
                   </h4>
                 </Link>
                 <ul className={"text-[#D9D9D9]"}>
                   <li className={"text-base mb-[10px]"}>
-                    <p>
-                      Toshkent shahar, Shayxontohur tumani, Abay ko’chasi
-                      6A-Bino
-                    </p>
+                    <p>{t("address")}</p>
                   </li>
                   <li className={" text-base  mb-[10px]"}>
                     <Link href={"tel:+998 71 244-51-84"}>
-                      Phone:+998 71 244-51-84
+                      {t("phone")}: +998 71 244-51-84
                     </Link>{" "}
                     <br />
                   </li>
@@ -210,7 +204,7 @@ const Footer = () => {
                       href={"mailto:info@tmsiti.uz"}
                       className={"mb-[10px]"}
                     >
-                      Email: info@tmsiti.uz
+                      {t("email")}: info@tmsiti.uz
                     </Link>
                     <Link href={"mailto:TMSITI@exat.uz"}>
                       EXAT: TMSITI@exat.uz
@@ -227,10 +221,7 @@ const Footer = () => {
           "bg-[#001A57] h-[50px] md:h-[30px] w-full text-[#fff] flex justify-center items-center text-[10px] md:text-xs"
         }
       >
-        <p>
-          Qurilishda texnik me’yorlash va standartlashtirish ilmiy-tadqiqot
-          instituti | All rights reserved © 2021
-        </p>
+        <p>{t("company_name")} | All rights reserved © 2021</p>
       </div>
     </footer>
   );

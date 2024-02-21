@@ -15,12 +15,14 @@ import { KEYS } from "@/constants/key";
 import { URLS } from "@/constants/url";
 import { get } from "lodash";
 import parse from "html-react-parser";
+import { useTranslation } from "react-i18next";
 
 const Standards = () => {
   const { data, isLoading } = useGetTMSITIQuery({
     key: KEYS.standards,
     url: URLS.standards,
   });
+  const { t } = useTranslation();
 
   const obj = get(data, "data");
   console.log(obj, "hello");
@@ -32,13 +34,13 @@ const Standards = () => {
       <Menu />
       <section className={"bg-[#EFF3FA] text-xs text-[#607198] mb-[70px]"}>
         <div className={"container py-[12px]"}>
-          <Link href={"/"}>Bosh sahifa / </Link>
-          <Link href={"#"}>Standartlar</Link>
+          <Link href={"/"}>{t("homepage")} / </Link>
+          <Link href={"#"}>{t("standards")}</Link>
         </div>
       </section>
       <section className={"grid grid-cols-12 gap-x-[30px] container mx-auto"}>
         <div className={"col-span-12 px-[20px] md:px-0"}>
-          <Title textFormatter={"uppercase"}>Standartlar</Title>
+          <Title textFormatter={"uppercase"}>{t("standards")}</Title>
         </div>
         {/*<h2>{get(data, "data")["news_title"]} </h2>*/}
 
