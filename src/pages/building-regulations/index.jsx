@@ -29,9 +29,9 @@ const Index = () => {
             "container py-[12px] px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
           }
         >
-          <Link href={"/"}>Bosh sahifa / </Link>
-          <Link href={"#"}>Me’yoriy hujjatlar / </Link>
-          <Link href={"#"}>Qurilish reglamentlari</Link>
+          <Link href={"/"}>{t("homepage")} / </Link>
+          <Link href={"#"}>{t("documents")} / </Link>
+          <Link href={"#"}>{t("building_regulations")}</Link>
         </div>
       </section>
 
@@ -55,12 +55,12 @@ const Index = () => {
               >
                 <Title>
                   {language === "uz"
-                    ? get(item, "title_uz")
-                    : language === "ru"
                     ? get(item, "title_ru")
+                    : language === "ru"
+                    ? get(item, "title_uz")
                     : language === "en"
                     ? get(item, "title_en")
-                    : get(item, "title_uz")}
+                    : get(item, "title_ru")}
                 </Title>
               </motion.div>
 

@@ -29,7 +29,7 @@ const Index = () => {
             "container py-[12px] px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
           }
         >
-          <Link href={"/"}>Bosh sahifa / </Link>
+          <Link href={"/"}>{t("homepage")} / </Link>
           <Link href={"#"}>Me’yoriy hujjatlar / </Link>
           <Link href={"#"}>Ma’lumotnoma</Link>
         </div>
