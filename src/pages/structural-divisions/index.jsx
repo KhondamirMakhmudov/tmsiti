@@ -73,14 +73,18 @@ const Index = () => {
                     ? get(item, "position_uz")
                     : language === "ru"
                     ? get(item, "position_ru")
-                    : get(item, "position_en")
+                    : language === "en"
+                    ? get(item, "position_en")
+                    : get(item, "position_uz")
                 }
                 full_name={
                   language === "uz"
                     ? get(item, "full_name_uz")
                     : language === "ru"
                     ? get(item, "full_name_ru")
-                    : get(item, "full_name_en")
+                    : language === "en"
+                    ? get(item, "full_name_en")
+                    : get(item, "full_name_uz")
                 }
                 phone={get(item, "phone")}
                 email={get(item, "email")}
