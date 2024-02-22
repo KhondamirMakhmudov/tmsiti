@@ -19,7 +19,7 @@ const Footer = () => {
             <div className="row-span-12 md:col-span-3 ">
               <Brand active={1} />
               <p className={"my-5  md:w-auto"}>{t("institut_desc")}</p>
-
+              <p>{t("check_text")}</p>
               <ul
                 className={
                   "flex justify-center md:justify-start items-center my-2.5 gap-x-[10px]"
