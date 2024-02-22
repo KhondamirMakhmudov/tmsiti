@@ -1,62 +1,82 @@
 import React from "react";
 import Main from "@/layouts/main";
 import Menu from "@/components/menu";
-import Title from "@/components/title";
-import RSelect, { components } from "react-select";
-import Select from "@/components/select";
-import Checkbox from "@/components/checkbox";
-import CheckboxTemplate from "@/components/checkbox";
-import Template from "@/components/template";
-import Pagination from "@/components/pagination";
-import NewsTitle from "@/components/news-title";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import Title from "@/components/title";
 import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
 import { KEYS } from "@/constants/key";
 import { URLS } from "@/constants/url";
-import { get } from "lodash";
+import { drop, get, head } from "lodash";
 import parse from "html-react-parser";
+import { useSettingsStore } from "@/store";
 import { useTranslation } from "react-i18next";
 
-const Standards = () => {
-  const { data, isLoading } = useGetTMSITIQuery({
-    key: KEYS.standards,
-    url: URLS.standards,
-  });
+const Index = () => {
   const { t } = useTranslation();
+  const { data, isLoading, isFetching } = useGetTMSITIQuery({
+    key: KEYS.buildingRegulations,
+    url: URLS.buildingRegulations,
+  });
 
-  const obj = get(data, "data");
-  console.log(obj, "hello");
-
-  // console.log(obj["news_text"]);
-
+  const language = useSettingsStore((state) => get(state, "lang", ""));
   return (
     <Main>
       <Menu />
       <section className={"bg-[#EFF3FA] text-xs text-[#607198] mb-[70px]"}>
-        <div className={"container py-[12px]"}>
+        <div
+          className={
+            "container py-[12px] px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
+          }
+        >
           <Link href={"/"}>{t("homepage")} / </Link>
+          <Link href={"#"}>{t("documents")} / </Link>
           <Link href={"#"}>{t("standards")}</Link>
         </div>
       </section>
-      <section className={"grid grid-cols-12 gap-x-[30px] container mx-auto"}>
-        <div className={"col-span-12 px-[20px] md:px-0"}>
-          <Title textFormatter={"uppercase"}>{t("standards")}</Title>
-        </div>
-        {/*<h2>{get(data, "data")["news_title"]} </h2>*/}
 
-        <div
-          className={
-            "col-span-12 text-center flex flex-col justify-center items-center mb-[70px]"
-          }
-        >
-          <div className={"mb-[20px]"}>
-            <NewsTitle>{get(obj, "news_title")}</NewsTitle>
+      <section
+        className={
+          "grid grid-cols-12 container mx-auto mb-[50px] px-[20px] md:px-0"
+        }
+      >
+        {drop(get(data, "data", []), 2).map((item) => (
+          <div
+            key={get(item, "id")}
+            className={
+              "col-span-12 px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
+            }
+          >
+            <motion.div
+              initial={{ translateX: "-200px" }}
+              animate={{ translateX: "0px" }}
+              transition={{ duration: 0.3 }}
+            >
+              <Title>
+                {language === "uz"
+                  ? get(item, "title_ru")
+                  : language === "ru"
+                  ? get(item, "title_uz")
+                  : language === "en"
+                  ? get(item, "title_en")
+                  : get(item, "title_ru")}
+              </Title>
+            </motion.div>
+
+            <div>
+              {language === "uz"
+                ? parse(get(item, "text_uz"))
+                : language === "ru"
+                ? parse(get(item, "text_ru"))
+                : language === "en"
+                ? parse(get(item, "text_en"))
+                : parse(get(item, "text_uz"))}
+            </div>
           </div>
-          {parse(get(obj, "news_text") || " ")}
-        </div>
+        ))}
       </section>
     </Main>
   );
 };
 
-export default Standards;
+export default Index;

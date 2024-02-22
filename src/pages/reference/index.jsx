@@ -30,50 +30,52 @@ const Index = () => {
           }
         >
           <Link href={"/"}>{t("homepage")} / </Link>
-          <Link href={"#"}>Me’yoriy hujjatlar / </Link>
-          <Link href={"#"}>Ma’lumotnoma</Link>
+          <Link href={"#"}>{t("documents")} / </Link>
+          <Link href={"#"}>{t("reference")}</Link>
         </div>
       </section>
 
       <section
         className={
-          "grid grid-cols-12 container mx-auto mb-[50px] px-[20px] md:px-0"
+          "grid grid-cols-12 container h-screen mx-auto mb-[50px] px-[20px] md:px-0"
         }
       >
-        {drop(get(data, "data", []), 1).map((item) => (
-          <div
-            key={get(item, "id")}
-            className={
-              "col-span-12 px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
-            }
-          >
-            <motion.div
-              initial={{ translateX: "-200px" }}
-              animate={{ translateX: "0px" }}
-              transition={{ duration: 0.3 }}
+        {head(
+          drop(get(data, "data", []), 1).map((item) => (
+            <div
+              key={get(item, "id")}
+              className={
+                "col-span-12 px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
+              }
             >
-              <Title>
-                {language === "uz"
-                  ? get(item, "title_uz")
-                  : language === "ru"
-                  ? get(item, "title_ru")
-                  : language === "en"
-                  ? get(item, "title_en")
-                  : get(item, "title_uz")}
-              </Title>
-            </motion.div>
+              <motion.div
+                initial={{ translateX: "-200px" }}
+                animate={{ translateX: "0px" }}
+                transition={{ duration: 0.3 }}
+              >
+                <Title>
+                  {language === "uz"
+                    ? get(item, "title_ru")
+                    : language === "ru"
+                    ? get(item, "title_uz")
+                    : language === "en"
+                    ? get(item, "title_en")
+                    : get(item, "title_ru")}
+                </Title>
+              </motion.div>
 
-            <div>
-              {language === "uz"
-                ? parse(get(item, "text_uz"))
-                : language === "ru"
-                ? parse(get(item, "text_ru"))
-                : language === "en"
-                ? parse(get(item, "text_en"))
-                : parse(get(item, "text_uz"))}
+              <div>
+                {language === "uz"
+                  ? parse(get(item, "text_uz"))
+                  : language === "ru"
+                  ? parse(get(item, "text_ru"))
+                  : language === "en"
+                  ? parse(get(item, "text_en"))
+                  : parse(get(item, "text_uz"))}
+              </div>
             </div>
-          </div>
-        ))}
+          )),
+        )}
       </section>
     </Main>
   );
