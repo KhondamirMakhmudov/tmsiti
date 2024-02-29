@@ -124,8 +124,6 @@ const NewsItemPage = () => {
         </div>
 
         <div className={"md:col-span-5 col-span-12   "}>
-          <h4 className={"text-xl font-semibold"}>{t("Boshqa yangiliklar")}</h4>
-
           <h4 className={"text-xl font-semibold"}>{t("other_news")}</h4>
 
           <div
