@@ -32,6 +32,7 @@ const Index = () => {
         {get(data, "data", []).map((item) => (
           <div key={get(item, "id")} className={"col-span-12"}>
             <img
+              className={"border"}
               src={`https://ad.tmsiti.uz${get(item, "image")}`}
               alt={"image"}
             />

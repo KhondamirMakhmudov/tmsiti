@@ -40,6 +40,13 @@ const Index = () => {
           "grid grid-cols-12 container mx-auto mb-[50px] px-[20px] md:px-0"
         }
       >
+        <motion.div
+          initial={{ translateX: "-200px" }}
+          animate={{ translateX: "0px" }}
+          transition={{ duration: 0.3 }}
+        >
+          <Title>{t("standards")}</Title>
+        </motion.div>
         {get(data, "data", []).map((item) => (
           <div
             key={get(item, "id")}
@@ -47,24 +54,16 @@ const Index = () => {
               "col-span-12 px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
             }
           >
-            <motion.div
-              initial={{ translateX: "-200px" }}
-              animate={{ translateX: "0px" }}
-              transition={{ duration: 0.3 }}
-            >
-              <Title>{t("standards")}</Title>
-            </motion.div>
-
             <div
               className={
-                "p-3 border cursor-pointer border border-[1px] rounded-[8px] shadow-xl"
+                "p-3 border cursor-pointer border-[1px] rounded-[8px] shadow-xl my-2 "
               }
             >
               <Link
                 href={`/standards/${get(item, "slug")}`}
                 className={"flex flex-col"}
               >
-                <h1 className={"text-lg font-bold"}>
+                <h1 className={"lg:text-lg md:text-base text-sm font-bold"}>
                   {language === "uz"
                     ? get(item, "designation_uz")
                     : language === "ru"
@@ -73,7 +72,7 @@ const Index = () => {
                     ? get(item, "designation_en")
                     : get(item, "designation_uz")}
                 </h1>
-                <p className={"text-base"}>
+                <p className={"lg:text-base md:text-sm text-xs"}>
                   {language === "uz"
                     ? get(item, "title_uz")
                     : language === "ru"
