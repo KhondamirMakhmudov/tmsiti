@@ -16,7 +16,7 @@ const NewsCardTemplate = ({
   HeaderBody = null,
   columns = [],
   url,
-  key,
+  keyQuery,
   params = {},
   enabled = true,
   getCount = () => {},
@@ -35,11 +35,11 @@ const NewsCardTemplate = ({
   const searchParams = useSearchParams();
   const router = useRouter();
   const lang = useSettingsStore((state) =>
-    get(state, "lang", config.DEFAULT_APP_LANG),
+    get(state, "lang", config.DEFAULT_APP_LANG)
   );
 
   const { data, isLoading, isFetching } = useGetTMSITIQuery({
-    key: key,
+    key: keyQuery,
     url: url,
     params: {
       ...params,
@@ -62,10 +62,7 @@ const NewsCardTemplate = ({
     setCurrentPage(selectedPage.selected);
   };
   const currentItems = _.head(
-    dataHead.slice(
-      currentPage * itemsPerPage,
-      (currentPage + 1) * itemsPerPage,
-    ),
+    dataHead.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
   );
 
   console.log("searchParams", searchParams);
@@ -119,7 +116,7 @@ const NewsCardTemplate = ({
               </div>
             </div>
           </div>
-        )),
+        ))
       )}
 
       {get(data, "data.results", [])?.length > 0 ? (

@@ -74,13 +74,13 @@ const Index = () => {
             {
               position: "top-right",
             },
-            router.push("/"),
+            router.push("/")
           );
         },
         onError: (error) => {
           toast.error(`Error is ${error}`, { position: "top-right" });
         },
-      },
+      }
     );
   };
   return (
@@ -147,6 +147,7 @@ const Index = () => {
                   src={"/icons/location_icon.svg"}
                   width={24}
                   height={24}
+                  alt="location"
                 />
                 <p className={"lg:text-base md:text-sm text-xs"}>
                   {t("address")}
@@ -158,7 +159,12 @@ const Index = () => {
                 transition={{ duration: 0.7 }}
                 className={"flex gap-x-[10px] items-center"}
               >
-                <Image src={"/icons/exat.svg"} width={24} height={24} />
+                <Image
+                  src={"/icons/exat.svg"}
+                  alt="exat"
+                  width={24}
+                  height={24}
+                />
                 <p className={"lg:text-base md:text-sm text-xs"}>
                   <Link href={"mailto: info@tmsiti.uz"}>info@tmsiti.uz</Link>
                 </p>
@@ -169,7 +175,12 @@ const Index = () => {
                 animate={{ translateY: 0 }}
                 transition={{ duration: 0.9 }}
               >
-                <Image src={"/icons/exat.svg"} width={24} height={24} />
+                <Image
+                  src={"/icons/exat.svg"}
+                  alt="exat"
+                  width={24}
+                  height={24}
+                />
                 <p className={"lg:text-base md:text-sm text-xs"}>
                   <Link href={"mailto: TMSITI@exat.uz"}>TMSITI@exat.uz</Link>
                 </p>
@@ -180,7 +191,12 @@ const Index = () => {
                 animate={{ translateY: 0 }}
                 transition={{ duration: 1.1 }}
               >
-                <Image src={"/icons/call.svg"} width={24} height={24} />
+                <Image
+                  src={"/icons/call.svg"}
+                  alt="call"
+                  width={24}
+                  height={24}
+                />
                 <Link
                   className={"lg:text-base md:text-sm text-xs"}
                   href={"tel:+998 71 244-51-84"}

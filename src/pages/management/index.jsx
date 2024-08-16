@@ -21,7 +21,7 @@ const Management = () => {
   if (isLoading) {
     return "...Loading";
   }
-  console.log("data =>", get(data, "data"));
+
   return (
     <Main>
       <Menu active={0} />
@@ -62,25 +62,25 @@ const Management = () => {
                 bachelor={get(item, "worker_bachelor")}
                 master={
                   !isNil(get(item, "worker_master")) ? (
-                    <p>
+                    <span>
                       {t("master")}: {get(item, "worker_master")}
-                    </p>
+                    </span>
                   ) : (
                     ""
                   )
                 }
                 academicTitle={
                   !isNil(get(item, "academic_title")) ? (
-                    <p>
+                    <span>
                       Ilmiy daraja yoki unvon: {get(item, "academic_title")}
-                    </p>
+                    </span>
                   ) : (
                     ""
                   )
                 }
               />
             </motion.div>
-          )),
+          ))
         )}
 
         <motion.div
@@ -115,26 +115,26 @@ const Management = () => {
                 bachelor={get(item, "worker_bachelor")}
                 master={
                   !isNil(get(item, "worker_master")) ? (
-                    <p>
+                    <span>
                       Magistratura bo`yicha mutaxassisligi:{" "}
                       {get(item, "worker_master")}
-                    </p>
+                    </span>
                   ) : (
                     ""
                   )
                 }
                 academicTitle={
                   !isNil(get(item, "academic_title")) ? (
-                    <p>
+                    <span>
                       Ilmiy daraja yoki unvon: {get(item, "academic_title")}
-                    </p>
+                    </span>
                   ) : (
                     ""
                   )
                 }
               />
             </li>
-          )),
+          ))
         )}
       </motion.ul>
     </Main>

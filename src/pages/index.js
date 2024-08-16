@@ -26,7 +26,7 @@ export default function Home() {
   const [domLoaded, setDomLoaded] = useState(false);
   const { t } = useTranslation();
   const lang = useSettingsStore((state) =>
-    get(state, "lang", config.DEFAULT_APP_LANG),
+    get(state, "lang", config.DEFAULT_APP_LANG)
   );
 
   const handleScroll = () => {
@@ -55,7 +55,7 @@ export default function Home() {
   });
 
   const NewsInReel = get(data, "data.results", []).filter(
-    (item) => get(item, "news_in_reel") === true,
+    (item) => get(item, "news_in_reel") === true
   );
 
   const { data: discussion, isLoading: isLoadingDiscuss } = useGetTMSITIQuery({
@@ -236,7 +236,7 @@ export default function Home() {
             >
               {get(discussion, "data.results", []).map((item) => (
                 // eslint-disable-next-line react/jsx-key
-                <SwiperSlide>
+                <SwiperSlide key={get(item, "id")}>
                   <div
                     className={
                       "flex items-center justify-center md:gap-x-[10px] lg:gap-x-[30px] px-[20px]"
@@ -252,7 +252,7 @@ export default function Home() {
                         }
                       >
                         {dayjs(get(item, "shnk_datetime")).format(
-                          "MMM DD-MM, YYYY",
+                          "MMM DD-MM, YYYY"
                         )}
                       </p>
                     </div>
@@ -309,7 +309,7 @@ export default function Home() {
             >
               {get(discussion, "data.results", []).map((item) => (
                 // eslint-disable-next-line react/jsx-key
-                <SwiperSlide>
+                <SwiperSlide key={get(item, "id")}>
                   <div
                     className={
                       "flex items-start justify-center flex-col w-[300px] border border-[#001A57]  rounded-[30px]  gap-y-[15px] p-[20px]"
@@ -325,7 +325,7 @@ export default function Home() {
                         }
                       >
                         {dayjs(get(item, "shnk_datetime")).format(
-                          "MMM DD-MM, YYYY",
+                          "MMM DD-MM, YYYY"
                         )}
                       </p>
                     </div>
@@ -429,7 +429,7 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-              )),
+              ))
             )}
           </motion.div>
 
@@ -456,7 +456,7 @@ export default function Home() {
                         >
                           {t("news")}{" "}
                           {dayjs(get(news, "news_datetime")).format(
-                            "DD.MM.YYYY",
+                            "DD.MM.YYYY"
                           )}
                         </p>
                         <Link href={`/news/${get(news, "id")}`}>
@@ -485,7 +485,7 @@ export default function Home() {
                       className={"w-full h-[1px] bg-gray-900 my-[30px]"}
                     ></div>
                   </motion.li>
-                )),
+                ))
               )}
 
               {/*{slice(*/}

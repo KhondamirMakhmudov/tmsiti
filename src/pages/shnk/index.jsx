@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 import Link from "next/link";
 import { config } from "@/config";
+import ContentLoader from "@/components/loader/content-loader";
 
 const SHNQ = () => {
   const [systemId, setSystemId] = useState(null);
@@ -51,7 +52,11 @@ const SHNQ = () => {
   }, [get(subSystem, "data", [])]);
 
   if (isLoadingSystem) {
-    return <p>Loading...</p>;
+    return (
+      <Main>
+        <ContentLoader />
+      </Main>
+    );
   }
 
   return (
@@ -105,7 +110,7 @@ const SHNQ = () => {
                     "text-[#1B41C6] font-medium hover:bg-transparent":
                       get(item, "id") === systemId,
                     "!mb-0": get(subSystem, "data", [])?.length === i + 1,
-                  },
+                  }
                 )}
               >
                 <div className={"flex justify-between items-center"}>
@@ -145,7 +150,7 @@ const SHNQ = () => {
                                 "!mb-[10px]":
                                   get(group, "data.results", [])?.length ===
                                   j + 1,
-                              },
+                              }
                             )}
                           >
                             <div
@@ -204,8 +209,7 @@ const SHNQ = () => {
                                           "md:border-0 border border-[#D0D3D8] md:py-0 md:px-0 py-[10px]  rounded-[8px] px-[10px] md:my-0 my-[5px]"
                                         }
                                       >
-                                        <Link
-                                          href={"shnk/id"}
+                                        <div
                                           className={
                                             "md:text-lg text-[12px] text-black mb-[10px] md:grid md:grid-cols-12  gap-x-[10px] md:gap-x-[30px]"
                                           }
@@ -234,7 +238,7 @@ const SHNQ = () => {
                                                   config.BASE_SHNK_URL
                                                 }${get(
                                                   docItem,
-                                                  "shnk_pdf_link",
+                                                  "shnk_pdf_link"
                                                 )}`}
                                               >
                                                 <abbr
@@ -259,7 +263,7 @@ const SHNQ = () => {
                                                   config.BASE_SHNK_URL
                                                 }${get(
                                                   docItem,
-                                                  "shnk_pdf_link",
+                                                  "shnk_pdf_link"
                                                 )}`}
                                               >
                                                 <abbr
@@ -271,7 +275,7 @@ const SHNQ = () => {
                                               </Link>
                                             </button>
                                           </div>
-                                        </Link>
+                                        </div>
                                       </li>
                                     ))}
                                   </motion.ul>
