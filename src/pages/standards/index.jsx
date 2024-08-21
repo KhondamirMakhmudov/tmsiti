@@ -56,7 +56,7 @@ const Index = () => {
           >
             <div
               className={
-                "p-3 border cursor-pointer border-[1px] rounded-[8px] shadow-xl my-2 "
+                "p-3  cursor-pointer border-[1px] rounded-[8px] shadow-xl my-2 "
               }
             >
               <Link

@@ -74,7 +74,7 @@ export const menuData = [
       {
         id: 2,
         title: "shnq",
-        url: "/shnk",
+        url: "/shnq",
       },
 
       {
@@ -90,11 +90,16 @@ export const menuData = [
       },
       {
         id: 5,
+        title: "technical_regulations",
+        url: "/technical_regulations",
+      },
+      {
+        id: 6,
         title: "reference",
         url: "/reference",
       },
       {
-        id: 6,
+        id: 7,
         title: "discussions",
         url: "/discussion",
       },
@@ -241,7 +246,7 @@ const Menu = ({ active = 0, className }) => {
                 <Link
                   className={clsx(
                     " text-[#001A57] font-semibold transition-all border-b border-b-transparent  uppercase",
-                    { "text-[#2E6DFF]": isEqual(get(item, "id"), active) },
+                    { "text-[#2E6DFF]": isEqual(get(item, "id"), active) }
                   )}
                   href={get(item, "url")}
                 >
@@ -264,9 +269,9 @@ const Menu = ({ active = 0, className }) => {
                           {
                             "!border-b-[#1890FF] text-[#001A57]": isEqual(
                               get(item, "id"),
-                              active,
+                              active
                             ),
-                          },
+                          }
                         )}
                         href={get(subItem, "url")}
                       >

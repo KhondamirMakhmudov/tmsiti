@@ -104,14 +104,14 @@ export default function Home() {
               }
             >
               <Link
-                href={"/shnk"}
+                href={"/shnq"}
                 className={"uppercase text-[#2E6DFF] text-xs md:text-sm"}
               >
                 {t("SHNQ")}
               </Link>
 
               <Link
-                href={"/shnk"}
+                href={"/shnq"}
                 className={
                   "text-[#001A57] hover:text-[#5D84CB] hover:underline md:text-base lg:text-xl  text-base font-bold transition-all duration-400"
                 }

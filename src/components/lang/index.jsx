@@ -25,13 +25,7 @@ const Lang = ({}) => {
   const handleLanguageChange = (event) => {
     setSelectedLanguage(event.target.value);
     i18n.changeLanguage(event.target.value);
-    // i18n.changeLanguage(toLower(event.target.value));
-    // console.log(i18n.changeLanguage(toLower(event.target.value)));
   };
-
-  // const changeLanguage = (i18language) => {
-  //   i18n.changeLanguage(toLower(i18language));
-  // };
 
   return (
     <div className="language-select relative cursor-pointer">

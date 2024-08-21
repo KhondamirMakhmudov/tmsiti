@@ -1,5 +1,5 @@
 {
-  "welcome": "Welcome!",
+  
   "greeting": "Hello, {{name}}!",
   "button": "Click me",
   "hymn": "We inspire progress in construction",
@@ -50,5 +50,6 @@
   "more_details": "More details",
   "other_news": "Other news",
   "reference": "Reference",
-  "check_text": "Found an error in the text? Select with the mouse press Ctrl+Enter"
+  "check_text": "Found an error in the text? Select with the mouse press Ctrl+Enter",
+  "technical_regulations": "Technical regulations"
 }
