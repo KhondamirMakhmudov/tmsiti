@@ -117,11 +117,11 @@ export const menuData = [
         url: "https://catalog.tmsiti.uz/classifier",
       },
 
-      {
-        id: 2,
-        title: "e_fond",
-        url: "/electronic-fund",
-      },
+      // {
+      //   id: 2,
+      //   title: "e_fond",
+      //   url: "/electronic-fund",
+      // },
 
       {
         id: 3,

@@ -225,64 +225,62 @@ export default function Home() {
           animate={controls}
           className={" container mx-auto"}
         >
-          {domLoaded && (
-            <Swiper
-              modules={[Pagination, Navigation]}
-              navigation={true}
-              loop={true}
-              className={
-                "mx-auto container flex items-center justify-center gap-x-[76px]"
-              }
-            >
-              {get(discussion, "data.results", []).map((item) => (
-                // eslint-disable-next-line react/jsx-key
-                <SwiperSlide key={get(item, "id")}>
-                  <div
-                    className={
-                      "flex items-center justify-center md:gap-x-[10px] lg:gap-x-[30px] px-[20px]"
-                    }
-                  >
-                    <div>
-                      <h4 className={"text-sm md:text-xs lg:text-base"}>
-                        Muhokamalar
-                      </h4>
-                      <p
-                        className={
-                          "text-[#BCBCBC] text-[14px] text-xs md:text-[10px] lg:text-[14px]"
-                        }
-                      >
-                        {dayjs(get(item, "shnk_datetime")).format(
-                          "MMM DD-MM, YYYY"
-                        )}
-                      </p>
-                    </div>
-
-                    <div className={"w-[1px] h-[80px] bg-white"}></div>
-
-                    <div className={"w-[975px]"}>
-                      <Link
-                        href={`/discussion/${get(item, "id", "")}`}
-                        className={
-                          "hover:underline cursor-pointer transition-all duration-500"
-                        }
-                      >
-                        <h4 className={"md:text-sm lg:text-xl text-base"}>
-                          {get(item, "shnk_number")} - {get(item, "shnk_title")}
-                        </h4>
-                      </Link>
-                      <p
-                        className={
-                          "text-xs md:text-xs lg:text-base line-clamp-2 md:line-clamp-none text-[#BCBCBC]"
-                        }
-                      >
-                        {get(item, "shnk_description")}
-                      </p>
-                    </div>
+          <Swiper
+            modules={[Pagination, Navigation]}
+            navigation={true}
+            loop={true}
+            className={
+              "mx-auto container flex items-center justify-center gap-x-[76px]"
+            }
+          >
+            {get(discussion, "data.results", []).map((item) => (
+              // eslint-disable-next-line react/jsx-key
+              <SwiperSlide key={get(item, "id")}>
+                <div
+                  className={
+                    "flex items-center justify-center md:gap-x-[10px] lg:gap-x-[30px] px-[20px]"
+                  }
+                >
+                  <div>
+                    <h4 className={"text-sm md:text-xs lg:text-base"}>
+                      Muhokamalar
+                    </h4>
+                    <p
+                      className={
+                        "text-[#BCBCBC] text-[14px] text-xs md:text-[10px] lg:text-[14px]"
+                      }
+                    >
+                      {dayjs(get(item, "shnk_datetime")).format(
+                        "MMM DD-MM, YYYY"
+                      )}
+                    </p>
                   </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          )}
+
+                  <div className={"w-[1px] h-[80px] bg-white"}></div>
+
+                  <div className={"w-[975px]"}>
+                    <Link
+                      href={`/discussion/${get(item, "id", "")}`}
+                      className={
+                        "hover:underline cursor-pointer transition-all duration-500"
+                      }
+                    >
+                      <h4 className={"md:text-sm lg:text-xl text-base"}>
+                        {get(item, "shnk_number")} - {get(item, "shnk_title")}
+                      </h4>
+                    </Link>
+                    <p
+                      className={
+                        "text-xs md:text-xs lg:text-base line-clamp-2 md:line-clamp-none text-[#BCBCBC]"
+                      }
+                    >
+                      {get(item, "shnk_description")}
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </motion.div>
       </section>
 
