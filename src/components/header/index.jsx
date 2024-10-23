@@ -6,11 +6,6 @@ import Lang from "@/components/lang";
 const Header = ({ selectingLanguage }) => {
   return (
     <header className={"hidden md:block"}>
-      <marquee className="absolute top-0 pt-1 text-red-600">
-        <span className="font-semibold md:text-sm ">
-          Tizim test rejimida ishlamoqda
-        </span>
-      </marquee>
       <div className={"bg-[#182041] py-2"}>
         <div className={"container mx-auto text-white text-sm"}>
           <div className={"flex items-center justify-end"}>
