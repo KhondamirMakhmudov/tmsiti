@@ -37,7 +37,7 @@ const Index = () => {
             </div>
           </Reveal>
 
-          <div className="flex items-center gap-x-[30px]">
+          <div className="flex items-center gap-x-[30px] justify-center">
             <ul className="flex flex-col gap-y-[18px]">
               <Reveal>
                 <li className="flex gap-x-[5px] items-center">
