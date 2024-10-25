@@ -168,8 +168,7 @@ const Index = () => {
               <li>
                 • Sertifikatlashtirish faoliyatining xolisligi uchun javobgar
                 bo‘lish va xolislikni buzmaslik uchun tijorat, moliyaviy yoki
-                boshqa bosimga yo‘l qo‘ymaslik; • Xolislikka tahdidlarni
-                aniqlash va boshqarish;
+                boshqa bosimga yo‘l qo‘ymaslik;
               </li>
               <li>• Xolislikka tahdidlarni aniqlash va boshqarish;</li>
               <li>
@@ -191,6 +190,57 @@ const Index = () => {
             </p>
           </Reveal>
         </div>
+      </section>
+      <section className="container mb-[30px]">
+        <Reveal>
+          <h3 className="leading-normal font-bold text-[#001A57] mb-[30px] text-xl uppercase">
+            MENEJMENT TIZIMLARINI SERTIFIKATLASH ORGANINING YUQORI RAHBARIYATI
+            XOLISLIK HAQIDAGI BAYONOTI VA SERTIFIKATLASH JARAYONINING
+            OBYEKTIVLIGI HAQIDA
+          </h3>
+        </Reveal>
+
+        <Reveal>
+          <p className="bg-[#253568] text-white p-3 text-sm rounded-md">
+            Qurilish va uy joy kommunal xo‘jaligi vazirligi Texnik me’yorlash va
+            standartlashtirish ilmiy tadqiqot instituti Menejment tizimlarini
+            sertifikatlash organi rahbariyati shu bilan barcha manfaatdor
+            tomonlarga quyidagilarni e’lon qiladi: Rahbariyat menejment tizimini
+            sertifikatlash faoliyatini amalga oshirishda xolislik muhimligini
+            anglab, manfaatlar to‘qnashuvini boshqaradi va menejment tizimini
+            sertifikatlash faoliyatining obyektivligini kafolatlaydi. “Texnik
+            me’yorlash va standartlashtirish ilmiy tadqiqot instituti”
+            rahbariyati menejment tizimlari auditi va audit natijalari bo‘yicha
+            qarorlar qabul qilishning obyektivligiga bevosita yoki bilvosita
+            ta’sir ko‘rsatishi mumkin bo‘lgan hech qanday ko‘rsatma bermaydi va
+            ma’muriy ko‘rsatmalardan tiyiladi. Menejment tizimlarini
+            sertifikatlash organi rahbarlari va xodimlari, auditlarni
+            rejalashtirish, tashkil etish va amalga oshirish, auditorlik
+            hujjatlarini tahlil qilish va ushbu masalalar bo‘yicha aloqa bilan
+            shug‘ullanadigan tashqi auditorlar va texnik mutaxassislar
+            o‘zlarining rasmiy vazifalari va kompaniya rahbariyatining
+            ko‘rsatmalarini bajarishda mustaqildirlar. Har qanday mijozga
+            nisbatan ushbu faoliyat turlarida ishtirok etish, agar pudratchi
+            ushbu mijoz bilan bog‘liq manfaatlar to‘qnashuvida ishtirok etsa,
+            amalga oshirilmasligi kerak bo‘ladi. Auditlarni rejalashtirish,
+            tashkil etish va amalga oshirish, auditorlik hujjatlarini tahlil
+            qilish va ushbu masalalar bo‘yicha aloqa bilan shug‘ullanadigan
+            shaxslar buyurtma, resurslar bilan ta’minlash, natijalarni
+            tekshirish, mijozning sertifikatlangan tadbirkorlik faoliyati
+            natijalarini yetkazib berish va ulardan foydalanish suiisteʼmol
+            qilish bilan bog‘liq emas. Auditorlik guruhlarining audit
+            natijalariga asoslangan qarorlar bo‘yicha takliflari muvofiqlikning
+            (yoki nomuvofiqlikning) obyektiv dalillariga asoslanadi, ularga
+            boshqa manfaatlar yoki boshqa tomonlar ta’sir qilmaydi, ular
+            tijorat, moliyaviy yoki boshqa narsalarga bog’liq emas. “Menejment
+            tizimlarini sertifikatlash organi” menejment tizimlarini
+            rivojlantirish va ushbu sohada konsalting sohasida faoliyat
+            yuritmaydi. “Menejment tizimlarini sertifikatlash organi”ning yuqori
+            rahbariyati boshqa kompaniyaning iqtisodiy muvaffaqiyati foydasiga
+            xodimlar va jalb qilingan mutaxassislarning faoliyatiga har qanday
+            aralashuvni rad etish majburiyatini oladi.
+          </p>
+        </Reveal>
       </section>
     </Main>
   );
