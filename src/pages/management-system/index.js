@@ -114,6 +114,84 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <section className="container mb-[30px]">
+        <Reveal>
+          <div className="leading-normal font-bold text-[#001A57] mb-[30px] text-xl uppercase">
+            Xolislik siyosati:
+          </div>
+        </Reveal>
+
+        <div className="">
+          <Reveal duration={0.3}>
+            <h3 className="text-lg text-center font-semibold">
+              Qurilish va uy-joy kommunal xo‘jaligi vazirligi huzuridagi Texnik
+              me’yorlash va standartlashtirish ilmiy tadqiqot instituti
+              Menejment tizimlarini sertifikatlashtirish organiining xolislikni
+              ta’minlash sohasidagi
+            </h3>
+            <p className="font-semibold text-center text-xl my-[30px]">
+              SIYOSATI
+            </p>
+          </Reveal>
+
+          <Reveal duration={0.4}>
+            <p>
+              Qurilish va uy-joy kommunal xo‘jaligi vazirligi huzuridagi Texnik
+              me’yorlash va standartlashtirish ilmiy tadqiqot instituti davlat
+              muassasi Muvofiqlikni baxolash boshqarmasi Menejment tizimlarini
+              sertifikatlashtirish organi sertifikatlashtirishni o‘tkazishda
+              xolislikni saqlash muhimligini tushunadi, manfaatlar to‘qnashuvini
+              oldini oladi va sertifikatlashtirish faoliyatini amalga oshirishda
+              xolislikni kafolatlaydi. Ushbu siyosatdan maqsad ishlarning xolis
+              va malakali bajarilishini ta’minlash uchun asosdir. Siyosat barcha
+              sertifikatlashtirish organi xodimlari tomonidan qo‘llanilishi
+              majburiy xisoblanadi.
+            </p>
+          </Reveal>
+
+          <Reveal duration={0.4}>
+            <p className="text-center mt-[30px] mb-[5px] font-semibold">
+              Xolislik tamoyiliga rioya etilishini ta’minlash uchun Menejment
+              tizimlarini sertifikatlashtirish organi quyidagi majburiyatlarni
+              oladi:
+            </p>
+
+            <ul className="text-sm ml-[20px] space-y-[6px]">
+              <li>
+                • Ishlarni O‘zbekiston Respublikasi qonunchiligiga, milliy va
+                xalqaro akkreditatsiya tizimlarida akkreditatsiya qiluvchi
+                organlarning talablariga, sertifikatlashtirish tizimlarining
+                tegishli sxemalari va qoidalariga qat’iy rioya qilgan holda
+                amalga oshirish;
+              </li>
+              <li>
+                • Sertifikatlashtirish faoliyatining xolisligi uchun javobgar
+                bo‘lish va xolislikni buzmaslik uchun tijorat, moliyaviy yoki
+                boshqa bosimga yo‘l qo‘ymaslik; • Xolislikka tahdidlarni
+                aniqlash va boshqarish;
+              </li>
+              <li>• Xolislikka tahdidlarni aniqlash va boshqarish;</li>
+              <li>
+                • Sertifikatlashtirish jarayonini qurishni ta'minlash, shu
+                jumladan sertifikatlashtirish to'g'risida qarorlar qabul qilish,
+                xolislik va sertifikatlashtirish xizmatlaridan kamsitilmasdan
+                foydalanish tamoyiliga muvofiq ishlarni bajarish qoidalari va
+                tartiblarini qo'llash.
+              </li>
+            </ul>
+
+            <p className="mt-[30px]">
+              Sertifikatlashtirish organining rahbari tomonidan
+              sertifikatlashtirishni amalga oshirishda yuqori rahbariyat
+              sertifikatlashtirishni amalga oshirishda xolislikni ta’minlash
+              bo‘yicha majburiyatlarni oladi. Agar xolislikni buzish xavfi
+              aniqlansa Menejment tizimlarini sertifikatlashtirish organi uni
+              bartaraf etish va minimallashtirish choralarini ko‘radi.
+            </p>
+          </Reveal>
+        </div>
+      </section>
     </Main>
   );
 };
