@@ -124,6 +124,12 @@ export const menuData = [
       // },
 
       {
+        id: 2,
+        title: "Menejment tizimlarini sertifikatlashtirish organi",
+        url: "/management-system",
+      },
+
+      {
         id: 3,
         title: "lab",
         url: "https://sites.google.com/view/kompleks-sinov-laboratoriyasi/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F-%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0",
@@ -258,7 +264,7 @@ const Menu = ({ active = 0, className }) => {
                 ) : (
                   <ul
                     className={
-                      "hidden translate-y-[30px] hover:translate-y-[0px] z-50 transition-all duration-500  bg-gray-50 dropdown-menu absolute lg:w-[180px] w-[100px] text-start  rounded-[5px]"
+                      "hidden translate-y-[30px] hover:translate-y-[0px] z-50 transition-all duration-500  bg-gray-50 dropdown-menu absolute lg:max-w-[300px] lg:w-[300px] w-[100px] text-start  rounded-[5px]"
                     }
                   >
                     {get(item, "subMenu", []).map((subItem) => (
