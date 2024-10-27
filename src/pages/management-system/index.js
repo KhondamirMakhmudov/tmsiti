@@ -249,7 +249,7 @@ const Index = () => {
         </h3>
 
         <div>
-          <button className="bg-[#2196F3] text-white flex gap-x-[4px] px-[25px] py-[15px] rounded-lg items-center">
+          <button className="bg-[#2196F3]  active:bg-[#2C5EA0] scale-100 active:scale-105 text-white flex gap-x-[4px] px-[25px] py-[15px] rounded-lg items-center transition-all duration-300">
             <Image
               src={"/images/download.png"}
               alt="download"
