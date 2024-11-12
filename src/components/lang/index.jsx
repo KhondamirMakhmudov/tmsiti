@@ -9,18 +9,16 @@ const Lang = ({}) => {
   const [selectedLanguage, setSelectedLanguage] = useState(""); // Initialize with an empty string
   const setLang = useSettingsStore((state) => get(state, "setLang", () => {}));
 
-  // const { i18n } = useTranslation();
   useEffect(() => {
-    // Update the selectedLanguage state when the languageSelected prop changes
     setSelectedLanguage(selectedLanguage);
     setLang(selectedLanguage);
-  }, [selectedLanguage]); // Run this effect whenever the languageSelected prop changes
+  }, [selectedLanguage]);
 
   useEffect(() => {
     setLang(selectedLanguage);
   }, [selectedLanguage]);
 
-  const languages = ["uz", "en", "ru"]; // Define your list of languages
+  const languages = ["uz", "en", "ru"];
 
   const handleLanguageChange = (event) => {
     setSelectedLanguage(event.target.value);

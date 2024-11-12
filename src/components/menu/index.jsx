@@ -125,7 +125,7 @@ export const menuData = [
 
       {
         id: 2,
-        title: "Menejment tizimlarini sertifikatlashtirish organi",
+        title: "management_system",
         url: "/management-system",
       },
 
@@ -177,6 +177,12 @@ export const menuData = [
         id: 6,
         title: "seminar",
         url: "#",
+      },
+
+      {
+        id: 7,
+        title: "anti-corruption",
+        url: "/anti-corruption",
       },
     ],
   },
