@@ -23,27 +23,11 @@ import { useTranslation } from "react-i18next";
 
 export default function Home() {
   const controls = useAnimation();
-  const [domLoaded, setDomLoaded] = useState(false);
+
   const { t } = useTranslation();
   const lang = useSettingsStore((state) =>
     get(state, "lang", config.DEFAULT_APP_LANG)
   );
-
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
-    controls.start({ translateY: 1, opacity: 1, translateX: 0 });
-  };
-
-  useEffect(() => {
-    setDomLoaded(true);
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  });
 
   const { data, isLoading } = useGetTMSITIQuery({
     key: KEYS.newsMain,
@@ -153,64 +137,63 @@ export default function Home() {
           className={"md:col-span-6 md:block hidden"}
         >
           {/*<ImageGallery items={images} infinite showPlayButton />*/}
-          {domLoaded && (
-            <Swiper
-              loop={true}
-              centeredSlides={true}
-              autoplay={{ delay: 3000, disableOnInteraction: false }}
-              modules={[Autoplay, Pagination, Navigation]}
-            >
-              <SwiperSlide className={"swiper-slide"}>
-                <Image
-                  src={"/images/img.png"}
-                  alt={"bg-img"}
-                  className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
-                  width={945}
-                  height={734}
-                />
-              </SwiperSlide>
 
-              <SwiperSlide>
-                <Image
-                  src={"/images/bg-img1.jpg"}
-                  alt={"bg-img1"}
-                  className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
-                  width={945}
-                  height={734}
-                />
-              </SwiperSlide>
+          <Swiper
+            loop={true}
+            centeredSlides={true}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            modules={[Autoplay, Pagination, Navigation]}
+          >
+            <SwiperSlide className={"swiper-slide"}>
+              <Image
+                src={"/images/img.png"}
+                alt={"bg-img"}
+                className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
+                width={945}
+                height={734}
+              />
+            </SwiperSlide>
 
-              <SwiperSlide>
-                <Image
-                  src={"/images/bg-img5.jpg"}
-                  alt={"bg-img2"}
-                  className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
-                  width={945}
-                  height={734}
-                />
-              </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                src={"/images/bg-img1.jpg"}
+                alt={"bg-img1"}
+                className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
+                width={945}
+                height={734}
+              />
+            </SwiperSlide>
 
-              <SwiperSlide>
-                <Image
-                  src={"/images/bg-img3.jpg"}
-                  alt={"bg-img3"}
-                  className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
-                  width={945}
-                  height={734}
-                />
-              </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                src={"/images/bg-img5.jpg"}
+                alt={"bg-img2"}
+                className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
+                width={945}
+                height={734}
+              />
+            </SwiperSlide>
 
-              <SwiperSlide>
-                <Image
-                  src={"/images/bg-img4.jpg"}
-                  alt={"bg-img4"}
-                  className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
-                  width={945}
-                  height={734}
-                />
-              </SwiperSlide>
-            </Swiper>
-          )}
+            <SwiperSlide>
+              <Image
+                src={"/images/bg-img3.jpg"}
+                alt={"bg-img3"}
+                className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
+                width={945}
+                height={734}
+              />
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <Image
+                src={"/images/bg-img4.jpg"}
+                alt={"bg-img4"}
+                className={"lg:w-[945px] lg:h-[734px] w-[500px] h-[400px]"}
+                width={945}
+                height={734}
+              />
+            </SwiperSlide>
+          </Swiper>
         </motion.div>
       </section>
 
@@ -221,8 +204,8 @@ export default function Home() {
         }
       >
         <motion.div
-          initial={{ translateY: 100, opacity: 0 }}
-          animate={controls}
+          initial={{ translateY: 40, opacity: 0 }}
+          animate={{ translateY: 0, opacity: 1 }}
           className={" container mx-auto"}
         >
           <Swiper
@@ -291,74 +274,72 @@ export default function Home() {
         }
       >
         <motion.div
-          initial={{ translateY: 100, opacity: 0 }}
-          animate={controls}
+          initial={{ translateY: 40, opacity: 0 }}
+          animate={{ translateY: 0, opacity: 1 }}
           className={" container mx-auto"}
         >
-          {domLoaded && (
-            <Swiper
-              modules={[Pagination, Navigation]}
-              spaceBetween={300}
-              slidesPerView={2}
-              loop={true}
-              className={
-                "mx-auto container flex items-center justify-center gap-x-[76px]"
-              }
-            >
-              {get(discussion, "data.results", []).map((item) => (
-                // eslint-disable-next-line react/jsx-key
-                <SwiperSlide key={get(item, "id")}>
-                  <div
-                    className={
-                      "flex items-start justify-center flex-col w-[300px] border border-[#001A57]  rounded-[30px]  gap-y-[15px] p-[20px]"
-                    }
-                  >
-                    <div>
-                      <h4 className={"text-sm md:text-base text-[#001A57]"}>
-                        Muhokamalar
-                      </h4>
-                      <p
-                        className={
-                          "text-[#001A57] text-[14px] text-xs md:text-[14px]"
-                        }
-                      >
-                        {dayjs(get(item, "shnk_datetime")).format(
-                          "MMM DD-MM, YYYY"
-                        )}
-                      </p>
-                    </div>
-
-                    {/*<div className={"w-full h-[1px] bg-white"}></div>*/}
-
-                    <div className={""}>
-                      <Link
-                        href={`/discussion/${get(item, "id", "")}`}
-                        className={
-                          "hover:underline cursor-pointer transition-all duration-500"
-                        }
-                      >
-                        <h4 className={"md:text-2xl text-base text-[#001A57]"}>
-                          {get(item, "shnk_number")} - {get(item, "shnk_title")}
-                        </h4>
-                      </Link>
-                      {/*<p*/}
-                      {/*  className={*/}
-                      {/*    "text-xs md:text-base line-clamp-2 md:line-clamp-none text-[#002D97] mt-[10px]"*/}
-                      {/*  }*/}
-                      {/*>*/}
-                      {/*  {get(item, "shnk_description")}*/}
-                      {/*</p>*/}
-                    </div>
+          <Swiper
+            modules={[Pagination, Navigation]}
+            spaceBetween={300}
+            slidesPerView={2}
+            loop={true}
+            className={
+              "mx-auto container flex items-center justify-center gap-x-[76px]"
+            }
+          >
+            {get(discussion, "data.results", []).map((item) => (
+              // eslint-disable-next-line react/jsx-key
+              <SwiperSlide key={get(item, "id")}>
+                <div
+                  className={
+                    "flex items-start justify-center flex-col w-[300px] border border-[#001A57]  rounded-[30px]  gap-y-[15px] p-[20px]"
+                  }
+                >
+                  <div>
+                    <h4 className={"text-sm md:text-base text-[#001A57]"}>
+                      Muhokamalar
+                    </h4>
+                    <p
+                      className={
+                        "text-[#001A57] text-[14px] text-xs md:text-[14px]"
+                      }
+                    >
+                      {dayjs(get(item, "shnk_datetime")).format(
+                        "MMM DD-MM, YYYY"
+                      )}
+                    </p>
                   </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          )}
+
+                  {/*<div className={"w-full h-[1px] bg-white"}></div>*/}
+
+                  <div className={""}>
+                    <Link
+                      href={`/discussion/${get(item, "id", "")}`}
+                      className={
+                        "hover:underline cursor-pointer transition-all duration-500"
+                      }
+                    >
+                      <h4 className={"md:text-2xl text-base text-[#001A57]"}>
+                        {get(item, "shnk_number")} - {get(item, "shnk_title")}
+                      </h4>
+                    </Link>
+                    {/*<p*/}
+                    {/*  className={*/}
+                    {/*    "text-xs md:text-base line-clamp-2 md:line-clamp-none text-[#002D97] mt-[10px]"*/}
+                    {/*  }*/}
+                    {/*>*/}
+                    {/*  {get(item, "shnk_description")}*/}
+                    {/*</p>*/}
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </motion.div>
       </section>
       <motion.section
-        initial={{ translateY: 100, opacity: 0 }}
-        animate={controls}
+        initial={{ translateY: 40, opacity: 0 }}
+        animate={{ translateY: 0, opacity: 1 }}
         className={"mb-[82px]"}
       >
         <div
