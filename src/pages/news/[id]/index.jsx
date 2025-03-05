@@ -19,7 +19,7 @@ const NewsItemPage = () => {
   const router = useRouter();
   const { id } = router.query;
   const lang = useSettingsStore((state) =>
-    get(state, "lang", config.DEFAULT_APP_LANG),
+    get(state, "lang", config.DEFAULT_APP_LANG)
   );
   const { t } = useTranslation();
 
@@ -118,7 +118,7 @@ const NewsItemPage = () => {
             </figcaption>
           </figure>
 
-          <div className={"col-span-12 mt-[30px]"}>
+          <div className={"col-span-12 mt-[30px] whitespace-pre-line block"}>
             {parse(get(data, "data.news_text")) || " "}
           </div>
         </div>
@@ -153,7 +153,7 @@ const NewsItemPage = () => {
                           }
                         >
                           {dayjs(get(newsItem, "news_datetime")).format(
-                            "DD.MM.YYYY",
+                            "DD.MM.YYYY"
                           )}
                         </p>
 
@@ -172,7 +172,7 @@ const NewsItemPage = () => {
                 </li>
               )),
               0,
-              5,
+              5
             )}
           </ul>
 

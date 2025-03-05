@@ -399,24 +399,31 @@ const Index = () => {
             <h1 className="text-[32px] font-semibold">
               Korrupsiya holatiga duch keldingizmi?
             </h1>
-            <div className="flex gap-x-[10px] text-lg mb-[50px]">
+            <div className="flex gap-x-[10px] text-lg ">
               <p className="">Shu raqamga murojaat qiling:</p>
               <a href="tel:+998 71 244-51-84 pl-[20px]">
                 <strong>+998 71 244-51-84</strong>
               </a>
             </div>
 
-            <button className="bg-[#2196F3]  active:bg-[#2C5EA0] scale-100 active:scale-105 text-white flex gap-x-[4px] px-[25px] py-[15px] rounded-lg items-center transition-all duration-300">
+            <div className="flex gap-x-[10px] text-lg mb-[50px]">
+              <p className="">Yoki botimizga yozma ravishda murojaat qiling:</p>
+              <a href="https://t.me/tmsiti_bot">
+                <strong>@tmsiti_bot</strong>
+              </a>
+            </div>
+
+            {/* <button className="bg-[#2196F3]  active:bg-[#2C5EA0] scale-100 active:scale-105 text-white flex gap-x-[4px] px-[25px] py-[15px] rounded-lg items-center transition-all duration-300">
               <Image
                 src={"/images/download.png"}
                 alt="download"
                 width={30}
                 height={30}
               />
-              <a href="/application.docx" download>
+              <a href="/files/anti-corruption.pdf" download>
                 Yuklab olish
               </a>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

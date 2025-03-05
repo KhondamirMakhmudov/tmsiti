@@ -42,6 +42,8 @@ export default function Home() {
     (item) => get(item, "news_in_reel") === true
   );
 
+  console.log(NewsInReel);
+
   const { data: discussion, isLoading: isLoadingDiscuss } = useGetTMSITIQuery({
     url: URLS.discuss,
     key: KEYS.discuss,
@@ -365,8 +367,6 @@ export default function Home() {
           </div>
 
           <motion.div
-            initial={{ translateY: 200, opacity: 0 }}
-            animate={controls}
             className={
               "xl:col-span-6 col-span-12 pb-[20px] mb-[20px] md:pb-0 mb:mb-0 md:border-b-0 md:border-none border-b-[#C5C6C7] border-b-[1px] "
             }
@@ -379,8 +379,11 @@ export default function Home() {
                       "col-span-12 xl:w-[690px] lg:w-[600px] md:w-[500px]"
                     }
                   >
-                    <img
+                    <Image
                       src={get(item, "news_image")}
+                      loader={() => get(item, "news_image")}
+                      width={468}
+                      height={350}
                       alt="news-main-img"
                       className={
                         "md:w-full md:h-[300px] lg:h-[350px] xl:h-[468px]   object-cover"
