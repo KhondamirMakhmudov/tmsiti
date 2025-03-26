@@ -12,14 +12,52 @@ import parse from "html-react-parser";
 import { useSettingsStore } from "@/store";
 import { useTranslation } from "react-i18next";
 import ContentLoader from "@/components/loader/content-loader";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const Index = () => {
   const { t } = useTranslation();
+  const [dataShnq, setDataShnq] = useState(null);
   const language = useSettingsStore((state) => get(state, "lang", ""));
+  const [openGroup, setOpenGroup] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [openItems, setOpenItems] = useState({}); // itemlarni ochish/berkitish uchun
+  const [openGroups, setOpenGroups] = useState({}); // groups uchun state
+
+  // const toggleGroup = (index) => {
+  //   setOpenGroup(openGroup === index ? null : index);
+  // };
   const { data, isLoading, isFetching } = useGetTMSITIQuery({
     key: KEYS.buildingRegulations,
     url: URLS.buildingRegulations,
   });
+
+  useEffect(() => {
+    fetch("https://shnk.tmsiti.uz/subsystems/")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Ma'lumotlarni yuklab bo‘lmadi");
+        }
+        return response.json();
+      })
+      .then((result) => {
+        setDataShnq(result);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading)
+    return (
+      <Main>
+        <ContentLoader />
+      </Main>
+    );
+  if (error) return <p>Xatolik: {error}</p>;
 
   if (isLoading || isFetching) {
     return (
@@ -29,7 +67,18 @@ const Index = () => {
     );
   }
 
-  console.log(indexOf(get(data, "data", []), 5));
+  const toggleItem = (index) => {
+    setOpenItems((prev) => ({ ...prev, [index]: !prev[index] }));
+  };
+
+  const toggleGroup = (itemIndex, groupIndex) => {
+    setOpenGroups((prev) => ({
+      ...prev,
+      [`${itemIndex}-${groupIndex}`]: !prev[`${itemIndex}-${groupIndex}`],
+    }));
+  };
+
+  console.log(dataShnq);
 
   return (
     <Main>
@@ -48,42 +97,82 @@ const Index = () => {
 
       <section
         className={
-          "grid grid-cols-12 container mx-auto mb-[50px] px-[20px] md:px-0"
+          "grid grid-cols-12 container mx-auto mb-[50px] px-[20px] md:px-0 "
         }
       >
-        <div
-          className={"col-span-12 px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"}
-        >
-          <motion.div
-            initial={{ translateX: "-200px" }}
-            animate={{ translateX: "0px" }}
-            transition={{ duration: 0.3 }}
-          >
-            <Title>
-              {language === "uz"
-                ? get(nth(get(data, "data", []), 3), "title_uz")
-                : language === "ru"
-                ? get(nth(get(data, "data", []), 3), "title_ru")
-                : language === "en"
-                ? get(nth(get(data, "data", []), 3), "title_en")
-                : get(nth(get(data, "data", []), 3), "title_uz")}
-            </Title>
-          </motion.div>
-
+        {dataShnq.map((item, itemIndex) => (
           <div
-            className={
-              "col-span-10  shadow-xl border-[1px] p-10 rounded-[8px] mb-[10px]"
-            }
+            key={itemIndex}
+            className="border rounded-md p-4 col-span-12 mb-2"
           >
-            {language === "uz"
-              ? parse(get(nth(get(data, "data", []), 3), "text_uz", ""))
-              : language === "ru"
-              ? parse(get(nth(get(data, "data", []), 3), "text_ru", ""))
-              : language === "en"
-              ? parse(get(nth(get(data, "data", []), 3), "text_en", ""))
-              : parse(get(nth(get(data, "data", []), 3), "text_uz", ""))}
+            {/* Title */}
+            <div
+              className="flex justify-between cursor-pointer"
+              onClick={() => toggleItem(itemIndex)}
+            >
+              <h3 className="font-bold cursor-pointer text-lg">{item.title}</h3>
+
+              <Image
+                src={"/icons/arrow-up.svg"}
+                alt={"up-down"}
+                width={24}
+                height={24}
+                className={`md:w-[24px] md:h-[24px] w-[19px] h-[19px] transform duration-300 ${
+                  openItems[itemIndex] ? " rotate-180" : ""
+                }`}
+              />
+            </div>
+
+            {/* Groups (agar ochilgan bo‘lsa ko‘rsatiladi) */}
+            {openItems[itemIndex] && item.groups && (
+              <div className="ml-4 mt-2">
+                {item.groups.map((group, groupIndex) => (
+                  <div key={groupIndex} className="border rounded-md p-2 mb-2">
+                    {/* Group title */}
+                    <div
+                      className="flex justify-between cursor-pointer"
+                      onClick={() => toggleGroup(itemIndex, groupIndex)}
+                    >
+                      <h4 className="font-semibold cursor-pointer">
+                        {group.title}{" "}
+                      </h4>
+                      <Image
+                        src={"/icons/arrow-up.svg"}
+                        alt={"up-down"}
+                        width={24}
+                        height={24}
+                        className={`md:w-[24px] md:h-[24px] w-[19px] h-[19px] transform duration-300 ${
+                          openGroups[`${itemIndex}-${groupIndex}`]
+                            ? " rotate-180"
+                            : ""
+                        }`}
+                      />
+                    </div>
+
+                    {/* Documents (agar ochilgan bo‘lsa ko‘rsatiladi) */}
+                    {openGroups[`${itemIndex}-${groupIndex}`] && (
+                      <ul className="ml-4 mt-2">
+                        {group.documents &&
+                          group.documents.map((doc, docIndex) => (
+                            <li key={docIndex} className="mb-1">
+                              <a
+                                href={doc.url || "#"}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-600 underline"
+                              >
+                                {doc.name_uz} ({doc.designation})
+                              </a>
+                            </li>
+                          ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-        </div>
+        ))}
       </section>
     </Main>
   );

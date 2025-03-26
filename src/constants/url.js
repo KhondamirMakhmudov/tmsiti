@@ -11,4 +11,5 @@ export const URLS = {
   structural: "workers/structural/",
   standards: "shnk/standart/",
   buildingRegulations: "shnk/page/",
+  shnqSubsystems: "shnk/subsystem/",
 };
