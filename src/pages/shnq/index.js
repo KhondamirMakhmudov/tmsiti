@@ -124,7 +124,7 @@ const Index = () => {
             </div>
 
             {/* Groups (agar ochilgan bo‘lsa ko‘rsatiladi) */}
-            {openItems[itemIndex] && item.groups && (
+            {!openItems[itemIndex] && item.groups && (
               <div className="ml-4 mt-2">
                 {item.groups.map((group, groupIndex) => (
                   <div key={groupIndex} className=" p-2 mb-2 space-y-2">
@@ -151,7 +151,7 @@ const Index = () => {
                     <div className="w-full h-[1px] bg-gray-200"></div>
 
                     {/* Documents (agar ochilgan bo‘lsa ko‘rsatiladi) */}
-                    {openGroups[`${itemIndex}-${groupIndex}`] && (
+                    {!openGroups[`${itemIndex}-${groupIndex}`] && (
                       <table className=" mt-2 border-collapse border border-gray-300 w-full text-left">
                         <thead>
                           <tr className="bg-gray-100">
