@@ -156,13 +156,13 @@ const Index = () => {
                         <thead>
                           <tr className="bg-gray-100">
                             <th className="border border-gray-300 px-4 py-2 w-1/5">
-                              Shifr
+                              Шифр
                             </th>
                             <th className="border border-gray-300 px-4 py-2 w-3/5">
-                              Hujjat nomi
+                              Ҳужжат номи
                             </th>
                             <th className="border border-gray-300 text-center px-4 py-2 w-1/5">
-                              Havola
+                              Ҳавола
                             </th>
                           </tr>
                         </thead>
@@ -187,7 +187,7 @@ const Index = () => {
                                     rel="noopener noreferrer"
                                     className="text-blue-600 underline"
                                   >
-                                    Ochish
+                                    Кўриш
                                   </a>
                                 </td>
                               </tr>
