@@ -127,7 +127,7 @@ const Index = () => {
             {openItems[itemIndex] && item.groups && (
               <div className="ml-4 mt-2">
                 {item.groups.map((group, groupIndex) => (
-                  <div key={groupIndex} className="border rounded-md p-2 mb-2">
+                  <div key={groupIndex} className=" p-2 mb-2 space-y-2">
                     {/* Group title */}
                     <div
                       className="flex justify-between cursor-pointer"
@@ -148,24 +148,52 @@ const Index = () => {
                         }`}
                       />
                     </div>
+                    <div className="w-full h-[1px] bg-gray-200"></div>
 
                     {/* Documents (agar ochilgan bo‘lsa ko‘rsatiladi) */}
                     {openGroups[`${itemIndex}-${groupIndex}`] && (
-                      <ul className="ml-4 mt-2">
-                        {group.documents &&
-                          group.documents.map((doc, docIndex) => (
-                            <li key={docIndex} className="mb-1">
-                              <a
-                                href={doc.url || "#"}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 underline"
+                      <table className=" mt-2 border-collapse border border-gray-300 w-full text-left">
+                        <thead>
+                          <tr className="bg-gray-100">
+                            <th className="border border-gray-300 px-4 py-2 w-1/5">
+                              Shifr
+                            </th>
+                            <th className="border border-gray-300 px-4 py-2 w-3/5">
+                              Hujjat nomi
+                            </th>
+                            <th className="border border-gray-300 text-center px-4 py-2 w-1/5">
+                              Havola
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {group.documents &&
+                            group.documents.map((doc, docIndex) => (
+                              <tr
+                                key={docIndex}
+                                className="border border-gray-300"
                               >
-                                {doc.name_uz} ({doc.designation})
-                              </a>
-                            </li>
-                          ))}
-                      </ul>
+                                <td className="border border-gray-300 px-4 py-2 w-1/5">
+                                  {doc.designation}
+                                </td>
+                                <td className="border border-gray-300 px-4 py-2 w-3/5">
+                                  {doc.name_uz}
+                                </td>
+
+                                <td className="border border-gray-300 px-4 py-2 w-1/5 text-center">
+                                  <a
+                                    href={doc.url || "#"}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-600 underline"
+                                  >
+                                    Ochish
+                                  </a>
+                                </td>
+                              </tr>
+                            ))}
+                        </tbody>
+                      </table>
                     )}
                   </div>
                 ))}
