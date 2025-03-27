@@ -10,6 +10,6 @@ export const URLS = {
   appealCategory: "appeal/appeal_category/",
   structural: "workers/structural/",
   standards: "shnk/standart/",
-  buildingRegulations: "shnk/page/",
+  buildingRegulations: "reglament/qurilish/",
   shnqSubsystems: "shnk/subsystem/",
 };

@@ -2,19 +2,19 @@ import React from "react";
 import Main from "@/layouts/main";
 import Menu from "@/components/menu";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import Title from "@/components/title";
-import useGetTMSITIQuery from "@/hooks/api/useGetTMSITIQuery";
+
 import { KEYS } from "@/constants/key";
 import { URLS } from "@/constants/url";
-import { get, head } from "lodash";
+
 import parse from "html-react-parser";
 import { useSettingsStore } from "@/store";
 import { useTranslation } from "react-i18next";
+import { get } from "lodash";
+import useGetSHNKQuery from "@/hooks/api/useGetSHNKQuery";
 
 const Index = () => {
   const { t } = useTranslation();
-  const { data, isLoading, isFetching } = useGetTMSITIQuery({
+  const { data, isLoading, isFetching } = useGetSHNKQuery({
     key: KEYS.buildingRegulations,
     url: URLS.buildingRegulations,
   });
@@ -40,46 +40,50 @@ const Index = () => {
           "grid grid-cols-12 container mx-auto mb-[50px] px-[20px] md:px-0"
         }
       >
-        {head(
-          get(data, "data", []).map((item) => (
-            <div
-              key={get(item, "id")}
-              className={
-                "col-span-12 px-[20px] md:px-[15px] lg:px-[10px] xl:px-0"
-              }
-            >
-              <motion.div
-                initial={{ translateX: "-200px" }}
-                animate={{ translateX: "0px" }}
-                transition={{ duration: 0.3 }}
-              >
-                <Title>
-                  {language === "uz"
-                    ? get(item, "title_ru")
-                    : language === "ru"
-                    ? get(item, "title_uz")
-                    : language === "en"
-                    ? get(item, "title_en")
-                    : get(item, "title_ru")}
-                </Title>
-              </motion.div>
+        <table className="col-span-12 mt-2 border-collapse border border-gray-300 w-full text-left">
+          <thead>
+            <tr className="bg-gray-100">
+              <th className="border border-gray-300 px-4 py-2 text-center">
+                №
+              </th>
+              <th className="border border-gray-300 px-4 py-2 ">
+                Белгиланиши{" "}
+              </th>
+              <th className="border border-gray-300 px-4 py-2 ">
+                Қурилиш регламентлари номи
+              </th>
+              <th className="border border-gray-300 text-center px-4 py-2 ">
+                Ҳужжат
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {get(data, "data", []).map((doc, docIndex) => (
+              <tr key={docIndex} className="border border-gray-300">
+                <td className="border border-gray-300 px-4 py-2 text-center">
+                  {docIndex + 1}
+                </td>
+                <td className="border border-gray-300 px-4 py-2 ">
+                  {doc.designation}
+                </td>
+                <td className="border border-gray-300 px-4 py-2 ">
+                  {doc.name}
+                </td>
 
-              <div
-                className={
-                  "col-span-10  shadow-xl border-[1px] p-10 rounded-[8px]"
-                }
-              >
-                {language === "uz"
-                  ? parse(get(item, "text_uz"))
-                  : language === "ru"
-                  ? parse(get(item, "text_ru"))
-                  : language === "en"
-                  ? parse(get(item, "text_en"))
-                  : parse(get(item, "text_uz"))}
-              </div>
-            </div>
-          )),
-        )}
+                <td className="border border-gray-300 px-4 py-2  text-center">
+                  <a
+                    href={doc.dpf_uz || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 underline"
+                  >
+                    Кўриш
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </section>
     </Main>
   );
