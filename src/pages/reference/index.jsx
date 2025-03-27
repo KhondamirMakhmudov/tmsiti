@@ -49,6 +49,9 @@ const Index = () => {
               <th className="border border-gray-300 px-4 py-2 text-center">
                 №
               </th>
+              <th className="border border-gray-300 px-4 py-2 ">
+                Белгиланиши{" "}
+              </th>
               <th className="border border-gray-300 px-4 py-2 ">Номи </th>
               <th className="border border-gray-300 px-4 py-2 ">Ҳужжат</th>
             </tr>
@@ -66,9 +69,9 @@ const Index = () => {
                   {doc.name}
                 </td>
 
-                <td className="border border-gray-300 px-4 py-2  text-center">
+                <td className="border border-gray-300 px-4 py-2  ">
                   <a
-                    href={doc.dpf_uz || "#"}
+                    href={doc.pdf_uz || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 underline"

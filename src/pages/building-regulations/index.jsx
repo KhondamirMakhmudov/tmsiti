@@ -75,7 +75,7 @@ const Index = () => {
 
                 <td className="border border-gray-300 px-4 py-2  text-center">
                   <a
-                    href={doc.dpf_uz || "#"}
+                    href={doc.pdf_uz || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 underline"
