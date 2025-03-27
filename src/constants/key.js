@@ -13,4 +13,5 @@ export const KEYS = {
   standards: "standards",
   buildingRegulations: "buildingRegulations",
   shnqSubsystems: "shnqSubsystems",
+  reference: "reference",
 };

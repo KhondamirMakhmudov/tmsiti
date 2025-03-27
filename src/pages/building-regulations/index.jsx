@@ -41,7 +41,7 @@ const Index = () => {
         }
       >
         <h1 className="col-span-12 text-3xl mb-4 font-semibold">
-          Qurilish reglamentlari
+          {t("building_regulations")}
         </h1>
         <table className="col-span-12 mt-2 border-collapse border border-gray-300 w-full text-left">
           <thead>

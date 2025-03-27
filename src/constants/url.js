@@ -12,4 +12,5 @@ export const URLS = {
   standards: "shnk/standart/",
   buildingRegulations: "reglament/qurilish/",
   shnqSubsystems: "shnk/subsystem/",
+  reference: "malumotnoma/",
 };
