@@ -40,6 +40,9 @@ const Index = () => {
           "grid grid-cols-12 container mx-auto mb-[50px] px-[20px] md:px-0"
         }
       >
+        <h1 className="col-span-12 text-3xl mb-4 font-semibold">
+          Qurilish reglamentlari
+        </h1>
         <table className="col-span-12 mt-2 border-collapse border border-gray-300 w-full text-left">
           <thead>
             <tr className="bg-gray-100">
