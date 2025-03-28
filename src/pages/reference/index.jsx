@@ -71,7 +71,7 @@ const Index = () => {
 
                 <td className="border border-gray-300 px-4 py-2  ">
                   <a
-                    href={doc.pdf_uz || "#"}
+                    href={`https://main.tmsiti.uz/media/${doc.pdf_uz}` || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 underline"
