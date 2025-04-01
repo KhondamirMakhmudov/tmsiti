@@ -28,10 +28,6 @@ const Index = () => {
   // const toggleGroup = (index) => {
   //   setOpenGroup(openGroup === index ? null : index);
   // };
-  const { data, isLoading, isFetching } = useGetTMSITIQuery({
-    key: KEYS.buildingRegulations,
-    url: URLS.buildingRegulations,
-  });
 
   useEffect(() => {
     fetch("https://shnk.tmsiti.uz/subsystems/")
@@ -58,14 +54,6 @@ const Index = () => {
       </Main>
     );
   if (error) return <p>Xatolik: {error}</p>;
-
-  if (isLoading || isFetching) {
-    return (
-      <Main>
-        <ContentLoader />
-      </Main>
-    );
-  }
 
   const toggleItem = (index) => {
     setOpenItems((prev) => ({ ...prev, [index]: !prev[index] }));
