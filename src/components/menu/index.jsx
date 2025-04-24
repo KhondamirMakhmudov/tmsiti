@@ -90,19 +90,24 @@ export const menuData = [
       },
       {
         id: 5,
+        title: "SMETA-RESURS NORMALARI",
+        url: "/srn",
+      },
+      {
+        id: 6,
         title: "technical_regulations",
         url: "/technical_regulations",
       },
       {
-        id: 6,
+        id: 7,
         title: "reference",
         url: "/reference",
       },
-      {
-        id: 7,
-        title: "discussions",
-        url: "/discussion",
-      },
+      // {
+      //   id: 8,
+      //   title: "discussions",
+      //   url: "/discussion",
+      // },
     ],
   },
   {
