@@ -68,9 +68,8 @@ const Index = () => {
                     <td className="border border-black p-2">
                       {item.sren_name_uz}
                     </td>
-                    <td className="border border-black p-2" colSpan={2}>
-                      -
-                    </td>
+                    <td className="border border-black p-2">-</td>
+                    <td className="border border-black p-2">-</td>
                     <td className="border border-black p-2">
                       {item.sren_pdf_uz ? (
                         <a
