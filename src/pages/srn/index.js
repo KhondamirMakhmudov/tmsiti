@@ -55,10 +55,47 @@ const Index = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((item, idx) =>
-              item.sren_shnk.map((shnk, shnkIdx) => (
+            {data.map((item, idx) => {
+              if (!item.sren_shnk || item.sren_shnk.length === 0) {
+                return (
+                  <tr key={`empty-${idx}`}>
+                    <td className="border border-black p-2">{rowNumber++}</td>
+                    <td className="border border-black p-2">
+                      <b>
+                        <i>{item.sren_designation}</i>
+                      </b>
+                    </td>
+                    <td className="border border-black p-2">
+                      {item.sren_name_uz}
+                    </td>
+                    <td className="border border-black p-2" colSpan={2}>
+                      -
+                    </td>
+                    <td className="border border-black p-2">
+                      {item.sren_pdf_uz ? (
+                        <a
+                          href={`https://main.tmsiti.uz/media/${item.sren_pdf_uz}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Image
+                            src={"/icons/download.svg"}
+                            alt="download"
+                            width={24}
+                            height={24}
+                          />
+                        </a>
+                      ) : (
+                        ""
+                      )}
+                    </td>
+                  </tr>
+                );
+              }
+
+              return item.sren_shnk.map((shnk, shnkIdx) => (
                 <tr key={`${idx}-${shnkIdx}`}>
-                  {shnkIdx === 0 ? (
+                  {shnkIdx === 0 && (
                     <>
                       <td
                         className="border border-black p-2"
@@ -81,7 +118,7 @@ const Index = () => {
                         {item.sren_name_uz}
                       </td>
                     </>
-                  ) : null}
+                  )}
                   <td className="border border-black p-2">
                     <b>
                       <i>{shnk.sren_designation}</i>
@@ -109,8 +146,8 @@ const Index = () => {
                     )}
                   </td>
                 </tr>
-              ))
-            )}
+              ));
+            })}
           </tbody>
         </table>
       </div>
