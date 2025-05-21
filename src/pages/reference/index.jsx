@@ -49,9 +49,9 @@ const Index = () => {
               <th className="border border-gray-300 px-4 py-2 text-center">
                 №
               </th>
-              <th className="border border-gray-300 px-4 py-2 ">
+              {/* <th className="border border-gray-300 px-4 py-2 ">
                 Белгиланиши{" "}
-              </th>
+              </th> */}
               <th className="border border-gray-300 px-4 py-2 ">Номи </th>
               <th className="border border-gray-300 px-4 py-2 ">Ҳужжат</th>
             </tr>
@@ -62,9 +62,9 @@ const Index = () => {
                 <td className="border border-gray-300 px-4 py-2 text-center">
                   {docIndex + 1}
                 </td>
-                <td className="border border-gray-300 px-4 py-2 ">
+                {/* <td className="border border-gray-300 px-4 py-2 ">
                   {doc.designation}
-                </td>
+                </td> */}
                 <td className="border border-gray-300 px-4 py-2 ">
                   {doc.name}
                 </td>
