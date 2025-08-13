@@ -36,6 +36,7 @@ const Index = () => {
         <ContentLoader />
       </Main>
     );
+
   if (error) return <p>Xatolik: {error}</p>;
 
   return (
@@ -59,6 +60,7 @@ const Index = () => {
           </thead>
           <tbody>
             {data.map((item, idx) => {
+              // Agar sren_shnk bo'sh bo'lsa
               if (!item.sren_shnk || item.sren_shnk.length === 0) {
                 return (
                   <tr key={`empty-${idx}`}>
@@ -74,7 +76,7 @@ const Index = () => {
                     <td className="border border-black p-2">-</td>
                     <td className="border border-black p-2">-</td>
                     <td className="border border-black p-2">
-                      {item.sren_pdf_uz ? (
+                      {item.sren_pdf_uz && (
                         <a
                           href={`https://main.tmsiti.uz/media/${item.sren_pdf_uz}`}
                           target="_blank"
@@ -87,14 +89,13 @@ const Index = () => {
                             height={24}
                           />
                         </a>
-                      ) : (
-                        ""
                       )}
                     </td>
                   </tr>
                 );
               }
 
+              // Agar sren_shnk bo'sh bo'lmasa
               return item.sren_shnk.map((shnk, shnkIdx) => (
                 <tr key={`${idx}-${shnkIdx}`}>
                   {shnkIdx === 0 && (
@@ -121,6 +122,7 @@ const Index = () => {
                       </td>
                     </>
                   )}
+
                   <td className="border border-black p-2">
                     <b>
                       <i>{shnk.sren_designation}</i>
@@ -129,12 +131,13 @@ const Index = () => {
                   <td className="border border-black p-2">
                     {shnk.sren_shnk_uz}
                   </td>
+
                   {shnkIdx === 0 && (
                     <td
                       className="border border-black p-2"
                       rowSpan={item.sren_shnk.length}
                     >
-                      {item.sren_pdf_uz ? (
+                      {item.sren_pdf_uz && (
                         <a
                           href={`https://main.tmsiti.uz/media/${item.sren_pdf_uz}`}
                           target="_blank"
@@ -147,8 +150,6 @@ const Index = () => {
                             height={24}
                           />
                         </a>
-                      ) : (
-                        ""
                       )}
                     </td>
                   )}
