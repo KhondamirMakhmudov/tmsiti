@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import ContentLoader from "@/components/loader/content-loader";
 import Title from "@/components/title";
 import Image from "next/image";
+
 const Index = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     fetch("https://shnk.tmsiti.uz/sren")
       .then((response) => {
@@ -35,6 +37,7 @@ const Index = () => {
       </Main>
     );
   if (error) return <p>Xatolik: {error}</p>;
+
   return (
     <Main>
       <Menu />
@@ -126,24 +129,29 @@ const Index = () => {
                   <td className="border border-black p-2">
                     {shnk.sren_shnk_uz}
                   </td>
-                  <td className="border border-black p-2">
-                    {item.sren_pdf_uz ? (
-                      <a
-                        href={`https://main.tmsiti.uz/media/${item.sren_pdf_uz}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Image
-                          src={"/icons/download.svg"}
-                          alt="download"
-                          width={24}
-                          height={24}
-                        />
-                      </a>
-                    ) : (
-                      ""
-                    )}
-                  </td>
+                  {shnkIdx === 0 && (
+                    <td
+                      className="border border-black p-2"
+                      rowSpan={item.sren_shnk.length}
+                    >
+                      {item.sren_pdf_uz ? (
+                        <a
+                          href={`https://main.tmsiti.uz/media/${item.sren_pdf_uz}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Image
+                            src={"/icons/download.svg"}
+                            alt="download"
+                            width={24}
+                            height={24}
+                          />
+                        </a>
+                      ) : (
+                        ""
+                      )}
+                    </td>
+                  )}
                 </tr>
               ));
             })}
